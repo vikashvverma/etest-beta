@@ -14,8 +14,8 @@ var users = require('./routes/users');
 dotenv.load();
 
 var authenticate = jwt({
-  secret: new Buffer(process.env.AUTH0_CLIENT_SECRET || 'qu6eQT-djPW_RsvT9z1fn_sfnr3UDCefb2kyd1MbYWejxoJpJWIlXA4S1_UAAIno', 'base64'),
-  audience: process.env.AUTH0_CLIENT_ID || 'S6MNYpDy9EEmj0DO6jch3RQfFOtEvzOI'
+  secret: new Buffer(process.env.AUTH0_CLIENT_SECRET, 'base64'),
+  audience: process.env.AUTH0_CLIENT_ID
 });
 
 var app = express();
@@ -39,11 +39,11 @@ app.use('/', routes);
 app.use('/users', users);
 
 app.get('/ping', function(req, res) {
-  res.send(200, {text: "All good. You don't need to be authenticated to call this"});
+  res.status(200).send({text: "All good. You don't need to be authenticated to call this"});
 });
 
 app.get('/secured/ping', function(req, res) {
-  res.send(200, {text: "All good. You only get this message if you're authenticated"});
+  res.status(200).send({text: "All good. You only get this message if you're authenticated"});
 })
 
 // catch 404 and forward to error handler
