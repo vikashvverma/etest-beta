@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var jwt = require('express-jwt');
 var dotenv = require('dotenv');
 var cors = require('cors');
+var mongoose = require('mongoose');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -19,6 +20,9 @@ var authenticate = jwt({
 });
 
 var app = express();
+
+// Connect to database
+mongoose.connect("mongodb://etest:C0mplexPwd@ds055905.mongolab.com:55905/etest");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
