@@ -22,7 +22,7 @@ var authenticate = jwt({
 var app = express();
 
 // Connect to database
-mongoose.connect("mongodb://etest:C0mplexPwd@ds055905.mongolab.com:55905/etest");
+mongoose.connect(process.env.MONGO_URI);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
