@@ -1,5 +1,5 @@
 # etest-beta
-This is the beta version (backend api) of etest in NodeJS.
+This is the beta version (backend api) of etest in NodeJS(https://etest-beta.herokuapp.com).
 The current live version is at http://etest.programminggeek.in/
 #Running the example
 In order to run the example you need to have npm and nodejs installed.
