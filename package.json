@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "repository": "https://github.com/vikashvverma/etest-beta.git",
-  "author": "Vikash Verma",
+  "author": "Vikash",
   "license": "Apache License",
   "scripts": {
     "start": "nodemon ./bin/www"
