@@ -4,20 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var jwt = require('express-jwt');
 var dotenv = require('dotenv');
 var cors = require('cors');
 var mongoose = require('mongoose');
-
-var routes = require('./routes/index');
 var users = require('./routes/users');
 
 dotenv.load();
 
-var authenticate = jwt({
-    secret: new Buffer(process.env.AUTH0_CLIENT_SECRET, 'base64'),
-    audience: process.env.AUTH0_CLIENT_ID
-});
+
 
 var app = express();
 
@@ -30,15 +24,16 @@ var client = new Twitter({
     access_token_secret: 'aBxX4OoXjm5Wm46ztGGGOmYSrusnOeM1GtGASPTIrR25j'
 });
 
-// Connect to database
+// Connect to MongoLab's MongoDB database
 mongoose.connect(process.env.MONGO_URI);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+app.set('appPath',__dirname+"/../public")
 
 // Request body parsing middleware should be above methodOverride
-app.use('/secured', authenticate); //Make certain routes authenticated
+//app.use('/secured', authenticate); //Make certain routes authenticated
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -50,7 +45,6 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
 app.use('/users', users);
 
 // var getTweets=require("./tweets")
@@ -84,7 +78,9 @@ app.get('/secured/ping', function (req, res) {
     res.status(200).send({
         text: "All good. You only get this message if you're authenticated"
     });
-})
+});
+app.use(express.static(__dirname + '/../public'));
+require('./routes')(app);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -116,6 +112,7 @@ app.use(function (err, req, res, next) {
         error: {}
     });
 });
-
+//require('./api/verbal/tcs/insert')();
+//require('./api/aptitude/insert')();
 
 module.exports = app;
