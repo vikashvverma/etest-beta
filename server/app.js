@@ -15,10 +15,11 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 // uncomment after placing your favicon in /public
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 require('./config/express')(app);
 require('./routes')(app);
+
+app.use(favicon(app.get('appPath/favicon.ico')));
 
 
 //require('./api/verbal/tcs/insert')();
