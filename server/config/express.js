@@ -21,7 +21,7 @@ module.exports = function (app) {
   app.use(cookieParser());
 
   if ('production' === process.env.NODE_ENV) {
-    //app.use(favicon(path.join(path.normalize(__dirname + '/../../'), 'public', 'favicon.ico')));
+    app.use(favicon(path.join(path.normalize(__dirname + '/../../'), 'public', 'favicon.ico')));
     app.use(express.static(path.join(path.normalize(__dirname + '/../../'), 'public')));
     app.set('appPath', path.normalize(__dirname + '/../../') + '/public');
     app.use(morgan('dev'));
