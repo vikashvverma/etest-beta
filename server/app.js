@@ -1,4 +1,5 @@
 var express = require('express');
+var favicon = require('serve-favicon');
 var dotenv = require('dotenv');
 var path = require('path');
 
@@ -13,9 +14,12 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 require('./config/express')(app);
 require('./routes')(app);
+
 
 //require('./api/verbal/tcs/insert')();
 //require('./api/aptitude/insert')();
