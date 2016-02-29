@@ -191,7 +191,7 @@ angular.module('etestApp')
             currentTest.time = {
               minute: 10,
               second: 0,
-              seconds: 60
+              seconds: 600
             };
             currentTest.word = 0;
             currentTest.answer = '';
