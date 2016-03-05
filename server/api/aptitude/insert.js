@@ -9,12 +9,14 @@ var fs=require('fs');
 module.exports=function(){
   function save(models,i){
     var model=new Test(models[i]);
-    model.options=[{
+    model.options={
       option1:models[i].option1,
       option2:models[i].option2,
       option3:models[i].option3,
       option4:models[i].option4
-    }];
+    };
+    model.year=i%2==0?2014:2015;//set default year
+    model.year=i%3==0?2015:2014;//set default year
     model.exam=[{
       name:"TCS",
       qset:models[i].qset
@@ -38,24 +40,24 @@ module.exports=function(){
     var models=JSON.parse(data.toString());
     console.log(JSON.stringify(models[0],null,4));
     //save(models,0);
-    var aptitude=new TCSAptitude({
-      id:1,
-      name:"TCS Analytical Ability Test 1",
-      qser:1,
-      statistics:[]
-    });
-    var aptitude1=new TCSAptitude({
-      id:2,
-      name:"TCS Analytical Ability Test 2",
-      qser:2,
-      statistics:[]
-    });
-    var aptitude2=new TCSAptitude({
-      id:3,
-      name:"TCS Analytical Ability Test 3",
-      qset:3,
-      statistics:[]
-    });
+    //var aptitude=new TCSAptitude({
+    //  id:1,
+    //  name:"TCS Analytical Ability Test 1",
+    //  qser:1,
+    //  statistics:[]
+    //});
+    //var aptitude1=new TCSAptitude({
+    //  id:2,
+    //  name:"TCS Analytical Ability Test 2",
+    //  qser:2,
+    //  statistics:[]
+    //});
+    //var aptitude2=new TCSAptitude({
+    //  id:3,
+    //  name:"TCS Analytical Ability Test 3",
+    //  qset:3,
+    //  statistics:[]
+    //});
     //aptitude.save();
     //aptitude1.save();
     //aptitude2.save();
