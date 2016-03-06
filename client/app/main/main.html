@@ -35,7 +35,8 @@
     </md-list>
   </md-sidenav>
 
-  <md-sidenav layout="column" class="md-sidenav-right md-whiteframe-z2" md-component-id="right" style="z-index:1001;" ng-click="vm.toggleSidenav('right');">
+  <md-sidenav layout="column" class="md-sidenav-right md-whiteframe-z2" md-component-id="right" style="z-index:1001;"
+              ng-click="vm.toggleSidenav('right');">
     <md-toolbar class="md-tall ">
       <span flex></span>
 
@@ -98,9 +99,11 @@
 
       <md-list>
         <md-list-item aria-label="Open phone interactions menu" class="md-icon-button">
-          <user-avatar ng-if="vm.isLoggedIn()" ng-click="vm.toggleSidenav('right')" style="cursor: pointer;"></user-avatar>
-          <img ng-if="!vm.isLoggedIn()" src="assets/images/avatar_2x.png" class="md-avatar" style="margin-right:0;cursor: pointer;"
-               ui-sref="main.login" />
+          <user-avatar ng-if="vm.isLoggedIn()" ng-click="vm.toggleSidenav('right')"
+                       style="cursor: pointer;"></user-avatar>
+          <img ng-if="!vm.isLoggedIn()" src="assets/images/avatar_2x.png" class="md-avatar"
+               style="margin-right:0;cursor: pointer;"
+               ui-sref="main.login"/>
         </md-list-item>
       </md-list>
 
@@ -142,7 +145,7 @@
             <md-list>
 
               <md-list-item class="md-3-line">
-                <md-icon md-font-set="fa fa-pencil-square-o fa-2x  " class="md-avatar"></md-icon>
+                <md-icon md-font-set="fa fa-pencil-square-o fa-2x  " class="md-avatar-icon"></md-icon>
                 <div class="md-list-item-text">
                   <h3> Mock Tests </h3>
                   <h4> company specific </h4>
@@ -151,7 +154,7 @@
                 </div>
               </md-list-item>
               <md-list-item class="md-3-line">
-                <md-icon md-font-set="fa fa-pencil-square-o fa-2x  " class="md-avatar"></md-icon>
+                <md-icon md-font-set="fa fa-pencil-square-o fa-2x  " class="md-avatar-icon"></md-icon>
                 <div class="md-list-item-text">
                   <h3> Performance Metrics </h3>
                   <h4> See where you stand </h4>
@@ -165,7 +168,7 @@
             <md-list>
 
               <md-list-item class="md-3-line">
-                <md-icon md-font-set="fa fa-cogs fa-2x  " class="md-avatar"></md-icon>
+                <md-icon md-font-set="fa fa-cogs fa-2x  " class="md-avatar-icon"></md-icon>
                 <div class="md-list-item-text">
                   <h3> Learning Resources </h3>
                   <h4> Explore the relevant material </h4>
@@ -174,7 +177,7 @@
                 </div>
               </md-list-item>
               <md-list-item class="md-3-line">
-                <md-icon md-font-set="fa fa-pencil-square-o fa-2x  " class="md-avatar"></md-icon>
+                <md-icon md-font-set="fa fa-pencil-square-o fa-2x  " class="md-avatar-icon"></md-icon>
                 <div class="md-list-item-text">
                   <h3> Interview Experience</h3>
                   <h4>Placed students' experience </h4>
@@ -189,9 +192,9 @@
       </md-content>
     </md-whiteframe>
     <!--<p>-->
-      <!--Facete delenit argumentum cum at. Pro rebum nostrum contentiones ad. Mel exerci tritani maiorum at, mea te audire-->
-      <!--phaedrum, mel et nibh aliquam. Malis causae equidem vel eu. Noster melius vis ea, duis alterum oporteat ea sea.-->
-      <!--Per cu vide munere fierent.-->
+    <!--Facete delenit argumentum cum at. Pro rebum nostrum contentiones ad. Mel exerci tritani maiorum at, mea te audire-->
+    <!--phaedrum, mel et nibh aliquam. Malis causae equidem vel eu. Noster melius vis ea, duis alterum oporteat ea sea.-->
+    <!--Per cu vide munere fierent.-->
     <!--</p>-->
 <span ng-repeat="set in vm.blogs">
     <md-divider></md-divider>
@@ -210,22 +213,29 @@
     <div class="md-actions" layout="row" layout-align="start start">
       <md-list style="padding-top: 0px;padding-bottom: 0px;">
         <md-list-item>
-          <md-fab-speed-dial  md-open="false" md-direction="up"
-                              class="md-fling share" style="    margin-top: -170px;" >
-            <md-fab-trigger >
-              <md-button aria-label="menu" class="md-fab md-primary sharer" >
+          <md-fab-speed-dial md-open="item.isOpen" md-direction="up"
+                             class="md-scale share" style="margin-top: -128px;" ng-mouseenter="item.isOpen=true"
+                             ng-mouseleave="item.isOpen=false">
+            <md-fab-trigger>
+              <md-button aria-label="menu" class="md-fab md-primary sharer">
                 <md-icon md-font-set="fa fa-share fa-2x " style="vertical-align: text-bottom;"></md-icon>
               </md-button>
             </md-fab-trigger>
             <md-fab-actions>
               <md-button aria-label="facebook" class="md-fab md-raised md-mini  facebook">
-                <a href="#" ng-click="share('facebook',item)"> <md-icon md-font-set="fa fa-facebook fa-2x  " class="facebook"></md-icon></a>
+                <a href="#" ng-click="share('facebook',item)">
+                  <md-icon md-font-set="fa fa-facebook fa-2x  " class="facebook"></md-icon>
+                </a>
               </md-button>
-              <md-button aria-label="Google+" class="md-fab md-raised md-mini google" >
-                <a href="#" ng-click="share('google',item)"> <md-icon md-font-set="fa fa-google-plus fa-2x " class="google"></md-icon></a>
+              <md-button aria-label="Google+" class="md-fab md-raised md-mini google">
+                <a href="#" ng-click="share('google',item)">
+                  <md-icon md-font-set="fa fa-google-plus fa-2x " class="google"></md-icon>
+                </a>
               </md-button>
-              <md-button aria-label="twitter" class="md-fab md-raised md-mini twitter" >
-                <a href="#" ng-click="share('twitter',item)"><md-icon md-font-set="fa fa-twitter fa-2x " class="twitter" ></md-icon></a>
+              <md-button aria-label="twitter" class="md-fab md-raised md-mini twitter">
+                <a href="#" ng-click="share('twitter',item)">
+                  <md-icon md-font-set="fa fa-twitter fa-2x " class="twitter"></md-icon>
+                </a>
               </md-button>
             </md-fab-actions>
           </md-fab-speed-dial>
@@ -236,11 +246,11 @@
 
           <a ng-if="item.sref" ui-sref="{{item.sref}}">
             <label>Learn More
+              <md-icon md-font-set="fa fa-external-link " style="height: inherit;"></md-icon>
+            </label></a>
+          <a ng-if="!item.sref" href="{{item.url}}"><label>Learn More
             <md-icon md-font-set="fa fa-external-link " style="height: inherit;"></md-icon>
           </label></a>
-              <a ng-if="!item.sref" href="{{item.url}}"><label>Learn More
-                <md-icon md-font-set="fa fa-external-link " style="height: inherit;"></md-icon>
-              </label></a>
         </md-list-item>
       </md-list>
     </div>
@@ -258,12 +268,12 @@
               <md-icon md-font-set="fa fa-info-circle  "></md-icon>
               <p> About Us </p>
             </md-list-item>
-            <md-list-item ng-click="">
+            <md-list-item ng-click="vm.open('http://www.facebook.com/vikashvverma');">
               <md-icon md-font-set="fa fa-envelope "></md-icon>
               <p> Contact Us</p>
             </md-list-item>
-            <md-list-item ng-click="">
-              <md-icon md-font-set="fa fa-external-link  "></md-icon>
+            <md-list-item ng-click="vm.open('http://www.programminggeek.in');">
+              <md-icon md-font-set="fa fa-external-link" style="margin-left:0"></md-icon>
               <p> Blog </p>
             </md-list-item>
           </md-list>
@@ -289,11 +299,11 @@
           <h4 style="/*padding-left:16px;*/color:#fff;">FOLLOW US ON</h4>
           <a href="https://www.facebook.com/thiswillgoaway" target="_blank"> <span class="fa-stack fa-lg">
   <i class="fa fa-circle fa-stack-2x fa-inverse" style="color: #428bca !important;"></i>
-  <i class="fa fa-facebook fa-stack-1x  fa-inverse" style="padding-top: 2px;" ></i>
+  <i class="fa fa-facebook fa-stack-1x  fa-inverse" style="padding-top: 2px;"></i>
 </span></a>
           <a href="https://www.google.com/+ProgrammingGeekIndia" target="_blank">  <span class="fa-stack fa-lg">
   <i class="fa fa-circle fa-stack-2x fa-inverse" style="    color: #C63D2D !important;"></i>
-  <i class="fa fa-google-plus fa-stack-1x fa-inverse "  style="padding-top: 2px;"></i>
+  <i class="fa fa-google-plus fa-stack-1x fa-inverse " style="padding-top: 2px;"></i>
 </span></a>
           <!--<md-list class="head-list" style="    margin-top: -16px;">-->
           <!--<md-list-item ng-click="">-->
@@ -329,10 +339,10 @@
 
   </div>
 
-  <div style="bottom: 0;right:0;position: fixed;z-index: 1002;">
+  <div style="bottom: 0;right:0;position: fixed;z-index: 1002;" ng-init="isOpen=false">
 
-    <md-fab-speed-dial md-open="false" md-direction="up"
-                       class="md-fling">
+    <md-fab-speed-dial md-open="isOpen" md-direction="up" class="md-scale md-fab-bottom-right"
+                       ng-mouseenter="isOpen=true" ng-mouseleave="isOpen=false">
       <md-fab-trigger>
         <md-button aria-label="menu" class="md-fab md-primary">
           <md-icon md-font-set="fa fa-bars fa-2x " style="vertical-align: text-bottom;"></md-icon>
