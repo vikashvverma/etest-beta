@@ -4,19 +4,19 @@ angular.module('etestApp')
   .controller('MainCtrl', function ($rootScope,$scope, $location,$mdSidenav,$timeout,$window,$sce,Auth) {
     var vm = this;
 
-    vm.commentbox={
-      url:$location.absUrl(),
-      width:$window.innerWidth-40,
-      height:300,
-      show:$location.path()=='/'?false:true
-    };
-    $rootScope.$on('$stateChangeStart', function (event, next) {
-      if(next.url=='/'){
-        vm.commentbox.show=false;
-      }else{
-        vm.commentbox.show=true;
-      }
-    });
+    //$rootScope.commentbox={
+    //  url:$location.absUrl(),
+    //  width:$window.innerWidth-40,
+    //  height:300,
+    //  show:$location.path()=='/'?false:true
+    //};
+    //$rootScope.$on('$stateChangeStart', function (event, next) {
+    //  if(next.url=='/'){
+    //    $rootScope.commentbox.show=false;
+    //  }else{
+    //    $rootScope.commentbox.show=true;
+    //  }
+    //});
     try{$timeout(function(){FB.XFBML.parse($('#commentbox')[0]);},0);}catch(msg){}
     vm.isLoggedIn = Auth.isLoggedIn;
     vm.isAdmin = Auth.isAdmin;
