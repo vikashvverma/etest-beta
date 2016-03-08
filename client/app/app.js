@@ -147,6 +147,13 @@ app.directive('userAvatar', function () {
   };
 });
 
+app.directive('commentBox', function () {
+  return {
+    transclude: true,
+    templateUrl: 'app/plugin/template.html'
+  };
+});
+
 app.config(function ($mdThemingProvider) {
   var customBlueMap = $mdThemingProvider.extendPalette('light-blue', {
     'contrastDefaultColor': 'light',
