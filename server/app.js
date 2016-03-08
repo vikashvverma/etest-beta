@@ -5,8 +5,7 @@ var path = require('path');
 dotenv.load(); //load environment variables
 
 // Set default node environment to development
-process.env.NODE_ENV = process.env.NODE_ENV || 'production';
-console.log(process.env.NODE_ENV);
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var app = express();
 
 //TODO: Move to config
