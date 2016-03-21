@@ -67,26 +67,26 @@ var app = angular.module('etestApp', [
 
     // This events gets triggered on refresh or URL change
     $rootScope.$on('$stateChangeStart', function (event, next) {
-      var token = store.get('token');
-      if (token) {
-        if (!jwtHelper.isTokenExpired(token)) {
-          if (!auth.isAuthenticated) {
-            auth.authenticate(store.get('profile'), token);
-          }
-        } else {
-          // Either show the login page or use the refresh token to get a new idToken
-          next.url === '/' ? undefined : $location.path('/login');
-        }
-      } else if (next.authenticate && !auth.isAuthenticated) {
-        next.url === '/' ? undefined : $location.path('/login');
-      }
-
-      if (next.url === '/') {
-        $rootScope.commentbox.show = false;
-      } else {
-        $rootScope.commentbox.url=$location.absUrl();
-        $rootScope.commentbox.show=true;
-      }
+      //var token = store.get('token');
+      //if (token) {
+      //  if (!jwtHelper.isTokenExpired(token)) {
+      //    if (!auth.isAuthenticated) {
+      //      auth.authenticate(store.get('profile'), token);
+      //    }
+      //  } else {
+      //    // Either show the login page or use the refresh token to get a new idToken
+      //    next.url === '/' ? undefined : $location.path('/login');
+      //  }
+      //} else if (next.authenticate && !auth.isAuthenticated) {
+      //  next.url === '/' ? undefined : $location.path('/login');
+      //}
+      //
+      //if (next.url === '/') {
+      //  $rootScope.commentbox.show = false;
+      //} else {
+      //  $rootScope.commentbox.url=$location.absUrl();
+      //  $rootScope.commentbox.show=true;
+      //}
     });
 
     // Redirect to login if route requires auth and you're not logged in
