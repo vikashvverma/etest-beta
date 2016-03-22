@@ -30,45 +30,77 @@
   </div>
 
 </md-whiteframe>
+<div layout="row" layout-xs="column" layout-wrap>
+  <div flex="70">
+    <md-whiteframe class="md-whiteframe-z" layout-margin layout-padding layout="column" style="overflow-y:hidden;">
+      <md-list>
+        <md-divider></md-divider>
+        <md-list-item class="md-3-line">
+          <md-icon md-font-set="fa fa-hand-o-right fa-2x"></md-icon>
+          <div class="md-list-item-text">
+            <h3>Score : </h3>
+            <h4> {{ vm.result.score }}</h4>
 
-<md-whiteframe class="md-whiteframe-z" layout-margin layout-padding layout="column" style="overflow-y:hidden;">
-  <md-list>
-    <md-divider></md-divider>
-    <md-list-item class="md-3-line">
-      <md-icon md-font-set="fa fa-hand-o-right fa-2x"></md-icon>
-      <div class="md-list-item-text">
-        <h3>Score : </h3>
-        <h4> {{ vm.result.score }}</h4>
+            <p ng-bind-html="vm.result.scoreRemark"></p>
+          </div>
+        </md-list-item>
+        <md-divider></md-divider>
+        <md-list-item class="md-3-line">
+          <md-icon md-font-set="fa fa-hand-o-right fa-2x"></md-icon>
+          <div class="md-list-item-text">
+            <h3>Total Words : </h3>
+            <h4> {{ vm.result.count }}</h4>
 
-        <p ng-bind-html="vm.result.scoreRemark"></p>
-      </div>
-    </md-list-item>
-    <md-divider></md-divider>
-    <md-list-item class="md-3-line">
-      <md-icon md-font-set="fa fa-hand-o-right fa-2x"></md-icon>
-      <div class="md-list-item-text">
-        <h3>Total Words : </h3>
-        <h4> {{ vm.result.count }}</h4>
+            <p>{{ vm.result.countRemark }}</p>
+          </div>
+        </md-list-item>
+        <md-divider></md-divider>
+      </md-list>
+      <md-list>
+        <md-list-item class="md-3-line" ng-repeat="mistake in vm.result.mistakes">
+          <md-icon md-font-set="fa fa-hand-o-right fa-2x"></md-icon>
+          <div class="md-list-item-text">
+            <h3 ng-bind-html="mistake.title"></h3>
+            <h4 ng-bind-html="mistake.subtitle"></h4>
 
-        <p>{{ vm.result.countRemark }}</p>
-      </div>
-    </md-list-item>
-    <md-divider></md-divider>
-  </md-list>
-  <md-list>
-    <md-list-item class="md-3-line" ng-repeat="mistake in vm.result.mistakes">
-      <md-icon md-font-set="fa fa-hand-o-right fa-2x"></md-icon>
-      <div class="md-list-item-text">
-        <h3 ng-bind-html="mistake.title"></h3>
-        <h4 ng-bind-html="mistake.subtitle"></h4>
+            <p ng-bind-html="mistake.description"></p>
+          </div>
+          <md-divider></md-divider>
+        </md-list-item>
+      </md-list>
+    </md-whiteframe>
+  </div>
+  <div flex="30">
+    <md-whiteframe class="md-whiteframe-1dp" flex layout="column" layout-margin layout-align="center center">
+      <md-toolbar layout="row" class="md-hue-2">
+        <div class="md-toolbar-tools">
+          <span>Leaderboard</span>
+        </div>
+      </md-toolbar>
+      <md-progress-circular md-mode="indeterminate" ng-if="!vm.leaderboard"></md-progress-circular>
+      <md-content flex style="height: 300px; width:100%;" ng-if="vm.leaderboard">
+        <md-subheader class="md-primary">
+          Your best score (at least 50) is considered for leaderboard!
+        </md-subheader>
+        <md-list>
+          <md-list-item ng-repeat="user in vm.leaderboard" class="noright" ng-click="void(0);">
+            <img alt="{{ user.name }}" ng-src="{{ user.img }}" class="md-avatar"/>
+            <p>{{ user.name.split('@')[0] }}</p>
+            <p>{{ user.score }}</p>
+            <md-icon class="md-secondary" aria-label="Profile" md-font-set="fa fa-user fa-2x"></md-icon>
+          </md-list-item>
+        </md-list>
+      </md-content>
 
-        <p ng-bind-html="mistake.description"></p>
-      </div>
-      <md-divider></md-divider>
-    </md-list-item>
-  </md-list>
-</md-whiteframe>
-<md-whiteframe class="md-whiteframe-z verbal-graph" layout="column" layout-margin layout-sm="column" style="overflow-y:hidden;">
+    </md-whiteframe>
+  </div>
+</div>
+
+
+
+
+<md-whiteframe class="md-whiteframe-z verbal-graph" layout="column" layout-margin layout-sm="column"
+               style="overflow-y:hidden;">
   <span id="test-performance"></span>
   <span layout="column" layout-align="center center">
   <etest-chart type="vm.resultType" data="vm.resultData" title="Performance in set {{vm.id}}"></etest-chart>

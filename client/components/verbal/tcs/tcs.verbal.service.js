@@ -200,6 +200,14 @@ angular.module('etestApp')
             $q.reject(err);
           });
       },
+      getLeaderBoard: function (id) {
+        return $http.get('/api/verbal/tcs/leaderboard/' + id)
+          .success(function (data) {
+            $q.resolve(data);
+          }).error(function (err) {
+            $q.reject(err);
+          });
+      },
       updateTest: function (id,testData) {
         return $http({
           method:'PUT',
