@@ -16,6 +16,7 @@ router.get('/stat/rank/:id',controller.getRankStatistics);
 router.get('/stat/:id',controller.getStatistics);
 router.put('/:id', controller.update);
 router.patch('/:testId/:id', controller.patch);
+router.get('/leaderboard/:id', controller.leaderBoard);
 //router.delete('/:id', controller.destroy);
 
 module.exports = router;
