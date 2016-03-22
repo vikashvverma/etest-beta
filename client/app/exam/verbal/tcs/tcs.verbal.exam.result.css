@@ -119,3 +119,9 @@
 {
   outline:none
 }
+
+/*Properly align result graph check boxes*/
+.verbal-graph md-radio-group md-radio-button {
+  margin-top: 16px;
+  padding: 5px;
+}
