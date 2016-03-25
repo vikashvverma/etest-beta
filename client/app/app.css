@@ -61,3 +61,7 @@ md-input-container .md-textarea-container .md-textarea-mirror {
   visibility: hidden;
   word-wrap: break-word;
 }
+
+md-content.md-default-theme, md-content {
+  color:inherit;
+}
