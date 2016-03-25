@@ -6,15 +6,34 @@ var TCS = require('./aptitude.model');
 
 exports.index = function (req, res) {
 
-  Test.find({}, function (err, tests) {
+  TCS.find({}, function (err, tests) {
     if (err) {
       return handleError(res, err);
     }
     tests = tests.sort(function (a, b) {
       return a.id > b.id ? 1 : -1;
     });
-
-    res.status(200).json(tests);
+    const result = [];
+    for (let i = 0; i < tests.length; i++) {
+      var test = tests[i];
+      delete test.statistics;
+      test.count = tests[i].statistics.length;
+      if (tests[i].statistics.length) {
+        var user = tests[i].statistics.reduce(function (prev, cur) {
+          return prev.score > cur.score ? prev : cur;
+        });
+        test.highest_score = user.score;
+        test.highest_scorer = user.name;
+        user = tests[i].statistics.reduce(function (prev, cur) {
+          return prev.date > cur.date ? prev : cur;
+        });
+        test.last_attempt_by = user.name;
+        test.last_attempt_on = user.attempted_on;
+        console.log(JSON.stringify(user, null, 4));
+      }
+      result.push(test);
+    }
+    res.status(200).json(result);
   });
 };
 
@@ -42,7 +61,8 @@ exports.fetch = function (req, res) {
       hasAnswerImage: 1,
       section: 1,
       year: 1,
-      attempted_on: 1
+      attempted_on: 1,
+      statistics:1,
     })
     .sort({
       id: 1
@@ -56,7 +76,33 @@ exports.fetch = function (req, res) {
           return res.send(404);
         }
         console.log(data);
-        return res.json(data);
+        var result = data.map((question)=>{
+          var q = {
+            _id: question._id,
+            id: question.id,
+            question: question.question,
+            hasQImage:question.hasQImage,
+            options: question.options,
+            lod: question.lod,
+            exam: question.exam,
+            answer: question.answer,
+            explanation: question.explanation,
+            hasAExplanation: question.hasAExplanation,
+            hasAnswerImage: question.hasAnswerImage,
+            section: question.section,
+            year: question.year,
+            attempted_on: question.attempted_on,
+          };
+          var correct = question.statistics.filter((stat)=>{ return stat.isCorrect;});
+          q.stats={
+            count: question.statistics.length,
+            correct: correct.length,
+            lastSolved: correct[correct.length-1],
+            lastAttempted: question.statistics[question.statistics.length-1],
+          };
+          return q;
+        });
+        return res.status(200).json(result);
       });
 
 };
@@ -103,8 +149,8 @@ exports.update = function (req, res) {
           async.each(tests, function (test, callback) {
             if (body[test.id]) {
               var stat = body[test.id];
-              stat.userId=body.statistics.userId;
-              stat.name=body.statistics.name;
+              stat.userId = body.statistics.userId;
+              stat.name = body.statistics.name;
               test.statistics.push(stat);
               test.attempted_on = new Date();
               test.save(callback);

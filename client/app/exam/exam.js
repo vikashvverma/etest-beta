@@ -28,5 +28,9 @@ angular.module('etestApp')
         url: 'exam/tcs/aptitude',
         templateUrl: 'app/exam/aptitude/tcs/tcs.aptitude.html',
         controller: 'TCSAptitudeController as vm'
-      });
+      }).state('main.tcsaptitudeexam', {
+      url: 'exam/tcs/aptitude/:id',
+      templateUrl: 'app/exam/aptitude/tcs/tcs.aptitude.exam.html',
+      controller: 'TCSAptitudeExamController as vm'
+    });
   });
