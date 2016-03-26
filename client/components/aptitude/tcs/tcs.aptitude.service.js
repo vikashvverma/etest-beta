@@ -1,12 +1,56 @@
 'use strict';
 
 angular.module('etestApp')
-  .factory('TCSAptitudeService', function Auth($location, $rootScope, $http, User, $cookieStore, $q, $log, $sce, ngNotify) {
+  .factory('TCSAptitudeService', function Auth($location, $rootScope, $http, User, $cookieStore, $q, $log, $sce, ngNotify, store) {
     var currentUser = {};
     var questions = [];
     var test = {};
     var currentQuestion = {};
     var result = {};
+    var time = 0;
+
+    function evaluate() {
+
+    }
+
+    //TODO: Check score evaluation
+    function getScore() {
+      var score = 0;
+      questions.map(function (question) {
+        if (question.ans) {
+          var marks = 0;
+          if (question.lod > 2) {
+            marks += question.ans == question.answer ? 2 : -2 / 4;
+          } else {
+            marks += question.ans == question.answer ? 1 : -1 / 4
+          }
+          score += marks;
+        }
+      });
+      return score;
+    }
+
+    function getTime() {
+      return time;
+    }
+
+    function getCorrect() {
+      return questions.filter(function (question) {
+        return question.ans == question.answer;
+      }).length;
+    }
+
+    function getIncorrect() {
+      return questions.filter(function (question) {
+        return question.ans && question.ans != question.answer;
+      }).length;
+    }
+
+    function getSkipped() {
+      return questions.filter(function (question) {
+        return !question.ans;
+      }).length;
+    }
 
     return {
       getRankStatistics: function (id, userId) {
@@ -39,7 +83,8 @@ angular.module('etestApp')
         return $http.get('/api/aptitude/tcs/' + id)
           .success(function (data) {
             questions = data;
-
+            test = {};
+            time = 4800;
             $q.resolve(data);
           }).error(function (err) {
             $q.reject(err);
@@ -53,10 +98,28 @@ angular.module('etestApp')
             $q.reject(err);
           });
       },
-      updateTest: function (id, testData) {
+      updateTest: function (id) {
+        var profile = store.get('profile');
+        var testData = {
+          statistics: {
+            userId: profile.user_id,
+            name: profile.name,
+            correct: getCorrect(),
+            incorrect: getIncorrect(),
+            skipped: getSkipped(),
+            attempted: getCorrect() + getIncorrect(),
+            score: getScore(),
+            time: getTime(),
+          }
+        };
+        questions.map(function (question) {
+          testData[question.id] = {
+            isCorrect: question.ans == question.answer,
+          };
+        });
         return $http({
           method: 'PUT',
-          url: '/api/verbal/tcs/' + id,
+          url: '/api/aptitude/tcs/' + id,
           data: testData
         }).success(function (data) {
           //$log.info(data);
@@ -103,13 +166,19 @@ angular.module('etestApp')
         var question = questions.filter(function (question) {
           return question.id === id;
         })[0];
-        question.ans=answer;
-        question.mfr=mfr;
+        question.ans = answer;
+        question.mfr = mfr;
       },
-      getTestTResult: function (id) {
-        if (questions.id != id)
+      setTime: function (seconds) {
+        time = seconds;
+      },
+      getTestResult: function (id) {
+        if (questions[0].exam.filter(function (exam) {
+            return exam.name === 'TCS';
+          })[0].qset != id)
           return $location.path('/');
-        return evaluate(questions.word, questions.outline, questions.answer);
+        this.updateTest(id);
+        return evaluate();
       },
       notify: function (message, type) {
         ngNotify.set(message, type);

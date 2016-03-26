@@ -65,3 +65,17 @@ md-input-container .md-textarea-container .md-textarea-mirror {
 md-content.md-default-theme, md-content {
   color:inherit;
 }
+
+.success{
+  color: #03A9F4 !important;
+}
+.info{
+  color: #FF5722 !important;
+}
+.warning{
+  color: #FF4081 !important;
+}
+.error{
+  color: #F50057 !important;
+}
+

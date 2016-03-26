@@ -16,7 +16,7 @@ angular.module("etestApp").directive('etestChart', function (ChartService,$windo
           data[0].name=scope.data[0].name;
         }
         if (newType == 'pie') {
-          $(element).css({width:'98%',height:'auto',margin:'0 auto'});
+          //$(element).css({width:'98%',height:'auto',margin:'0 auto'});
           $(element).highcharts(ChartService.getPie(scope.data));
         } else {
           $(element).highcharts(ChartService.getChart(scope.title, scope.type,categories?data:scope.data,categories?categories:undefined));
@@ -39,10 +39,10 @@ angular.module("etestApp").directive('etestChart', function (ChartService,$windo
           rankData[0].data=data[0].data.data;
           rankData[0].name=data[0].name;
         }
-        $(element).css({width:'98%',height:'auto',margin:'0 auto'});
         if (scope.type == 'pie') {
           $(element).highcharts(ChartService.getPie(data));
         } else {
+          $(element).css({width:'98%',height:'auto',margin:'0 auto'});
           $(element).highcharts(ChartService.getChart(scope.title, scope.type, categories?rankData:data,categories));
         }
 

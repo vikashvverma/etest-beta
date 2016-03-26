@@ -64,8 +64,7 @@
       </div>
     </div>
 
-    <md-subheader
-      style="color: #444444; font-family: FreightTextProBook-Regular, Georgia, Cambria, 'Times New Roman', Times, serif; font-size: 22px; letter-spacing: 0.1px; line-height: 34px;">
+    <md-subheader class="question">
       {{vm.currentQuestion.question}}
       <span layout layout-align="center" layout-wrap ng-if="vm.currentQuestion.hasQImage">
         <md-card>
@@ -164,7 +163,7 @@
       <i class="fa fa-star" ng-show="no.lod>2"></i>
     </md-button>
     <span layout layout-margin layout-padding layout-wrap>
-          <md-button class="md-raised md-hue-2 md-primary" ng-click="doSecondaryAction($event)" flex>Submit Test
+          <md-button class="md-raised md-hue-2 md-primary" ng-click="vm.showDialog($event)" flex>Submit Test
           </md-button>
     </span>
     <div ng-include=' "app/plugin/calculator.html" ' style="margin-top:10px;">

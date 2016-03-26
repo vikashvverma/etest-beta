@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('etestApp')
-  .controller('TCSAptitudeExamController', function ($scope, $stateParams, $location, $timeout, $interval, $sce, $mdDialog, User, Auth, TCSAptitudeService) {
+  .controller('TCSAptitudeExamController', function ($scope, $stateParams, $location, $timeout, $interval, $sce, $mdDialog, $mdMedia, User, Auth, TCSAptitudeService) {
     var vm = this;
     var id = $stateParams.id;
     vm.id = id;
@@ -48,7 +48,7 @@ angular.module('etestApp')
 
     vm.log = function () {
     };
-    vm.getQuestions = function(){
+    vm.getQuestions = function () {
       return TCSAptitudeService.getQuestions();
     };
     vm.startTest = function () {
@@ -97,7 +97,7 @@ angular.module('etestApp')
 
     vm.reset = function () {
       vm.answer = 0;
-      vm.mfr=false;
+      vm.mfr = false;
     };
     vm.submit = function () {
       console.log(vm.answer);
@@ -106,23 +106,62 @@ angular.module('etestApp')
     };
     vm.evaluateAnswer = function () {
       //alert('Test Ended!');
+      TCSAptitudeService.setTime(vm.test.time.seconds);
       $location.path('/exam/tcs/aptitude/' + id + '/result')
     };
     vm.endTest = function (ev) {
       // Appending dialog to document.body to cover sidenav in docs app
       var confirm = $mdDialog.confirm()
-        .parent(angular.element(document.body))
         .title('Are you sure you want to end the test?')
-        .content('Click on Yes to check your performance.')
-        .ariaLabel('Finish')
-        .ok('Yes')
-        .cancel('No')
-        .targetEvent(ev ? ev : null);
+        .textContent('Click on \'Please do it!\' to check your performance.')
+        .ariaLabel('End Test')
+        .targetEvent(ev)
+        .ok('Please do it!')
+        .cancel('I want to continue with the test!');
       $mdDialog.show(confirm).then(function () {
         vm.endTime();
       }, function () {
-
+        $scope.status = 'You decided to keep your debt.';
       });
+    };
+    vm.showDialog = function (ev) {
+      var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+      $mdDialog.show({
+          controller: vm.dialogController,
+          templateUrl: 'app/exam/aptitude/tcs/tcs.aptitude.dialog.tmpl.html',
+          parent: angular.element(document.body),
+          targetEvent: ev,
+          clickOutsideToClose: true,
+          fullscreen: useFullScreen
+        })
+        .then(function () {
+          vm.endTime();
+        }, function () {
+          $scope.status = 'You cancelled the dialog.';
+        });
+      $scope.$watch(function () {
+        return $mdMedia('xs') || $mdMedia('sm');
+      }, function (wantsFullScreen) {
+        $scope.customFullscreen = (wantsFullScreen === true);
+      });
+    };
+    vm.dialogController = function ($scope, $mdDialog, TCSAptitudeService) {
+      $scope.test = TCSAptitudeService.getQuestions();
+      $scope.attempted = $scope.test.filter(function (question) {
+        return question.ans>0;
+      });
+      $scope.mfr = $scope.test.filter(function (question) {
+        return question.mfr;
+      });
+      $scope.hide = function () {
+        $mdDialog.hide();
+      };
+      $scope.cancel = function () {
+        $mdDialog.cancel();
+      };
+      $scope.endTest = function () {
+        $mdDialog.hide();
+      };
     };
     $scope.$on('$destroy', function () {
       $interval.cancel(vm.interval);
