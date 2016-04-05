@@ -129,19 +129,19 @@
           <span layout="row" layout-xs="column" layout-align="space-around center" style="font-size: 20px;">
             <span layout="column" layout-align="center center" class="info">
               <span>Last Attempted On<md-icon md-font-set="fa fa-calendar" class="info"></md-icon></span>
-              <span>{{question.stats.lastAttempted.attempted_on}}</span>
+              <span>{{question.stats.lastAttempted.attempted_on  | date:'medium'}}</span>
             </span>
             <span layout="column" layout-align="center center" class="success">
               <span>Last Attempted By<md-icon md-font-set="fa fa-user" class="success"></md-icon></span>
-              <span>{{question.stats.lastAttempted.name.split('@')[0]}}</span>
+              <span>{{question.stats.lastAttempted.name.split('@')[0]  | date:'medium'}}</span>
             </span>
             <span layout="column" layout-align="center center" class="error">
               <span>Last Solved On<md-icon md-font-set="fa fa-calendar" class="error"></md-icon></span>
-              <span>{{question.stats.lastSolved.attempted_on}}</span>
+              <span>{{question.stats.lastSolved.attempted_on  | date:'medium'}}</span>
             </span>
             <span layout="column" layout-align="center center" class="warning">
               <span>Last Solved By<md-icon md-font-set="fa fa-user" class="error"></md-icon></span>
-              <span>{{question.stats.lastSolved.name.split('@')[0]}} </span>
+              <span>{{question.stats.lastSolved.name.split('@')[0]  | date:'medium'}} </span>
             </span>
           </span>
         </md-subheader>
