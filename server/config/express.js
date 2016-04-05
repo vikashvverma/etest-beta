@@ -10,8 +10,8 @@ var errorHandler = require('errorhandler');
 var mongoose = require('mongoose');
 module.exports = function (app) {
 
-  // Connect to MongoLab's MongoDB database
-  mongoose.connect(process.env.MONGO_URI);
+  // Connect to MongoLab's/Local MongoDB database
+  mongoose.connect(process.env.NODE_ENV === 'development' ? 'localhost:27017/etest' : process.env.MONGO_URI);
 
   app.use(logger('dev'));
   app.use(bodyParser.json());
