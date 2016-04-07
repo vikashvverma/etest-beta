@@ -15,8 +15,11 @@ exports.index = function (req, res) {
     });
     const result = [];
     for (let i = 0; i < tests.length; i++) {
-      var test = tests[i];
-      delete test.statistics;
+      let test = {
+        id: tests[i].id,
+        name: tests[i].name,
+        attempted_on: tests[i].attempted_on
+      };
       test.count = tests[i].statistics.length;
       if (tests[i].statistics.length) {
         var user = tests[i].statistics.reduce(function (prev, cur) {
@@ -62,7 +65,7 @@ exports.fetch = function (req, res) {
       section: 1,
       year: 1,
       attempted_on: 1,
-      statistics:1,
+      statistics: 1,
     })
     .sort({
       id: 1
@@ -76,12 +79,12 @@ exports.fetch = function (req, res) {
           return res.send(404);
         }
         console.log(data);
-        var result = data.map((question)=>{
+        var result = data.map((question)=> {
           var q = {
             _id: question._id,
             id: question.id,
             question: question.question,
-            hasQImage:question.hasQImage,
+            hasQImage: question.hasQImage,
             options: question.options,
             lod: question.lod,
             exam: question.exam,
@@ -93,12 +96,14 @@ exports.fetch = function (req, res) {
             year: question.year,
             attempted_on: question.attempted_on,
           };
-          var correct = question.statistics.filter((stat)=>{ return stat.isCorrect;});
-          q.stats={
+          var correct = question.statistics.filter((stat)=> {
+            return stat.isCorrect;
+          });
+          q.stats = {
             count: question.statistics.length,
             correct: correct.length,
-            lastSolved: correct[correct.length-1],
-            lastAttempted: question.statistics[question.statistics.length-1],
+            lastSolved: correct[correct.length - 1],
+            lastAttempted: question.statistics[question.statistics.length - 1],
           };
           return q;
         });

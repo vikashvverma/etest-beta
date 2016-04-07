@@ -348,7 +348,7 @@
     "lod": 2,
     "section": "Numbers",
     "year": 2014,
-    "qset": 2
+    "qset": 1
   },
   {
     "id": 28,
@@ -400,7 +400,7 @@
     "lod": 1,
     "section": " ",
     "year": 2013,
-    "qset": 1
+    "qset": 2
   },
   {
     "id": 32,
@@ -413,7 +413,7 @@
     "lod": 1,
     "section": "Simplification",
     "year": 2014,
-    "qset": 1
+    "qset": 2
   },
   {
     "id": 33,
@@ -426,7 +426,7 @@
     "lod": 1,
     "section": "Average",
     "year": 2014,
-    "qset": 1
+    "qset": 2
   },
   {
     "id": 34,
@@ -439,7 +439,7 @@
     "lod": 1,
     "section": "Average",
     "year": 2013,
-    "qset": 1
+    "qset": 2
   },
   {
     "id": 35,
@@ -452,7 +452,7 @@
     "lod": 1,
     "section": "Problems on Ages",
     "year": 2014,
-    "qset": 1
+    "qset": 2
   },
   {
     "id": 36,
@@ -465,7 +465,7 @@
     "lod": 3,
     "section": "Simplification",
     "year": 2013,
-    "qset": 1
+    "qset": 2
   },
   {
     "id": 37,
@@ -478,7 +478,7 @@
     "lod": 2,
     "section": "Percentage",
     "year": 2014,
-    "qset": 1
+    "qset": 2
   },
   {
     "id": 38,
@@ -764,7 +764,7 @@
     "lod": 1,
     "section": "Numbers",
     "year": 2014,
-    "qset": 3
+    "qset": 2
   },
   {
     "id": 60,
@@ -777,7 +777,7 @@
     "lod": 2,
     "section": "Simplification",
     "year": null,
-    "qset": 3
+    "qset": 2
   },
   {
     "id": 61,
@@ -790,7 +790,7 @@
     "lod": 2,
     "section": "Time and Work",
     "year": null,
-    "qset": 2
+    "qset": 3
   },
   {
     "id": 62,
@@ -855,7 +855,7 @@
     "lod": 2,
     "section": "Permutation and Combination",
     "year": 2014,
-    "qset": 2
+    "qset": 3
   },
   {
     "id": 67,
@@ -868,7 +868,7 @@
     "lod": 2,
     "section": "Simplification",
     "year": null,
-    "qset": 2
+    "qset": 3
   },
   {
     "id": 68,
@@ -881,7 +881,7 @@
     "lod": 2,
     "section": "Numbers",
     "year": null,
-    "qset": 2
+    "qset": 3
   },
   {
     "id": 69,
@@ -894,7 +894,7 @@
     "lod": 2,
     "section": "Profit and Loss",
     "year": 2013,
-    "qset": 2
+    "qset": 3
   },
   {
     "id": 70,
@@ -907,7 +907,7 @@
     "lod": 2,
     "section": "Permutation and Combination",
     "year": 0,
-    "qset": 2
+    "qset": 3
   },
   {
     "id": 71,
@@ -920,7 +920,7 @@
     "lod": 2,
     "section": "Permutation and Combination",
     "year": null,
-    "qset": 2
+    "qset": 3
   },
   {
     "id": 72,
@@ -933,7 +933,7 @@
     "lod": 2,
     "section": "Probability",
     "year": 2014,
-    "qset": 2
+    "qset": 3
   },
   {
     "id": 73,

@@ -61,17 +61,6 @@ angular.module('etestApp')
     }
 
 
-    //$timeout(vm.checkSpellingAndGrammar,2000);
-    //vm.checkSpellingAndGrammar();
-    function countNames(names, string) {
-      var count = 0;
-      for (var i = names.length - 1; i >= 0; i--) {
-        var len = names[i].length;
-        count += (string.length - string.replace(/names[i]/g, '')) / len;
-      }
-      return count;
-    }
-
 
     vm.leaderboard = [
       {

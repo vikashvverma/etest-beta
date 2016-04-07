@@ -20,9 +20,9 @@ angular.module('etestApp')
         if (question.ans) {
           var marks = 0;
           if (question.lod > 2) {
-            marks += question.ans == question.answer ? 2 : -2 / 4;
+            marks += question.ans == question.answer ? 2 : -2 / 3;
           } else {
-            marks += question.ans == question.answer ? 1 : -1 / 4
+            marks += question.ans == question.answer ? 1 : -1 / 3;
           }
           score += marks;
         }
