@@ -79,15 +79,17 @@
   },
   {
     "id": 7,
-    "question": "A travels at 40 kmph and B travels at 60 kmph. They are traveling towards each other and start at the same time. By the time they meet, B would have traveled 120 km more than A. Find the total distance ?",
-    "option1": "360 km",
-    "option2": "240 km",
-    "option3": "600 km",
-    "option4": "720 km",
-    "answer": 3,
-    "lod": 1,
-    "section": "Time and Distance",
+    "question": "An ant starts moving on the mesh shown below along the wires towards a food particle.If the ant is at the bottom-left corner of cell A and the food is at the top-right corner of cell F, then find the number of optimal routes for the ant?",
+    "option1": "13884156",
+    "option2": "3465280",
+    "option3": "4368",
+    "option4": "6748",
+    "answer": 2,
+    "lod": 3,
+    "section": "Permutation and Combination",
     "year": 2013,
+    "hasQImage": true,
+    "qImageUrl": "http://gdurl.com/OSOA",
     "qset": 1
   },
   {
@@ -456,14 +458,14 @@
   },
   {
     "id": 36,
-    "question": "Akhilesh, Bernard, Catherine and Dinesh go for a picnic. In a weighing machine they try to find their weights. When Akhilesh stands on the machine, without his knowledge Bernard also climbs the machine and the weight shown was 132kg. When Bernard stands, without his knowledge Catherine also stands on the machine and the machine shows 130 kg. Similarly the weight of Catherine and Dinesh is found as 102 kg and that of Bernard and Dinesh is 116 kg. What is the weight of Dinesh?",
-    "option1": "42 kg",
-    "option2": "44 kg",
-    "option3": "46 kg",
-    "option4": "48 kg",
-    "answer": 2,
-    "lod": 3,
-    "section": "Simplification",
+    "question": "A travels at 40 kmph and B travels at 60 kmph. They are traveling towards each other and start at the same time. By the time they meet, B would have traveled 120 km more than A. Find the total distance ?",
+    "option1": "360 km",
+    "option2": "240 km",
+    "option3": "600 km",
+    "option4": "720 km",
+    "answer": 3,
+    "lod": 1,
+    "section": "Time and Distance",
     "year": 2013,
     "qset": 2
   },
@@ -1168,6 +1170,19 @@
     "section": "Numbers",
     "year": null,
     "qset": 3
+  },
+  {
+    "id": 91,
+    "question": "Akhilesh, Bernard, Catherine and Dinesh go for a picnic. In a weighing machine they try to find their weights. When Akhilesh stands on the machine, without his knowledge Bernard also climbs the machine and the weight shown was 132kg. When Bernard stands, without his knowledge Catherine also stands on the machine and the machine shows 130 kg. Similarly the weight of Catherine and Dinesh is found as 102 kg and that of Bernard and Dinesh is 116 kg. What is the weight of Dinesh?",
+    "option1": "42 kg",
+    "option2": "44 kg",
+    "option3": "46 kg",
+    "option4": "48 kg",
+    "answer": 2,
+    "lod": 3,
+    "section": "Simplification",
+    "year": 2013,
+    "qset": 4
   }
 ]
 

@@ -6,6 +6,7 @@ var TestSchema = new Schema({
     id: {type: Number, unique: true, required: true},
     question: {type: String, required: true},
     hasQImage: {type: Boolean, default:false},
+    qImageUrl: {type: String, default:""},
     options: {
         option1: {type: String, required: true},
         option2: {type: String, required: true},

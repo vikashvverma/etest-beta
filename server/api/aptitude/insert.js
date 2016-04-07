@@ -23,6 +23,10 @@ module.exports=function(){
     }];
     model.section=[models[i].section];
     model.statistics=[];//10000 records take 4 MB space
+    if(models[i].hasQImage){
+      model.hasQImage=models[i].hasQImage;
+      model.qImageUrl=models[i].qImageUrl;
+    }
     model.save(function(err,model){
       i++;
       if(i<models.length){

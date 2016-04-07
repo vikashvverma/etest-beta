@@ -27,7 +27,7 @@ angular.module('etestApp')
           score += marks;
         }
       });
-      return score;
+      return Math.floor(score * 100) / 100;
     }
 
     function getTime() {
