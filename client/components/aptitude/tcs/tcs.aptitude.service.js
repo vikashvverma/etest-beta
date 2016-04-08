@@ -8,6 +8,7 @@ angular.module('etestApp')
     var currentQuestion = {};
     var result = {};
     var time = 0;
+    var testId;
 
     function evaluate() {
 
@@ -171,6 +172,12 @@ angular.module('etestApp')
       },
       setTime: function (seconds) {
         time = seconds;
+      },
+      setTestId: function (id) {
+        testId = id;
+      },
+      getTestId: function (id) {
+        testId = id;
       },
       getTestResult: function (id) {
         if (questions[0].exam.filter(function (exam) {

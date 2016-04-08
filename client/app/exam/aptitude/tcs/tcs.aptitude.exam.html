@@ -5,8 +5,11 @@
     </h3>
   </div>
 </md-toolbar>
-
-<div layout="row" layout-xs="column" layout-padding layout-wrap>
+<div layout="column" layout-align="center center" layout-margin layout-padding layout-wrap ng-if="!vm.getQuestions().length">
+  <div class="graph-loader"></div>
+  <md-content class="md-warn">loading test question...</md-content>
+</div>
+<div layout="row" layout-xs="column" layout-padding layout-wrap ng-if="vm.getQuestions().length">
   <div flex="70" flex-xs="100" md-whiteframe="1" layout="column">
     <div layout-sm="column" src="" class="brand_image1 col-lg-12">
       <img src="assets/images/favicon.png" height="80px" width="auto" style="float:left;"/>

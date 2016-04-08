@@ -35,8 +35,13 @@ angular.module('etestApp')
           vm.test.time = {
             minute: 80,
             second: 0,
-            seconds: 4800
+            seconds: 4800,
+            id:vm.id
           };
+          if(!vm.questions.length){
+            TCSAptitudeService.notify("Invalid Test ID!","error");
+            return $location.path('exam/tcs/aptitude');
+          }
           vm.startTest();
           vm.currentQuestion = TCSAptitudeService.get(1);
           vm.answer = 0;
@@ -107,6 +112,7 @@ angular.module('etestApp')
     vm.evaluateAnswer = function () {
       //alert('Test Ended!');
       TCSAptitudeService.setTime(vm.test.time.seconds);
+      TCSAptitudeService.setTestId(vm.id);
       $location.path('/exam/tcs/aptitude/' + id + '/result')
     };
     vm.endTest = function (ev) {

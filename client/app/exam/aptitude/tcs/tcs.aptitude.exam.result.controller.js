@@ -4,9 +4,10 @@ angular.module('etestApp')
   .controller('TCSAptitudeExamResultController', function ($scope, $stateParams, $timeout, $location, $log, $interval, $sce, $mdDialog, User, Auth, TCSAptitudeService) {
     var vm = this;
     vm.id = $stateParams.id;
-    if (!vm.id) {
-      return $location.path('/');
+    if (!vm.id || TCSAptitudeService.getTestId() != vm.id) {
+      return $location.path('/exam/tcs/aptitude/'+(vm.id>0?vm.id:""));
     } else {
+      TCSAptitudeService.setTestId();
       TCSAptitudeService.getTestResult(vm.id);
       vm.test = TCSAptitudeService.getQuestions();
       vm._id = '';//test result id used to patch the test result aafiter spell check
@@ -59,7 +60,6 @@ angular.module('etestApp')
        vm.leaderboard = data;
        });*/
     }
-
 
 
     vm.leaderboard = [
