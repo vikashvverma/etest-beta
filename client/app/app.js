@@ -54,15 +54,15 @@ var app = angular.module('etestApp', [
     };
   })
 
-  .run(function ($rootScope, auth, store, jwtHelper, $location,$window) {
+  .run(function ($rootScope, auth, store, jwtHelper, $location, $window) {
     //base url
     var baseURI = "http://localhost:9000/";
     var first = true;
-    $rootScope.commentbox={
-      url:$location.absUrl(),
-      width:$window.innerWidth-40,
-      height:300,
-      show:$location.path()=='/'?false:true
+    $rootScope.commentbox = {
+      url: $location.absUrl(),
+      width: $window.innerWidth - 40,
+      height: 300,
+      show: $location.path() == '/' ? false : true
     };
 
     // This events gets triggered on refresh or URL change
@@ -75,7 +75,7 @@ var app = angular.module('etestApp', [
           }
         } else {
           // Either show the login page or use the refresh token to get a new idToken
-          next.url === '/' ? undefined : $location.path('/login');
+          next.url === '/' || (!next.authenticate && !auth.isAuthenticated) ? undefined : $location.path('/login');
         }
       } else if (next.authenticate && !auth.isAuthenticated) {
         next.url === '/' ? undefined : $location.path('/login');
@@ -84,8 +84,8 @@ var app = angular.module('etestApp', [
       if (next.url === '/') {
         $rootScope.commentbox.show = false;
       } else {
-        $rootScope.commentbox.url=$location.absUrl();
-        $rootScope.commentbox.show=true;
+        $rootScope.commentbox.url = $location.absUrl();
+        $rootScope.commentbox.show = true;
       }
     });
 

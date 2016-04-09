@@ -11,6 +11,7 @@ angular.module('etestApp')
       TCSAptitudeService.getTestResult(vm.id);
       vm.test = TCSAptitudeService.getQuestions();
       vm._id = '';//test result id used to patch the test result aafiter spell check
+      vm.score=TCSAptitudeService.getScore();
       vm.correct = vm.test.filter(function (question) {
         return question.ans == question.answer;
       });

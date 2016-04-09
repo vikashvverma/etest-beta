@@ -31,9 +31,10 @@
     </md-content>
   </div>
   <div flex flex-xs="100">
-      <etest-chart type="vm.type" data="vm.solutionData" title="Performance">
-        <div class="graph-loader"></div>
-      </etest-chart>
+    <div style="text-align: center;">Your score is {{vm.score}}</div>
+    <etest-chart type="vm.type" data="vm.solutionData" title="Performance">
+      <div class="graph-loader"></div>
+    </etest-chart>
   </div>
 </div>
 <div layout="row" layout-xs="column" md-whiteframe="7" layout-padding layout-wrap
