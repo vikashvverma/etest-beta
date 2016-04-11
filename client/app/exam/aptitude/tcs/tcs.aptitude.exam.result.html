@@ -21,10 +21,11 @@
       <md-content class="md-warn">loading leaderboard...</md-content>
     </div>
     <md-content flex style="height: 300px; width:100%;" ng-if="vm.leaderboard">
-      <md-subheader class="md-primary">
-        <!--<p>Your best score is considered for leaderboard!</p>-->
-        <p style="text-align: center;" ng-if="vm.leaderboard.length">Showing top {{vm.leaderboard.length}} results!</p>
-        <p style="text-align: center;" ng-if="!vm.leaderboard.length">No record to show!</p>
+      <md-subheader class="md-primary" ng-if="vm.leaderboard.length">
+        Showing top {{vm.leaderboard.length}} results!
+      </md-subheader>
+      <md-subheader class="md-primary" ng-if="!vm.leaderboard.length">
+        No record to show!
       </md-subheader>
       <md-list>
         <md-list-item ng-repeat="user in vm.leaderboard" class="noright" ng-click="void(0);">
