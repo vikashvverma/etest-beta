@@ -55,7 +55,7 @@ exports.fetch = function (req, res) {
       id: 1,
       question: 1,
       hasQImage: 1,
-      qImageUrl:1,
+      qImageUrl: 1,
       options: 1,
       lod: 1,
       exam: 1,
@@ -319,6 +319,36 @@ exports.getStatistics = function (req, res) {
     return res.status(200).json([{name: 'Set ' + req.params.id, data: result}]);
   });
 };
+
+exports.leaderBoard = function (req, res) {
+  TCS.findOne({id: req.params.id}, function (err, data) {
+    if (err) {
+      return handleError(res, err);
+    }
+    console.log(data);
+    if (!data) {
+      return res.send(404);
+    }
+
+    const scoreMap = {};
+    data.statistics.map((stat) => {
+      const score = scoreMap[stat.userId] ? scoreMap[stat.userId].score < stat.score ? stat.score : scoreMap[stat.userId].score : stat.score;
+      const user = stat;
+      user.score = score;
+      scoreMap[stat.userId] = user;
+    });
+
+    let result = [];
+    for (const userId in scoreMap) {
+      result.push(scoreMap[userId]);
+    }
+    result = result.sort((prev, cur) => {
+      return cur.score - prev.score;
+    });
+    res.status(200).json(result.slice(0,20));
+  });
+};
+
 function handleError(res, err) {
   return res.status(500).send(err);
 }

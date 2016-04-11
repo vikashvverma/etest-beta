@@ -92,7 +92,7 @@ angular.module('etestApp')
           });
       },
       getLeaderBoard: function (id) {
-        return $http.get('/api/verbal/tcs/leaderboard/' + id)
+        return $http.get('/api/aptitude/tcs/leaderboard/' + id)
           .success(function (data) {
             $q.resolve(data);
           }).error(function (err) {

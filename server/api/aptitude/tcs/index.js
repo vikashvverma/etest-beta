@@ -18,6 +18,7 @@ router.get('/stat/all',controller.getAllStatistics);
 router.get('/stat/rank/:id',controller.getRankStatistics);
 router.get('/stat/:id',controller.getStatistics);
 router.put('/:id', controller.update);
+router.get('/leaderboard/:id', controller.leaderBoard);
 //router.patch('/:testId/:id', controller.patch);
 //router.delete('/:id', controller.destroy);
 

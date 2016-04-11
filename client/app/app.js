@@ -55,6 +55,17 @@ var app = angular.module('etestApp', [
   })
 
   .run(function ($rootScope, auth, store, jwtHelper, $location, $window) {
+    //Go back to the previous stage with this back() call
+    var history = [];
+    $rootScope.$on('$locationChangeSuccess', function () {
+      history.push($location.$$path);
+    });
+
+    $rootScope.back = function () {
+      var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
+      $location.path(prevUrl);
+      history = []; //Delete history array after going back
+    };
     //base url
     var baseURI = "http://localhost:9000/";
     var first = true;

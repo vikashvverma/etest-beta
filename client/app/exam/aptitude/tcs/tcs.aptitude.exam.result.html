@@ -7,18 +7,23 @@
 </md-toolbar>
 <div layout="row" layout-xs="column" md-whiteframe="7" layout-padding layout-wrap
      layout-margin ng-cloak>
-  <div flex="29" flex-xs="100" flex="nogrow">
-    <md-toolbar class="md-warn" md-scroll-shrink ng-if="true">
+  <div flex="29" flex-xs="100">
+    <md-toolbar class="md-warn" md-scroll-shrink ng-if="true" flex>
       <div class="md-toolbar-tools">
         <h3>
           <span><md-icon md-font-set="fa fa-trophy"></md-icon>Leaderboard</span>
         </h3>
       </div>
     </md-toolbar>
-    <md-progress-circular md-mode="indeterminate" ng-if="!vm.leaderboard"></md-progress-circular>
+    <div layout="column" layout-align="center center" layout-margin layout-padding layout-wrap
+         ng-if="!vm.leaderboard.length">
+      <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+      <md-content class="md-warn">loading leaderboard...</md-content>
+    </div>
     <md-content flex style="height: 300px; width:100%;" ng-if="vm.leaderboard">
       <md-subheader class="md-primary">
-        Your best score (at least 50) is considered for leaderboard!
+        <!--<p>Your best score is considered for leaderboard!</p>-->
+        <p style="text-align: center;">(displaying top {{vm.leaderboard.length}} results)</p>
       </md-subheader>
       <md-list>
         <md-list-item ng-repeat="user in vm.leaderboard" class="noright" ng-click="void(0);">
