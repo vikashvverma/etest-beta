@@ -7,7 +7,7 @@
 </md-toolbar>
 <div layout="row" layout-xs="column" md-whiteframe="7" layout-padding layout-wrap
      layout-margin ng-cloak>
-  <div flex="29" flex-xs="100">
+  <div flex flex-xs="100">
     <md-toolbar class="md-warn" md-scroll-shrink ng-if="true" flex>
       <div class="md-toolbar-tools">
         <h3>
@@ -16,14 +16,15 @@
       </div>
     </md-toolbar>
     <div layout="column" layout-align="center center" layout-margin layout-padding layout-wrap
-         ng-if="!vm.leaderboard.length">
+         ng-if="!vm.leaderboard">
       <md-progress-circular md-mode="indeterminate"></md-progress-circular>
       <md-content class="md-warn">loading leaderboard...</md-content>
     </div>
     <md-content flex style="height: 300px; width:100%;" ng-if="vm.leaderboard">
       <md-subheader class="md-primary">
         <!--<p>Your best score is considered for leaderboard!</p>-->
-        <p style="text-align: center;">(displaying top {{vm.leaderboard.length}} results)</p>
+        <p style="text-align: center;" ng-if="vm.leaderboard.length">Showing top {{vm.leaderboard.length}} results!</p>
+        <p style="text-align: center;" ng-if="!vm.leaderboard.length">No record to show!</p>
       </md-subheader>
       <md-list>
         <md-list-item ng-repeat="user in vm.leaderboard" class="noright" ng-click="void(0);">
@@ -35,11 +36,13 @@
       </md-list>
     </md-content>
   </div>
-  <div flex flex-xs="100">
+  <div flex="70" flex-xs="100">
     <div style="text-align: center;">Your score is {{vm.score}}</div>
-    <etest-chart type="vm.type" data="vm.solutionData" title="Performance">
-      <div class="graph-loader"></div>
-    </etest-chart>
+    <div layout="column" layout-align="center center" layout-margin layout-padding layout-wrap>
+      <etest-chart type="vm.type" data="vm.solutionData" title="Performance">
+        <div class="graph-loader"></div>
+      </etest-chart>
+    </div>
   </div>
 </div>
 <div layout="row" layout-xs="column" md-whiteframe="7" layout-padding layout-wrap
