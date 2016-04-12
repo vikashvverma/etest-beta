@@ -24,17 +24,21 @@
       </span>
     </span>
     <md-divider></md-divider>
-    <span ng-if="mfr.length" layout="row" layout-xs="column" layout-align="space-around center" class="error" layout-padding>
-      <md-icon md-font-set="fa fa-warning" class="error" style="width:auto;">You have marked {{mfr.length}} {{mfr.length>1?'questions':'question'}} for review!</md-icon>
+    <span ng-if="mfr.length" layout="row" layout-xs="column" layout-align="space-around center" class="error"
+          layout-padding>
+      <md-icon md-font-set="fa fa-warning" class="error" style="width:auto;">You have marked {{mfr.length}}
+        {{mfr.length>1?'questions':'question'}} for review!
+      </md-icon>
     </span>
   </md-dialog-content>
   <md-dialog-actions layout="row">
     <span flex></span>
-    <md-button ng-click="cancel();" md-autofocus>
+    <md-button ng-click="cancel();" md-autofocus class="md-primary">
       Continue with the test!
     </md-button>
-    <md-button ng-click="endTest();" style="margin-right:20px;">
-      Yes, Please end the test!<md-icon md-font-set="fa fa-send" class="md-primary"></md-icon>
+    <md-button ng-click="endTest();" style="margin-right:20px;" class="md-warn">
+      Yes, Please end the test!
+      <md-icon md-font-set="fa fa-send" class="md-primary"></md-icon>
     </md-button>
   </md-dialog-actions>
 </md-dialog>
