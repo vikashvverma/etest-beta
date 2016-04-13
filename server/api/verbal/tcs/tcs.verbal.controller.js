@@ -174,7 +174,7 @@ exports.getRankStatistics = function (req, res) {
       return next - prev;
     });
     if (stats.length && stats[stats.length - 1])
-      stats.push(0);
+      stats.unshift(undefined);
     return res.json([{name: 'Rank', data: stats}]);
   });
 };
@@ -202,6 +202,7 @@ exports.getAllStatistics = function (req, res) {
         if (data[i].statistics[j].userId == req.query.userId)
           temp.push(data[i].statistics[j].score);
       }
+      temp.unshift(undefined);
       out.push({id: data[i].id, name: 'Set ' + data[i].id, data: temp});
     }
     return res.json(out);
@@ -226,7 +227,7 @@ exports.getStatistics = function (req, res) {
       return obj.score;
     });
     //if not used then first element will be hidden
-    result.unshift(0);
+    result.unshift(undefined);
     return res.json([{name: 'Set ' + req.params.id, data: result}]);
   });
 };
@@ -258,7 +259,7 @@ exports.leaderBoard = function (req, res) {
     result = result.sort((prev, cur) => {
       return cur.score - prev.score;
     });
-    res.status(200).json(result.slice(0,20));
+    res.status(200).json(result.slice(0, 20));
   });
 };
 
