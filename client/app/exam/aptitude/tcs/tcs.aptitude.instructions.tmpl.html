@@ -2,15 +2,24 @@
   <form>
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <h2>TCS Verbal Test Instructions</h2>
+        <h2>TCS Analytical Ability Test Instructions</h2>
         <span flex></span>
         <md-button class="md-icon-button" ng-click="cancel()">
           <md-icon md-font-set="fa fa-times fa-2x" aria-label="Close dialog"></md-icon>
         </md-button>
       </div>
     </md-toolbar>
-    <md-dialog-content style="padding:0px;" ng-include=" 'app/exam/verbal/tcs/instructions.html' ">
-
+    <md-dialog-content style="padding:0px;">
+      <md-list flex>
+        <md-subheader class="md-sticky">Scroll to see all instructions!</md-subheader>
+        <md-list-item class="md-3-line" ng-repeat="instruction in instructions track by $index" ng-click="null"
+                      style="font-size: 14px;line-height: 2">
+          <md-icon md-font-set="{{instruction.icon}} fa-2x" style="margin-top: 0px;"></md-icon>
+          <div class="md-list-item-text" layout="column">
+            <p ng-bind-html="instruction.instruction"></p>
+          </div>
+        </md-list-item>
+      </md-list>
     </md-dialog-content>
     <md-dialog-actions class="md-actions" layout="row">
       <span flex></span>

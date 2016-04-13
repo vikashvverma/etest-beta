@@ -122,7 +122,7 @@ angular.module('etestApp')
       //$location.path('/exam/tcs/verbal/1')
       $mdDialog.show({
           controller: vm.controller,
-          templateUrl: 'app/exam/verbal/tcs/instructionsDialog.html',
+          templateUrl: 'app/exam/aptitude/tcs/tcs.aptitude.instructions.tmpl.html',
           parent: angular.element(document.body),
           targetEvent: ev,
         })
@@ -146,19 +146,22 @@ angular.module('etestApp')
       $scope.instructions = [
         {
           icon: 'fa fa-hand-o-right',
-          instruction: 'It is compulsory to use all the specific words mentioned in the Outline in your email. You can add other sentences of your choice, as appropriate'
+          instruction: 'To navigate to any question, click the question number on the side bar at the top of the screen.'
         }, {
           icon: 'fa fa-hand-o-right',
-          instruction: 'The name of the sender and receiver should be as given.'
+          instruction: 'To answer a question, choose any one of the options provided and click <b>Submit Answer</b>.'
         }, {
           icon: 'fa fa-hand-o-right',
-          instruction: 'The email must contain a minimum of fifty words, or it will not be evaluated at all.'
+          instruction: 'To clear a chosen answer, click <b>Reset</b>.'
         }, {
           icon: 'fa fa-hand-o-right',
-          instruction: 'If the outline is not strictly followed (including the speific words used), or correct English (including spelling and grammar) is not used, the grade in this section will be poor.'
+          instruction: 'In case you wish to come back to a specific answer for review, select the answer, click <b>Mark for Review</b> check box and submit the answer. Questions marked for review will be indicated differently on the side bar till the time you come back to the question and thus help in quick navigation.'
+        }, {
+          icon: 'fa fa-hand-o-right',
+          instruction: 'To skip a question you do not wish to attempt at all or attempt later, click <b>Skip this Question</b>. If you select an answer option and skip a question, the answer will not be saved.'
         }
       ];
     };
-    vm.colors = ['blue', 'purple', 'deepBlue','lightPurple', 'pink', 'green', 'deepBlue', 'red'];
+    vm.colors = ['blue', 'purple', 'deepBlue', 'lightPurple', 'pink', 'green', 'deepBlue', 'red'];
 
   });
