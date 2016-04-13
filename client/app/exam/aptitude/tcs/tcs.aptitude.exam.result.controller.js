@@ -5,13 +5,13 @@ angular.module('etestApp')
     var vm = this;
     vm.id = $stateParams.id;
     if (!vm.id || TCSAptitudeService.getTestId() != vm.id) {
-      return $location.path('/exam/tcs/aptitude/'+(vm.id>0?vm.id:""));
+      return $location.path('/exam/tcs/aptitude/' + (vm.id > 0 ? vm.id : ""));
     } else {
       TCSAptitudeService.setTestId();
       TCSAptitudeService.getTestResult(vm.id);
       vm.test = TCSAptitudeService.getQuestions();
       vm._id = '';//test result id used to patch the test result aafiter spell check
-      vm.score=TCSAptitudeService.getScore();
+      vm.score = TCSAptitudeService.getScore();
       vm.correct = vm.test.filter(function (question) {
         return question.ans == question.answer;
       });
@@ -39,23 +39,20 @@ angular.module('etestApp')
        vm.getGraphData();
        }).error(function(err){
        vm.getGraphData();
-       });
+       });*/
 
-       vm.getGraphData=function(){
-
-       TCSAptitudeService.getStatistics(vm.id,Auth.getCurrentUser().user_id)
-       .success(function(data){
-       vm.resultData=data;
-       });
-       TCSAptitudeService.getAllStatistics(Auth.getCurrentUser().user_id)
-       .success(function(data){
-       vm.seriesData=data;
-       });
-       TCSAptitudeService.getRankStatistics(vm.id,Auth.getCurrentUser().user_id)
-       .success(function(data){
-       vm.rankData=data;
-       });
-       };*/
+      TCSAptitudeService.getStatistics(vm.id, Auth.getCurrentUser().user_id)
+        .success(function (data) {
+          vm.resultData = data;
+        });
+      TCSAptitudeService.getAllStatistics(Auth.getCurrentUser().user_id)
+        .success(function (data) {
+          vm.seriesData = data;
+        });
+      TCSAptitudeService.getRankStatistics(vm.id, Auth.getCurrentUser().user_id)
+        .success(function (data) {
+          vm.rankData = data;
+        });
 
       TCSAptitudeService.getLeaderBoard(vm.id).success(function (data) {
         vm.leaderboard = data;

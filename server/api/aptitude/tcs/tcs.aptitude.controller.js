@@ -1,5 +1,4 @@
 'use strict';
-var _ = require('lodash');
 var async = require("async");
 var Test = require('../aptitude.model');
 var TCS = require('./aptitude.model');
@@ -185,39 +184,40 @@ exports.update = function (req, res) {
 };
 //id is objectid
 //TODO: May be removed (not used for aptitude)
-exports.patch = function (req, res) {
-  Test.findOne({id: req.params.testId}, function (err, data) {
-    if (err) {
-      return handleError(res, err);
-    }
-    if (!data) {
-      return res.send(404);
-    }
-    var length = data.statistics.length, index = -1;
-    for (var i = 0; i < length; i++) {
-      if (data.statistics[i]._id == req.params.id) {
-        index = i;
-        break;
-      }
-    }
-    if (i >= 0) {
-      data.statistics.splice(i, 1);
-    }
-    data.statistics.push(req.body);
-    data.save(function (err) {
-      if (err) {
-        return handleError(res, err);
-      }
-      return res.status(200).json(data.statistics[data.statistics.length - 1]);
-    });
-  });
-};
-
+/*
+ exports.patch = function (req, res) {
+ Test.findOne({id: req.params.testId}, function (err, data) {
+ if (err) {
+ return handleError(res, err);
+ }
+ if (!data) {
+ return res.send(404);
+ }
+ var length = data.statistics.length, index = -1;
+ for (var i = 0; i < length; i++) {
+ if (data.statistics[i]._id == req.params.id) {
+ index = i;
+ break;
+ }
+ }
+ if (i >= 0) {
+ data.statistics.splice(i, 1);
+ }
+ data.statistics.push(req.body);
+ data.save(function (err) {
+ if (err) {
+ return handleError(res, err);
+ }
+ return res.status(200).json(data.statistics[data.statistics.length - 1]);
+ });
+ });
+ };
+ */
 exports.getRankStatistics = function (req, res) {
   if (!req.query.userId) {
     return res.send(404);
   }
-  Test.findOne({qset: req.params.id}, function (err, data) {
+  TCS.findOne({id: req.params.id}, function (err, data) {
     if (err) {
       return handleError(res, err);
     }
@@ -225,7 +225,7 @@ exports.getRankStatistics = function (req, res) {
       return res.send(404);
     }
     var out = {};
-    data.map(function (obj) {
+    data.statistics.map(function (obj) {
       if (out[obj.userId]) {
         out[obj.userId].score += obj.score;
         out[obj.userId].count += 1;
@@ -241,33 +241,37 @@ exports.getRankStatistics = function (req, res) {
     var stats = [];
     var temp = {};
     for (var key in out) {
-      temp[out[key].avg] = temp[out[key].avg] ? 1 + out[key].avg : 1;
+      //increase number of average score holder's count by 1 (i.e. the number of person who has same average score)
+      temp[out[key].avg] = temp[out[key].avg] ? 1 + temp[out[key].avg] : 1;
     }
+
     for (var key in temp) {
-      stats.push({y: Number(key), name: temp[key]});
-    }
-    var index = stats.indexOf(out[req.query.userId].avg);
-    if (index >= 0) {
-      stats[index] = {
-        y: out[req.query.userId].avg,
-        marker: {
-          symbol: 'url(http://www.highcharts.com/demo/gfx/sun.png)'
-        }
-      };
+      if (out[req.query.userId].avg == Number(key)) {
+        stats.push({
+          y: Number(key),
+          marker: {
+            symbol: 'url(http://www.highcharts.com/demo/gfx/sun.png)'
+          }
+        });
+      } else {
+        stats.push(Number(key));
+      }
     }
     stats = stats.sort(function (prev, next) {
       if (prev.constructor == Object) {
-        return prev.y <= next;
+        return next - Number(prev.y);
       }
       if (next.constructor == Object) {
-        return prev <= next.y;
+        return Number(next.y) - prev;
       }
-      return prev <= next;
+      return next - prev;
     });
-    stats.unshift(0);
-    return res.status(200).json([{name: 'Rank', data: stats}]);
+    if (stats.length && stats[stats.length - 1])
+      stats.unshift(undefined);
+    return res.json([{name: 'Rank', data: stats}]);
   });
 };
+
 exports.getAllStatistics = function (req, res) {
   if (!req.query.userId) {
     return res.send(404);
@@ -291,32 +295,33 @@ exports.getAllStatistics = function (req, res) {
         if (data[i].statistics[j].userId == req.query.userId)
           temp.push(data[i].statistics[j].score);
       }
+      temp.unshift(undefined);
       out.push({id: data[i].id, name: 'Set ' + data[i].id, data: temp});
     }
     return res.json(out);
   });
 };
+
 exports.getStatistics = function (req, res) {
-  //console.log(1,req.query.userId);
   if (!req.query.userId) {
     return res.send(404);
   }
-  Test.findOne({qset: req.params.id}, function (err, data) {
+  TCS.findOne({id: req.params.id}, function (err, data) {
     if (err) {
       return handleError(res, err);
     }
     if (!data) {
       return res.send(404);
     }
-    var result = data.filter(function (obj) {
+    var result = data.statistics.filter(function (obj) {
       return obj.userId == req.query.userId;
     });
     result = result.map(function (obj) {
       return obj.score;
     });
     //if not used then first element will be hidden
-    result.unshift(0);
-    return res.status(200).json([{name: 'Set ' + req.params.id, data: result}]);
+    result.unshift(undefined);
+    return res.json([{name: 'Set ' + req.params.id, data: result}]);
   });
 };
 
@@ -345,7 +350,7 @@ exports.leaderBoard = function (req, res) {
     result = result.sort((prev, cur) => {
       return cur.score - prev.score;
     });
-    res.status(200).json(result.slice(0,20));
+    res.status(200).json(result.slice(0, 20));
   });
 };
 

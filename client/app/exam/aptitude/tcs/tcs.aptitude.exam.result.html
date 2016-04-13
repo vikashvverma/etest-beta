@@ -5,6 +5,7 @@
     </h3>
   </div>
 </md-toolbar>
+
 <div layout="row" layout-xs="column" md-whiteframe="7" layout-padding layout-wrap
      layout-margin ng-cloak>
   <div flex flex-xs="100">
@@ -46,6 +47,50 @@
     </div>
   </div>
 </div>
+
+
+<md-whiteframe class="md-whiteframe-z verbal-graph" layout="column" layout-margin layout-sm="column"
+               style="overflow-y:hidden;">
+  <span id="test-performance"></span>
+  <span layout="column" layout-align="center center">
+  <etest-chart type="vm.resultType" data="vm.resultData" title="Performance in set {{vm.id}}"></etest-chart>
+     <md-radio-group ng-model="vm.resultType" style="    display: inline-flex;">
+       <md-radio-button value="bar" class="md-accent"> Bar</md-radio-button>
+       <md-radio-button value="column">Column</md-radio-button>
+       <md-radio-button value="line">Line</md-radio-button>
+       <md-radio-button value="spline">Spline</md-radio-button>
+     </md-radio-group>
+    </span>
+  <span layout="column" layout-align="center center">
+    <span ng-show="!vm.seriesData">Loading...</span>
+  <etest-chart type="vm.seriesType" data="vm.seriesData" title="Performance in all set">
+    <div class="graph-loader"></div>
+  </etest-chart>
+    <md-radio-group ng-model="vm.seriesType" style="    display: inline-flex;">
+      <md-radio-button value="bar" class="md-accent"> Bar</md-radio-button>
+      <md-radio-button value="column">Column</md-radio-button>
+      <md-radio-button value="line">Line</md-radio-button>
+      <md-radio-button value="spline">Spline</md-radio-button>
+    </md-radio-group>
+    </span>
+
+  <span layout="column" layout-align="center center">
+    <span ng-show="!vm.rankData">Loading...</span>
+  <etest-chart type="vm.rankType" data="vm.rankData" title="Rank">
+    <div class="graph-loader"></div>
+  </etest-chart>
+    <md-radio-group ng-model="vm.rankType" style="    display: inline-flex;">
+      <md-radio-button value="bar" class="md-accent"> Bar</md-radio-button>
+      <md-radio-button value="column">Column</md-radio-button>
+      <md-radio-button value="line">Line</md-radio-button>
+      <md-radio-button value="spline">Spline</md-radio-button>
+    </md-radio-group>
+    </span>
+
+  <span id="test-rank"></span>
+</md-whiteframe>
+
+
 <div layout="row" layout-xs="column" md-whiteframe="7" layout-padding layout-wrap
      layout-margin ng-cloak>
 
@@ -110,15 +155,15 @@
           <span layout="row" layout-xs="column" layout-align="space-around center">
             <span layout="column" layout-align="center center" class="info">
               <span>Attempted<md-icon md-font-set="fa fa-info-circle" class="info"></md-icon></span>
-              <span>{{question.stats.count}}</span>
+              <span>{{question.stats.count}} user</span>
             </span>
             <span layout="column" layout-align="center center" class="success">
               <span>Solved Correctly<md-icon md-font-set="fa fa-check-circle" class="success"></md-icon></span>
-              <span>{{question.stats.correct}}</span>
+              <span>{{question.stats.correct}} user</span>
             </span>
             <span layout="column" layout-align="center center" class="error">
               <span>Solved Incorrectly<md-icon md-font-set="fa fa-times-circle" class="error"></md-icon></span>
-              <span>{{question.stats.count - question.stats.correct}}</span>
+              <span>{{question.stats.count - question.stats.correct}} user</span>
             </span>
             <span layout="column" layout-align="center center" class="warning">
               <span>Success Rate<md-icon md-font-set="fa fa-warning" class="error"></md-icon></span>

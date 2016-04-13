@@ -55,21 +55,21 @@ angular.module('etestApp')
 
     return {
       getRankStatistics: function (id, userId) {
-        return $http.get('/api/verbal/tcs/stat/rank/' + id, {params: {userId: userId}}).success(function (data) {
+        return $http.get('/api/aptitude/tcs/stat/rank/' + id, {params: {userId: userId}}).success(function (data) {
           $log.info(data);
         }).error(function (err) {
           //$log.error(err);
         });
       },
       getAllStatistics: function (userId) {
-        return $http.get('/api/verbal/tcs/stat/all', {params: {userId: userId}}).success(function (data) {
+        return $http.get('/api/aptitude/tcs/stat/all', {params: {userId: userId}}).success(function (data) {
           //$log.info(data);
         }).error(function (err) {
           //$log.error(err);
         });
       },
       getStatistics: function (id, userId) {
-        return $http.get('/api/verbal/tcs/stat/' + id, {params: {userId: userId}}).success(function (data) {
+        return $http.get('/api/aptitude/tcs/stat/' + id, {params: {userId: userId}}).success(function (data) {
           //$log.info(data);
           $q.resolve(data);
         }).error(function (err) {
