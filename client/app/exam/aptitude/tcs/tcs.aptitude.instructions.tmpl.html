@@ -10,13 +10,16 @@
       </div>
     </md-toolbar>
     <md-dialog-content style="padding:0px;">
-      <md-list flex>
+      <md-list class="md-dense" flex>
         <md-subheader class="md-sticky">Scroll to see all instructions!</md-subheader>
         <md-list-item class="md-3-line" ng-repeat="instruction in instructions track by $index" ng-click="null"
                       style="font-size: 14px;line-height: 2">
           <md-icon md-font-set="{{instruction.icon}} fa-2x" style="margin-top: 0px;"></md-icon>
           <div class="md-list-item-text" layout="column">
-            <p ng-bind-html="instruction.instruction"></p>
+            <h4 ng-bind-html="instruction.instruction"></h4>
+            <p ng-repeat="secondary in instruction.secondary" ng-if="instruction.secondary">
+              <span ng-bind-html="secondary"></span>
+            </p>
           </div>
         </md-list-item>
       </md-list>
