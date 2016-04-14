@@ -354,6 +354,37 @@ exports.leaderBoard = function (req, res) {
   });
 };
 
+exports.rate = function (req, res) {
+  if (!req.body.userId) {
+    return res.send(404);
+  }
+  Test.findOne({id: req.params.id}, function (err, data) {
+    if (err) {
+      return handleError(res, err);
+    }
+    if (!data) {
+      return res.send(404);
+    }
+    let length = data.ratings.length, index = -1;
+    for (var i = 0; i < length; i++) {
+      if (data.ratings[i].userId == req.body.userId) {
+        index = i;
+        break;
+      }
+    }
+    if (i >= 0) {
+      data.ratings.splice(i, 1);
+    }
+    data.ratings.push(req.body);
+    data.save(function (err) {
+      if (err) {
+        return handleError(res, err);
+      }
+      return res.status(200).json(data.ratings[data.ratings.length - 1]);
+    });
+  });
+};
+
 function handleError(res, err) {
   return res.status(500).send(err);
 }
