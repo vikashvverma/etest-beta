@@ -1,0 +1,37 @@
+<md-dialog aria-label="TCS Verbal Instructions">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>TCS Analytical Ability Test Instructions</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-font-set="fa fa-times fa-2x" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content style="padding:0px;">
+      <md-list class="md-dense" flex>
+        <md-subheader class="md-sticky">Scroll to see all instructions!</md-subheader>
+        <md-list-item class="md-3-line" ng-repeat="instruction in instructions track by $index" ng-click="null"
+                      style="font-size: 14px;line-height: 2">
+          <md-icon md-font-set="{{instruction.icon}} fa-2x" style="margin-top: 0px;"></md-icon>
+          <div class="md-list-item-text" layout="column">
+            <h4 ng-bind-html="instruction.instruction"></h4>
+            <p ng-repeat="secondary in instruction.secondary" ng-if="instruction.secondary">
+              <span ng-bind-html="secondary"></span>
+            </p>
+          </div>
+        </md-list-item>
+      </md-list>
+    </md-dialog-content>
+    <md-dialog-actions class="md-actions" layout="row">
+      <span flex></span>
+      <md-button ng-click="cancel()" class="md-warn   shadow">
+        Cancel
+      </md-button>
+      <md-button ng-click="hide()" class="md-primary  shadow">
+        Proceed
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

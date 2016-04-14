@@ -446,7 +446,7 @@ angular.module('etestApp')
         };
         return options;
       },
-      getPie: function (data) {
+      getPie: function (data, title) {
         var options = {
           chart: {
             type: 'pie',
@@ -456,7 +456,7 @@ angular.module('etestApp')
             }
           },
           title: {
-            text: 'Performance (in %)'
+            text: title
           },
           subtitle: {
             text: ''

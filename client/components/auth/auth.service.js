@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('etestApp')
-  .factory('Auth', function Auth($location, $rootScope, $http, User, $cookieStore,store,auth) {
+  .factory('Auth', function Auth($location, $rootScope, $http, User, $cookieStore, store, auth) {
     var currentUser = {};
-    if(store.get('profile')){
-      currentUser=store.get('profile');
+    if (store.get('profile')) {
+      currentUser = store.get('profile');
     }
     return {
 
@@ -15,13 +15,14 @@ angular.module('etestApp')
        * @param  {Function} callback - optional
        * @return {Promise}
        */
-      login: function(user, callback) {
+      login: function (user, callback) {
         auth.signin({}, function (profile, token) {
           // Success callback
-          currentUser=profile;
+          currentUser = profile;
           store.set('profile', profile);
           store.set('token', token);
-          $location.path('/');
+          $rootScope.back();
+          //$location.path('/');
         }, function () {
           // Error callback
         });
@@ -32,18 +33,18 @@ angular.module('etestApp')
        *
        * @param  {Function}
        */
-      logout: function() {
+      logout: function () {
         auth.signout();
         store.remove('profile');
         store.remove('token');
-        $location.path('/login');
+        $location.path('/');
       },
       /**
        * Gets all available info on authenticated user
        *
        * @return {Object} user
        */
-      getCurrentUser: function() {
+      getCurrentUser: function () {
         return currentUser;
       },
 
@@ -52,7 +53,7 @@ angular.module('etestApp')
        *
        * @return {Boolean}
        */
-      isLoggedIn: function() {
+      isLoggedIn: function () {
         return auth.isAuthenticated;
       },
 
@@ -61,14 +62,14 @@ angular.module('etestApp')
        *
        * @return {Boolean}
        */
-      isAdmin: function() {
+      isAdmin: function () {
         return currentUser.role === 'admin';
       },
 
       /**
        * Get auth token
        */
-      getToken: function() {
+      getToken: function () {
         return $cookieStore.get('token');
       }
     };

@@ -4,19 +4,19 @@ angular.module('etestApp')
   .controller('MainCtrl', function ($rootScope,$scope, $location,$mdSidenav,$timeout,$window,$sce,Auth) {
     var vm = this;
 
-    vm.commentbox={
-      url:$location.absUrl(),
-      width:$window.innerWidth-40,
-      height:300,
-      show:$location.path()=='/'?false:true
-    };
-    $rootScope.$on('$stateChangeStart', function (event, next) {
-      if(next.url=='/'){
-        vm.commentbox.show=false;
-      }else{
-        vm.commentbox.show=true;
-      }
-    });
+    //$rootScope.commentbox={
+    //  url:$location.absUrl(),
+    //  width:$window.innerWidth-40,
+    //  height:300,
+    //  show:$location.path()=='/'?false:true
+    //};
+    //$rootScope.$on('$stateChangeStart', function (event, next) {
+    //  if(next.url=='/'){
+    //    $rootScope.commentbox.show=false;
+    //  }else{
+    //    $rootScope.commentbox.show=true;
+    //  }
+    //});
     try{$timeout(function(){FB.XFBML.parse($('#commentbox')[0]);},0);}catch(msg){}
     vm.isLoggedIn = Auth.isLoggedIn;
     vm.isAdmin = Auth.isAdmin;
@@ -52,20 +52,24 @@ angular.module('etestApp')
         title:'TCS Verbal Test',
         content:'Take online TCS verbal ability test and analyze your performance',
         url:"http://etest.programminggeek.in/#!/Verbal",
-        sref:'main.tcsverbal'
+        sref:'main.tcsverbal',
+        isOpen:false
       },{
         image:'http://4.bp.blogspot.com/-ib-jTmEsx4E/Urk9CplFXrI/AAAAAAAAAhQ/aTVfjHAuQa8/s400/tcs1.jpg',
         title:'TCS Verbal Test Chrome App',
         content:'Download our Chrome App from and take TCS Verbal ability test offline.',
-        url:"https://chrome.google.com/webstore/detail/tcs-verbal-test-simulator/mldfkmkaobhdebanldjiiaancjmflpcc"
+        url:"https://chrome.google.com/webstore/detail/tcs-verbal-test-simulator/mldfkmkaobhdebanldjiiaancjmflpcc",
+        isOpen:false
       },{
         image:'http://4.bp.blogspot.com/-ib-jTmEsx4E/Urk9CplFXrI/AAAAAAAAAhQ/aTVfjHAuQa8/s400/tcs1.jpg',
         title:'TCS Analytical Ability Test',
         content:'Take TCS Analytical Ability Test, analyze and improve your performance.',
-        url:"http://etest.programminggeek.in/#!/Aptitude"
+        url:"http://etest.programminggeek.in/#!/Aptitude",
+        isOpen:false
       }]
     }];
 
+    vm.open=function(url){$window.open(url, '_blank').focus();};
     vm.mainMenu = [
       {
         icon: "fa fa-unlock fa-2x",

@@ -1,0 +1,180 @@
+<md-toolbar md-scroll-shrink ng-if="true">
+  <div class="md-toolbar-tools">
+    <h3>
+      <span>TCS Analytical Ability Test {{vm.id}}</span>
+    </h3>
+  </div>
+</md-toolbar>
+<div layout="column" layout-align="center center" layout-margin layout-padding layout-wrap
+     ng-if="!vm.getQuestions().length">
+  <div class="graph-loader"></div>
+  <md-content class="md-warn">loading test question...</md-content>
+</div>
+<div layout="row" layout-xs="column" layout-padding layout-wrap ng-if="vm.getQuestions().length">
+  <div flex="70" flex-xs="100" md-whiteframe="1" layout="column">
+    <div layout-sm="column" src="" class="brand_image1 col-lg-12">
+      <img src="assets/images/favicon.png" height="80px" width="auto" style="float:left;"/>
+      <h2 class="md-warn md-hue pull-left success">e-test</h2>
+      <div class="pull-right">
+        <img src="assets/images/tcs_logo.png" height="80px" width="148px" class="pull-right"
+             style="float:right !important;">
+      </div>
+    </div>
+
+    <div layout="row" layout-xs="column" layout-align="space-around center" style="padding:10px;">
+      <div class="success">
+        <i class="fa fa-clock-o text-primary"></i>
+        <span
+          class="md-primary"> {{vm.test.time.minute < 10 ? '0' + vm.test.time.minute : vm.test.time.minute }} </span>m
+        <span class="md-primary">{{vm.test.time.second < 10 ? '0' + vm.test.time.second : vm.test.time.second}} </span>s
+      </div>
+      <div>
+        <span class="md-warn" style="color:#5cb85c;">
+          <i class="fa fa-square"></i>Answered
+        </span>
+      </div>
+      <div>
+        <span class="text-warn" style="color:#8a6d3b;">
+          <i class="fa fa-square"></i>Answered and Marked for Review
+        </span>
+      </div>
+      <div>
+        <span class="success">
+          <i class="fa fa-star"> Carries higher marks</i>
+        </span>
+      </div>
+    </div>
+    <md-divider></md-divider>
+    <div layout="row" layout-xs="column" layout-align="space-between center" style="font-size:22px;padding:10px;">
+      <div>
+        <md-button class="success" ng-if="!vm.currentQuestion.first" ng-click="vm.previous(vm.currentQuestion.index);"
+                   style="cursor:pointer;">
+          <i class="fa fa-hand-o-left md-primary"></i>
+          Previous
+        </md-button>
+      </div>
+      <div>
+        <label class="md-warn success">
+          Showing Question <span class="text-primary" style="font-size:22px;"><strong>
+          {{vm.currentQuestion.index}} </strong></span>
+          of {{vm.questions.length}}</label>
+        </label>
+      </div>
+      <div>
+        <md-button class="md-accent" ng-if="!vm.currentQuestion.last" ng-click="vm.next(vm.currentQuestion.index);"
+                   style="cursor:pointer;">
+          Next <i class="fa fa-hand-o-right"></i>
+        </md-button>
+      </div>
+    </div>
+
+    <md-subheader class="question md-primary">
+      {{vm.currentQuestion.question}}
+      <span layout layout-align="center" layout-wrap ng-if="vm.currentQuestion.hasQImage">
+        <md-card>
+          <md-card-content layout="row" layout-align="center">
+            <img ng-src="{{vm.currentQuestion.qImageUrl}}" class="md-card-image" alt="Question"
+                 style="max-height:300px;">
+          </md-card-content>
+        </md-card>
+        </span>
+    </md-subheader>
+
+    <div layout="row" layout-xs="column" layout-align="start start" style="font-size:16px;padding:10px;">
+      <md-checkbox class="success" aria-label="Mark for review" ng-disabled="!(vm.answer >= 1 && vm.answer <= 4)"
+                   ng-checked="vm.mfr"
+                   ng-click="vm.markForReview();" class="md-ink-ripple">
+        Mark for Review
+      </md-checkbox>
+      <label>&nbsp;&nbsp;|&nbsp;&nbsp; </label>
+      <label>
+        <a ng-href="javascript:void(0);" ng-click="vm.reset()" class=" md-warn md-ink-ripple"
+           style="text-decoration: none;"> Reset Answer</a>
+      </label>
+    </div>
+
+    <md-list>
+      <md-radio-group ng-model="vm.answer">
+        <md-list-item ng-repeat="option in vm.currentQuestion.options track by $index" ng-click="vm.select($index+1);">
+          <md-radio-button ng-value="$index+1" class="md-primary" ng-selected="true"
+                           style="margin-top:10px;margin-bottom:10px;">{{option}}
+          </md-radio-button>
+        </md-list-item>
+      </md-radio-group>
+    </md-list>
+
+    <div layout="row" layout-xs="column" layout-align="start start" style="font-size:22px;padding:10px;">
+      <md-button class="md-raised md-primary" ng-click="vm.submit();">Submit Answer
+        <md-icon md-font-set="fa fa-send"></md-icon>
+      </md-button>
+      <md-button class="md-raised md-warn" ng-click="vm.next(vm.currentQuestion.index);">Skip This Question</md-button>
+    </div>
+    <div layout="row" layout-xs="column" layout-align="space-between center" style="font-size:22px;padding:10px;">
+      <div>
+        <md-button class="success" ng-if="!vm.currentQuestion.first" ng-click="vm.previous(vm.currentQuestion.index);"
+                   style="cursor:pointer;">
+          <i class="fa fa-hand-o-left md-primary"></i>
+          Previous
+        </md-button>
+      </div>
+      <div>
+        <label class="md-warn success">
+          Showing Question <span class="text-primary" style="font-size:22px;"><strong>
+          {{vm.currentQuestion.index}} </strong></span>
+          of {{vm.questions.length}}</label>
+        </label>
+      </div>
+      <div>
+        <md-button class="md-accent" ng-if="!vm.currentQuestion.last" ng-click="vm.next(vm.currentQuestion.index);"
+                   style="cursor:pointer;">
+          Next <i class="fa fa-hand-o-right"></i>
+        </md-button>
+      </div>
+    </div>
+
+    <md-divider></md-divider>
+    <div layout="row" layout-xs="column" layout-align="space-around center" style="padding:10px;">
+      <div class="success">
+        <i class="fa fa-clock-o text-primary"></i>
+        <span
+          class="md-primary"> {{vm.test.time.minute < 10 ? '0' + vm.test.time.minute : vm.test.time.minute }} </span>m
+        <span class="md-primary">{{vm.test.time.second < 10 ? '0' + vm.test.time.second : vm.test.time.second}} </span>s
+      </div>
+      <div>
+        <span class="md-warn" style="color:#5cb85c;">
+          <i class="fa fa-square"></i>Answered
+        </span>
+      </div>
+      <div>
+        <span class="text-warn" style="color:#8a6d3b;">
+          <i class="fa fa-square"></i>Answered and Marked for Review
+        </span>
+      </div>
+      <div>
+        <span class="success">
+          <i class="fa fa-star"> Carries higher marks</i>
+        </span>
+      </div>
+    </div>
+
+  </div>
+  <div flex="30" flex-xs="100" md-whiteframe="1">
+    <md-button class="md-fab md-hue-2" aria-label="$index"
+               ng-repeat="no in vm.getQuestions() track by $index" ng-class="{
+                                                               'zero':!no.ans,
+                                                               'nonzero':no.ans && !no.mfr,
+                                                               'ansmr':no.ans>0 && no.mfr,
+                                                               'star':no.lod>2,
+                                                               'nostar':no.lod==false
+                                                               }"
+               ng-click="vm.next($index);" style="border-radius:0px; margin: 5px 5px;" ng-class="{'}">{{$index+1}}
+      <i class="fa fa-star" ng-show="no.lod>2"></i>
+    </md-button>
+    <span layout layout-margin layout-padding layout-wrap>
+          <md-button class="md-raised md-hue-2 md-primary" ng-click="vm.showDialog($event)" flex>Submit Test
+          </md-button>
+    </span>
+    <div ng-include=' "app/plugin/calculator.html" ' style="margin-top:10px;">
+    </div>
+  </div>
+</div>

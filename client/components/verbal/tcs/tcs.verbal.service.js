@@ -191,10 +191,18 @@ angular.module('etestApp')
             currentTest.time = {
               minute: 10,
               second: 0,
-              seconds: 60
+              seconds: 600
             };
             currentTest.word = 0;
             currentTest.answer = '';
+            $q.resolve(data);
+          }).error(function (err) {
+            $q.reject(err);
+          });
+      },
+      getLeaderBoard: function (id) {
+        return $http.get('/api/verbal/tcs/leaderboard/' + id)
+          .success(function (data) {
             $q.resolve(data);
           }).error(function (err) {
             $q.reject(err);

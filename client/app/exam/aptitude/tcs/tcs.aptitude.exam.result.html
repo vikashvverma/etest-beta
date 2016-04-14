@@ -1,0 +1,220 @@
+<md-toolbar md-scroll-shrink ng-if="true">
+  <div class="md-toolbar-tools">
+    <h3>
+      <span>TCS Analytical Ability Test {{vm.id}} Result</span>
+    </h3>
+  </div>
+</md-toolbar>
+
+<div layout="row" layout-xs="column" md-whiteframe="7" layout-padding layout-wrap
+     layout-margin ng-cloak>
+  <div flex flex-xs="100">
+    <md-toolbar class="md-warn" md-scroll-shrink ng-if="true" flex>
+      <div class="md-toolbar-tools">
+        <h3>
+          <span><md-icon md-font-set="fa fa-trophy"></md-icon>Leaderboard</span>
+        </h3>
+      </div>
+    </md-toolbar>
+    <div layout="column" layout-align="center center" layout-margin layout-padding layout-wrap
+         ng-if="!vm.leaderboard">
+      <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+      <md-content class="md-warn">loading leaderboard...</md-content>
+    </div>
+    <md-content flex style="height: 300px; width:100%;" ng-if="vm.leaderboard">
+      <md-subheader class="md-primary" ng-if="vm.leaderboard.length">
+        Showing top {{vm.leaderboard.length}} results!
+      </md-subheader>
+      <md-subheader class="md-primary" ng-if="!vm.leaderboard.length">
+        No record to show!
+      </md-subheader>
+      <md-list>
+        <md-list-item ng-repeat="user in vm.leaderboard" class="noright" ng-click="void(0);">
+          <img alt="{{ user.name }}" ng-src="{{ user.img }}" class="md-avatar"/>
+          <p>{{ user.name.split('@')[0] }}</p>
+          <p>{{ user.score }}</p>
+          <md-icon class="md-secondary" aria-label="Profile" md-font-set="fa fa-user fa-2x"></md-icon>
+        </md-list-item>
+      </md-list>
+    </md-content>
+  </div>
+  <div flex="70" flex-xs="100">
+    <md-toolbar md-scroll-shrink ng-if="true">
+      <div class="md-toolbar-tools" style="text-align: center;">
+        Your score is {{vm.score}}
+      </div>
+    </md-toolbar>
+    <div layout="column" layout-align="center center" layout-margin layout-padding layout-wrap>
+      <etest-chart type="vm.type" data="vm.solutionData" title="Performance">
+        <div class="graph-loader"></div>
+      </etest-chart>
+    </div>
+  </div>
+</div>
+
+
+<md-whiteframe class="md-whiteframe-z verbal-graph" layout="column" layout-margin layout-sm="column"
+               style="overflow-y:hidden;">
+  <span id="test-performance"></span>
+  <span layout="column" layout-align="center center">
+  <etest-chart type="vm.resultType" data="vm.resultData" title="Performance in set {{vm.id}}"></etest-chart>
+     <md-radio-group ng-model="vm.resultType" style="    display: inline-flex;">
+       <md-radio-button value="bar" class="md-accent"> Bar</md-radio-button>
+       <md-radio-button value="column">Column</md-radio-button>
+       <md-radio-button value="line">Line</md-radio-button>
+       <md-radio-button value="spline">Spline</md-radio-button>
+     </md-radio-group>
+    </span>
+  <span layout="column" layout-align="center center">
+    <span ng-show="!vm.seriesData">Loading...</span>
+  <etest-chart type="vm.seriesType" data="vm.seriesData" title="Performance in all set">
+    <div class="graph-loader"></div>
+  </etest-chart>
+    <md-radio-group ng-model="vm.seriesType" style="    display: inline-flex;">
+      <md-radio-button value="bar" class="md-accent"> Bar</md-radio-button>
+      <md-radio-button value="column">Column</md-radio-button>
+      <md-radio-button value="line">Line</md-radio-button>
+      <md-radio-button value="spline">Spline</md-radio-button>
+    </md-radio-group>
+    </span>
+
+  <span layout="column" layout-align="center center">
+    <span ng-show="!vm.rankData">Loading...</span>
+  <etest-chart type="vm.rankType" data="vm.rankData" title="Rank">
+    <div class="graph-loader"></div>
+  </etest-chart>
+    <md-radio-group ng-model="vm.rankType" style="    display: inline-flex;">
+      <md-radio-button value="bar" class="md-accent"> Bar</md-radio-button>
+      <md-radio-button value="column">Column</md-radio-button>
+      <md-radio-button value="line">Line</md-radio-button>
+      <md-radio-button value="spline">Spline</md-radio-button>
+    </md-radio-group>
+    </span>
+
+  <span id="test-rank"></span>
+</md-whiteframe>
+
+
+<div layout="row" layout-xs="column" md-whiteframe="7" layout-padding layout-wrap
+     layout-margin ng-cloak>
+
+
+  <div flex flex-xs="100">
+    <md-toolbar md-scroll-shrink ng-if="true">
+      <div class="md-toolbar-tools">
+        <h3>
+          <span>Question wise Report</span>
+        </h3>
+      </div>
+    </md-toolbar>
+    <md-subheader>
+      <md-icon class="md-secondary md-accent" aria-label="selected"
+               md-font-set="fa fa-check fa-2x" style="width:auto;padding:5px;"> Your Answer
+      </md-icon>
+      <md-icon class="md-secondary md-primary" aria-label="selected"
+               md-font-set="fa fa-check fa-2x" style="width:auto;padding:5px;">Correct Answer
+      </md-icon>
+
+    </md-subheader>
+    <div flex layout layout-align="space-around center" ng-repeat="question in vm.test track by $index">
+      <div md-whiteframe="1" layout-padding layout-fill layout-margin>
+        <md-subheader class="question">
+          <span style="color:#5bc0de;">Question {{$index+1}}.</span>
+          {{question.question}}
+          <br/>
+          <span layout layout-align="center" layout-wrap ng-if="question.hasQImage">
+            <md-card>
+              <md-card-content layout="row" layout-align="center">
+                <img ng-src="{{question.qImageUrl}}" class="md-card-image" alt="Question"
+                     style="max-height:300px;">
+              </md-card-content>
+            </md-card>
+          </span>
+        </md-subheader>
+
+        <md-list>
+          <md-radio-group ng-model="question.ans">
+            <md-list-item ng-repeat="option in question.options track by $index" ng-class="{'correct-answer':question.answer==$index+1}">
+              <md-radio-button ng-value="$index+1" class="md-primary" ng-disabled="true"
+                               style="margin-top:10px;margin-bottom:10px;">
+                {{option}}
+              </md-radio-button>
+              <md-icon class="md-secondary md-accent" ng-click="doSecondaryAction($event)" aria-label="selected"
+                       md-font-set="fa fa-check fa-2x" ng-if="question.ans==$index+1"></md-icon>
+              <md-icon class="md-secondary md-primary" ng-click="doSecondaryAction($event)" aria-label="answer"
+                       md-font-set="fa fa-check fa-2x" ng-if="question.answer==$index+1"></md-icon>
+            </md-list-item>
+          </md-radio-group>
+        </md-list>
+        <span ng-if="question.ans==question.answer" class="success" style="font-size: 16px;">
+            <md-icon md-font-set="fa fa-thumbs-o-up" class="success" style="height: auto;"></md-icon> You answered correctly!
+          </span>
+          <span ng-if="!question.ans" class="warning" style="font-size: 16px;">
+            <md-icon md-font-set="fa fa-warning" class="warning" style="height: auto;"></md-icon>You didn't attempt this question!
+          </span>
+          <span ng-if="question.ans && question.ans!=question.answer" class="error" style="font-size: 16px;">
+            <md-icon md-font-set="fa fa-times-circle" class="error" style="height: auto;"></md-icon>Your answer is incorrect!
+          </span>
+        <md-subheader class="md-warn question" style="font-size:20px;">
+          <md-toolbar md-scroll-shrink ng-if="true">
+            <div class="md-toolbar-tools">
+              <h3>
+                <span>Statistics</span>
+              </h3>
+            </div>
+          </md-toolbar>
+          <md-divider></md-divider>
+          <span layout="row" layout-xs="column" layout-align="space-around center">
+            <span layout="column" layout-align="center center" class="info">
+              <span>Attempted<md-icon md-font-set="fa fa-info-circle" class="info"></md-icon></span>
+              <span>{{question.stats.count}} user</span>
+            </span>
+            <span layout="column" layout-align="center center" class="success">
+              <span>Solved Correctly<md-icon md-font-set="fa fa-check-circle" class="success"></md-icon></span>
+              <span>{{question.stats.correct}} user</span>
+            </span>
+            <span layout="column" layout-align="center center" class="error">
+              <span>Solved Incorrectly<md-icon md-font-set="fa fa-times-circle" class="error"></md-icon></span>
+              <span>{{question.stats.count - question.stats.correct}} user</span>
+            </span>
+            <span layout="column" layout-align="center center" class="warning">
+              <span>Success Rate<md-icon md-font-set="fa fa-warning" class="error"></md-icon></span>
+              <span>{{(question.stats.correct*100/(question.stats.count?question.stats.count:1)).toFixed(2)}}% </span>
+            </span>
+          </span>
+          <md-divider></md-divider>
+          <span layout="row" layout-xs="column" layout-align="space-around center">
+            <div layout layout-fill layout-wrap>
+              <div flex="20" flex-xs="30" layout layout-align="center center">
+                <span class="md-body-1">Rate Question:</span>
+              </div>
+              <md-slider flex md-discrete ng-model="question.rating" step="1" min="1" max="5" aria-label="rating">
+              </md-slider>
+            </div>
+          </span>
+          <md-divider></md-divider>
+          <span layout="row" layout-xs="column" layout-align="space-around center" style="font-size: 20px;">
+            <span layout="column" layout-align="center center" class="info">
+              <span>Last Attempted On<md-icon md-font-set="fa fa-calendar" class="info"></md-icon></span>
+              <span>{{question.stats.lastAttempted.attempted_on  | date:'medium'}}</span>
+            </span>
+            <span layout="column" layout-align="center center" class="success">
+              <span>Last Attempted By<md-icon md-font-set="fa fa-user" class="success"></md-icon></span>
+              <span>{{question.stats.lastAttempted.name.split('@')[0]  | date:'medium'}}</span>
+            </span>
+            <span layout="column" layout-align="center center" class="error">
+              <span>Last Solved On<md-icon md-font-set="fa fa-calendar" class="error"></md-icon></span>
+              <span>{{question.stats.lastSolved.attempted_on  | date:'medium'}}</span>
+            </span>
+            <span layout="column" layout-align="center center" class="warning">
+              <span>Last Solved By<md-icon md-font-set="fa fa-user" class="error"></md-icon></span>
+              <span>{{question.stats.lastSolved.name.split('@')[0]  | date:'medium'}} </span>
+            </span>
+          </span>
+        </md-subheader>
+      </div>
+    </div>
+
+  </div>
+
+</div>
