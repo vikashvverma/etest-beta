@@ -7,12 +7,9 @@ var TestSchema = new Schema({
   question: {type: String, required: true},
   hasQImage: {type: Boolean, default: false},
   qImageUrl: {type: String, default: ""},
-  options: {
-    option1: {type: String, required: true},
-    option2: {type: String, required: true},
-    option3: {type: String, required: true},
-    option4: {type: String, required: true}
-  },
+  options: [
+    {type: String, required: true},
+  ],
   lod: {type: Number},
   exam: [{
     name: {type: String},
