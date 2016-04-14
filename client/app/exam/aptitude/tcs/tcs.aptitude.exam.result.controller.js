@@ -61,15 +61,17 @@ angular.module('etestApp')
         vm.leaderboard = data;
       });
       for (var i = 0; i < vm.test.length; i++) {
-        $scope.$watch('vm.test[' + i + ']', function (newQuestion, oldQuestion) {
-          if (newQuestion.rating > 0) {
-            TCSAptitudeService.rate(newQuestion.id, newQuestion.rating).success(function (data) {
-              TCSAptitudeService.notify("Your rating got question " + newQuestion.index + " is " + data.rating);
-            });
-          }
-        }, true);
+        save(i);
       }
+
     }
-
-
+    function save(index) {
+      $scope.$watch('vm.test[' + index + ']', function (newQuestion, oldQuestion) {
+        if (newQuestion.rating > 1) {
+          TCSAptitudeService.rate(newQuestion.id, newQuestion.rating).success(function (data) {
+            TCSAptitudeService.notify("Your rated question" + (index + 1) + ": " + data.rating);
+          });
+        }
+      }, true);
+    }
   });
