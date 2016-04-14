@@ -39,7 +39,11 @@
     </md-content>
   </div>
   <div flex="70" flex-xs="100">
-    <div style="text-align: center;">Your score is {{vm.score}}</div>
+    <md-toolbar md-scroll-shrink ng-if="true">
+      <div class="md-toolbar-tools" style="text-align: center;">
+        Your score is {{vm.score}}
+      </div>
+    </md-toolbar>
     <div layout="column" layout-align="center center" layout-margin layout-padding layout-wrap>
       <etest-chart type="vm.type" data="vm.solutionData" title="Performance">
         <div class="graph-loader"></div>
@@ -118,14 +122,22 @@
           <span style="color:#5bc0de;">Question {{$index+1}}.</span>
           {{question.question}}
           <br/>
-
+          <span layout layout-align="center" layout-wrap ng-if="question.hasQImage">
+            <md-card>
+              <md-card-content layout="row" layout-align="center">
+                <img ng-src="{{question.qImageUrl}}" class="md-card-image" alt="Question"
+                     style="max-height:300px;">
+              </md-card-content>
+            </md-card>
+          </span>
         </md-subheader>
 
         <md-list>
           <md-radio-group ng-model="question.ans">
-            <md-list-item ng-repeat="option in question.options track by $index" ng-click="void(0);">
+            <md-list-item ng-repeat="option in question.options track by $index" ng-class="{'correct-answer':question.answer==$index+1}">
               <md-radio-button ng-value="$index+1" class="md-primary" ng-disabled="true"
-                               style="margin-top:10px;margin-bottom:10px;">{{option}}
+                               style="margin-top:10px;margin-bottom:10px;">
+                {{option}}
               </md-radio-button>
               <md-icon class="md-secondary md-accent" ng-click="doSecondaryAction($event)" aria-label="selected"
                        md-font-set="fa fa-check fa-2x" ng-if="question.ans==$index+1"></md-icon>
