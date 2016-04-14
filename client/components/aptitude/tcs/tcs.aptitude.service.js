@@ -143,6 +143,24 @@ angular.module('etestApp')
           $q.reject(err);
         });
       },
+      rate: function (id, rating) {
+        var profile = store.get('profile');
+        var ratingData = {
+          userId: profile.user_id,
+          rating: rating
+        };
+        return $http({
+          method: 'PUT',
+          url: '/api/aptitude/tcs/rate/' + id,
+          data: ratingData
+        }).success(function (data) {
+          //$log.info(data);
+          $q.resolve(data);
+        }).error(function (err) {
+          //$log.error(err);
+          $q.reject(err);
+        });
+      },
       resetTest: function (test) {
         questions = test;
       },

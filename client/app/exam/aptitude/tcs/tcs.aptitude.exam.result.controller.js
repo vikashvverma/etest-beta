@@ -60,6 +60,15 @@ angular.module('etestApp')
       TCSAptitudeService.getLeaderBoard(vm.id).success(function (data) {
         vm.leaderboard = data;
       });
+      for (var i = 0; i < vm.test.length; i++) {
+        $scope.$watch('vm.test[' + i + ']', function (newQuestion, oldQuestion) {
+          if (newQuestion.rating > 0) {
+            TCSAptitudeService.rate(newQuestion.id, newQuestion.rating).success(function (data) {
+              TCSAptitudeService.notify("Your rating got question " + newQuestion.index + " is " + data.rating);
+            });
+          }
+        }, true);
+      }
     }
 
 
