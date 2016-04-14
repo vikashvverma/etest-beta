@@ -4,6 +4,9 @@ angular.module('etestApp')
   .controller('TCSAptitudeExamResultController', function ($scope, $stateParams, $timeout, $location, $log, $interval, $sce, $mdDialog, User, Auth, TCSAptitudeService) {
     var vm = this;
     vm.id = $stateParams.id;
+    vm.seriesType = 'spline';
+    vm.resultType = 'column';
+    vm.rankType = 'spline';
     if (!vm.id || TCSAptitudeService.getTestId() != vm.id) {
       return $location.path('/exam/tcs/aptitude/' + (vm.id > 0 ? vm.id : ""));
     } else {
