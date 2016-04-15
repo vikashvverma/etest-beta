@@ -52,10 +52,10 @@ angular.module('etestApp')
           instruction: 'To answer a question, choose any one of the options provided and click <b class="success">Submit Answer</b>.'
         }, {
           icon: 'fa fa-hand-o-right',
-          instruction: 'To clear a chosen answer, click <b class="warning">Reset</b>.'
+          instruction: 'To clear a chosen answer, click <b class="md-warn">Reset</b>.'
         }, {
           icon: 'fa fa-hand-o-right',
-          instruction: 'In case you wish to come back to a specific answer for review, select the answer, click <b class="warning">Mark for Review</b> check box and submit the answer. Questions marked for review will be indicated differently on the side bar till the time you come back to the question and thus help in quick navigation.'
+          instruction: 'In case you wish to come back to a specific answer for review, select the answer, click <b class="">Mark for Review</b> check box and submit the answer. Questions marked for review will be indicated differently on the side bar till the time you come back to the question and thus help in quick navigation.'
         }, {
           icon: 'fa fa-hand-o-right',
           instruction: 'To skip a question you do not wish to attempt at all or attempt later, click <b class="info">Skip this Question</b>. If you select an answer option and skip a question, the answer will not be saved.'

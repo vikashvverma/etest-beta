@@ -43,3 +43,6 @@ label {
 .rep {
   display: none;
 }
+md-radio-group md-radio-button:not(:first-child) {
+  margin-top: auto;
+}
