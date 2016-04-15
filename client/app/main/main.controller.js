@@ -78,7 +78,7 @@ angular.module('etestApp')
         url: 'main.verbal'
       },
       {
-        icon: "fa fa-lock fa-2x",
+        icon: "fa fa-unlock fa-2x",
         title: "Aptitude",
         tooltip: "Aptitude Test",
         url: 'main.aptitude'

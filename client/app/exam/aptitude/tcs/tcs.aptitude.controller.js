@@ -49,35 +49,35 @@ angular.module('etestApp')
           instruction: 'To navigate to any question, click the question number on the side bar at the top of the screen.'
         }, {
           icon: 'fa fa-hand-o-right',
-          instruction: 'To answer a question, choose any one of the options provided and click <b>Submit Answer</b>.'
+          instruction: 'To answer a question, choose any one of the options provided and click <b class="success">Submit Answer</b>.'
         }, {
           icon: 'fa fa-hand-o-right',
-          instruction: 'To clear a chosen answer, click <b>Reset</b>.'
+          instruction: 'To clear a chosen answer, click <b class="warning">Reset</b>.'
         }, {
           icon: 'fa fa-hand-o-right',
-          instruction: 'In case you wish to come back to a specific answer for review, select the answer, click <b>Mark for Review</b> check box and submit the answer. Questions marked for review will be indicated differently on the side bar till the time you come back to the question and thus help in quick navigation.'
+          instruction: 'In case you wish to come back to a specific answer for review, select the answer, click <b class="warning">Mark for Review</b> check box and submit the answer. Questions marked for review will be indicated differently on the side bar till the time you come back to the question and thus help in quick navigation.'
         }, {
           icon: 'fa fa-hand-o-right',
-          instruction: 'To skip a question you do not wish to attempt at all or attempt later, click <b>Skip this Question</b>. If you select an answer option and skip a question, the answer will not be saved.'
+          instruction: 'To skip a question you do not wish to attempt at all or attempt later, click <b class="info">Skip this Question</b>. If you select an answer option and skip a question, the answer will not be saved.'
         }, {
           icon: 'fa fa-hand-o-right',
           instruction: 'An online scientific calculator has been provided on the test screen for your use. Note that use of any other calculator is not permitted.'
         }, {
           icon: 'fa fa-hand-o-right',
-          instruction: 'To exit the test, click <b>Exit</b>. You will be automatically logged out of the test after 80 minutes. All answers submitted by you (including those that are Marked for Review) will be considered as the final answers.'
+          instruction: 'To exit the test, click <b class="success">Submit</b>. You will be automatically logged out of the test after 80 minutes. All answers submitted by you (including those that are Marked for Review) will be considered as the final answers.'
         }, {
           icon: 'fa fa-hand-o-right',
-          instruction: 'All questions, except the ones that are marked as <i class="fa fa-star text-primary"></i>,carry equal marks'
+          instruction: 'All questions, except the ones that are marked as <i class="fa fa-star text-primary success "></i>,carry equal marks'
         }, {
           icon: 'fa fa-hand-o-right',
-          instruction: '<i class="fa fa-star"></i> questions carry higher marks than the rest. All <i class="fa fa-star text-primary"></i>questions carry equal marks.'
+          instruction: '<i class="fa fa-star success"></i> questions carry higher marks than the rest. All <i class="fa fa-star text-primary success"></i>questions carry equal marks.'
         }, {
           icon: 'fa fa-hand-o-right',
           instruction: ' <i class="fa fa-hand-o-right"></i> The legend on the screen indicates the following:',
           secondary:[
-            '<span class="text-success"><i class="fa fa-square"></i>Answered </span>&nbsp;&nbsp;',
-            '<span class="text-warning"><i class="fa fa-square"></i>Answered and Marked for Review </span>&nbsp;&nbsp;',
-            '<span class="text-primary"><i class="fa fa-star"> Carries higher marks</i></span>'
+            '<span class="text-success answered"><i class="fa fa-square"></i>Answered </span>&nbsp;&nbsp;',
+            '<span class="text-warning mfr"><i class="fa fa-square"></i>Answered and Marked for Review </span>&nbsp;&nbsp;',
+            '<span class="success"><i class="fa fa-star"> Carries higher marks</i></span>'
           ]
         }
       ];
