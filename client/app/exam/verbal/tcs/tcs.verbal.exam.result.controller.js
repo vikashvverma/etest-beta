@@ -72,7 +72,7 @@ angular.module('etestApp')
       vm.viewProfile = function (ev, id, name) {
         // Appending dialog to document.body to cover sidenav in docs app
         var confirm = $mdDialog.confirm()
-          .title(name)
+          .title(name.split('@')[0])
           .textContent('Would you like to view ' + name.split('@')[0] + '\'s profile?')
           .ariaLabel('view profile')
           .targetEvent(ev)
