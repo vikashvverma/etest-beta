@@ -24,6 +24,14 @@ angular.module('etestApp')
     vm.getCurrentUser = Auth.getCurrentUser;
     vm.years=[];
     vm.branches=[];
+    vm.defaultAvatar='assets/images/avatar_2x.png';
+
+    $rootScope.$on('$locationChangeSuccess', function () {
+      vm.isLoggedIn = Auth.isLoggedIn;
+      vm.isAdmin = Auth.isAdmin;
+      vm.user = Auth.getCurrentUser();
+      vm.getCurrentUser = Auth.getCurrentUser;
+    });
 
     vm.logout = function () {
       Auth.logout();
