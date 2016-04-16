@@ -13,7 +13,6 @@ angular.module('etestApp')
       TCSAptitudeService.setTestId();
       TCSAptitudeService.getTestResult(vm.id);
       vm.test = TCSAptitudeService.getQuestions();
-      vm._id = '';//test result id used to patch the test result aafiter spell check
       vm.score = TCSAptitudeService.getScore();
       vm.correct = vm.test.filter(function (question) {
         return question.ans == question.answer;
@@ -33,6 +32,21 @@ angular.module('etestApp')
         name: 'Not Attempted',
         y: vm.notattempted
       }];
+
+      vm.viewProfile = function (ev, id, name) {
+        // Appending dialog to document.body to cover sidenav in docs app
+        var confirm = $mdDialog.confirm()
+          .title(name)
+          .textContent('Would you like to view ' + name.split('@')[0] + '\'s profile?')
+          .ariaLabel('view profile')
+          .targetEvent(ev)
+          .ok('Yes, please!')
+          .cancel('Don\'t show!');
+        $mdDialog.show(confirm).then(function () {
+          $location.path('profile/' + id);
+        }, function () {
+        });
+      };
 
 
       /*TCSAptitudeService.updateTest(vm.id,vm.result)

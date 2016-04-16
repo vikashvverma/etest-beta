@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('etestApp')
-  .factory('Auth', function Auth($location, $rootScope, $http, User, $cookieStore, store, auth) {
+  .factory('Auth', function Auth($location, $rootScope, $http, $q, User, $cookieStore, store, auth) {
     var currentUser = {};
     if (store.get('profile')) {
       currentUser = store.get('profile');
@@ -71,6 +71,23 @@ angular.module('etestApp')
        */
       getToken: function () {
         return $cookieStore.get('token');
+      },
+      /**
+       * Get user
+       */
+      getUser: function (id) {
+        return $http.get('https://programminggeek.auth0.com/api/v2/users/' + id + '?fields=nickname,picture,name&include_fields=true', {
+            headers: {
+              'Authorization': 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJGRnlDajFpbHhyU0ROS2hJU1B0UDUxaU1XVDJ5REluNiIsInNjb3BlcyI6eyJ1c2VycyI6eyJhY3Rpb25zIjpbInJlYWQiXX19LCJpYXQiOjE0NjA4MjY1NTQsImp0aSI6ImVmZjYyZjExYjdlZjQ3YjYyMTk3ZWUyOTJiMzQyMDY0In0.ljmBWkOekRlYYFMhV4KPBR9zlOhcKmsNh7yulkmFApg'
+            }
+          })
+          .success(function (data) {
+            console.log(data);
+            $q.resolve(data);
+          }).error(function (err) {
+            console.log(err);
+            $q.reject(err);
+          });
       }
     };
   });

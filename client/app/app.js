@@ -172,6 +172,8 @@ app.config(function ($mdThemingProvider) {
     '50': 'ffffff'
   });
   $mdThemingProvider.definePalette('customBlue', customBlueMap);
+
+  //default theme
   $mdThemingProvider.theme('default')
     .primaryPalette('customBlue', {
       'default': '500',
@@ -180,4 +182,9 @@ app.config(function ($mdThemingProvider) {
     .accentPalette('pink');
   $mdThemingProvider.theme('input', 'default')
     .primaryPalette('grey')
+
+  //forest theme
+  $mdThemingProvider.theme('forest')
+    .primaryPalette('brown')
+    .accentPalette('green');
 });

@@ -1,0 +1,14 @@
+<md-card md-colors="::{background: '{{theme}}-primary'}" style="box-shadow: none;">
+  <md-card-title style="padding: 0;">
+    <md-card-title-media>
+      <div class="md-media-sm card-media" layout layout-align="center center"
+           md-colors="::{background: '{{theme}}-accent'}" style="border-radius: 50%;outline:none;">
+        <img alt="{{ name }}" ng-src="{{ picture }}" class="md-avatar" style="border-radius: 50%;outline:none;cursor: pointer;" ng-click="viewProfile(userId);"/>
+      </div>
+    </md-card-title-media>
+    <md-card-title-text style="padding-left: 20px;">
+      <span class="md-headline">{{name.split('@')[0]}}</span>
+      <span class="md-subhead description" ng-if="nickname" style="color:#FFF;outline:none;cursor: pointer;" ng-click="viewProfile(userId);">@{{nickname}}</span>
+    </md-card-title-text>
+  </md-card-title>
+</md-card>

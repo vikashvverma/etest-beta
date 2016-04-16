@@ -69,6 +69,20 @@ angular.module('etestApp')
         vm.leaderboard = data;
       });
 
+      vm.viewProfile = function (ev, id, name) {
+        // Appending dialog to document.body to cover sidenav in docs app
+        var confirm = $mdDialog.confirm()
+          .title(name)
+          .textContent('Would you like to view ' + name.split('@')[0] + '\'s profile?')
+          .ariaLabel('view profile')
+          .targetEvent(ev)
+          .ok('Yes, please!')
+          .cancel('Don\'t show!');
+        $mdDialog.show(confirm).then(function () {
+          $location.path('profile/' + id);
+        }, function () {
+        });
+      };
         //vm.resultData=[54, 12, 14, 15, 54, 84, 54, 12, 52, 65, 0];
       $scope.$on('$destroy', function () { $timeout.cancel(vm.timeout); });
     }

@@ -18,5 +18,11 @@ angular.module('etestApp')
         templateUrl: 'app/account/settings/settings.html',
         controller: 'SettingsCtrl',
         authenticate: true
+      })
+      .state('main.profile', {
+        url: 'profile/:id',
+        templateUrl: 'app/account/profile/profile.html',
+        controller: 'ProfileController as vm',
+        authenticate: false
       });
   });
