@@ -11,7 +11,6 @@ exports.index = function (req, res) {
     tests = tests.sort(function (a, b) {
       return a.id > b.id ? 1 : -1;
     });
-    console.log(JSON.stringify(tests, null, 4));
     var data = [];
     var set = {tests: []};
     for (var i = 0; i < tests.length; i++) {
@@ -22,17 +21,20 @@ exports.index = function (req, res) {
       obj.question = tests[i].question;
       obj.count = tests[i].statistics.length;
       if (tests[i].statistics.length) {
-        var user = tests[i].statistics.reduce(function (prev, cur) {
-          return prev.score > cur.score ? prev : cur;
-        });
-        obj.highest_score = user.score;
-        obj.highest_scorer = user.name;
-        user = tests[i].statistics.reduce(function (prev, cur) {
-          return prev.date > cur.date ? prev : cur;
-        });
-        obj.last_attempt_by = user.name;
-        obj.last_attempt_on = user.attempted_on;
-        console.log(JSON.stringify(user, null, 4));
+        var user = tests[i].statistics;
+        var index= 0,score=user[0].score;
+
+        for(let j=1;j<user.length;j++){
+          if(user[j].score>=score){
+            score=user[j].score;
+            index=j;
+          }
+        }
+        obj.highest_score = user[index].score;
+        obj.highest_scorer = user[index].name;
+        user = tests[i].statistics;
+        obj.last_attempt_by = user[user.length-1].name;
+        obj.last_attempt_on = user[user.length-1].attempted_on;
       }
 
       obj.date = tests[i].created_on;
@@ -55,7 +57,6 @@ exports.fetch = function (req, res) {
     if (!data) {
       return res.send(404);
     }
-    console.log(data);
     return res.json(data);
   });
 };
@@ -163,7 +164,6 @@ exports.getRankStatistics = function (req, res) {
         stats.push(Number(key));
       }
     }
-    console.log(JSON.stringify(stats, 4, null));
     stats = stats.sort(function (prev, next) {
       if (prev.constructor == Object) {
         return next - Number(prev.y);
@@ -184,7 +184,6 @@ exports.getAllStatistics = function (req, res) {
     return res.send(404);
   }
   Test.find({}, function (err, data) {
-    console.log('aaaa', err, data);
     if (err) {
       return handleError(res, err);
     }
@@ -237,7 +236,6 @@ exports.leaderBoard = function (req, res) {
     if (err) {
       return handleError(res, err);
     }
-    console.log(data);
     if (!data) {
       return res.send(404);
     }
