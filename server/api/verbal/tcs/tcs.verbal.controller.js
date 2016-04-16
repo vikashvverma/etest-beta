@@ -259,7 +259,7 @@ exports.leaderBoard = function (req, res) {
     result = result.sort((prev, cur) => {
       return cur.score - prev.score;
     });
-    res.status(200).json(result.slice(0, 20));
+    res.status(200).json(result);
   });
 };
 
