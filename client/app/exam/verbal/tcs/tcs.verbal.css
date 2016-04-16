@@ -410,6 +410,6 @@ md-dialog-content .list-item4:hover,span .list-item4:hover{
 
 .answer-textarea{
   /*max-height:300px !important;*/
-  /*overflow-y: scroll !important;*/
+  overflow-y: scroll !important;
   /*resize:vertical !important;*/
 }
