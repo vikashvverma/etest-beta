@@ -1,0 +1,27 @@
+<span ng-if="!vm.user.profile" ng-include=" 'components/loader/loader.html' " class="center-loader" layout
+      layout-align="center center"></span>
+<md-whiteframe class="md-whiteframe-5dp hashtag" layout layout-align="center center">
+  <md-content class="user-profile" style="width:100%;background: inherit;" ng-if="vm.user.profile">
+    <user-card name="vm.user.profile.name" picture="vm.user.profile.picture"
+               nickname="vm.user.profile.nickname"
+               user-id="vm.user.user_id"></user-card>
+    <span layout="row" layout-xs="column" layout-align="space-between start">
+            <span layout="column" layout-align="center center">
+              <span>Verbal <md-icon md-font-set="fa fa-calendar"></md-icon></span>
+              <span>{{question.stats.lastAttempted.attempted_on  | date:'medium'}}</span>
+            </span>
+            <span layout="column" layout-align="center center">
+              <span>Aptitude <md-icon md-font-set="fa fa-user"></md-icon></span>
+              <span>{{question.stats.lastAttempted.name.split('@')[0]  | date:'medium'}}</span>
+            </span>
+            <span layout="column" layout-align="center center">
+              <span>Verbal <md-icon md-font-set="fa fa-calendar"></md-icon></span>
+              <span>{{question.stats.lastAttempted.attempted_on  | date:'medium'}}</span>
+            </span>
+            <span layout="column" layout-align="center center">
+              <span>Aptitude <md-icon md-font-set="fa fa-user"></md-icon></span>
+              <span>{{question.stats.lastAttempted.name.split('@')[0]  | date:'medium'}}</span>
+            </span>
+    </span>
+  </md-content>
+</md-whiteframe>
