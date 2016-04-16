@@ -16,7 +16,7 @@
   <span  ng-include=" 'app/exam/verbal/tcs/instructions.html' ">
 
   </span>
-  <md-input-container flex >
+  <md-input-container class="md-block" flex >
     <label>Write your answer here...</label>
     <textarea ng-model="vm.test.answer" ng-change="vm.setCount();" rows="5" class="answer-textarea" ng-disabled="!vm.test && !vm.test.question" spellcheck='false' ></textarea>
   </md-input-container>
