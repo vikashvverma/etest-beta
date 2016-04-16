@@ -83,7 +83,7 @@
           Your best score (at least 50) is considered for leaderboard!
         </md-subheader>
         <md-list>
-          <md-list-item ng-repeat="user in vm.leaderboard" class="noright" >
+          <md-list-item ng-repeat="user in vm.leaderboard" class="noright" ng-click="void(0);" >
             <img alt="{{ user.name }}" ng-src="{{ user.img }}" src="assets/images/avatar_2x.png" class="md-avatar"/>
             <p>{{ user.name.split('@')[0] }}</p>
             <p class="md-secondary" style="margin-right: 50px;">{{ user.score }}</p>
