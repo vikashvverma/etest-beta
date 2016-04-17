@@ -6,22 +6,101 @@
                nickname="vm.user.profile.nickname"
                user-id="vm.user.user_id"></user-card>
     <span layout="row" layout-xs="column" layout-align="space-between start">
-            <span layout="column" layout-align="center center">
-              <span>Verbal <md-icon md-font-set="fa fa-calendar"></md-icon></span>
-              <span>{{question.stats.lastAttempted.attempted_on  | date:'medium'}}</span>
+            <span layout="column" layout-align="center center" ng-if="vm.user.aptitude">
+              <span>Aptitude <md-icon md-font-set="fa fa-pencil"></md-icon></span>
+              <span>{{vm.user.aptitude.testsTaken}} {{vm.user.aptitude.testsTaken>1?'tests':'test'}} ({{vm.user.aptitude.testsCount}} {{vm.user.aptitude.testsCount>1?'times':'time'}})</span>
+            </span>
+            <span layout="column" layout-align="center center" vm.user.verbal>
+              <span>Verbal <md-icon md-font-set="fa fa-pencil"></md-icon></span>
+              <span>{{vm.user.verbal.testsTaken}} {{vm.user.verbal.testsTaken>1?'tests':'test'}} ({{vm.user.verbal.testsCount}} {{vm.user.verbal.testsCount>1?'times':'time'}})</span>
             </span>
             <span layout="column" layout-align="center center">
-              <span>Aptitude <md-icon md-font-set="fa fa-user"></md-icon></span>
-              <span>{{question.stats.lastAttempted.name.split('@')[0]  | date:'medium'}}</span>
+              <span>Last Seen <md-icon md-font-set="fa fa-calendar"></md-icon></span>
+              <span>{{vm.user.profile.last_login  | date:'medium'}}</span>
             </span>
-            <span layout="column" layout-align="center center">
-              <span>Verbal <md-icon md-font-set="fa fa-calendar"></md-icon></span>
-              <span>{{question.stats.lastAttempted.attempted_on  | date:'medium'}}</span>
-            </span>
-            <span layout="column" layout-align="center center">
-              <span>Aptitude <md-icon md-font-set="fa fa-user"></md-icon></span>
-              <span>{{question.stats.lastAttempted.name.split('@')[0]  | date:'medium'}}</span>
-            </span>
+      <!--<span layout="column" layout-align="center center">-->
+      <!--<span>Aptitude <md-icon md-font-set="fa fa-user"></md-icon></span>-->
+      <!--<span>{{question.stats.lastAttempted.name.split('@')[0]  | date:'medium'}}</span>-->
+      <!--</span>-->
+             <div class="lock-size" layout="row" layout-align="center center">
+               <div class="lock-size" layout="row" layout-align="center center">
+                 <md-fab-speed-dial md-open="demo.isOpen" md-direction="right"
+                                    ng-class="demo.selectedMode">
+                   <md-fab-trigger style="display: none;">
+                     <md-button aria-label="menu" class="md-fab md-warn">
+                       <md-icon md-font-set="fa fa-google-plus fa-2x "></md-icon>
+                     </md-button>
+                   </md-fab-trigger>
+                   <md-fab-actions>
+                     <md-button aria-label="Twitter" class="md-fab md-raised md-mini" ng-click="vm.visit('twitter');">
+                       <md-icon md-font-set="fa fa-twitter fa-2x " aria-label="Twitter" style="color:#55acee;"></md-icon>
+                     </md-button>
+                     <md-button aria-label="Facebook" class="md-fab md-raised md-mini" ng-click="vm.visit('facebook');" >
+                         <md-icon md-font-set="fa fa-facebook fa-2x " aria-label="Facebook" style="color:#3B5998;"></md-icon>
+                     </md-button>
+                     <md-button aria-label="Google Hangout" class="md-fab md-raised md-mini" ng-click="vm.visit('google');">
+                       <md-icon md-font-set="fa fa-google-plus fa-2x " aria-label="Google Hangout" style="color:#DC4A38;"></md-icon>
+                     </md-button>
+                     <md-button aria-label="Google Hangout" class="md-fab md-raised md-mini" ng-click="vm.sharer('share');">
+                       <md-icon md-font-set="fa fa-share-alt fa-3x " aria-label="Share Profile" style="color:#3B5998;"></md-icon>
+                     </md-button>
+                   </md-fab-actions>
+                 </md-fab-speed-dial>
+               </div>
+               <!--<md-fab-speed-dial md-open="isOpen" md-direction="left" class="md-scale md-fab-bottom-right"-->
+               <!--ng-mouseenter="isOpen=true" ng-mouseleave="isOpen=false">-->
+               <!--<md-fab-trigger style="display:none;">-->
+               <!--<md-button aria-label="menu" class="md-fab md-primary">-->
+               <!--<md-icon md-font-set="fa fa-bars fa-2x " style="vertical-align: text-bottom;"></md-icon>-->
+               <!--</md-button>-->
+               <!--</md-fab-trigger>-->
+               <!--<md-fab-actions>-->
+               <!--<md-button aria-label="facebook" class="md-fab md-raised md-mini  facebook">-->
+               <!--<a href="https://www.facebook.com/vikashvverma" target="_blank">-->
+               <!--<md-icon md-font-set="fa fa-facebook fa-2x  " class="facebook"></md-icon>-->
+               <!--</a>-->
+               <!--</md-button>-->
+               <!--<md-button aria-label="Google+" class="md-fab md-raised md-mini google">-->
+               <!--<a href="https://www.google.com/+VikashVerma" target="_blank">-->
+               <!--<md-icon md-font-set="fa fa-google-plus fa-2x " class="google"></md-icon>-->
+               <!--</a>-->
+               <!--</md-button>-->
+               <!--<md-button aria-label="GitHub" class="md-fab md-raised md-mini github">-->
+               <!--<a href="https://www.github.com/vikashvverma" target="_blank">-->
+               <!--<md-icon md-font-set="fa fa-github fa-2x " class="github"></md-icon>-->
+               <!--</a>-->
+               <!--</md-button>-->
+               <!--</md-fab-actions>-->
+               <!--</md-fab-speed-dial>-->
+             </div>
     </span>
   </md-content>
 </md-whiteframe>
+<md-content>
+    <span layout="column" layout-align="center center">
+      <span ng-show="!vm.user.aptitude && !vm.user.aptitude.seriesData">Loading...</span>
+      <etest-chart type="vm.user.aptitude.seriesType" data="vm.user.aptitude.seriesData"
+                   title="Performance in Aptitude Tests(TCS)">
+        <div class="graph-loader"></div>
+      </etest-chart>
+      <md-radio-group ng-model="vm.user.aptitude.seriesType" style="    display: inline-flex;">
+        <md-radio-button value="bar" class="md-accent"> Bar</md-radio-button>
+        <md-radio-button value="column">Column</md-radio-button>
+        <md-radio-button value="line">Line</md-radio-button>
+        <md-radio-button value="spline">Spline</md-radio-button>
+      </md-radio-group>
+    </span>
+  <span layout="column" layout-align="center center">
+    <span ng-show="!vm.user.verbal && !vm.user.verbal.seriesData">Loading...</span>
+  <etest-chart type="vm.user.verbal.seriesType" data="vm.user.verbal.seriesData"
+               title="Performance in Verbal Tests(TCS)">
+    <div class="graph-loader"></div>
+  </etest-chart>
+    <md-radio-group ng-model="vm.user.verbal.seriesType" style="    display: inline-flex;">
+      <md-radio-button value="bar" class="md-accent"> Bar</md-radio-button>
+      <md-radio-button value="column">Column</md-radio-button>
+      <md-radio-button value="line">Line</md-radio-button>
+      <md-radio-button value="spline">Spline</md-radio-button>
+    </md-radio-group>
+  </span>
+</md-content>
