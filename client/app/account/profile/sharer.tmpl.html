@@ -1,0 +1,41 @@
+<md-dialog aria-label="Profile Sharer" ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Share this with your friends!</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-font-set="fa fa-times" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="lock-size md-dialog-content" layout="row" layout-align="center center">
+        <md-fab-speed-dial md-open="demo.isOpen" md-direction="right"
+                           ng-class="demo.selectedMode">
+          <md-fab-trigger style="display: none;">
+            <md-button aria-label="menu" class="md-fab md-warn">
+              <md-icon md-font-set="fa fa-google-plus fa-2x "></md-icon>
+            </md-button>
+          </md-fab-trigger>
+          <md-fab-actions>
+            <md-button aria-label="Twitter" class="md-fab md-raised md-mini" ng-click="share('twitter');"
+                       style="margin: 10px 50px;">
+              <md-icon md-font-set="fa fa-twitter fa-2x " aria-label="Twitter" style="color:#55acee;"
+                       style="margin: 0 50px;"></md-icon>
+            </md-button>
+            <md-button aria-label="Facebook" class="md-fab md-raised md-mini" ng-click="share('facebook');"
+                       style="margin: 10px 50px;">
+              <md-icon md-font-set="fa fa-facebook fa-2x " aria-label="Facebook" style="color:#3B5998;"></md-icon>
+            </md-button>
+            <md-button aria-label="Google Hangout" class="md-fab md-raised md-mini" ng-click="share('google');"
+                       style="margin: 10px 50px;">
+              <md-icon md-font-set="fa fa-google-plus fa-2x " aria-label="Google Hangout"
+                       style="color:#DC4A38;"></md-icon>
+            </md-button>
+          </md-fab-actions>
+        </md-fab-speed-dial>
+      </div>
+    </md-dialog-content>
+  </form>
+</md-dialog>
