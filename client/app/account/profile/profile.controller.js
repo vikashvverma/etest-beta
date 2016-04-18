@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('etestApp')
-  .controller('ProfileController', ['$scope', '$stateParams', '$location', '$mdDialog', 'Auth', 'ngNotify', 'TCSAptitudeService', 'TCSVerbalService',
-    function ($scope, $stateParams, $location, $mdDialog, Auth, ngNotify, TCSAptitudeService, TCSVerbalService) {
+  .controller('ProfileController', ['$scope', '$stateParams', '$location', '$mdDialog', '$mdMedia', '$window', 'Auth', 'ngNotify', 'TCSAptitudeService', 'TCSVerbalService',
+    function ($scope, $stateParams, $location, $mdDialog, $mdMedia, $window, Auth, ngNotify, TCSAptitudeService, TCSVerbalService) {
       var vm = this;
       vm.user_id = $stateParams.id;
       vm.user = {
@@ -77,6 +77,29 @@ angular.module('etestApp')
             );
           }
         };
+        vm.sharer = function (ev) {
+          var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+          $mdDialog.show({
+              controller: DialogController,
+              templateUrl: 'app/account/profile/sharer.tmpl.html',
+              parent: angular.element(document.body),
+              targetEvent: ev,
+              clickOutsideToClose: true,
+              fullscreen: useFullScreen
+            })
+            .then(function () {
+              //OK
+            }, function () {
+              //Cancel
+            });
+          $scope.$watch(function () {
+            return $mdMedia('xs') || $mdMedia('sm');
+          }, function (wantsFullScreen) {
+            $scope.customFullscreen = (wantsFullScreen === true);
+          });
+        };
+
+
       } else {
         $location.path('/')
       }
@@ -85,5 +108,32 @@ angular.module('etestApp')
         'google': 'https://plus.google.com/',
         'twitter': 'https://twitter.com/intent/user?user_id='
       };
+      function DialogController($scope, $mdDialog) {
+        $scope.hide = function () {
+          $mdDialog.hide();
+        };
+        $scope.cancel = function () {
+          $mdDialog.cancel();
+        };
+        $scope.share = function (site, profile) {
+          var sharing = {
+            'facebook': function (profile) {
+              $window.open('//www.facebook.com/share.php?m2w&s=100&p[url]=' + encodeURIComponent(profile.url) + '&p[images][0]=' + profile.picture + '&p[title]=etest(Programming Geek)&p[summary]=' + profile.description, 'Facebook', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
+            },
+            'twitter': function (profile) {
+              $window.open('https://twitter.com/intent/tweet?original_referer=' + encodeURIComponent(profile.url) + '&text=' + encodeURIComponent(profile.description) + '%20' + encodeURIComponent(profile.url), 'Twitter', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
+            },
+            'google': function (profile) {
+              $window.open('//plus.google.com/share?url=' + encodeURIComponent(profile.url), 'GooglePlus', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
+            }
+          };
+          sharing[site]({
+            url: vm.providers[site] ? vm.providers[site] + vm.user.profile.user_id : vm.user.profile.link,
+            picture: vm.user.profile.picture,
+            description: (vm.user.profile.name.indexOf('@') > 0 ? vm.user.profile.nickname : vm.user.profile.name) + ' profile on etest(Programming Geek)'
+          });
+          ;
+        };
+      }
     }
   ]);
