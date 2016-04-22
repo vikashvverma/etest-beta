@@ -33,11 +33,13 @@ angular.module('etestApp')
         y: vm.notattempted
       }];
 
-      vm.viewProfile = function (ev, id, name) {
+      vm.viewProfile = function (ev, user) {
+        var name=(user.name.indexOf('@') > 0 ? user.name.split('@')[0] : user.name);
+        var id = user.userId;
         // Appending dialog to document.body to cover sidenav in docs app
         var confirm = $mdDialog.confirm()
-          .title(name.split('@')[0])
-          .textContent('Would you like to view ' + name.split('@')[0] + '\'s profile?')
+          .title(name)
+          .textContent('Would you like to view ' + name + '\'s profile?')
           .ariaLabel('view profile')
           .targetEvent(ev)
           .ok('Yes, please!')
