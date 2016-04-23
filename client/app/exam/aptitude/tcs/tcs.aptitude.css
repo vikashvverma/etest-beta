@@ -1,0 +1,45 @@
+.aptitude-tiles .gray {
+  background: #f5f5f5;
+}
+
+.aptitude-tiles .green {
+  background: #b9f6ca;
+}
+
+.aptitude-tiles .yellow {
+  background: #ffff8d;
+}
+
+.aptitude-tiles .blue {
+  background: #84ffff;
+}
+
+.aptitude-tiles .darkBlue {
+  background: #80d8ff;
+}
+
+.aptitude-tiles .deepBlue {
+  background: #448aff;
+}
+
+.aptitude-tiles .purple {
+  background: #b388ff;
+}
+
+.aptitude-tiles .lightPurple {
+  background: #8c9eff;
+}
+
+.aptitude-tiles .red {
+  background: #ff8a80;
+}
+
+.aptitude-tiles .pink {
+  background: #ff80ab;
+}
+.answered{
+  color: #5cb85c;
+}
+.mfr{
+  color: #8a6d3b
+}

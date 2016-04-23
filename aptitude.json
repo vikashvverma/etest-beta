@@ -79,15 +79,17 @@
   },
   {
     "id": 7,
-    "question": "A travels at 40 kmph and B travels at 60 kmph. They are traveling towards each other and start at the same time. By the time they meet, B would have traveled 120 km more than A. Find the total distance ?",
-    "option1": "360 km",
-    "option2": "240 km",
-    "option3": "600 km",
-    "option4": "720 km",
-    "answer": 3,
-    "lod": 1,
-    "section": "Time and Distance",
+    "question": "An ant starts moving on the mesh shown below along the wires towards a food particle.If the ant is at the bottom-left corner of cell A and the food is at the top-right corner of cell F, then find the number of optimal routes for the ant?",
+    "option1": "13884156",
+    "option2": "3465280",
+    "option3": "4368",
+    "option4": "6748",
+    "answer": 2,
+    "lod": 3,
+    "section": "Permutation and Combination",
     "year": 2013,
+    "hasQImage": true,
+    "qImageUrl": "http://gdurl.com/OSOA",
     "qset": 1
   },
   {
@@ -348,7 +350,7 @@
     "lod": 2,
     "section": "Numbers",
     "year": 2014,
-    "qset": 2
+    "qset": 1
   },
   {
     "id": 28,
@@ -400,7 +402,7 @@
     "lod": 1,
     "section": " ",
     "year": 2013,
-    "qset": 1
+    "qset": 2
   },
   {
     "id": 32,
@@ -413,7 +415,7 @@
     "lod": 1,
     "section": "Simplification",
     "year": 2014,
-    "qset": 1
+    "qset": 2
   },
   {
     "id": 33,
@@ -426,7 +428,7 @@
     "lod": 1,
     "section": "Average",
     "year": 2014,
-    "qset": 1
+    "qset": 2
   },
   {
     "id": 34,
@@ -439,7 +441,7 @@
     "lod": 1,
     "section": "Average",
     "year": 2013,
-    "qset": 1
+    "qset": 2
   },
   {
     "id": 35,
@@ -452,20 +454,20 @@
     "lod": 1,
     "section": "Problems on Ages",
     "year": 2014,
-    "qset": 1
+    "qset": 2
   },
   {
     "id": 36,
-    "question": "Akhilesh, Bernard, Catherine and Dinesh go for a picnic. In a weighing machine they try to find their weights. When Akhilesh stands on the machine, without his knowledge Bernard also climbs the machine and the weight shown was 132kg. When Bernard stands, without his knowledge Catherine also stands on the machine and the machine shows 130 kg. Similarly the weight of Catherine and Dinesh is found as 102 kg and that of Bernard and Dinesh is 116 kg. What is the weight of Dinesh?",
-    "option1": "42 kg",
-    "option2": "44 kg",
-    "option3": "46 kg",
-    "option4": "48 kg",
-    "answer": 2,
-    "lod": 3,
-    "section": "Simplification",
+    "question": "A travels at 40 kmph and B travels at 60 kmph. They are traveling towards each other and start at the same time. By the time they meet, B would have traveled 120 km more than A. Find the total distance ?",
+    "option1": "360 km",
+    "option2": "240 km",
+    "option3": "600 km",
+    "option4": "720 km",
+    "answer": 3,
+    "lod": 1,
+    "section": "Time and Distance",
     "year": 2013,
-    "qset": 1
+    "qset": 2
   },
   {
     "id": 37,
@@ -478,7 +480,7 @@
     "lod": 2,
     "section": "Percentage",
     "year": 2014,
-    "qset": 1
+    "qset": 2
   },
   {
     "id": 38,
@@ -764,7 +766,7 @@
     "lod": 1,
     "section": "Numbers",
     "year": 2014,
-    "qset": 3
+    "qset": 2
   },
   {
     "id": 60,
@@ -777,7 +779,7 @@
     "lod": 2,
     "section": "Simplification",
     "year": null,
-    "qset": 3
+    "qset": 2
   },
   {
     "id": 61,
@@ -790,7 +792,7 @@
     "lod": 2,
     "section": "Time and Work",
     "year": null,
-    "qset": 2
+    "qset": 3
   },
   {
     "id": 62,
@@ -855,7 +857,7 @@
     "lod": 2,
     "section": "Permutation and Combination",
     "year": 2014,
-    "qset": 2
+    "qset": 3
   },
   {
     "id": 67,
@@ -868,7 +870,7 @@
     "lod": 2,
     "section": "Simplification",
     "year": null,
-    "qset": 2
+    "qset": 3
   },
   {
     "id": 68,
@@ -881,7 +883,7 @@
     "lod": 2,
     "section": "Numbers",
     "year": null,
-    "qset": 2
+    "qset": 3
   },
   {
     "id": 69,
@@ -894,7 +896,7 @@
     "lod": 2,
     "section": "Profit and Loss",
     "year": 2013,
-    "qset": 2
+    "qset": 3
   },
   {
     "id": 70,
@@ -907,7 +909,7 @@
     "lod": 2,
     "section": "Permutation and Combination",
     "year": 0,
-    "qset": 2
+    "qset": 3
   },
   {
     "id": 71,
@@ -920,7 +922,7 @@
     "lod": 2,
     "section": "Permutation and Combination",
     "year": null,
-    "qset": 2
+    "qset": 3
   },
   {
     "id": 72,
@@ -933,7 +935,7 @@
     "lod": 2,
     "section": "Probability",
     "year": 2014,
-    "qset": 2
+    "qset": 3
   },
   {
     "id": 73,
@@ -1168,6 +1170,19 @@
     "section": "Numbers",
     "year": null,
     "qset": 3
+  },
+  {
+    "id": 91,
+    "question": "Akhilesh, Bernard, Catherine and Dinesh go for a picnic. In a weighing machine they try to find their weights. When Akhilesh stands on the machine, without his knowledge Bernard also climbs the machine and the weight shown was 132kg. When Bernard stands, without his knowledge Catherine also stands on the machine and the machine shows 130 kg. Similarly the weight of Catherine and Dinesh is found as 102 kg and that of Bernard and Dinesh is 116 kg. What is the weight of Dinesh?",
+    "option1": "42 kg",
+    "option2": "44 kg",
+    "option3": "46 kg",
+    "option4": "48 kg",
+    "answer": 2,
+    "lod": 3,
+    "section": "Simplification",
+    "year": 2013,
+    "qset": 4
   }
 ]
 

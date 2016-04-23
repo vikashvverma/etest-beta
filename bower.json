@@ -1,0 +1,10 @@
+{
+  "name": "etest",
+  "version": "0.0.0",
+  "dependencies": {
+    "es5-shim": "~3.0.1",
+    "angular-socket-io": "~0.6.0",
+    "ng-notify": "~0.6.2"
+  },
+  "devDependencies": {}
+}

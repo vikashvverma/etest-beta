@@ -1,0 +1,7 @@
+.correct-answer {
+  background-color: rgba(158, 158, 158, 0.2);
+}
+
+list-item > md-icon.md-secondary:not(.md-avatar-icon) {
+  margin-top: auto;
+}

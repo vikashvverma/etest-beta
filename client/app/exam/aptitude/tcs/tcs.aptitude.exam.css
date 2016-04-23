@@ -1,0 +1,48 @@
+.head {
+  font-size: 12px;
+  height: 25px;
+}
+
+label {
+  font-size: 16px;
+}
+
+.question {
+  color: #444444;
+  font-family: FreightTextProBook-Regular, Georgia, Cambria, 'Times New Roman', Times, serif;
+  font-size: 22px;
+  letter-spacing: 0.1px;
+  line-height: 34px;
+}
+
+.question:hover {
+  opacity: 0.95;
+  /*box-shadow: 0px 10px 20px 0 rgba(17, 240, 206, 0.26);*/
+}
+
+.zero {
+  background-color: #5bc0de !important;
+}
+
+.nonzero {
+  background-color: #5cb85c !important;
+}
+
+.nostar {
+  line-height: 50px;
+}
+
+.star {
+  line-height: 135%;
+}
+
+.ansmr {
+  background-color: #8a6d3b !important;
+}
+
+.rep {
+  display: none;
+}
+md-radio-group md-radio-button:not(:first-child) {
+  margin-top: auto;
+}
