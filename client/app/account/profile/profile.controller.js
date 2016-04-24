@@ -128,7 +128,7 @@ angular.module('etestApp')
             }
           };
           sharing[site]({
-            url: vm.providers[site] ? vm.providers[site] + vm.user.profile.user_id : vm.user.profile.link,
+            url: $location.absUrl(),
             picture: vm.user.profile.picture,
             description: (vm.user.profile.name.indexOf('@') > 0 ? vm.user.profile.nickname : vm.user.profile.name) + ' profile on etest(Programming Geek)'
           });
