@@ -4,12 +4,8 @@ var app = angular.module('etestApp', [
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    // 'btford.socket-io',
     'ui.router',
-    //'ui.bootstrap',
     'ngMaterial',
-    // 'ngMdIcons',
-    // 'materialDatePicker',
     'ngNotify',
     'auth0',
     'angular-storage',
@@ -66,9 +62,6 @@ var app = angular.module('etestApp', [
       $location.path(prevUrl);
       history = []; //Delete history array after going back
     };
-    //base url
-    var baseURI = "http://localhost:9000/";
-    var first = true;
     $rootScope.commentbox = {
       url: $location.absUrl(),
       width: $window.innerWidth - 40,
