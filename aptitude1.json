@@ -1,0 +1,1450 @@
+[
+  {
+    "0": "  863",
+    "1": "  653",
+    "2": "  783",
+    "3": "  none",
+    "question": "Sum of the digits of a three digit number is 17 and sum of the squares of the digit is 109. Also when the number is subtracted by 495 the number gets reversed. Find the number ?",
+    "a": 1
+  },
+  {
+    "0": "  4 hr",
+    "1": "  4 hr 20min",
+    "2": "  4 hr 37min",
+    "3": "  4 hr 27min",
+    "question": "Car A leaves city C at 5pm and is driven at a speed of 40 kmph. Two hours later another car leaves city C and is driven in same direction as car A. In how much time car B be 9 km ahead of car A if the speed of car B is 60 kmph.",
+    "a": 4
+  },
+  {
+    "0": "  24",
+    "1": "  26",
+    "2": "  25",
+    "3": "  21",
+    "question": "N is a natural number and n^3 has 16 factors. Then how many factors can n^4 have?",
+    "a": 3
+  },
+  {
+    "0": "  1611",
+    "1": "  1711",
+    "2": "  1811",
+    "3": "  1911",
+    "question": "If a publication occurs every seven years and the sum of the years is 13524. Then find the first year if the nos of publication is 7.",
+    "a": 4
+  },
+  {
+    "0": "  37",
+    "1": "  39",
+    "2": "  35",
+    "3": "  36",
+    "question": "3 mangoes and 4 apples costs Rs 85. 5 apples and 6 peaches costs Rs. 122. 6 mangoes and 2 peaches cost Rs.114. what is the combined price of 1 apple, 1 peach and 1 mango?",
+    "a": 1
+  },
+  {
+    "0": "  28",
+    "1": "  0",
+    "2": "  1",
+    "3": "  6",
+    "question": "what is the remainder of (16937^30)/31 ?",
+    "a": 3
+  },
+  {
+    "0": "  41",
+    "1": "  720",
+    "2": "  1000",
+    "3": "  1440",
+    "question": "In how many ways can we form 6 digit number from 1,2,3,4,5,6,7 so that last and second last digit must be even.",
+    "a": 2
+  },
+  {
+    "0": "  4000",
+    "1": "  3000",
+    "2": "  2000",
+    "3": "  1000",
+    "question": "If A=2/3(B-C) and C=1/2(A+B) and A+B+C=3000, then find C ?",
+    "a": 4
+  },
+  {
+    "0": "  no",
+    "1": "  yes",
+    "2": "  insufficient data",
+    "3": "  none of these",
+    "question": "In a cricket match,two batsman scores are 96,96 respectively.They require only 5 runs in 3 balls,can both the batsman complete their centuries?",
+    "a": 2
+  },
+  {
+    "0": "  6!",
+    "1": "  5!",
+    "2": "  4!",
+    "3": "  6!",
+    "question": "In how many rearrangements of the word ERASED in the letter ‘A‘ positioned in between the 2 ‘E‘s?",
+    "a": 3
+  },
+  {
+    "0": "  10",
+    "1": "  11",
+    "2": "  19",
+    "3": "  20",
+    "question": "How many 4 are there in between numbers 11 and 100 ?",
+    "a": 3
+  },
+  {
+    "0": "  1/2",
+    "1": "  1/4",
+    "2": "  1/8",
+    "3": "  1/16",
+    "question": "A drawer has 4 red hats and 4 blue hats. Find the probability of getting exactly 3 blue hats when taking out 4 hats randomly out of the drawer and immediately returning every hat to the drawer before taking out the next?",
+    "a": 2
+  },
+  {
+    "0": "  8217",
+    "1": "  8317",
+    "2": "  8417",
+    "3": "  8517",
+    "question": "Find the sum of number between 200 and 300, which is multiple of 3?",
+    "a": 1
+  },
+  {
+    "0": "  4",
+    "1": "  8",
+    "2": "  16",
+    "3": "  cant determine",
+    "question": "Kate wanted to buy 2 kgs of apples. The vendor kept the 2 kg weights on the right side and weighed 4 apples for that. She doubted on the correctness of balance and placed 2 kg weight on the left side and she could weigh 12 apples for 2 kgs. If the balance was correct how many apples she would have got ?",
+    "a": 2
+  },
+  {
+    "0": "  0",
+    "1": "  1",
+    "2": "  10",
+    "3": "  9",
+    "question": "Find the remainder when 32^33^34 is divided by 11 ?",
+    "a": 3
+  },
+  {
+    "0": "  12",
+    "1": "  24",
+    "2": "  36",
+    "3": "  48",
+    "question": "There are several bags of same weights. A bag is 6 kg plus three fourth of weight of an another bag . What is the weight of the bag?",
+    "a": 2
+  },
+  {
+    "0": "  0",
+    "1": "  1",
+    "2": "  6",
+    "3": "  36",
+    "question": "Find the remainder when 6^50 is divided by 215 ?",
+    "a": 4
+  },
+  {
+    "0": "  (.4)^6",
+    "1": "  (.4)^5",
+    "2": "  (.4)^4",
+    "3": "  (.4)^3",
+    "question": "6 positive integers are taken at random and multiplied together. Then what is the probability that products ends in an odd digit other than 5?",
+    "a": 1
+  },
+  {
+    "0": "  18.75",
+    "1": "  16.00",
+    "2": "  15.00",
+    "3": "  15.58",
+    "question": "There is a square field of side 10m. A man runs with different speed 10kmph, 15kmph, 20kmph, 25kmph on the four sides of the field. What is the average speed of man ?",
+    "a": 4
+  },
+  {
+    "0": "  1067",
+    "1": "  9383",
+    "2": "  7249",
+    "3": "  9999",
+    "question": "Arun wanted to find the largest number of 4 digits such that when added to 7249 generated a number that gave a remainder 0 when divided by 54, 12, 14, 21, 33. Find the number ?",
+    "a": 2
+  },
+  {
+    "0": "  1:3",
+    "1": "  3:1",
+    "2": "  2:3",
+    "3": "  3:2",
+    "question": "On a certain internet polling, the rejection rate of Bru Exotic production was 4% , for Bru Classic production 8% and for both the coffee varities combined was 7%. What was the ratio of Bru exotic to Bru classic production ?",
+    "a": 1
+  },
+  {
+    "0": "  111",
+    "1": "  222",
+    "2": "  333",
+    "3": "  444",
+    "question": "Three sides of a triangle PQ, QR, and RP contains 5, 6 and 3 points respectively. What is the max number of triangles can be made using these points.",
+    "a": 3
+  },
+  {
+    "0": "  1:1",
+    "1": "  1:2",
+    "2": "  2:1",
+    "3": "  2:3",
+    "question": "There are two bottles A and B, each filled with milk and water in the ratio 5:3 and 1:2 respectively. A new mixture is formed by mixing the contents of A and B in the ratio 4:3.What is the ratio of composition of milk and water in the new mixture?",
+    "a": 1
+  },
+  {
+    "0": "  50",
+    "1": "  75",
+    "2": "  100",
+    "3": "  cant determine",
+    "question": "(a % of a)+ (b % of b)=2 % of ab, then what percentage of a is b?",
+    "a": 3
+  },
+  {
+    "0": "  24",
+    "1": "  36",
+    "2": "  48",
+    "3": "  72",
+    "question": "Jake can dig a well in 16 days. Paul can dig the same well in 24 days. Jake, Paul and Hari together dig the well in 8 days. Hari alone can dig the well in ?",
+    "a": 3
+  },
+  {
+    "0": "  02",
+    "1": "  12",
+    "2": "  22",
+    "3": "  32",
+    "question": "Find the last two digits of (1021^3921)+(3081^3921) ?",
+    "a": 1
+  },
+  {
+    "0": "  720",
+    "1": "  2160",
+    "2": "  3600",
+    "3": "  5040",
+    "question": "\"LEADING\" arrange it in such a way that atleast two vowels always together ?",
+    "a": 3
+  },
+  {
+    "0": "  72",
+    "1": "  144",
+    "2": "  288",
+    "3": "  none",
+    "question": "In a meeting between 2 countries each country has 12 delegates. All the delegates of one country shake hands with all delegates of other countries. Find the number of handshakes possible?",
+    "a": 2
+  },
+  {
+    "0": "   15.73",
+    "1": "   21.5",
+    "2": "   17.56",
+    "3": "   16.66",
+    "question": "In a mixture of a, b, & c, if a and b are mixed in 3:5 ratio and b and c are mixed in 8:5 Ratio and if the final mixture is 35 liters, find the amount of b?\n  ",
+    "a": 1
+  },
+  {
+    "0": "  1",
+    "1": "  2",
+    "2": "  4",
+    "3": "  7",
+    "question": "If m+n gives remainder 8 & m-n gives remainder 6 when divided by 12 , what is remainder when mn divided by 6?",
+    "a": 1
+  },
+  {
+    "0": "  3700",
+    "1": "  32000",
+    "2": "  37000",
+    "3": "  3200",
+    "question": "A person starts writing all 4 digits numbers.how many times had he written the digit 2?",
+    "a": 1
+  },
+  {
+    "0": "  10:25 AM",
+    "1": "  10:10 AM",
+    "2": "  10:05 AM",
+    "3": "  10:15 AM",
+    "question": "2 workers ,one old and one young,live together and work at the same office.the old man takes 30 mins where as the young man takes only 20 mins to reach the office.when will the young man catch up the old man ,if the old man starts at 10.00am and the young man starts at 10.05am?",
+    "a": 4
+  },
+  {
+    "0": "  181",
+    "1": "  191",
+    "2": "  171",
+    "3": "  201",
+    "question": "What is the next numbers for the given series? 11 23 47 83 131",
+    "a": 2
+  },
+  {
+    "0": "  1/7",
+    "1": "  2/7",
+    "2": "  3/7",
+    "3": "  4/7",
+    "question": "What is the chance that a leap year selected at random contains 53 fridays?",
+    "a": 2
+  },
+  {
+    "0": "  1",
+    "1": "  2",
+    "2": "  3",
+    "3": "  4",
+    "question": "A two digit number is 18 less than the square of the sum of its digits. How many such numbers are there?",
+    "a": 2
+  },
+  {
+    "0": "  39.6",
+    "1": "  38.6",
+    "2": "  37.6",
+    "3": "  36.6",
+    "question": "A boy is cycling such that the wheel of the cycle are making 420 revolutions per minute. If the diameter of the wheel is 50 cm, find the speed of the boy.",
+    "a": 1
+  },
+  {
+    "0": "  1 step/sec",
+    "1": "  2 step/sec",
+    "2": "  3 step/sec",
+    "3": "  4 step/sec",
+    "question": "B moves by taking 3 steps forward and 1 step backward (each step in one second )He walks up a stationary escalator in 118 sec. However on moving escalator he takes 40 sec to reach top .Find speed of escalator. ",
+    "a": 1
+  },
+  {
+    "0": "  10days",
+    "1": "  11 days",
+    "2": "  12 days",
+    "3": "  13 days",
+    "question": "A and B completed a work together in 5 days. Had A worked at twice the speed and B at half the speed, it would have taken them four days to complete the job. How much time would it take for A alone to do the work?",
+    "a": 1
+  },
+  {
+    "0": "  435",
+    "1": "  534",
+    "2": "  3261",
+    "3": "  1623",
+    "question": "If given equation is 137+276=435,how much is 731+672=.... find the result..",
+    "a": 4
+  },
+  {
+    "0": "  534",
+    "1": "  2300",
+    "2": "  2304",
+    "3": "  2403",
+    "question": "A dealer buys a product at Rs.1920. he sells at a discount of 20% still he gets teh profit of 20%. what is the selling price?",
+    "a": 3
+  },
+  {
+    "0": "  5",
+    "1": "  10",
+    "2": "  15",
+    "3": "  20",
+    "question": "How many 3-digit numbers can be formed from the digits 2,3,5,6,7 and 9 which are divisible by 5 and none of the digit is repeated.",
+    "a": 4
+  },
+  {
+    "0": "  1/4",
+    "1": "  1/2",
+    "2": "  3/4",
+    "3": "  2/3",
+    "question": "A die is rolled and a coin is tossed .find the probability that the die shows an odd number and the coin shows a head.",
+    "a": 1
+  },
+  {
+    "0": "  32",
+    "1": "  22",
+    "2": "  12",
+    "3": "  02",
+    "question": "Find last two digit of (1021^3921)+(3081^3921)?",
+    "a": 4
+  },
+  {
+    "0": "  8",
+    "1": "  71",
+    "2": "  9",
+    "3": "  51",
+    "question": "(40*40*40 - 31*31*31)/(40*40+40*31+31*31)=?",
+    "a": 3
+  },
+  {
+    "0": "  17.6",
+    "1": "  33.3",
+    "2": "  48.6",
+    "3": "  66.6",
+    "question": "RAM GOES A TO B . IF HE TAKES 1/4 TIME LESS THAN TO COVER THE SAME DISTANCE WHEN RUN AT NORMAL SPEED BY WHAT % HE HAS INCREASED HIS SPEED ?",
+    "a": 2
+  },
+  {
+    "0": "  4",
+    "1": "  7",
+    "2": "  5",
+    "3": "  9",
+    "question": "How many prime numbers between 1 and 100 are factors of 7150?",
+    "a": 1
+  },
+  {
+    "0": "  Thursday",
+    "1": "  Wednesday",
+    "2": "  Tuesday",
+    "3": "  Monday",
+    "question": "If meeting O is on Saturday, then meeting K must take place on ?",
+    "a": 3
+  },
+  {
+    "0": "  18",
+    "1": "  17",
+    "2": "  30",
+    "3": "  33",
+    "question": "3 15 _ 51 53 159 161   ( 1 Marks )",
+    "a": 2
+  },
+  {
+    "0": "  AHSNKUV",
+    "1": "  AHNKSVU",
+    "2": "  AHNKUSV",
+    "3": "  AHNKUVS",
+    "question": "55th word of SHUVANK in dictionary??",
+    "a": 1
+  },
+  {
+    "0": "  15%",
+    "1": "  16.67%",
+    "2": "  14.5%",
+    "3": "  20%",
+    "question": "Mani sells vegetables and he marks up the prices at 5% above his cost price. Also the weighing stones used by him weigh only 90% of the correct weight. Find his effective percentage of mark-up.",
+    "a": 2
+  },
+  {
+    "0": "  4.15hrs",
+    "1": "  4.25 hrs",
+    "2": "  4.35 hrs",
+    "3": "  4.45 hrs",
+    "question": "Car A leaves city C at 5 pm and drives at a speed of 40 kmph. 2 hours later another car B leaves city C and drives in the same direction as car A. In how much time will car B be 9 km ahead of car A. Speed of car B is 60 kmph. ",
+    "a": 4
+  },
+  {
+    "0": " 3.21 hrs",
+    "1": " 2.50 hrs",
+    "2": " 4.00 hrs",
+    "3": " 3.35 hrs",
+    "question": "The water from one outlet, flowing at a constant rate, can fill the swimming pool in 9 hours. The water from second outlet, flowing at a constant rate can fill up the same pool in approximately in 5 hours. If both the outlets are used at the same time, approximately what is the number of hours required to fill the pool?",
+    "a": 1
+  },
+  {
+    "0": " 40%",
+    "1": " 55%",
+    "2": " 45%",
+    "3": " 50%",
+    "question": "If 75 % of a class answered the first question on a certain test correctly, 55 percent answered the second question on the test correctly, and 20 percent answered neither of the questions correctly, what percentage answered both correctly?",
+    "a": 4
+  },
+  {
+    "0": "  48",
+    "1": "  84",
+    "2": "  68",
+    "3": "  86",
+    "question": "In how many ways 1.can we distribute 10 identical looking pencils to 4 students so that each student gets at least one pencil?",
+    "a": 2
+  },
+  {
+    "0": "  296",
+    "1": "  863",
+    "2": "  980",
+    "3": "  179",
+    "question": "Sum of three digit number is 17. sum of squared of digits of the given num is 109. If we subtract 495 from that num we will get a number written in square order. find the num ?",
+    "a": 2
+  },
+  {
+    "0": "  16",
+    "1": "  20",
+    "2": "  24",
+    "3": "  30",
+    "question": "The least number that must be subtracted from 63520to make the result a perfect square, is:   ",
+    "a": 1
+  },
+  {
+    "0": "  11,31",
+    "1": "  31,51",
+    "2": "  10,41",
+    "3": "  21,40",
+    "question": "Find the missing numbers in the series: 0,2,5,?,17,28,?,",
+    "a": 1
+  },
+  {
+    "0": "  10 kmph",
+    "1": "  15 kmph",
+    "2": "  20 kmph",
+    "3": "  25kmph",
+    "question": "A motor boat covers a certain distance downstream in 30 minutes, while it comes back in 45 minutes. If the speed of the stream is 5 kmph what is the speed of the boat in still water?",
+    "a": 4
+  },
+  {
+    "0": "  25",
+    "1": "  21",
+    "2": "  15",
+    "3": "  18",
+    "question": "20 passengers are to travelled by a doubled decked bus which can accommodate 13 in the upper deck and 7 in the lower deck. The number of ways that they can be distributed if 5 refuse to sit in the upper deck and 8 refuse to sit in the lower deck is:",
+    "a": 2
+  },
+  {
+    "0": "  second and 9 rs",
+    "1": "  second and 10 rs",
+    "2": "  first and 9 rs",
+    "3": "  first and 10 rs",
+    "question": "Two merchants sell an article each for Rs.1000.one of them computes profit as a % of cost price, while the second calculates it incorrectly as a % of selling price. If both of them claim to have made a profit of 10%, who made more profit and by what amount?",
+    "a": 1
+  },
+  {
+    "0": " 1760",
+    "1": " 8123",
+    "2": " 7632",
+    "3": " 8425",
+    "question": "A man spends 1/3rd of his salary on food. he spends 1/4th on rent and 1/5th on cloths. If he is left with 1760, then how much salary does he earn ?",
+    "a": 2
+  },
+  {
+    "0": "  7",
+    "1": "  8",
+    "2": "  5",
+    "3": "  4",
+    "question": "The numbers 272738 and 232342, when divided by n, a two digit number, leave a remainder of 13 and 17 respectively. Find the sum of the digits of n?",
+    "a": 1
+  },
+  {
+    "0": " 150",
+    "1": " 75",
+    "2": " 90",
+    "3": " 85",
+    "question": "There are 5 boxes in a cargo. The weight of the 1st box is 200 KG, the weight of the 2nd box is 20% higher than the third box, whose weight is 25% higher than the 1st box weight. The 4th box which weighs 350 KG is 30% lighter than the 5th box. Find the difference in average weight of the 4 heaviest boxes and the four lightest boxes.",
+    "a": 2
+  },
+  {
+    "0": " 1 : 5",
+    "1": " 2 : 3",
+    "2": " 1 : 6",
+    "3": " 3 : 2",
+    "question": "In a vessel, there are 10 litres of alcohol. An operation is defined as taking out five litres of what is present in the vessel and adding 10 litres of pure water to it. What is the ratio of alcohol to water after two operations?",
+    "a": 1
+  },
+  {
+    "0": " AOTDSP",
+    "1": " AOTPDS",
+    "2": " AOTDPS",
+    "3": " AOSTPD",
+    "question": "The letters in the word ADOPTS are permuted in all possible ways and arranged in alphabetical order then find the word at position 42 in the permuted alphabetical order?",
+    "a": 4
+  },
+  {
+    "0": " 7",
+    "1": " 4",
+    "2": " 30",
+    "3": " 37",
+    "question": "A farmer has a rose garden. Every day he picks either 7,6,24 or 23 roses. When he plucks these number of flowers the next day 37, 36, 9 or 18 new flowers bloom. On Monday he counts 189 roses. If he continues on his plan each day, after some days what can be the number of roses left behind? (Hint : Consider number of roses remaining every day)",
+    "a": 2
+  },
+  {
+    "0": " 5/8",
+    "1": " 3/4",
+    "2": " 3/8",
+    "3": " 1/8",
+    "question": "A man is known to speak truth 3 out of 4 times. He throws die and reports that it is a 6. The probability that it is actually a 6 is",
+    "a": 3
+  },
+  {
+    "0": " 348",
+    "1": " 350",
+    "2": " 324",
+    "3": " 355",
+    "question": "George and Mark can paint 720 boxes in 20 days. Mark and Harry in 24 days and Harry and George in 15 days. George works for 4 days, Mark for 8 days and Harry for 8 days. The total number of boxes painted by them is",
+    "a": 1
+  },
+  {
+    "0": " 360",
+    "1": " 720",
+    "2": " 480",
+    "3": " 5040",
+    "question": "In how many different ways can the letters of the word \"LEADING\" be arranged in such a way that the vowels always come together.",
+    "a": 2
+  },
+  {
+    "0": " 3/200",
+    "1": " 29/200",
+    "2": " 7/400",
+    "3": " 1/50",
+    "question": "Two decks of cards are there. Each deck contains 20 cards, with numbers from 1 to 20 written on them.  A card is drawn of random from each deck, getting the numbers x and y  What is the probability that log x + log y is a positive integer.  Logs are taken to the base 10.",
+    "a": 3
+  },
+  {
+    "0": "  1565",
+    "1": "  2256",
+    "2": "  2456",
+    "3": "  1243",
+    "question": "In how many ways a team of 11 must be selected a team 5 men and 11 women such that the team must comprise of not more than 3 men.",
+    "a": 2
+  },
+  {
+    "0": " A decrease of 99%",
+    "1": " No change",
+    "2": " A decrease of 1%",
+    "3": " An increase of 1%",
+    "question": "If the price of an item is decreased by 10% and then increased by 10%, the net effect on the price of the item is\n",
+    "a": 3
+  },
+  {
+    "0": "  45.5",
+    "1": "  46.5",
+    "2": "  48",
+    "3": "  49.5",
+    "question": "In a horticulture assignment, 200 seeds were planted in plot 1 and 300 were planted in plot 2. If 57% of the seeds are germinated for plot 1 and 42% from plot 2, what percentage of total seeds germinated?\n",
+    "a": 3
+  },
+  {
+    "0": " 2.91 m ",
+    "1": " 3 m",
+    "2": " 5.82 m ",
+    "3": " none ",
+    "question": " A rectangular park 60 m long and 40 m wide has concrete crossroads running in the middle of the park and rest of the park has been used as a lawn.if the area of the lawn is 2109 sq.m,then what is the width of the road.",
+    "a": 2
+  },
+  {
+    "0": " 3 KM/Hr ",
+    "1": " 4 KM/Hr ",
+    "2": " 5 KM/Hr ",
+    "3": " 7 KM/Hr ",
+    "question": "Joke is faster than Paul, Joke and Paul each walk 24 KM. The sum of their speed is 7 Km per hour. And the sum of times taken by them is 14 hours. Then, Joke speed is",
+    "a": 2
+  },
+  {
+    "0": " 3:2",
+    "1": " 2:3",
+    "2": " 1:3",
+    "3": " 3:4",
+    "question": "Kelly and Chris are moving into a new city. Both of them love books and thus packed several boxes with books. If Chris packed 60% of the total number of boxes, what was the ratio of the number of boxes Kelly packed to the number of boxes Chris packed?",
+    "a": 2
+  },
+  {
+    "0": " 3/5",
+    "1": " 4/5",
+    "2": " 7/8",
+    "3": " 3/7",
+    "question": "If the numerator of a fraction is increased by 25% and denominator decreased by 20%, the new value is 5/4. What is the original value? ",
+    "a": 2
+  },
+  {
+    "0": " 125 km/hr",
+    "1": " 120 km/hr",
+    "2": " 130 km/hr",
+    "3": " 140 km/hr",
+    "question": "A train can travel 50% faster than car.Both start from point A and reach point B 75 km away from A at the same time. On the way,however,the train lost about 12.5 minutes while shopping at the stations. The speed of car is ?",
+    "a": 2
+  },
+  {
+    "0": "     10",
+    "1": "     15",
+    "2": "     12",
+    "3": "     18",
+    "question": "From the top of a 9 metres high building AB, the angle of elevation of the top of a tower CD is 30º and the angle of depression of the foot of the tower is 60º. What is the height of the tower?",
+    "a": 3
+  },
+  {
+    "0": " 50 min",
+    "1": " 60 min",
+    "2": " 45 min ",
+    "3": " 30 min ",
+    "question": "One day Eesha started 30 min late from home and reached her office 50 min late while driving 25% slower than her usual speed. How much time in min does eesha usually take to reach her office from home?",
+    "a": 2
+  },
+  {
+    "0": " 5/4",
+    "1": " 4/5",
+    "2": " 3/5",
+    "3": " 4/3",
+    "question": "If the numerator of a fraction increases by 50% & subtracted by 1. The result is 1/4th of the original fraction. Find the fraction.",
+    "a": 2
+  },
+  {
+    "0": " 9 cm",
+    "1": " 10 cm",
+    "2": " 16 cm",
+    "3": " 24 cm",
+    "4": " 12 cm",
+    "question": "The sides of a triangular are in the ratio of 1/2: 1/3 : 1/4. If the perimeter is 52 cm. The length of the smallest side is ",
+    "a": 5
+  },
+  {
+    "0": " Rs 30",
+    "1": " Rs 36 ",
+    "2": " Rs 40",
+    "3": " Rs  37",
+    "question": "A merchant buys 20 kg of wheat of Rs.30 per kg and 40 kg wheat at Rs.25 per kg. He mixed them and sells one third of the mixture at Rs.26 per kg. The price at which the merchant should sell the remaining mixture, So that he may earn a profit of 25 % in his whole outlay is",
+    "a": 4
+  },
+  {
+    "0": " 37.33",
+    "1": " 38.33",
+    "2": " 36",
+    "3": " None of the above",
+    "question": "The average temperature of Tuesday Wednesday and Thursday was 37 C. The average temperature of Wednesday and Thursday and Friday was 38 C. if the temperature on Friday was 39 C.  Find the temperature on Tuesday.",
+    "a": 3
+  },
+  {
+    "0": " 10:15",
+    "1": " 10:30",
+    "2": " 10:45",
+    "3": " 10:00",
+    "question": "An old man and a young man are working together in an office and staying together in a near by apartment.  The old man takes 30 minutes and the young 20 minutes to walk from appartment to office.  If one day the old man started at 10.00 AM and the young man at 10:05AM from the apartment to office, when will they meet?",
+    "a": 1
+  },
+  {
+    "0": " 1/16",
+    "1": " 1/125 ",
+    "2": " 1/32 ",
+    "3": " 1/25",
+    "question": "A car manufacturer produces only red and blue TCS Models which come out of the final testing area at random. What are the odds that five consecutive cars of same color will come through the test area at any one time?",
+    "a": 1
+  },
+  {
+    "0": " 42⁄33",
+    "1": " 5⁄16",
+    "2": " 48⁄13",
+    "3": " 19⁄33",
+    "question": "There are two bags. One bag contains 4 white and 2 black balls. Second bad contains 5 white and 4 black balls. 2 balls are transferred from first bag to second bag. Then one ball is taken from the second bag. The probability that the ball is white is ?",
+    "a": 4
+  },
+  {
+    "0": " 2/15",
+    "1": " 11/54",
+    "2": " 16/27",
+    "3": " 40/81",
+    "question": "A bag contain 3 black and 3 white boxes, second bag contains 5 black and 1 white boxes, and finally third bag contains 4 black and 5 white boxes. if a box is chosen at random from one of these bags, the probability that it is not a white box is ?",
+    "a": 3
+  },
+  {
+    "0": " 9",
+    "1": " 12",
+    "2": " 18",
+    "3": " 10",
+    "question": "How many of the numbers x (x being integer) with 10<= x<= 99 are 18 more than the sum of their digits",
+    "a": 4
+  },
+  {
+    "0": " Cannot be determined.",
+    "1": " 2 x sum of last ten numbers",
+    "2": " 2 x sum of first ten numbers",
+    "3": " sum of first ten numbers",
+    "question": "Of a set of 30 numbers, average of first 10 numbers = average of last 20 numbers.  Then the sum of the last 20 numbers is?",
+    "a": 3
+  },
+  {
+    "0": " 18! x 2",
+    "1": " 17!",
+    "2": " 17x2!",
+    "3": " 12",
+    "question": "There are 20 persons sitting in a circle.In that there are 18 men and 2 sisters.How many arrangements are possible in which the two sisters are always separated by a man?",
+    "a": 1
+  },
+  {
+    "0": " 1/12",
+    "1": " 1/8",
+    "2": " 1/16",
+    "3": " 1/20",
+    "question": "A alone can do 1/4th of the work in 2 days. B alone can do 2/3th of the work in 4 days. If all the three work together,they can complete it in 3 days so what part of the work will be completed by C in 2 days?",
+    "a": 1
+  },
+  {
+    "0": " 6480",
+    "1": " 320",
+    "2": " 2160",
+    "3": " 720",
+    "question": "How many 6 digit even numbers can be formed from digits 1, 2, 3, 4, 5, 6, and 7 so that the digit should not repeat and the second last digit is even?",
+    "a": 4
+  },
+  {
+    "0": " 50",
+    "1": " 54",
+    "2": " 51",
+    "3": " 53",
+    "question": "The average marks of 3 students A, B and C is 60.  When another student D joins the group, the new average becomes 56 marks.  If another student E, who has 3 marks more than D, joins the group, the average of the 4 students B, C, D and E becomes 55 marks. How many marks did A get in the exam?",
+    "a": 3
+  },
+  {
+    "0": " 20",
+    "1": " 40",
+    "2": " 60",
+    "3": " 80",
+    "question": "One day, Eesha started 30 minutes late from home and reached her office 50 minutes late, while driving 25% slower than her usual speed. How much time in minutes does Eesha usually take to reach her office from home?",
+    "a": 3
+  },
+  {
+    "0": "  None",
+    "1": "  5/18",
+    "2": "  13/18",
+    "3": "  1295/1296",
+    "question": "Four people each roll a fair dice once. Find the probability that at least two people will roll the same number?",
+    "a": 3
+  },
+  {
+    "0": " 1/5",
+    "1": " 5/6",
+    "2": " 1/7",
+    "3": " 5/7",
+    "question": "100 students appeared for two examinations. 60 passed the first, 50 passed the second and 30 passed both. Find the probability that a student selected at random has failed in both the examinations?",
+    "a": 1
+  },
+  {
+    "0": "  Rs.117",
+    "1": "  Rs.350",
+    "2": "  Rs.281",
+    "3": "  Rs.1053",
+    "question": "Apples cost L rupees per kilogram for the first 30 kilograms and Q per kilogram for each additional kilogram.  If the price paid for 33 kilograms of Apples is Rs.1167 and for 36 kilograms of apples if Rs.1284, then the cost of the first 10 kgs of apples is:",
+    "a": 2
+  },
+  {
+    "0": "  150m",
+    "1": "  37.5 m",
+    "2": "  15 m",
+    "3": "  75 m",
+    "question": "A conical tent is to accommodate 10 persons. Each person must have 6 sq.meter space to sit and 30 cubic meter of air to breathe.  What will be the height of the cone?",
+    "a": 3
+  },
+  {
+    "0": "  50",
+    "1": "  100",
+    "2": "  150",
+    "3": "  216",
+    "question": "The number of multiples of 10 which are less than 1000, which can be written as a sum of four consecutive integers is",
+    "a": 1
+  },
+  {
+    "0": " 3",
+    "1": " 2.5",
+    "2": " 2.43",
+    "3": " 2.7",
+    "question": "Eesha has a wheat business.She purchases wheat from a local wholesaler of a particular cost per pound.The price of the wheat of her stores is $3 per kg.Her faulty spring balance reads 0.9 kg for a KG.  Also in the festival season, she gives a 10% discount on the wheat. She found that she made neither a profit nor a loss in the festival season. At what price did Eesha purchase the wheat from the wholesaler ?",
+    "a": 3
+  },
+  {
+    "0": " 52",
+    "1": " 45",
+    "2": " 10",
+    "3": " 25",
+    "question": "2ab5 is a four digit number divisible by 25. If a number formed from the two digits ab is a multiple of 13, then ab is",
+    "a": 1
+  },
+  {
+    "0": " 57%",
+    "1": " 60%",
+    "2": " 53%",
+    "3": " 55%",
+    "question": "In a certain city, 60% of the registered voters are congress supporters and the rest are BJP supporters. In an assembly election, if 75% of the registered congress supporters and 20% of the registered BJP supporters are expected to vote for candidate A, what percent of the registered voters are expected to vote for candidate A?",
+    "a": 3
+  },
+  {
+    "0": " 5",
+    "1": " 6",
+    "2": " 9",
+    "3": " 7",
+    "question": "Rajiv can do a piece of work in 10 days , Venky in 12 days and Ravi in 15 days.  They all start the work together, but Rajiv leaves after 2 days and Venky leaves 3 days before the work is completed.  In how many days is the work completed ?",
+    "a": 4
+  },
+  {
+    "0": " 1 : 5",
+    "1": " 2 : 3",
+    "2": " 1 : 6",
+    "3": " 3 : 2",
+    "question": "In a vessel, there are 10 litres of alcohol. An operation is defined as taking out five litres of what is present in the vessel and adding 10 litres of pure water to it. What is the ratio of alcohol to water after two operations?",
+    "a": 1
+  },
+  {
+    "0": " 30%",
+    "1": " 18.75%",
+    "2": " 15%",
+    "3": " 13.6%",
+    "question": "The length, breadth and height of a room are in the ratio 3:2:1. If the breadth and height are halved, while the length is doubled. Then the total area of the 4 walls of the room will be decreased by",
+    "a": 1
+  },
+  {
+    "0": " W must be odd",
+    "1": " Y - Z must be odd",
+    "2": " Z must be even",
+    "3": " Z must be odd",
+    "question": "W, X, Y, Z are integers.  The expression X - Y - Z is even and the expression Y - Z - W is odd.  If X is even what must be true?",
+    "a": 1
+  },
+  {
+    "0": " 2650",
+    "1": " 3180",
+    "2": " 3250",
+    "3": " 3120",
+    "question": "According to the stock policy of a company, each employee in the technical division is given 15 shares of the company and each employee in the recruitment division is given 10 shares.  Employees belonging to both committees get 25 shares each.  There are 20 employees in the company, and each one belongs to at least one division.  The cost of each share is $10.  If the technical division has 15 employees and the recruitment division has 10 employees, then what is the total cost of the shares given by the company?",
+    "a": 3
+  },
+  {
+    "0": " 10",
+    "1": " 4",
+    "2": " 5",
+    "3": " 9",
+    "question": "Two cars start from the same point at the same time towards the same destination which is 420 km away. The first and second car travel at respective speeds of 60 kmph and 90 kmph. After travelling for sometime the speeds of the two cars get interchanged.  Finally the second car reaches the destination one hour earlier than the first.  Find the time after which the speeds get interchanged?",
+    "a": 2
+  },
+  {
+    "0": " 8000",
+    "1": " 10000",
+    "2": " 32000",
+    "3": " 40000",
+    "question": "The five tyres of a car (four road tyres and one spare) were used equally in a journey of 40,000 kms.  The number of kms of use of each tyre was",
+    "a": 3
+  },
+  {
+    "0": " 3:2",
+    "1": " 2:3",
+    "2": " 1:6",
+    "3": " 6:1",
+    "question": " The perimeter of a equilateral triangle and regular hexagon are equal.  Find out the ratio of their areas?",
+    "a": 2
+  },
+  {
+    "0": " 5.5",
+    "1": " 7.5",
+    "2": " 6.05",
+    "3": " 10.08",
+    "question": "17 × 8 m rectangular ground is surrounded by 1.5 m width path. Depth of the path is 12 cm. Gravel is filled and find the quantity of gravel required.",
+    "a": 4
+  },
+  {
+    "0": " 120000",
+    "1": " 80000",
+    "2": " 70000",
+    "3": " 130000",
+    "question": "A cow and a horse are bought for Rs 200000. The cow is sold at a profit of 20% and the horse is sold at a loss of 10% .The overall gain is Rs 4000. The cost price of the cow is: ",
+    "a": 2
+  },
+  {
+    "0": " 15%",
+    "1": " 33.33%",
+    "2": " 45%",
+    "3": " 60%",
+    "question": "A person buys a horse for 15 pounds. After one year, he sells it for 20 pounds. After one year, again he buys the same horse at 30 pounds and sells it for 40 pounds. What is the overall profit percent for that person over both the transactions?",
+    "a": 2
+  },
+  {
+    "0": "  0.33365 ",
+    "1": " 0.3368 ",
+    "2": " 0.3396",
+    "3": " 0.3369",
+    "question": "If log 0.318=0.3364 and log 0.317=0.33320 then log 0.319 =?",
+    "a": 3
+  },
+  {
+    "0": " Rs 2100",
+    "1": " Rs.2150",
+    "2": " Rs.2200",
+    "3": " Rs.2250",
+    "question": "Ajith sells a table to Ajay at 10% profit and Ajay sells it to Anoob at 10% loss. At what price did Ajith purchase the table if Anoob paid Rs.2178?",
+    "a": 3
+  },
+  {
+    "0": " 880",
+    "1": " 580",
+    "2": " 980",
+    "3": " 750",
+    "question": "A bought 100kg of rice for Rs 1100 and sold it at a loss of as much money as he received for 2o kg of rice. At what price did he sell the rice?",
+    "a": 1
+  },
+  {
+    "0": " Rs. 1090 ",
+    "1": " Rs. 1160 ",
+    "2": " Rs. 1190",
+    "3": " Rs. 1202 ",
+    "question": "A man buys a cycle for Rs. 1400 and sells it at a loss of 15%. What is the selling price of the cycle? ",
+    "a": 3
+  },
+  {
+    "0": " 20%",
+    "1": " 15%",
+    "2": " 25%",
+    "3": " 30%",
+    "question": "In a class there are 60% of girls of which 25% poor.  What is the probability that a poor girl is selected is leader?",
+    "a": 2
+  },
+  {
+    "0": " 1",
+    "1": " 0.125",
+    "2": " 12.5",
+    "3": " 012.5",
+    "question": "Of the following, which is the closest approximation of (50.2*0.49)/199.8 ?",
+    "a": 2
+  },
+  {
+    "0": " 14.5",
+    "1": " 15.73",
+    "2": " 16.25",
+    "3": " 10.4",
+    "question": "In a mixture of a, b and c,  if a and b are mixed in 3:5 ratio and b and c are mixed in 8:5 ratio and if the final mixture is 35 liters, find the amount of b?",
+    "a": 2
+  },
+  {
+    "0": " 10 days",
+    "1": " 12 days",
+    "2": " 11 days",
+    "3": " 10.5 days",
+    "question": "A is twice efficient than B. A and B can both work together to complete a work in 7 days. Then find in how many days A alone can complete the work?",
+    "a": 4
+  },
+  {
+    "0": " 2 hrs",
+    "1": " 3.2 hrs",
+    "2": " 4 hrs",
+    "3": " 5 hrs",
+    "question": "The water from one outlet, flowing at a constant rate, can fill the swimming pool in 9 hours. The water from second outlet, flowing at a constant rate can fill up the same pool in approximately in 5 hours. If both the outlets are used at the same time, approximately what is the number of hours required to fill the pool?",
+    "a": 2
+  },
+  {
+    "0": "  60%",
+    "1": "  40%",
+    "2": "  50%",
+    "3": "  55%",
+    "question": "If 75 % of a class answered the first question on a certain test correctly, 55 percent answered the second question on the test correctly, and 20 percent answered neither of the questions correctly, what percentage answered both correctly?",
+    "a": 3
+  },
+  {
+    "0": "  80",
+    "1": "  78",
+    "2": "  88",
+    "3": "  60",
+    "question": "A student's average (arithmetic mean) test score on 4 tests is 78. What must be the students score on a 5th test for the students average score on the 5th test to be 80?",
+    "a": 3
+  },
+  {
+    "0": " 50%",
+    "1": " 40%",
+    "2": " 55%",
+    "3": " 48%",
+    "question": "Jose is a student of horticulture in the University of Hose. In a horticultural experiment in his final year, 200 seeds were planted in plot I and 300 were planted in plot II. If 57% of the seeds in plot I germinated and 42% of the seeds in plot II germinated, what percent of the total number of planted seeds germinated?",
+    "a": 4
+  },
+  {
+    "0": " 15 pounds",
+    "1": " 12 pounds",
+    "2": " 18 pounds",
+    "3": " 20 pounds",
+    "question": "The price of lunch for 15 people was 207 pounds, including a 15 percent gratuity of service. What was the average price per person, EXCLUDING the gratuity?",
+    "a": 2
+  },
+  {
+    "0": " Rs 100",
+    "1": " Rs 110",
+    "2": " Rs.150",
+    "3": " Rs.140",
+    "question": "Bhanu spends 30% of his income on petrol on scooter 20% of the remaining on house rent and the balance on food. If he spends Rs.300 on petrol then what is the expenditure on house rent?",
+    "a": 4
+  },
+  {
+    "0": " Rs 44.44",
+    "1": " Rs 45",
+    "2": " Rs 24",
+    "3": " Rs 50",
+    "question": "A Grocer bought 24 kg coffee beans at price X per kg. After a while one third of stock got spoiled so he sold the rest for $200 per kg and made a total profit of twice the cost. What must be the price of X?",
+    "a": 1
+  },
+  {
+    "0": " 37",
+    "1": " 39",
+    "2": " 35",
+    "3": " 36",
+    "question": "3 mangoes and 4 apples costs Rs.85. 5 apples and 6 peaches costs 122.  6 mangoes and 2 peaches costs Rs.144.What is the combined price of 1 apple, 1 peach, and 1 mango.",
+    "a": 1
+  },
+  {
+    "0": " 32",
+    "1": " 48",
+    "2": " 96",
+    "3": " 24",
+    "question": "J can dig a well in 16 days. P can dig a well in 24 days. J, P, H dig in 8 days.  H alone can dig the well in How many days?",
+    "a": 2
+  },
+  {
+    "0": " 16:15",
+    "1": " 15:16",
+    "2": " 1:4",
+    "3": " 5:4",
+    "question": "A dog taken four leaps for every five leaps of hare but three leaps of the dog is equal to four leaps of the hare. Compare speed?",
+    "a": 1
+  },
+  {
+    "0": " ARBSEU",
+    "1": " ARBESU",
+    "2": " ARBSUE",
+    "3": " ARBEUS",
+    "question": "etters in the word ABUSER are permuted in all possible ways and arranged in alphabetical order then find the word at position 49 in the permuted alphabetical order?",
+    "a": 2
+  },
+  {
+    "0": " 0.6485",
+    "1": " 0.6565",
+    "2": " 0.8645",
+    "3": " none of these",
+    "question": "An article manufactured by a company consists of two parts X and Y. In the process of manufacturing of part X, 9 out 100 parts many be defective. Similarly , 5 out of 100 are likely to be defective in the manufacturer of Y. Calculate the probability that the assembled product will not be defective?",
+    "a": 3
+  },
+  {
+    "0": " 80.5 kgs",
+    "1": " 150 kgs",
+    "2": " 90.5 kgs",
+    "3": " 88.5 kgs",
+    "question": "3 friends A, B, C went for week end party to McDonald’s restaurant and there they measure there weights in some order In 7 rounds. A, B, C, AB, BC, AC, ABC. Final round measure is 155kg then find the average weight of all the 7 rounds?",
+    "a": 4
+  },
+  {
+    "0": " 15.73",
+    "1": " 13.25",
+    "2": " 16.0",
+    "3": " 17.54",
+    "question": "In a mixture of a, b and c,  if a and b are mixed in 3:5 ratio and b and c are mixed in 8:5 ratio and if the final mixture is 35 liters, find the amount of b?",
+    "a": 1
+  },
+  {
+    "0": " 35",
+    "1": " 42",
+    "2": " 49",
+    "3": " 57",
+    "question": "Ray writes a two digit number.  He sees that the number exceeds 4 times the sum of its digits by 3.  If the number is increased by 18, the result is the same as the number formed by reversing the digits.  Find the number.",
+    "a": 1
+  },
+  {
+    "0": " 15 sec",
+    "1": " 20 sec",
+    "2": " 25 sec",
+    "3": " 17 sec",
+    "question": "A and B are running around a circular track of length 120 meters with speeds 12 m/s and 6 m/s in the same direction.  When will they meet for the first time?",
+    "a": 2
+  },
+  {
+    "0": "  7/25",
+    "1": "  2/25",
+    "2": "  11/25",
+    "3": "  14/25",
+    "question": "Among a group of 2500 people, 35 percent invest in municipal bonds, 18 percent invest in oil stocks, and 7 percent invest in both municipal bonds and oil stocks. If 1 person is to be randomly selected from 2500 people, what is the probability that the person selected will be one who invests in municipal bonds but not in oil stocks?",
+    "a": 1
+  },
+  {
+    "0": "  √3:8",
+    "1": "  √3:2",
+    "2": "  √3:4",
+    "3": "  √4:√3",
+    "question": "The diagonal of a square is twice the side of equilateral triangle then the ratio of Area of the Triangle to the Area of Square is?",
+    "a": 1
+  },
+  {
+    "0": " 588",
+    "1": " 488",
+    "2": " 500",
+    "3": " 458",
+    "question": "A hollow cube of size 5 cm is taken, with a thickness of 1 cm. It is made of smaller cubes of size 1 cm. If 4 faces of the outer surface of the cube are painted, totally how many faces of the smaller cubes remain unpainted?",
+    "a": 2
+  },
+  {
+    "0": " 4",
+    "1": " 5",
+    "2": " 6",
+    "3": " 1",
+    "question": "An organisation has 3 committees, only 2 persons are members of all 3 committee but every pair of committee has 3 members in common. what is the least possible number of members on any one committee?",
+    "a": 1
+  },
+  {
+    "0": "  1/9",
+    "1": "   4/9",
+    "2": "  5/9",
+    "3": "  2/3",
+    "question": "For the FIFA world cup, Paul the octopus has been predicting the winner of each match with amazing success. It is rumored that in a match between 2 teams A and B, Paul picks A with the same probability as A’s chances of winning. Let’s assume such rumors to be true and that in a match between Ghana and Bolivia; Ghana the stronger team has a probability of 2/3 of winning the game. What is the probability that Paul will correctly pick the winner of the Ghana-Bolivia game?",
+    "a": 3
+  },
+  {
+    "0": " 23125",
+    "1": " 19000",
+    "2": " 13435",
+    "3": " 16875",
+    "question": "Value of a scooter depreciates in such a way that its value at the end of each year is 3/4th of its value at the beginning of the same year. If the initial value of scooter is 40,000, what is the value of the scooter at the end of 3 years.",
+    "a": 4
+  },
+  {
+    "0": " 3:2",
+    "1": " 2:3",
+    "2": " 1:6",
+    "3": " 6:1",
+    "question": "The perimeter of a equilateral triangle and regular hexagon are equal.  Find out the ratio of their areas?",
+    "a": 2
+  },
+  {
+    "0": " 980",
+    "1": " 797",
+    "2": " 955",
+    "3": " 618",
+    "question": "Which of the following numbers must be added to 5678 to give a reminder 35 when divided by 460?",
+    "a": 2
+  },
+  {
+    "0": " 450",
+    "1": " 420",
+    "2": " 350",
+    "3": " 320",
+    "question": "In how many possible ways can write 3240 as a product of 3 positive integers a,b and c.",
+    "a": 1
+  },
+  {
+    "0": " 16",
+    "1": " 24",
+    "2": " 12",
+    "3": " 18",
+    "question": "A tree of height 36m is on one edge of a road broke at a certain height.  It fell in such a way that the top of the tree touches the other edge of the road. If the breadth of the road is 12m, then what is the height at which the tree broke?",
+    "a": 1
+  },
+  {
+    "0": "  0",
+    "1": "  1",
+    "2": "  2",
+    "3": "  3",
+    "question": "What will be the reminder when (1234567890123456789)^24 is divided by 6561",
+    "a": 1
+  },
+  {
+    "0": " 8",
+    "1": " 16",
+    "2": " 32",
+    "3": " 48",
+    "question": "There is a 3*3 matrix . u have 2 colors red and blue. in how many ways u can fill the colors in the boxes so that if u rotate the matrix by 180 degree we get the same matrix?   ",
+    "a": 3
+  },
+  {
+    "0": " 2/7",
+    "1": " 1/5",
+    "2": " 3/5",
+    "3": " 4/5",
+    "question": " A bag contains 6 balls of one or more colors. A ball is picked and is found to be red. What is the probability that the bag initially had exactly 6 red balls?   ",
+    "a": 1
+  },
+  {
+    "0": " 5",
+    "1": " 10",
+    "2": " 15",
+    "3": " 20",
+    "question": " 2 oranges, 3 bananas and 4 apples cost rs.15. 3 oranges,2 bananas and 1 apples cost rs.10. what is the cost of 3 oranges, 3 bananas and 3 apples?   ",
+    "a": 3
+  },
+  {
+    "0": " 5,3",
+    "1": " 7,1",
+    "2": " 4,4",
+    "3": " 3,5",
+    "question": "Sehwag and Ganguly were sharing an apartment and cooked the food by themselves. One day Sehwag made 5 pizzas for himself and Ganguly made 3 for himself. At the time of lunch Tendulkar came in. So all three of them sat together and ate all the pizzas equally. After eating them Tendulkar gave them 8 expensive cricket bats and left. As Ganguly was running out of form he started quarrelling and asked for 4 bats which Sehwag refused to give. Finally David shepherd was called to give the right decision which he did. How many bats Sehwag and Ganguly were given finally?",
+    "a": 2,
+    "lod": 3
+  },
+  {
+    "0": " 49",
+    "1": " 136",
+    "2": " 236",
+    "3": " 336",
+    "question": " Veena wants to make a cuboidal box with length 8cm, width 7 cm and height 6 cm, using 1 cubic cm cubes. What is the number of cubes she would require to make the box?   ",
+    "a": 4
+  },
+  {
+    "0": " 0",
+    "1": " 10",
+    "2": " 15",
+    "3": " 20",
+    "question": "5 printers can print 5 sheets in 5 seconds. If I need to print 20 sheets in 20 seconds, how many additional printers should I install in my office?   ",
+    "a": 1
+  },
+  {
+    "0": " 3",
+    "1": " 5",
+    "2": " 7",
+    "3": " 9",
+    "question": "A three digit number was divided successively in order by 4, 5 and 6 leaving out the remainders. The remainders were respectively 2, 3 and 4. How many such three digit numbers are possible?   ",
+    "a": 3
+  },
+  {
+    "0": " 24",
+    "1": " 28",
+    "2": " 32",
+    "3": " 36",
+    "question": " Jack, twenty one years old, is three times as old as his brother. How old will Jack be when he is twice as old as his brother?   ",
+    "a": 2
+  },
+  {
+    "0": " 2 or 6",
+    "1": " 4 or 6 ",
+    "2": " 4 ",
+    "3": " 8",
+    "question": "If x and y are the two digits of the number 653xy such that this number is divisible by 80, then what is x + y = ?   ",
+    "a": 1
+  },
+  {
+    "0": " 15/216 ",
+    "1": " 10/216 ",
+    "2": " 9/25 ",
+    "3": " 1/8",
+    "question": "Three dice are rolled. What is the probability of sum of the numbers on the faces being 10?   ",
+    "a": 4
+  },
+  {
+    "0": " 18",
+    "1": " 24",
+    "2": " 30",
+    "3": " 36",
+    "question": "A man has three grand children.The age of the eldest grand child is four times the age of youngest grand child. The second grand child's age is half of the eldest grand child. The sum of the ages of all three grandchildren is 63. What is the age of eldest grand child?   ",
+    "a": 4
+  },
+  {
+    "0": "  114000 ",
+    "1": "  140000 ",
+    "2": "  141000 ",
+    "3": "  144000 ",
+    "question": "The cost price of a cow and a horse is 3 lakhs. The cow is sold at 20% profit and horse at 10% loss. Overall gain is Rs.4200. What is the cost price of the cow?   ",
+    "a": 1
+  },
+  {
+    "0": " 9",
+    "1": " 12",
+    "2": " 15",
+    "3": " 18",
+    "question": "Vinod ordered for 6 blue toys and some green toys. The price of a blue toy is 2.5 times that of a green toy. While preparing the bill, the clerk interchanged the number of blue and green toys which increased the bill by 145%. Find the number of green toys.   ",
+    "a": 3
+  },
+  {
+    "0": " 525",
+    "1": " 450",
+    "2": " 325",
+    "3": " 175",
+    "question": "Magesh spends 30% of his income on petrol. 1/4th of the remaining on house rent and the balance on food. If he spends Rs.300 on petrol then what is the expenditure on food?   ",
+    "a": 1
+  },
+  {
+    "0": " 50",
+    "1": " 60",
+    "2": " 75",
+    "3": " None of these",
+    "question": "60 men can complete a work in 40 days. 60 men start the work but after every 5 days, 5 men leave. In how many days the work will be completed?",
+    "a": 4,
+    "lod": 3
+  },
+  {
+    "0": "  10,40 ",
+    "1": "  15,35 ",
+    "2": "  30,20 ",
+    "3": "  22,28 ",
+    "question": "Divide 50 into two parts so that sum of the reciprocal is 1/12 ?   ",
+    "a": 3
+  },
+  {
+    "0": " 34",
+    "1": " 35",
+    "2": " 36",
+    "3": " 37",
+    "question": "146!/5^n what is the maximum value of n?   ",
+    "a": 2
+  },
+  {
+    "0": " 57",
+    "1": " 60",
+    "2": " 63",
+    "3": " 66",
+    "question": "Tim and Elan are 90 km from each other. They start to move towards each other simultaneously tim at speed 10kmph and elan 5kmph. If every hour they double their speed what is the distance that Tim will pass until he meet Elan.   ",
+    "a": 2
+  },
+  {
+    "0": " 40",
+    "1": " 41",
+    "2": " 27",
+    "3": " 28",
+    "question": "3 persons A, B and C are standing in a queue. There are 5 persons between A and B and 8 persons between B and C. If there are 3 persons ahead of C and 21 persons behind A, what could be the minimum number of persons in the queue ?   ",
+    "a": 4
+  },
+  {
+    "0": " 2500",
+    "1": " 2250",
+    "2": " 2750",
+    "3": " 3000",
+    "question": "In a hotel where rooms are numbered from 101 to 130, each room gives an earning of Rs. 3000 for the first fifteen days of a month and for the latter half, Rs. 2000 per room. Find the average earning per room per day over the month. (Assume 30 day month)   ",
+    "a": 1
+  },
+  {
+    "0": "  Monday ",
+    "1": "  tuesday ",
+    "2": "  wednesday ",
+    "3": "  thursday ",
+    "question": "Lion tells lies on Mondays, Tuesday and Wednesday, Rat tells lie on Thursday, Friday and Saturday, Both of them speak truth on other days. Lion tells, Yesterday was one of the days which, I tell lyingÂ?, Rat also tells Yesterday was one of the days which I tell lying. What day was yesterday?",
+    "a": 3
+  },
+  {
+    "0": "  28.56% ",
+    "1": "  35% ",
+    "2": "  22% ",
+    "3": "  None ",
+    "question": "After allowing a discount of 11.11%, a trader still makes a gain of 14.28%. At how many per cent above the cost price does he mark on his goods?",
+    "a": 1,
+    "lod": 3
+  },
+  {
+    "0": " 2n/5n ",
+    "1": " 4n/5n ",
+    "2": " 2n/10n ",
+    "3": " None ",
+    "question": "If ‘n‘ integers taken at random and multiplied together, then what is the probability that the last digit of the product is 1, 3, 7 or 9 ?   ",
+    "a": 1
+  },
+  {
+    "0": " 12",
+    "1": " 20",
+    "2": " 24",
+    "3": " 30",
+    "question": " In June, a baseball team that played 60 games had won 30% of its game played. After a phenomenal winning streak, this team raised its average to 50%. How many games must the team have won in a row to attain this average?   ",
+    "a": 3
+  },
+  {
+    "0": " 44.44",
+    "1": " 55.55",
+    "2": " 66.66",
+    "3": " 77.77",
+    "question": "A grocer bought 24 kg coffee beans at price x per kg.after a while one third of stock got spoiled so he sold the rest for $200 per kg and made a total profit of twice the cost what must be the price of x   ",
+    "a": 1
+  },
+  {
+    "0": " 6!",
+    "1": " 5!",
+    "2": " 4!",
+    "3": " 2!",
+    "question": "In how many rearrangements of the word ERASED in the letter ‘A‘ positioned in between the 2 ‘E‘s?",
+    "a": 3,
+    "lod": 3
+  },
+  {
+    "0": " 1543 ",
+    "1": " 2256 ",
+    "2": " 2456 ",
+    "3": " 1656 ",
+    "question": "In how many ways a team of 11 must be selected from 5 men and 11 women such that the team must comprise of not more than 3 men?   ",
+    "a": 2
+  },
+  {
+    "0": "  Rs.5, 10 ",
+    "1": "  Rs.6, 10 ",
+    "2": "  Rs.5, 8 ",
+    "3": "  Rs.6, 8 ",
+    "question": "\n Eesha bought 18 sharpeners for Rs.100. She paid 1 rupee more for each white sharpener than for each brown sharpener. What is the price of a white sharpener and how many white sharpener did she buy ? ",
+    "a": 2
+  },
+  {
+    "0": " 360",
+    "1": " 480",
+    "2": " 720",
+    "3": " 5040",
+    "4": " none of these",
+    "question": "In how many different ways can the letters of the word 'LEADING' be arranged in such a way that the vowels always come together?",
+    "a": 3
+  },
+  {
+    "0": "  1:2",
+    "1": "  2:3",
+    "2": "  3:2",
+    "3": "  2:1",
+    "question": "Find the ratio of the area of square to area of triangle.",
+    "a": 4,
+    "hasImage": true
+  },
+  {
+    "0": " 5",
+    "1": " 4",
+    "2": " Cannot be determined",
+    "3": " None of these",
+    "question": "Radius of the bigger circle is 1.  Which area is greater?",
+    "hasImage": true,
+    "a": 2
+  }
+]
