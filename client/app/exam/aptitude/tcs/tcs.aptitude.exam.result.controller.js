@@ -6,6 +6,9 @@ angular.module('etestApp')
     vm.id = $stateParams.id;
     vm.seriesType = 'spline';
     vm.resultType = 'column';
+    vm.theme1 = 'Default';
+    vm.theme2 = 'Default';
+    vm.theme3 = 'Default';
     vm.rankType = 'spline';
     if (!vm.id || TCSAptitudeService.getTestId() != vm.id) {
       return $location.path('/exam/tcs/aptitude/' + (vm.id > 0 ? vm.id : ""));
@@ -34,7 +37,7 @@ angular.module('etestApp')
       }];
 
       vm.viewProfile = function (ev, user) {
-        var name=(user.name.indexOf('@') > 0 ? user.name.split('@')[0] : user.name);
+        var name = (user.name.indexOf('@') > 0 ? user.name.split('@')[0] : user.name);
         var id = user.userId;
         // Appending dialog to document.body to cover sidenav in docs app
         var confirm = $mdDialog.confirm()
