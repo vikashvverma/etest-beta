@@ -1,9 +1,15 @@
 <md-whiteframe class="md-whiteframe-2dp" flex>
 
-  <div id="commentbox" layout="column" layout-margin layout-padding layout-wrap layout-align="center center" ng-show="commentbox.show">
+  <div id="facebook-box" layout="column" layout-margin layout-padding layout-wrap layout-align="center center"
+       ng-show="commentbox.show">
 
     <div class="fb-comments tcs-card" data-href="{{commentbox.url}}" data-num-posts="5" data-colorscheme="light"
-         data-order-by="social" data-mobile="1" data-width="100%" data-version="v2.3" style="width:98%;"></div>
+         data-order-by="social" data-mobile="1" data-width="100%" data-version="v2.3"
+         style="width:98%;"></div>
+
+  </div>
+  <div id="google-box" layout="column" layout-margin layout-padding layout-wrap layout-align="center center"
+       ng-show="commentbox.show">
     <script src="https://apis.google.com/js/plusone.js">
     </script>
     <div class="g-comments"
@@ -13,8 +19,6 @@
          data-height="400"
          data-view_type="FILTERED_POSTMOD" style="min-height: 300px;">
     </div>
-
   </div>
-
 </md-whiteframe>
 
