@@ -80,7 +80,7 @@ angular.module('etestApp')
         vm.sharer = function (ev) {
           var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
           $mdDialog.show({
-              controller: DialogController,
+              controller: vm.dialogController,
               templateUrl: 'app/account/profile/sharer.tmpl.html',
               parent: angular.element(document.body),
               targetEvent: ev,
@@ -108,7 +108,7 @@ angular.module('etestApp')
         'google': 'https://plus.google.com/',
         'twitter': 'https://twitter.com/intent/user?user_id='
       };
-      function DialogController($scope, $mdDialog) {
+      vm.dialogController = ['$scope', '$mdDialog', function ($scope, $mdDialog) {
         $scope.hide = function () {
           $mdDialog.hide();
         };
@@ -134,6 +134,6 @@ angular.module('etestApp')
           });
           ;
         };
-      }
+      }]
     }
   ]);

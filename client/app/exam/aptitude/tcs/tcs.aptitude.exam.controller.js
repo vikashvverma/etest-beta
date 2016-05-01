@@ -36,10 +36,10 @@ angular.module('etestApp')
             minute: 80,
             second: 0,
             seconds: 4800,
-            id:vm.id
+            id: vm.id
           };
-          if(!vm.questions.length){
-            TCSAptitudeService.notify("Invalid Test ID!","error");
+          if (!vm.questions.length) {
+            TCSAptitudeService.notify("Invalid Test ID!", "error");
             return $location.path('exam/tcs/aptitude');
           }
           vm.startTest();
@@ -151,10 +151,10 @@ angular.module('etestApp')
         $scope.customFullscreen = (wantsFullScreen === true);
       });
     };
-    vm.dialogController = function ($scope, $mdDialog, TCSAptitudeService) {
+    vm.dialogController = ['$scope', '$mdDialog', 'TCSAptitudeService', function ($scope, $mdDialog, TCSAptitudeService) {
       $scope.test = TCSAptitudeService.getQuestions();
       $scope.attempted = $scope.test.filter(function (question) {
-        return question.ans>0;
+        return question.ans > 0;
       });
       $scope.mfr = $scope.test.filter(function (question) {
         return question.mfr;
@@ -168,7 +168,7 @@ angular.module('etestApp')
       $scope.endTest = function () {
         $mdDialog.hide();
       };
-    };
+    }];
     $scope.$on('$destroy', function () {
       $interval.cancel(vm.interval);
     });

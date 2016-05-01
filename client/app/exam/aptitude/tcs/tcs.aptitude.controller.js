@@ -32,7 +32,7 @@ angular.module('etestApp')
           //alert('You cancelled the dialog.');
         });
     };
-    vm.controller = function ($scope, $mdDialog) {
+    vm.controller = ['$scope', '$mdDialog', function ($scope, $mdDialog) {
       var vm = this;
       $scope.hide = function () {
         $mdDialog.hide();
@@ -74,14 +74,14 @@ angular.module('etestApp')
         }, {
           icon: 'fa fa-hand-o-right',
           instruction: ' <i class="fa fa-hand-o-right"></i> The legend on the screen indicates the following:',
-          secondary:[
+          secondary: [
             '<span class="text-success answered"><i class="fa fa-square"></i>Answered </span>&nbsp;&nbsp;',
             '<span class="text-warning mfr"><i class="fa fa-square"></i>Answered and Marked for Review </span>&nbsp;&nbsp;',
             '<span class="success"><i class="fa fa-star"> Carries higher marks</i></span>'
           ]
         }
       ];
-    };
+    }];
     vm.colors = ['blue', 'purple', 'deepBlue', 'lightPurple', 'pink', 'green', 'deepBlue', 'red'];
 
   });
