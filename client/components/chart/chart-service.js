@@ -438,7 +438,7 @@ angular.module('etestApp')
             crosshairs: true,
             useHTML:true,
             headerFormat: '<small><span>Count :  {point.key}</span></small><table>',
-            pointFormat: '<tr><td style="color: {series.color}">Score  : </td>' + '<td style="text-align: right"><b>{point.y} </b></td></tr>',
+            pointFormat: '<tr><td style="color: {series.color}">Score  : </td>' + '<td style="text-align: right"><b>{point.y}%</b></td></tr>',
             footerFormat: '</table>'
           },
           plotOptions: plotOptions,
