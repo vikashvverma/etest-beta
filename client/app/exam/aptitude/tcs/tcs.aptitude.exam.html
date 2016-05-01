@@ -69,7 +69,7 @@
     </div>
 
     <md-subheader class="question md-primary">
-      {{vm.currentQuestion.question}}
+      <span ng-bind-html="vm.currentQuestion.question"></span>
       <span layout layout-align="center" layout-wrap ng-if="vm.currentQuestion.hasQImage">
         <md-card>
           <md-card-content layout="row" layout-align="center">
@@ -97,7 +97,8 @@
       <md-radio-group ng-model="vm.answer">
         <md-list-item ng-repeat="option in vm.currentQuestion.options track by $index" ng-click="vm.select($index+1);">
           <md-radio-button ng-value="$index+1" class="md-primary" ng-selected="true"
-                           style="margin-top:10px;margin-bottom:10px;">{{option}}
+                           style="margin-top:10px;margin-bottom:10px;">
+            <span ng-bind-html="option"></span>
           </md-radio-button>
         </md-list-item>
       </md-radio-group>

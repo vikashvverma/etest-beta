@@ -120,7 +120,7 @@
       <div md-whiteframe="1" layout-padding layout-fill layout-margin>
         <md-subheader class="question">
           <span style="color:#5bc0de;">Question {{$index+1}}.</span>
-          {{question.question}}
+          <span ng-bind-html="question.question"></span>
           <br/>
           <span layout layout-align="center" layout-wrap ng-if="question.hasQImage">
             <md-card>
@@ -134,10 +134,11 @@
 
         <md-list>
           <md-radio-group ng-model="question.ans">
-            <md-list-item ng-repeat="option in question.options track by $index" ng-class="{'correct-answer':question.answer==$index+1}">
+            <md-list-item ng-repeat="option in question.options track by $index"
+                          ng-class="{'correct-answer':question.answer==$index+1}">
               <md-radio-button ng-value="$index+1" class="md-primary" ng-disabled="true"
                                style="margin-top:10px;margin-bottom:10px;">
-                {{option}}
+                <span ng-bind-html="option"></span>
               </md-radio-button>
               <md-icon class="md-secondary md-accent" ng-click="doSecondaryAction($event)" aria-label="selected"
                        md-font-set="fa fa-check fa-2x" ng-if="question.ans==$index+1"></md-icon>
