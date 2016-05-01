@@ -248,13 +248,15 @@ exports.getRankStatistics = function (req, res) {
     for (var key in temp) {
       if (out[req.query.userId].avg == Number(key)) {
         stats.push({
-          y: Number(key),
+          // TODO: Change if number of * marked questions are more than 2
+          y: Number(((Number(key) * 100) / 32).toFixed(2)),
           marker: {
             symbol: 'url(http://www.highcharts.com/demo/gfx/sun.png)'
           }
         });
       } else {
-        stats.push(Number(key));
+        // TODO: Change if number of * marked questions are more than 2
+        stats.push(Number(((Number(key) * 100) / 32).toFixed(2)));
       }
     }
     stats = stats.sort(function (prev, next) {
@@ -292,8 +294,11 @@ exports.getAllStatistics = function (req, res) {
     for (var i = data.length - 1; i >= 0; i--) {
       var temp = [];
       for (var j = data[i].statistics.length - 1; j >= 0; j--) {
-        if (data[i].statistics[j].userId == req.query.userId)
-          temp.push(data[i].statistics[j].score);
+        if (data[i].statistics[j].userId == req.query.userId) {
+          // TODO: Change if number of * marked questions are more than 2
+          let scoreInPercentage = Number(((data[i].statistics[j].score * 100) / 32).toFixed(2));
+          temp.push(scoreInPercentage);
+        }
       }
       temp.unshift(undefined);
       out.push({id: data[i].id, name: 'Set ' + data[i].id, data: temp});
@@ -317,7 +322,8 @@ exports.getStatistics = function (req, res) {
       return obj.userId == req.query.userId;
     });
     result = result.map(function (obj) {
-      return obj.score;
+      // TODO: Change if number of * marked questions are more than 2
+      return Number(((obj.score * 100) / 32).toFixed(2));
     });
     //if not used then first element will be hidden
     result.unshift(undefined);
