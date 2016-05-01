@@ -57,39 +57,86 @@
                style="overflow-y:hidden;">
   <span id="test-performance"></span>
   <span layout="column" layout-align="center center">
-  <etest-chart type="vm.resultType" data="vm.resultData" title="Performance in set {{vm.id}}"></etest-chart>
-     <md-radio-group ng-model="vm.resultType" style="    display: inline-flex;">
-       <md-radio-button value="bar" class="md-accent"> Bar</md-radio-button>
-       <md-radio-button value="column">Column</md-radio-button>
-       <md-radio-button value="line">Line</md-radio-button>
-       <md-radio-button value="spline">Spline</md-radio-button>
-     </md-radio-group>
+  <etest-chart type="vm.resultType" data="vm.resultData" title="Performance in set {{vm.id}}"
+               theme="vm.theme1"></etest-chart>
+    <div layout="row" layout-xs="column" layout-gt-xs="row" layout-align="space-between center" style="width:90%;">
+      <span>
+        Change Graph:
+        <md-radio-group ng-model="vm.resultType" style="    display: inline-flex;">
+          <md-radio-button value="bar" class="md-accent" style="padding-right:20px;padding-left: 0px;"> Bar
+          </md-radio-button>
+          <md-radio-button value="column" style="padding-right:20px;padding-left: 0px;">Column</md-radio-button>
+          <md-radio-button value="line" style="padding-right:20px;padding-left: 0px;">Line</md-radio-button>
+          <md-radio-button value="spline" style="padding-right:20px;padding-left: 0px;">Spline</md-radio-button>
+        </md-radio-group>
+      </span>
+      <span>
+        Change Theme:
+        <md-radio-group ng-model="vm.theme1" style="display: inline-flex;">
+          <md-radio-button value="Default" class="md-accent" style="padding-right:20px;padding-left: 0px;"> Default
+          </md-radio-button>
+          <md-radio-button value="Unicia" style="padding-right:20px;padding-left: 0px;">Dark</md-radio-button>
+          <md-radio-button value="Signika" style="padding-right:20px;padding-left: 0px;">Sand</md-radio-button>
+          <md-radio-button value="Light" style="padding-right:20px;padding-left: 0px;">Light</md-radio-button>
+        </md-radio-group>
+      </span>
+    </div>
     </span>
   <span layout="column" layout-align="center center">
     <span ng-show="!vm.seriesData">Loading...</span>
-  <etest-chart type="vm.seriesType" data="vm.seriesData" title="Performance in all set">
-    <div class="graph-loader"></div>
-  </etest-chart>
-    <md-radio-group ng-model="vm.seriesType" style="    display: inline-flex;">
-      <md-radio-button value="bar" class="md-accent"> Bar</md-radio-button>
-      <md-radio-button value="column">Column</md-radio-button>
-      <md-radio-button value="line">Line</md-radio-button>
-      <md-radio-button value="spline">Spline</md-radio-button>
-    </md-radio-group>
-    </span>
+    <etest-chart type="vm.seriesType" data="vm.seriesData" title="Performance in all set" theme="vm.theme2">
+      <div class="graph-loader"></div>
+    </etest-chart>
+    <div layout="row" layout-xs="column" layout-gt-xs="row" layout-align="space-between center" style="width:90%;">
+     <span>
+       Change Graph:
+       <md-radio-group ng-model="vm.seriesType" style="    display: inline-flex;">
+         <md-radio-button value="bar" class="md-accent"> Bar</md-radio-button>
+         <md-radio-button value="column">Column</md-radio-button>
+         <md-radio-button value="line">Line</md-radio-button>
+         <md-radio-button value="spline">Spline</md-radio-button>
+       </md-radio-group>
+      </span>
+      <span>
+          Change Theme:
+          <md-radio-group ng-model="vm.theme2" style="display: inline-flex;">
+            <md-radio-button value="Default" class="md-accent" style="padding-right:20px;padding-left: 0px;"> Default
+            </md-radio-button>
+            <md-radio-button value="Unicia" style="padding-right:20px;padding-left: 0px;">Dark</md-radio-button>
+            <md-radio-button value="Signika" style="padding-right:20px;padding-left: 0px;">Sand</md-radio-button>
+            <md-radio-button value="Light" style="padding-right:20px;padding-left: 0px;">Light</md-radio-button>
+          </md-radio-group>
+        </span>
+    </div>
+  </span>
 
   <span layout="column" layout-align="center center">
     <span ng-show="!vm.rankData">Loading...</span>
-  <etest-chart type="vm.rankType" data="vm.rankData" title="Rank">
-    <div class="graph-loader"></div>
-  </etest-chart>
-    <md-radio-group ng-model="vm.rankType" style="    display: inline-flex;">
-      <md-radio-button value="bar" class="md-accent"> Bar</md-radio-button>
-      <md-radio-button value="column">Column</md-radio-button>
-      <md-radio-button value="line">Line</md-radio-button>
-      <md-radio-button value="spline">Spline</md-radio-button>
-    </md-radio-group>
-    </span>
+    <etest-chart type="vm.rankType" data="vm.rankData" title="Rank" theme="vm.theme3">
+      <div class="graph-loader"></div>
+    </etest-chart>
+    <div layout="row" layout-xs="column" layout-gt-xs="row" layout-align="space-between center" style="width:90%;">
+     <span>
+       Change Graph:
+        <md-radio-group ng-model="vm.rankType" style="    display: inline-flex;">
+          <md-radio-button value="bar" class="md-accent"> Bar</md-radio-button>
+          <md-radio-button value="column">Column</md-radio-button>
+          <md-radio-button value="line">Line</md-radio-button>
+          <md-radio-button value="spline">Spline</md-radio-button>
+        </md-radio-group>
+     </span>
+     <span>
+          Change Theme:
+          <md-radio-group ng-model="vm.theme3" style="display: inline-flex;">
+            <md-radio-button value="Default" class="md-accent" style="padding-right:20px;padding-left: 0px;"> Default
+            </md-radio-button>
+            <md-radio-button value="Unicia" style="padding-right:20px;padding-left: 0px;">Dark</md-radio-button>
+            <md-radio-button value="Signika" style="padding-right:20px;padding-left: 0px;">Sand</md-radio-button>
+            <md-radio-button value="Light" style="padding-right:20px;padding-left: 0px;">Light</md-radio-button>
+          </md-radio-group>
+     </span>
+    </div>
+  </span>
 
   <span id="test-rank"></span>
 </md-whiteframe>
