@@ -55,6 +55,7 @@ var app = angular.module('etestApp', [
     var history = [];
     $rootScope.$on('$locationChangeSuccess', function () {
       history.push($location.$$path);
+      FB.XFBML.parse($('#facebook-box')[0]);
     });
 
     $rootScope.back = function () {
@@ -88,9 +89,11 @@ var app = angular.module('etestApp', [
       if (next.url === '/') {
         $rootScope.commentbox.show = false;
       } else {
-        $rootScope.commentbox.url = $location.absUrl();
         $rootScope.commentbox.show = true;
       }
+    });
+    $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams) {
+      $rootScope.commentbox.url = $location.absUrl();
     });
 
     // Redirect to login if route requires auth and you're not logged in
