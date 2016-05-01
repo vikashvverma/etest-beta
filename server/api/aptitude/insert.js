@@ -21,7 +21,7 @@ module.exports = function () {
       name: "TCS",
       qset: models[i].qset
     }];
-    model.section = [models[i].section];
+    model.section = models[i].section ? [models[i].section] : [];
     model.statistics = [];//10000 records take 4 MB space
     if (models[i].hasQImage) {
       model.hasQImage = models[i].hasQImage;
@@ -39,33 +39,42 @@ module.exports = function () {
   }
 
   fs.readFile('./aptitude.json', function (err, data) {
-    if (err) {
-      return console.log(err);
-    }
-    var models = JSON.parse(data.toString());
-    console.log(JSON.stringify(models[0], null, 4));
-    //save(models,0);
-    //var aptitude=new TCSAptitude({
-    //  id:1,
-    //  name:"TCS Analytical Ability Test 1",
-    //  qser:1,
-    //  statistics:[]
-    //});
-    //var aptitude1=new TCSAptitude({
-    //  id:2,
-    //  name:"TCS Analytical Ability Test 2",
-    //  qser:2,
-    //  statistics:[]
-    //});
-    //var aptitude2=new TCSAptitude({
-    //  id:3,
-    //  name:"TCS Analytical Ability Test 3",
-    //  qset:3,
-    //  statistics:[]
-    //});
-    //aptitude.save();
-    //aptitude1.save();
-    //aptitude2.save();
+      if (err) {
+        return console.log(err);
+      }
+      var models = JSON.parse(data.toString());
+      console.log(JSON.stringify(models[0], null, 4));
+      save(models, 0);
+      //var aptitude=new TCSAptitude({
+      //  id:1,
+      //  name:"TCS Analytical Ability Test 1",
+      //  qser:1,
+      //  statistics:[]
+      //});
+      //var aptitude1=new TCSAptitude({
+      //  id:2,
+      //  name:"TCS Analytical Ability Test 2",
+      //  qser:2,
+      //  statistics:[]
+      //});
+      //var aptitude2=new TCSAptitude({
+      //  id:3,
+      //  name:"TCS Analytical Ability Test 3",
+      //  qset:3,
+      //  statistics:[]
+      //});
+      for (var k = 1; k < 11; k++) {
+        new TCSAptitude({
+          id: k,
+          name: "TCS Analytical Ability Test " + k,
+          qset: k,
+          statistics: []
+        }).save();
+      }
+      //aptitude.save();
+      //aptitude1.save();
+      //aptitude2.save();
 
-  });
+    }
+  );
 };
