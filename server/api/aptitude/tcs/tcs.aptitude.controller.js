@@ -246,7 +246,7 @@ exports.getRankStatistics = function (req, res) {
     }
 
     for (var key in temp) {
-      if (out[req.query.userId].avg == Number(key)) {
+      if (out[req.query.userId] && out[req.query.userId].avg == Number(key)) {
         stats.push({
           // TODO: Change if number of * marked questions are more than 2
           y: Number(((Number(key) * 100) / 32).toFixed(2)),
