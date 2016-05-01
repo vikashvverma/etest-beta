@@ -4,6 +4,8 @@ angular.module('etestApp')
   .factory('ChartService', function Auth($location, $rootScope, $http, User, $cookieStore, $q, $log, $sce, ngNotify) {
 
     var chart = {};
+    // Make a copy of the defaults, call this line before any other setOptions call
+    var HCDefaults = $.extend(true, {}, Highcharts.getOptions(), {});
     return {
       setChartData: function (data) {
         chart = data;
@@ -359,7 +361,7 @@ angular.module('etestApp')
               }
             },
             xAxis: {
-              gridLineWidth: 1,
+              //gridLineWidth: 1,
               labels: {
                 style: {
                   fontSize: '12px'
@@ -392,9 +394,12 @@ angular.module('etestApp')
           };
           return Highcharts.theme;
         };
+        theme.getDefault = function () {
+          return HCDefaults;
+        };
         return theme['get' + name];
       },
-      getChart: function (title,type, data,categories) {
+      getChart: function (title, type, data, categories, theme) {
         var plotOptions = {};
         plotOptions[type] = {
           dataLabels: {
@@ -414,15 +419,15 @@ angular.module('etestApp')
             zoomType: 'x'
           },
           title: {
-            text:title
+            text: title
           },
           subtitle: {
             text: ''
           },
           xAxis: {
-            min:0,
-            categories:categories,
-            allowDecimals:false
+            min: 0,
+            categories: categories,
+            allowDecimals: false
           },
           yAxis: {
             title: {
@@ -436,7 +441,7 @@ angular.module('etestApp')
           },
           tooltip: {
             crosshairs: true,
-            useHTML:true,
+            useHTML: true,
             headerFormat: '<small><span>Count :  {point.key}</span></small><table>',
             pointFormat: '<tr><td style="color: {series.color}">Score  : </td>' + '<td style="text-align: right"><b>{point.y}%</b></td></tr>',
             footerFormat: '</table>'
@@ -444,6 +449,10 @@ angular.module('etestApp')
           plotOptions: plotOptions,
           series: data
         };
+        // Apply the theme
+        if (theme) {
+          Highcharts.setOptions(this.getTheme(theme)());
+        }
         return options;
       },
       getPie: function (data, title) {
@@ -476,7 +485,7 @@ angular.module('etestApp')
             }
           },
           series: [{
-            name:name,
+            name: name,
             data: data
           }]
         };
