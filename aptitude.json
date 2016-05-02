@@ -1560,13 +1560,13 @@
   },
   {
     "id": 126,
-    "question": "B moves by taking 3 steps forward and 1 step backward (each step in one second )He walks up a stationary escalator in 118 sec. However on moving escalator he takes 40 sec to reach top .Find speed of escalator. ",
-    "option1": "  1 step/sec",
-    "option2": "  2 step/sec",
-    "option3": "  3 step/sec",
-    "option4": "  4 step/sec",
-    "answer": 1,
-    "lod": 1,
+    "question": "In this question, X^Y means, X raised to the power Y. <br>How many integers x satisfy the equation (x^2 - x - 1)^ (x + 2) = 1 ?",
+    "option1": "2",
+    "option2": "4",
+    "option3": "3",
+    "option4": "None of the other three choices",
+    "answer": 2,
+    "lod": 3,
     "qset": 5
   },
   {
@@ -3508,6 +3508,28 @@
     "option3": "5508",
     "option4": "4832",
     "answer": 4,
+    "lod": 1,
+    "qset": 11
+  },
+  {
+    "id": 303,
+    "question": "B moves by taking 3 steps forward and 1 step backward (each step in one second )He walks up a stationary escalator in 118 sec. However on moving escalator he takes 40 sec to reach top .Find speed of escalator. ",
+    "option1": "  1 step/sec",
+    "option2": "  2 step/sec",
+    "option3": "  3 step/sec",
+    "option4": "  4 step/sec",
+    "answer": 1,
+    "lod": 1,
+    "qset": 11
+  },
+  {
+    "id": 304,
+    "question": "",
+    "option1": "",
+    "option2": "",
+    "option3": "",
+    "option4": "",
+    "answer": 2,
     "lod": 1,
     "qset": 11
   }
