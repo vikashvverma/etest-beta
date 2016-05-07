@@ -7,7 +7,11 @@
 var errors = require('../components/errors');
 
 module.exports = function (app) {
-
+  app.use(function (req, res, next) {
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+  });
   // Insert routes below
   app.use('/api/verbal/tcs', require('../api/verbal/tcs'));
   app.use('/api/aptitude/tcs', require('../api/aptitude/tcs'));

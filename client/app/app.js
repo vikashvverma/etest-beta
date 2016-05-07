@@ -22,6 +22,16 @@ var app = angular.module('etestApp', [
       domain: 'programminggeek.auth0.com',
       clientID: 'S6MNYpDy9EEmj0DO6jch3RQfFOtEvzOI'
     });
+    $httpProvider.interceptors.push(function ($q) {
+      return {
+        'request': function (config) {
+          config.url = config.url.match(/api/g) ? "http://etest.programminggeek.in" + config.url : config.url;
+          return config || $q.when(config);
+
+        }
+
+      }
+    });
   })
 
   .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
