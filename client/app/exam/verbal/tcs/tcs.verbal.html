@@ -1,5 +1,5 @@
 <span ng-if="vm.sets.length==0" ng-include=" 'components/loader/loader.html' " class="center-loader" layout layout-align="center center"></span>
-<md-whiteframe class="md-whiteframe-z" layout layout-align="space-around center"   layout-padding layout-margin layout-sm="column" layout-md="column" layout-gt-md="row" ng-repeat="set in vm.sets" style="overflow-y:hidden;">
+<md-whiteframe class="md-whiteframe-z" layout layout-align="space-around center"   layout-padding layout-margin layout-xs="column" layout-gt-xs="column" layout-md="row" layout-gt-md="row" ng-repeat="set in vm.sets" style="overflow-y:hidden;">
 
   <div class="flip" ng-repeat="test in set.tests">
     <div class="card" ng-class="{'flipped':isFlipped}" >
