@@ -1,0 +1,42 @@
+<ion-navbar *navbar primary>
+    <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+    <ion-title>Verbal</ion-title>
+</ion-navbar>
+
+<ion-content class="card-background-page">
+
+    <ion-card  *ngFor="let test of tests">
+        <img [src]="test.logo" />
+        <ion-card-content>
+            <ion-card-title primary>
+               {{test.title}}
+            </ion-card-title>
+            <p primary>
+                {{test.content}}
+            </p>
+        </ion-card-content>
+
+        <ion-row no-padding>
+
+            <ion-col>
+                <button clear small danger>
+                    Start Test
+                    <ion-icon name='ios-navigate'></ion-icon>
+                </button>
+            </ion-col>
+
+            <ion-col text-right>
+                <button clear small danger (click)="share(test.logo)">
+                    Share
+                    <ion-icon name='share-alt'></ion-icon>
+                </button>
+            </ion-col>
+
+        </ion-row>
+
+    </ion-card>
+
+
+</ion-content>
