@@ -1,0 +1,60 @@
+<ion-navbar *navbar primary>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>TCS Analytical Ability Tests</ion-title>
+</ion-navbar>
+
+<ion-content class="home">
+
+  <ion-card *ngFor="let test of tests">
+
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="img/tcs-logo.png">
+      </ion-avatar>
+      <h2>TCS Analytical Ability Test {{test.id}}</h2>
+      <p *ngIf="test.attempted_on">{{test.attempted_on | date | uppercase}}</p>
+    </ion-item>
+
+    <img src="img/tcs-logo.png">
+
+    <ion-card-content>
+      <p>{{test.question}}</p>
+    </ion-card-content>
+
+    <ion-item>
+      <ion-icon name="person" item-left primary></ion-icon>
+      Last Attempted By
+      <ion-badge item-right>{{test.last_attempt_by}}</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="calendar" item-left primary></ion-icon>
+      Last Attempted on
+      <ion-badge item-right *ngIf="test.last_attempt_on">{{test.last_attempt_on | date | uppercase}}</ion-badge>
+    </ion-item>
+
+    <ion-item>
+      <button primary clear item-left>
+        <ion-icon name="time"></ion-icon>
+        <div>80 minutes</div>
+      </button>
+      <button primary clear item-right>
+        <ion-icon name="checkmark"></ion-icon>
+        <div>32</div>
+      </button>
+    </ion-item>
+    <ion-item>
+      <button primary clear item-left>
+        <ion-icon name="trophy"></ion-icon>
+        <div>{{test.highest_scorer}}({{test.highest_score}}/32)</div>
+      </button>
+      <button primary clear item-right>
+        <ion-icon name="people"></ion-icon>
+        <div>{{test.count}}</div>
+      </button>
+    </ion-item>
+
+  </ion-card>
+
+</ion-content>
