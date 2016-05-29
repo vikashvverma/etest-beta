@@ -25,7 +25,7 @@ var app = angular.module('etestApp', [
     $httpProvider.interceptors.push(function ($q) {
       return {
         'request': function (config) {
-          config.url = config.url.match(/api/g) ? "http://etest.programminggeek.in" + config.url : config.url;
+          //config.url = config.url.match(/api/g) ? "http://etest.programminggeek.in" + config.url : config.url;
           return config || $q.when(config);
 
         }

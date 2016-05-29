@@ -2066,7 +2066,7 @@
   },
   {
     "id": 172,
-    "question": "An old man and a young man are working together in an office and staying together in a near by apartment.  The old man takes 30 minutes and the young 20 minutes to walk from appartment to office.  If one day the old man started at 10.00 AM and the young man at 10:05AM from the apartment to office, when will they meet?",
+    "question": "An old man and a young man are working together in an office and staying together in a near by apartment.  The old man takes 30 minutes and the young 20 minutes to walk from apartment to office.  If one day the old man started at 10.00 AM and the young man at 10:05AM from the apartment to office, when will they meet?",
     "option1": " 10:15",
     "option2": " 10:30",
     "option3": " 10:45",
@@ -2094,7 +2094,7 @@
     "option3": " 48⁄13",
     "option4": " 19⁄33",
     "answer": 4,
-    "lod": 1,
+    "lod": 3,
     "qset": 6
   },
   {
@@ -2248,7 +2248,7 @@
     "option3": " 2.43",
     "option4": " 2.7",
     "answer": 3,
-    "lod": 1,
+    "lod": 3,
     "qset": 7
   },
   {
@@ -2325,7 +2325,7 @@
     "option3": " 3250",
     "option4": " 3120",
     "answer": 3,
-    "lod": 1,
+    "lod": 3,
     "qset": 7
   },
   {
@@ -2600,7 +2600,7 @@
     "option3": " 0.8645",
     "option4": " none of these",
     "answer": 3,
-    "lod": 1,
+    "lod": 3,
     "qset": 8
   },
   {
@@ -3218,7 +3218,7 @@
     "option3": "49",
     "option4": "56",
     "answer": 4,
-    "lod": 2,
+    "lod": 3,
     "qset": 10
   },
   {

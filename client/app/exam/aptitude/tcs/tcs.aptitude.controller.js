@@ -5,7 +5,7 @@
 'use strict';
 
 angular.module('etestApp')
-  .controller('TCSAptitudeController', function ($scope, $location, $mdDialog, $log, User, Auth, TCSAptitudeService) {
+  .controller('TCSAptitudeController', function ($scope, $location, $mdDialog, $mdMedia, $log, User, Auth, TCSAptitudeService) {
     var vm = this;
     vm.tests = [];
     (function () {
@@ -20,11 +20,13 @@ angular.module('etestApp')
 
     vm.start = function (ev, id) {
       //$location.path('/exam/tcs/verbal/1')
+      var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
       $mdDialog.show({
           controller: vm.controller,
           templateUrl: 'app/exam/aptitude/tcs/tcs.aptitude.instructions.tmpl.html',
           parent: angular.element(document.body),
           targetEvent: ev,
+          fullscreen: useFullScreen
         })
         .then(function (answer) {
           $location.path('/exam/tcs/aptitude/' + id)
