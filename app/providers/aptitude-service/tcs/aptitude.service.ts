@@ -1,6 +1,9 @@
+import {Storage, LocalStorage} from 'ionic-angular';
 import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
+import * as moment from 'moment';
+
 
 /*
   Generated class for the VerbalService provider.
@@ -10,12 +13,22 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class AptitudeService {
-  http:Http
-  data:Array<any>;
+  http: Http
+  data: Array<any>;
   baseUrl = 'http://etest.programminggeek.in/api/aptitude/tcs';
-  constructor(http:Http) {
+  local: Storage = new Storage(LocalStorage);
+  constructor(http: Http) {
     this.http = http;
     this.data = null;
+  }
+
+  initFromCache() {
+    this.local.get('tcsaptitudes').then(tests => {
+      this.data = JSON.parse(tests);
+      this.data = this.data && this.transform(this.data);
+    }).catch(error => {
+      console.log(error);
+    });
   }
 
   load() {
@@ -34,19 +47,19 @@ export class AptitudeService {
         .subscribe(data => {
           // we've got back the raw data, now generate the core schedule data
           // and save the data for later reference
-          this.data=data;
-          // data.map( tests=>{
-            // this.data=this.data.concat(tests.tests);
-          // });
-          this.data=this.data.map(test=>{
-            test.attempted_on=test.attempted_on && new Date(test.attempted_on);
-            test.last_attempt_on=test.last_attempt_on && new Date(test.last_attempt_on);
-            test.last_attempt_by=test.last_attempt_by && test.last_attempt_by.split("@")[0];
-            test.highest_scorer=test.highest_scorer && test.highest_scorer.split("@")[0];
-            return test;
-          });
+          this.local.set('tcsaptitudes', JSON.stringify(data));
+          this.data = this.transform(data)
           resolve(this.data);
         });
+    });
+  }
+  transform(data) {
+    return data.map(test => {
+      test.attempted_on = test.attempted_on && moment(test.attempted_on).format('ll');
+      test.last_attempt_on = test.last_attempt_on && moment(test.last_attempt_on).format('ll');
+      test.last_attempt_by = test.last_attempt_by && test.last_attempt_by.split("@")[0];
+      test.highest_scorer = test.highest_scorer && test.highest_scorer.split("@")[0];
+      return test;
     });
   }
 }

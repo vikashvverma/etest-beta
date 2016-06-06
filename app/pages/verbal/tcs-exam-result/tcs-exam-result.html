@@ -1,0 +1,58 @@
+<ion-navbar *navbar primary>
+    <button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Result</ion-title>
+</ion-navbar>
+
+
+<ion-content padding class="tcs-verbal-exam-result">
+    <ion-item>
+        <p *ngIf="test && test.question" primary>
+            {{test.question}}
+        </p>
+    </ion-item>
+
+    <ion-item-group>
+        <ion-item-divider light>Outline:</ion-item-divider>
+        <ion-item>
+            <p *ngIf="test && test.outline" secondary>
+                <strong>{{test.outline}}</strong>
+            </p>
+        </ion-item>
+    </ion-item-group>
+
+    <ion-item *ngIf="result">
+        <ion-icon name="arrow-round-forward" item-left></ion-icon>
+        Score
+        <ion-badge item-right>{{result.score}}</ion-badge>
+        <p [innerHTML]="result.scoreRemark"></p>
+    </ion-item>
+
+    <ion-item *ngIf="result">
+        <ion-icon name="arrow-round-forward" item-left></ion-icon>
+        Total Words
+        <ion-badge item-right>{{result.count}}</ion-badge>
+        <p [innerHTML]="result.countRemark"></p>
+    </ion-item>
+
+    <ion-list>
+        <ion-list-header>
+            Mistakes
+        </ion-list-header>
+        <ion-item danger *ngFor="let mistake of result.mistakes">
+            <ion-icon name="arrow-round-forward" item-left></ion-icon>
+            <h2 [innerHTML]="mistake.title"></h2>
+            <h3 [innerHTML]="mistake.subtitle"></h3>
+            <p [innerHTML]="mistake.description"></p>
+        </ion-item>
+    </ion-list>
+
+    <ion-item>
+        <button secondary clear item-right (click)="leaderboard();">
+        See Leaderboard
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-item>
+
+</ion-content>

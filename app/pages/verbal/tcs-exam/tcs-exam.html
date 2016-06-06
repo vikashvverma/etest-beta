@@ -1,0 +1,52 @@
+<ion-navbar *navbar primary>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>TCS Verbal Ability Tests <span *ngIf="test && test.id">{{test.id}}</span></ion-title>
+</ion-navbar>
+
+<ion-content class="tcs-verbal-exam">
+
+  <ion-item>
+    <p *ngIf="test && test.question" primary>
+      {{test.question}}
+    </p>
+  </ion-item>
+
+  <ion-item-group>
+    <ion-item-divider light>Outline:</ion-item-divider>
+    <ion-item>
+      <p *ngIf="test && test.outline" secondary>
+       <strong>{{test.outline}}</strong>
+      </p>
+    </ion-item>
+  </ion-item-group>
+
+  <ion-item>
+    <button secondary clear item-right (click)="instructions();">
+        Instructions
+        <ion-icon name="information-circle"></ion-icon>
+      </button>
+  </ion-item>
+
+  <ion-item>
+    <ion-label stacked>WRITE BELOW</ion-label>
+    <ion-textarea placeholder="WRITE HERE..." rows="20" *ngIf="test" [(ngModel)]="test.answer" ></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <button primary clear item-left>
+        <ion-icon name="timer"></ion-icon>
+        <div *ngIf="test && test.time">{{test.time.minute>9?test.time.minute:'0'+test.time.minute}}:{{test.time.second>9?test.time.second:'0'+test.time.second}}</div>
+      </button>
+    <button primary clear item-right>
+        <!--<ion-icon name="timer"></ion-icon>-->
+        <div *ngIf="test && test.word">Word Count : {{test.word}}</div>
+      </button>
+  </ion-item>
+
+  <button full (click)="endTest($event);">
+  Submit
+  <ion-icon name="send"></ion-icon>
+</button>
+</ion-content>

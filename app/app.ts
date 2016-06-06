@@ -4,12 +4,20 @@ import {App, Platform, Nav} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {AuthHttp, AuthConfig} from 'angular2-jwt';
 import {AuthService} from './providers/auth-service/auth';
+import * as moment from 'moment';
+
+import {VerbalService} from './providers/verbal-service/tcs/verbal-service';
+import {AptitudeService} from './providers/aptitude-service/tcs/aptitude.service';
+import {UserService} from './providers/user-service/user.service';
+import {Util} from './util/util'
+
 
 import {GettingStartedPage} from './pages/getting-started/getting-started';
 import {Home} from './pages/home/home.component';
 import {ListPage} from './pages/list/list';
 import {Verbal} from './pages/verbal/verbal';
 import {Aptitude} from './pages/aptitude/aptitude';
+import {Profile} from './pages/profile/profile';
 
 @App({
   templateUrl: 'build/app.html',
@@ -21,14 +29,18 @@ import {Aptitude} from './pages/aptitude/aptitude';
     tabbarPlacement: 'top',
     pageTransition: 'ios',
   }, // http://ionicframework.com/docs/v2/api/config/Config/
-   providers: [
+  providers: [
     provide(AuthHttp, {
       useFactory: (http) => {
         return new AuthHttp(new AuthConfig(), http);
       },
       deps: [Http]
     }),
-    AuthService
+    AuthService,
+    VerbalService,
+    AptitudeService,
+    UserService,
+    Util
   ]
 })
 class MyApp {
@@ -37,12 +49,19 @@ class MyApp {
   rootPage: any = Home;
   pages: Array<{ title: string, component: any }>
 
-  constructor(private platform: Platform, private authHttp: AuthHttp, private auth: AuthService) {
+  constructor(
+    private platform: Platform,
+    private authHttp: AuthHttp,
+    private auth: AuthService,
+    public verbalService: VerbalService,
+    public aptitudeService: AptitudeService
+  ) {
     this.initializeApp();
     // auth.login();
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Getting Started', component: GettingStartedPage },
+      { title: 'Profile', component: Profile },
       { title: 'List', component: ListPage },
       { title: 'Verbal', component: Verbal },
       { title: 'Aptitude', component: Aptitude }
@@ -60,6 +79,8 @@ class MyApp {
       // schedule an initial token refresh for when the
       // token expires
       this.auth.startupTokenRefresh();
+      this.verbalService.initFromCache();
+      this.aptitudeService.initFromCache();
     });
   }
 

@@ -1,9 +1,8 @@
 import {Page, NavController, Loading} from 'ionic-angular';
-import {AptitudeService} from '../../../providers/aptitude-service/aptitude.service';
+import {AptitudeService} from '../../../providers/aptitude-service/tcs/aptitude.service';
 
 @Page({
-    templateUrl: 'build/pages/aptitude/tcs/tcs-aptitude.html',
-    providers: [AptitudeService]
+    templateUrl: 'build/pages/aptitude/tcs/tcs-aptitude.html'
 })
 export class TCSAptitude {
     public tests: any
@@ -25,9 +24,18 @@ export class TCSAptitude {
             content: 'Please wait...'
         });
 
-        this.nav.present(this.loading);
+        this.nav.present(this.loading)
+        .then(data=>{
+           if(this.tests){
+               this.stopLoading();
+           } 
+        });
     }
     stopLoading() {
-        this.loading.dismiss();
+        try {
+            this.loading.dismiss();
+        } catch (e) {
+
+        }
     }
 }

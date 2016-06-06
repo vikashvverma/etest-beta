@@ -1,8 +1,10 @@
   <!-- app/pages/profile/profile.html -->
-  
-  <ion-navbar *navbar>
+<ion-navbar *navbar primary>
+    <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
     <ion-title>Profile</ion-title>
-  </ion-navbar>
+</ion-navbar>
 
   <ion-content padding *ngIf="!auth.authenticated()">
     

@@ -6,7 +6,7 @@ import {AuthService} from '../../providers/auth-service/auth';
 @Page({
   templateUrl: 'build/pages/profile/profile.html',
 })
-export class ProfilePage {
+export class Profile {
   
   // We need to inject AuthService so that we can
   // use it in the view

@@ -6,31 +6,27 @@
 </ion-navbar>
 
 <ion-content class="home">
-  <!--<ion-list>
-    <ion-item >
-      <ion-avatar item-left>
-        <img src="img/tcs-logo.png">
-      </ion-avatar>
-      <h2>{{test.last_attempt_by}}</h2>
-      <p>{{test.last_attempt_on}}</p>
-      <p>{{test.question}}</p>
-    </ion-item>
-  </ion-list>-->
 
   <ion-card *ngFor="let test of tests">
 
-    <ion-item>
-      <ion-avatar item-left>
-        <img src="img/tcs-logo.png">
-      </ion-avatar>
-      <h2>{{test.title}}</h2>
-      <p>{{test.date | date | uppercase}}</p>
-    </ion-item>
+    <ion-list>
+      <ion-item>
+        <ion-avatar item-left>
+          <img src="img/tcs-logo.png">
+        </ion-avatar>
+        <h2>{{test.title}}</h2>
+        <p>{{test.date}}</p>
+        <button fab fab-right fab-top class="info" (click)="instructions()">
+          <ion-icon name="information"></ion-icon>
+        </button>
+      </ion-item>
+    </ion-list>
 
     <img src="img/tcs-logo.png">
 
     <ion-card-content>
-      <p>{{test.question}}</p>
+      <p primary>{{test.question}}</p>
+
     </ion-card-content>
 
     <ion-item>
@@ -41,7 +37,7 @@
     <ion-item>
       <ion-icon name="calendar" item-left primary></ion-icon>
       Last Attempted on
-      <ion-badge item-right>{{test.last_attempt_on | date | uppercase}}</ion-badge>
+      <ion-badge item-right>{{test.last_attempt_on }}</ion-badge>
     </ion-item>
 
     <ion-item>
@@ -65,6 +61,16 @@
       </button>
     </ion-item>
 
+    <ion-item>
+      <button secondary clear item-right (click)="start($event,test.id);">
+        <ion-icon name="navigate"></ion-icon>
+        Start
+      </button>
+    </ion-item>
+<!--<ion-item>
+      <ion-label stacked>WRITE BELOW</ion-label>
+      <ion-textarea placeholder="WRITE HERE..." rows="20"></ion-textarea>
+    </ion-item>-->
   </ion-card>
 
 </ion-content>
