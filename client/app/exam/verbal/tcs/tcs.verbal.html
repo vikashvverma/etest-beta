@@ -29,7 +29,7 @@
             <md-divider></md-divider>
             <span class="icon"><i class="fa fa-clock-o"></i> 10 Minutes</span>
             <span class="icon "><i class="fa fa-check"></i>  100 </span>
-            <span class="icon "><i class="fa fa-user"></i>  {{ test.highest_scorer}} ({{test.highest_score}}) </span>
+            <span class="icon "><i class="fa fa-user"></i>  {{ test.highest_scorer.split('@')[0]}} ({{test.highest_score}}) </span>
             <span class="icon "><i class="fa fa-users"></i>  {{ test.count}} </span>
 
           </footer>
@@ -45,7 +45,7 @@
               <md-list-item >
                 <md-icon md-font-set="fa fa-check fa-2x" style="margin-top: 0px;"></md-icon>
                 <p>Last attempt by  </p>
-                <p class="md-secondary">{{ test.last_attempt_by }}</p>
+                <p class="md-secondary">{{ test.last_attempt_by.split('@')[0] }}</p>
               </md-list-item>
             </md-list>
             <md-divider></md-divider>
@@ -61,7 +61,7 @@
               <md-list-item >
                 <md-icon md-font-set="fa fa-user fa-2x" style="margin-top: 0px;"></md-icon>
                 <p>Highest Scorer  </p>
-                <p class="md-secondary">{{test.highest_scorer}}</p>
+                <p class="md-secondary">{{test.highest_scorer.split('@')[0]}}</p>
               </md-list-item>
             </md-list>
 
@@ -91,7 +91,7 @@
             <md-divider></md-divider>
             <span class="icon"><i class="fa fa-clock-o"></i> 10 Minutes</span>
             <span class="icon "><i class="fa fa-check"></i>  100 </span>
-            <span class="icon "><i class="fa fa-user"></i>  {{ test.highest_scorer}} ({{test.highest_score}}) </span>
+            <span class="icon "><i class="fa fa-user"></i>  {{ test.highest_scorer.split('@')[0]}} ({{test.highest_score}}) </span>
             <span class="icon "><i class="fa fa-users"></i>  {{ test.count}} </span>
 
           </footer>
