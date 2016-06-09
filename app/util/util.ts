@@ -82,7 +82,7 @@ export class Util {
         }
         return count;
     };
-    evaluate (words, outline, content) {
+    evaluate(words, outline, content) {
         let result: any = {};
         result.count = words;
         result.unmatchedPhrases = this.unmatchedPhrases(outline, content);
@@ -157,5 +157,57 @@ export class Util {
         result.scoreRemark = this.scoreSuggestion(score);
         return result;
     };
+    chartOptions(title, type, data, categories) {
+        var plotOptions = {};
+        plotOptions[type] = {
+            dataLabels: {
+                enabled: true
+            },
+            marker: {
+                radius: 4,
+                lineColor: '#666666',
+                lineWidth: 1
+            }
+        };
+
+        var options = {
+
+            chart: {
+                type: type,
+                zoomType: 'x'
+            },
+            title: {
+                text: title
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                min: 0,
+                categories: categories,
+                allowDecimals: false
+            },
+            yAxis: {
+                title: {
+                    text: 'Performance (in %)'
+                },
+                labels: {
+                    formatter: function () {
+                        return this.value + '';
+                    }
+                }
+            },
+            tooltip: {
+                crosshairs: true,
+                useHTML: true,
+                headerFormat: '<small><span>Count :  {point.key}</span></small><table>',
+                pointFormat: '<tr><td style="color: {series.color}">Score  : </td>' + '<td style="text-align: right"><b>{point.y}%</b></td></tr>',
+                footerFormat: '</table>'
+            },
+            plotOptions: plotOptions,
+            series: data
+        };
+        return options;
+    }
 
 }

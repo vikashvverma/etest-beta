@@ -13,4 +13,11 @@
         white-space: initial;
         color:#69BB7B;
     }
+    .highcharts-container{
+        svg{
+            text:last{
+                display:none;
+            }
+        }
+    }
 }

@@ -21,6 +21,15 @@
             </p>
         </ion-item>
     </ion-item-group>
+    
+    <ion-item-group>
+        <ion-item-divider light>Your Answer:</ion-item-divider>
+        <ion-item>
+            <p *ngIf="test && test.answer" secondary id="tcs-verbal-exam-answer" class="tcs-verbal-exam-answer">
+                {{test.answer}}
+            </p>
+        </ion-item>
+    </ion-item-group>
 
     <ion-item *ngIf="result">
         <ion-icon name="arrow-round-forward" item-left></ion-icon>
@@ -54,5 +63,8 @@
         <ion-icon name="send"></ion-icon>
       </button>
     </ion-item>
+    <etest-chart *ngIf="resultData" [options]="resultData" style="width:100%"></etest-chart>
+    <etest-chart *ngIf="seriesData" [options]="seriesData" style="width:100%"></etest-chart>
+    <etest-chart *ngIf="rankData" [options]="rankData" style="width:100%"></etest-chart>
 
 </ion-content>

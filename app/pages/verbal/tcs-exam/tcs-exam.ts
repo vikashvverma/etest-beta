@@ -1,5 +1,6 @@
 import {Inject, OnDestroy} from '@angular/core'
 import {Alert, Page, NavController, Modal, NavParams, Loading} from 'ionic-angular';
+
 import {VerbalService} from '../../../providers/verbal-service/tcs/verbal-service';
 
 import {TCSVerbalInstruction} from '../tcs-instructions/tcs-instructions';
@@ -19,9 +20,11 @@ export class TCSVerbalExam implements OnDestroy {
         public nav: NavController,
         public navParams: NavParams
     ) {
-        this.id = navParams.get('id');
-        this.startLoading();
-        this.loadTest();
+        this.test = navParams.get('test');
+        this.id = this.test.id
+        // this.startLoading();
+        // this.loadTest();
+        this.startTest();
     }
 
     startTest() {

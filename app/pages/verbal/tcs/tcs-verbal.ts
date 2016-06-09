@@ -27,9 +27,19 @@ export class TCSVerbal {
     }
     start(event, id) {
         // if (this.auth.authenticated()) {
-        this.nav.push(TCSVerbalExam, {
-            id: id
-        });
+        this.startLoading();
+        this.verbalService.test(id)
+            .then(test => {
+                this.stopLoading();
+                this.nav.push(TCSVerbalExam, {
+                    test: test
+                });
+            },
+            err => {
+                this.stopLoading();
+                this.presentToast(err.error, 3000)
+            })
+
         // } else {
         // let toast = Toast.create({
         //     message: 'You are not logged in. Login to take the tetst!',
@@ -61,5 +71,17 @@ export class TCSVerbal {
         } catch (e) {
 
         }
+    }
+    presentToast(message, duration) {
+        let toast = Toast.create({
+            message: message,
+            duration: duration ? duration : 3000
+        });
+
+        toast.onDismiss(() => {
+            console.log('Dismissed toast');
+        });
+
+        this.nav.present(toast);
     }
 }

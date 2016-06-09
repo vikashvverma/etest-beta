@@ -69,7 +69,7 @@ export class VerbalService {
     });
   }
   test(id) {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       this.lookupLocally('tcsverbaltests')
         .then(test => {
           if (test && JSON.parse(test) && JSON.parse(test)[id]) {
@@ -98,6 +98,9 @@ export class VerbalService {
                     this.local.set("tcsverbaltests", JSON.stringify(updatedTests));
                   })
                 resolve(data);
+              },
+              err => {
+                reject({ error: "could not fetch data!" })
               });
           }
         })
@@ -105,7 +108,7 @@ export class VerbalService {
 
   }
   getRankStatistics(id, userId) {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       this.lookupLocally("tcs_verbal_rank_statistics")
         .then(data => {
           if (data && JSON.parse(data)) {
@@ -118,13 +121,16 @@ export class VerbalService {
               .subscribe(data => {
                 this.local.set("tcs_verbal_rank_statistics", JSON.stringify(data))
                 resolve(data);
+              },
+              err => {
+                reject({ error: "could not fetch data!" })
               })
           }
         })
     });
   }
   getAllStatistics(userId) {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       this.lookupLocally("tcs_verbal_all_statistics")
         .then(data => {
           if (data && JSON.parse(data)) {
@@ -137,13 +143,16 @@ export class VerbalService {
               .subscribe(data => {
                 this.local.set("tcs_verbal_all_statistics", JSON.stringify(data))
                 resolve(data);
+              },
+              err => {
+                reject({ error: "could not fetch data!" })
               })
           }
         })
     });
   }
   getStatistics(id, userId) {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       this.lookupLocally("tcs_verbal_test_statistics")
         .then(data => {
           if (data && JSON.parse(data) && JSON.parse(data)[id]) {
@@ -165,13 +174,16 @@ export class VerbalService {
                     this.local.set("tcs_verbal_test_statistics", JSON.stringify(updatedTests));
                   })
                 resolve(data);
+              },
+              err => {
+                reject({ error: "could not fetch data!" })
               })
           }
         })
     });
   }
   getLeaderBoard(id) {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       this.lookupLocally("tcs_verbal_leaderboard")
         .then(data => {
           if (data && JSON.parse(data) && JSON.parse(data)[id]) {
@@ -191,26 +203,35 @@ export class VerbalService {
                     this.local.set("tcs_verbal_leaderboard", JSON.stringify(leaderboard));
                   })
                 resolve(data);
+              },
+              err => {
+                reject({ error: "could not fetch data!" })
               })
           }
         })
     });
   }
   updateTest(id, testData) {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       this.http.put(this.baseUrl + '/' + id, JSON.stringify({ data: testData }))
         .map(data => data.json())
         .subscribe(data => {
           resolve(data);
+        },
+        err => {
+          reject({ error: "could not update your test, check your internet connection!" })
         })
     });
   }
   patchTest(testId, _id, testData) {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       this.http.patch(this.baseUrl + '/' + testId + '/' + _id, JSON.stringify({ data: testData }))
         .map(data => data.json())
         .subscribe(data => {
           resolve(data);
+        },
+        err => {
+          reject({ error: "could not update your test, check your internet connection!" })
         })
     });
   }

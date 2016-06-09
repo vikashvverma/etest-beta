@@ -10,5 +10,7 @@ export class Profile {
   
   // We need to inject AuthService so that we can
   // use it in the view
-  constructor(private auth: AuthService) {}
+  constructor(private auth: AuthService) {
+    
+  }
 }
