@@ -7,6 +7,9 @@ import {TCSVerbalLeaderboard} from '../tcs-leaderboard/tcs-leaderboard'
 import {EtestChart} from '../../../components/chart/chart'
 
 import {Util} from '../../../util/util'
+
+declare var $: any;
+
 @Page({
     templateUrl: 'build/pages/verbal/tcs-exam-result/tcs-exam-result.html',
     directives: [EtestChart]
@@ -34,8 +37,18 @@ export class TCSVerbalResult {
     evaluate() {
         this.result = this.verbalService.evaluate(this.test);
         setTimeout(() => {
-            this.result.spellcheck();
-        }, 3000)
+            this.result.spellcheck()
+                .then(data => {
+                    console.log(data);
+                    this.hideNameErrors();
+                },
+                err => {
+                    console.log(err);
+                },
+                ready => {
+                    console.log(ready);
+                })
+        }, 1000)
     }
     previous() {
         let active = this.nav.getActive();
@@ -61,9 +74,13 @@ export class TCSVerbalResult {
                 this.rankData = this.util.chartOptions('Performance in Set' + this.test.id, 'spline', data, undefined);
             })
     }
-    hide() {
-        let el = document.querySelectorAll(".highcharts-container>svg>text:last");
-        // el.remove();
-        console.log(el);
+    hideNameErrors() {
+        var _this=this;
+        $('.tcs-verbal-exam-result .hiddenSpellError').map((i,el) => {
+            console.log($(el).html()=="Vikash");
+            if (_this.test.names.length && ($(el).html() == _this.test.names[0] || $(el).html() == _this.test.names[1])) {
+                console.log($(el).toggleClass('hiddenSpellError'));
+            }
+        });
     }
 }
