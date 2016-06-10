@@ -1,8 +1,10 @@
 import {Inject} from '@angular/core'
-import {Page, NavController, Modal, Loading, Toast} from 'ionic-angular';
+import {Page, NavController, Modal, Loading} from 'ionic-angular';
 import {AuthService} from '../../../providers/auth-service/auth';
 
 import {VerbalService} from '../../../providers/verbal-service/tcs/verbal-service';
+
+import {Util} from '../../../util/util';
 
 import {TCSVerbalExam} from '../tcs-exam/tcs-exam'
 import {TCSVerbalInstruction} from '../tcs-instructions/tcs-instructions';
@@ -13,7 +15,12 @@ import {TCSVerbalInstruction} from '../tcs-instructions/tcs-instructions';
 export class TCSVerbal {
     public tests: any
     public loading: any
-    constructor(private auth: AuthService, public verbalService: VerbalService, public nav: NavController) {
+    constructor(
+        private auth: AuthService,
+        public verbalService: VerbalService,
+        public nav: NavController,
+        private util: Util
+    ) {
         this.startLoading();
         this.fetchTests();
     }
@@ -26,27 +33,24 @@ export class TCSVerbal {
             })
     }
     start(event, id) {
-        // if (this.auth.authenticated()) {
-        this.startLoading();
-        this.verbalService.test(id)
-            .then(test => {
-                this.stopLoading();
-                this.nav.push(TCSVerbalExam, {
-                    test: test
-                });
-            },
-            err => {
-                this.stopLoading();
-                this.presentToast(err.error, 3000)
-            })
+        if (this.auth.authenticated()) {
+            this.startLoading();
+            this.verbalService.test(id)
+                .then(test => {
+                    this.stopLoading();
+                    this.nav.push(TCSVerbalExam, {
+                        test: test
+                    });
+                },
+                err => {
+                    this.stopLoading();
+                    this.util.presentToast(this.nav, err, 2000);
+                })
 
-        // } else {
-        // let toast = Toast.create({
-        //     message: 'You are not logged in. Login to take the tetst!',
-        //     duration: 2000
-        // });
-        // this.auth.login();
-        // }
+        } else {
+            this.util.presentToast(this.nav,'You are not logged in. Login to take the tetst!',2000);
+            this.auth.login();
+        }
     }
     instructions() {
         let instruction = Modal.create(TCSVerbalInstruction);
@@ -71,17 +75,5 @@ export class TCSVerbal {
         } catch (e) {
 
         }
-    }
-    presentToast(message, duration) {
-        let toast = Toast.create({
-            message: message,
-            duration: duration ? duration : 3000
-        });
-
-        toast.onDismiss(() => {
-            console.log('Dismissed toast');
-        });
-
-        this.nav.present(toast);
     }
 }

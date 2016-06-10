@@ -31,16 +31,24 @@ export class TCSVerbalResult {
         this.test = navParams.get('test');
         this.auth = auth;
         this.evaluate();
-        this.getGraphData();
+        // Uncomment following line only when test result is synced up with the server
+        // this.getGraphData();
+        this.util.isOnline();
     }
 
     evaluate() {
         this.result = this.verbalService.evaluate(this.test);
+        if (this.util.isOnline()) {
+            this.checkSpelling();
+        }
+    }
+    checkSpelling() {
         setTimeout(() => {
             this.result.spellcheck()
                 .then(data => {
                     console.log(data);
                     this.hideNameErrors();
+                    this.countMistakes();
                 },
                 err => {
                     console.log(err);
@@ -67,20 +75,25 @@ export class TCSVerbalResult {
             });
         this.verbalService.getAllStatistics(this.auth.user.user_id)
             .then(data => {
-                this.seriesData = this.util.chartOptions('Performance in Set' + this.test.id, 'spline', data, undefined);
+                this.seriesData = this.util.chartOptions('Performance in all set', 'spline', data, undefined);
             });
         this.verbalService.getRankStatistics(this.test.id, this.auth.user.user_id)
             .then(data => {
-                this.rankData = this.util.chartOptions('Performance in Set' + this.test.id, 'spline', data, undefined);
+                this.rankData = this.util.chartOptions('Rank in Set ' + this.test.id, 'spline', data, undefined);
             })
     }
     hideNameErrors() {
-        var _this=this;
-        $('.tcs-verbal-exam-result .hiddenSpellError').map((i,el) => {
-            console.log($(el).html()=="Vikash");
+        var _this = this;
+        $('.tcs-verbal-exam-result .hiddenSpellError').map((i, el) => {
+            console.log($(el).html() == "Vikash");
             if (_this.test.names.length && ($(el).html() == _this.test.names[0] || $(el).html() == _this.test.names[1])) {
                 console.log($(el).toggleClass('hiddenSpellError'));
             }
         });
+    }
+
+    countMistakes() {
+        let mistakes = $('.tcs-verbal-exam-result .hiddenSpellError').length;
+        this.util.presentToast(this.nav, "You have made " + mistakes + " mistakes!", 2000);
     }
 }

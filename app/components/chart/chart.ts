@@ -17,6 +17,6 @@ export class EtestChart implements AfterViewInit {
     }
 
     ngAfterViewInit() {
-        $('etest-chart').find('.highcharts-container  text').last().css('display','none')
+        // $('etest-chart').find('.highcharts-container  text').last().css('display','none')
     }
 }

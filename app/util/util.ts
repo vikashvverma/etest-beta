@@ -1,4 +1,6 @@
 import {Injectable} from '@angular/core';
+import {Toast} from 'ionic-angular';
+
 
 
 declare var AtD: any;
@@ -171,7 +173,8 @@ export class Util {
         };
 
         var options = {
-
+            credits: { enabled: false },
+            exporting: { enabled: false },
             chart: {
                 type: type,
                 zoomType: 'x'
@@ -208,6 +211,24 @@ export class Util {
             series: data
         };
         return options;
+    }
+
+    presentToast(nav, message, duration) {
+        let toast = Toast.create({
+            message: message,
+            duration: duration ? duration : 3000
+        });
+
+        toast.onDismiss(() => {
+            console.log('Dismissed toast');
+        });
+
+        nav.present(toast);
+    }
+    
+    isOnline() {
+        console.log(navigator.onLine);
+        return navigator.onLine;
     }
 
 }
