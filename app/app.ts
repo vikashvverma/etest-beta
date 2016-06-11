@@ -79,8 +79,8 @@ class MyApp {
       // schedule an initial token refresh for when the
       // token expires
       this.auth.startupTokenRefresh();
-      this.verbalService.initFromCache();
-      this.aptitudeService.initFromCache();
+      this.verbalService.load();
+      this.aptitudeService.load();
     });
   }
 
