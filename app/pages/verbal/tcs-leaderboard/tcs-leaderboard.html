@@ -22,7 +22,8 @@
             <ion-avatar item-left *ngIf="!user.picture">
                 <ion-icon name="person"></ion-icon>
             </ion-avatar>
-            <h2>{{user.name.split('@')[0]}}</h2>
+            <h2 *ngIf="user.name">{{user.name.split('@')[0]}}</h2>
+            <h2 *ngIf="!user.name && user.nickname">{{user.nickname}}</h2>
             <ion-badge item-right>{{user.score}}</ion-badge>
         </ion-item>
     </ion-list>
