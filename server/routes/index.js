@@ -11,7 +11,7 @@ module.exports = function (app) {
     // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PUT");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH");
     next();
   });
   // Insert routes below
