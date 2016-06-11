@@ -1,4 +1,4 @@
-import {ViewChild, provide} from '@angular/core';
+import {ViewChild, provide, Type} from '@angular/core';
 import {Http} from '@angular/http';
 import {App, Platform, Nav} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
