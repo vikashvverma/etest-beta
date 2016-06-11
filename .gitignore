@@ -8,3 +8,8 @@ plugins/
 *.swp
 .DS_Store
 Thumbs.db
+.idea
+.tmp
+client
+dist
+public
