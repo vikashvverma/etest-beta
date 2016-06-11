@@ -21,6 +21,7 @@ export class TCSVerbalResult {
     public seriesData: any;
     public rankData: any;
     private auth: any;
+    private _id: any;
     constructor(
         private nav: NavController,
         private navParams: NavParams,
@@ -31,16 +32,30 @@ export class TCSVerbalResult {
         this.test = navParams.get('test');
         this.auth = auth;
         this.evaluate();
-        // Uncomment following line only when test result is synced up with the server
-        // this.getGraphData();
         this.util.isOnline();
     }
 
     evaluate() {
         this.result = this.verbalService.evaluate(this.test);
+        this.result.userId = this.auth.user.user_id
+        this.result.name = this.auth.user.name.indexOf('@') > 0 ? this.auth.user.nickname : this.auth.user.nam;
+        this.updateTest(this.test.id, this.result);
         if (this.util.isOnline()) {
             this.checkSpelling();
+        } else {
+            this.util.presentToast(this.nav, "It seems you are not online, check your internet connection!", 1000);
         }
+    }
+    updateTest(id, result) {
+        this.verbalService.updateTest(id, result)
+            .then(data => {
+                this._id = data['_id'];
+                this.getGraphData();
+            },
+            err => {
+                console.log(err);
+                this.getGraphData();
+            })
     }
     checkSpelling() {
         setTimeout(() => {
@@ -48,13 +63,28 @@ export class TCSVerbalResult {
                 .then(data => {
                     console.log(data);
                     this.hideNameErrors();
-                    this.countMistakes();
+                    let mistakes = this.countMistakes();
+                    if (mistakes > 0) {
+                        this.result.score -= 10;
+                    } else {
+                        this.result.score += 10;
+                    }
+
+                    if (this._id) {
+                        this.verbalService.patchTest(this.test.id, this._id, this.result)
+                            .then(data => {
+                                // this.util.presentToast(this.nav, "Your score has been adjusted after checking spelling or grammatical error(s)!", 0);
+                                this.getGraphData();
+                            })
+                    }
                 },
                 err => {
                     console.log(err);
+                    this.util.presentToast(this.nav, "Couldn't check spelling and grammar mistake(s)!", 1000);
                 },
                 ready => {
                     console.log(ready);
+                    this.util.presentToast(this.nav, "Checking Spelling and Grammar!", 1000);
                 })
         }, 1000)
     }
@@ -94,6 +124,7 @@ export class TCSVerbalResult {
 
     countMistakes() {
         let mistakes = $('.tcs-verbal-exam-result .hiddenSpellError').length;
-        this.util.presentToast(this.nav, "You have made " + mistakes + " mistakes!", 2000);
+        this.util.presentToast(this.nav, "You have made " + mistakes + " mistakes!", 0);
+        return mistakes;
     }
 }

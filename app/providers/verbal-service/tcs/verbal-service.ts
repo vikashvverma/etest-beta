@@ -1,6 +1,6 @@
 import {Storage, LocalStorage} from 'ionic-angular';
 import {Injectable} from '@angular/core';
-import {Http, URLSearchParams} from '@angular/http';
+import {Http, URLSearchParams, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 import * as moment from 'moment';
 
@@ -17,6 +17,7 @@ export class VerbalService {
   http: Http
   data: Array<any>;
   baseUrl = 'http://etest.programminggeek.in/api/verbal/tcs';
+  // baseUrl = 'http://localhost:3000/api/verbal/tcs';
   local: Storage = new Storage(LocalStorage);
   instruction: Array<any> = [
     {
@@ -57,7 +58,9 @@ export class VerbalService {
       // We're using Angular Http provider to request the data,
       // then on the response it'll map the JSON data to a parsed JS object.
       // Next we process the data and resolve the promise with the new data.
-      this.http.get(this.baseUrl)
+      let headers: Headers = new Headers();
+      headers.set("Content-Type", "application/json");
+      this.http.get(this.baseUrl, { headers })
         .map(res => res.json())
         .subscribe(data => {
           // we've got back the raw data, now generate the core schedule data
@@ -75,7 +78,9 @@ export class VerbalService {
           if (test && JSON.parse(test) && JSON.parse(test)[id]) {
             resolve(JSON.parse(JSON.parse(test)[id]));
           } else {
-            this.http.get(this.baseUrl + "/" + id)
+            let headers: Headers = new Headers();
+            headers.set("Content-Type", "application/json");
+            this.http.get(this.baseUrl + "/" + id, { headers })
               .map(res => res.json())
               .subscribe(data => {
 
@@ -108,112 +113,139 @@ export class VerbalService {
 
   }
   getRankStatistics(id, userId) {
+    let isOnline = this.util.isOnline;
     return new Promise((resolve, reject) => {
-      this.lookupLocally("tcs_verbal_rank_statistics")
-        .then(data => {
-          if (data && JSON.parse(data)) {
-            resolve(JSON.parse(data))
-          } else {
-            let params: URLSearchParams = new URLSearchParams();
-            params.set('userId', userId);
-            this.http.get(this.baseUrl + '/stat/rank/' + id, { search: params })
-              .map(data => data.json())
-              .subscribe(data => {
-                this.local.set("tcs_verbal_rank_statistics", JSON.stringify(data))
-                resolve(data);
+      if (isOnline) {
+        let params: URLSearchParams = new URLSearchParams();
+        params.set('userId', userId);
+        let headers: Headers = new Headers();
+        headers.set("Content-Type", "application/json");
+        this.http.get(this.baseUrl + '/stat/rank/' + id, { search: params, headers: headers })
+          .map(data => data.json())
+          .subscribe(data => {
+            this.local.set("tcs_verbal_rank_statistics", JSON.stringify(data))
+            resolve(data);
+          },
+          err => {
+            this.lookupLocally("tcs_verbal_rank_statistics")
+              .then(data => {
+                if (data && JSON.parse(data)) {
+                  resolve(JSON.parse(data))
+                } else {
+                  reject({ error: "Offline, could not connect to server!" })
+                }
               },
               err => {
                 reject({ error: "could not fetch data!" })
               })
-          }
-        })
+          })
+      }
     });
   }
   getAllStatistics(userId) {
+    let isOnline = this.util.isOnline;
     return new Promise((resolve, reject) => {
-      this.lookupLocally("tcs_verbal_all_statistics")
-        .then(data => {
-          if (data && JSON.parse(data)) {
-            resolve(JSON.parse(data))
-          } else {
-            let params: URLSearchParams = new URLSearchParams();
-            params.set('userId', userId);
-            this.http.get(this.baseUrl + '/stat/all', { search: params })
-              .map(data => data.json())
-              .subscribe(data => {
-                this.local.set("tcs_verbal_all_statistics", JSON.stringify(data))
-                resolve(data);
-              },
-              err => {
-                reject({ error: "could not fetch data!" })
+      if (isOnline) {
+        let params: URLSearchParams = new URLSearchParams();
+        params.set('userId', userId);
+        let headers: Headers = new Headers();
+        headers.set("Content-Type", "application/json");
+        this.http.get(this.baseUrl + '/stat/all', { search: params, headers: headers })
+          .map(data => data.json())
+          .subscribe(data => {
+            this.local.set("tcs_verbal_all_statistics", JSON.stringify(data))
+            resolve(data);
+          },
+          err => {
+            this.lookupLocally("tcs_verbal_all_statistics")
+              .then(data => {
+                if (data && JSON.parse(data)) {
+                  resolve(JSON.parse(data))
+                } else {
+                  reject({ error: "Offline, could not connect to server!" })
+                }
               })
-          }
-        })
+          })
+      }
     });
   }
   getStatistics(id, userId) {
+    let isOnline = this.util.isOnline;
     return new Promise((resolve, reject) => {
-      this.lookupLocally("tcs_verbal_test_statistics")
-        .then(data => {
-          if (data && JSON.parse(data) && JSON.parse(data)[id]) {
-            resolve(JSON.parse(JSON.parse(data)[id]));
-          } else {
-            let params: URLSearchParams = new URLSearchParams();
-            params.set('userId', userId);
-            this.http.get(this.baseUrl + '/stat/' + id, { search: params })
-              .map(data => data.json())
-              .subscribe(data => {
-                this.local.get("tcs_verbal_test_statistics")
-                  .then(stats => {
-                    let updatedTests
-                    if (stats && JSON.parse(stats)) {
-                      updatedTests = JSON.parse(stats);
-                    }
-                    updatedTests = updatedTests || {};
-                    updatedTests[id] = JSON.stringify(data);
-                    this.local.set("tcs_verbal_test_statistics", JSON.stringify(updatedTests));
-                  })
-                resolve(data);
-              },
-              err => {
-                reject({ error: "could not fetch data!" })
+      if (isOnline) {
+        let params: URLSearchParams = new URLSearchParams();
+        params.set('userId', userId);
+        let headers: Headers = new Headers();
+        headers.set("Content-Type", "application/json");
+        this.http.get(this.baseUrl + '/stat/' + id, { search: params, headers: headers })
+          .map(data => data.json())
+          .subscribe(data => {
+            this.local.get("tcs_verbal_test_statistics")
+              .then(stats => {
+                let updatedTests
+                if (stats && JSON.parse(stats)) {
+                  updatedTests = JSON.parse(stats);
+                }
+                updatedTests = updatedTests || {};
+                updatedTests[id] = JSON.stringify(data);
+                this.local.set("tcs_verbal_test_statistics", JSON.stringify(updatedTests));
               })
-          }
-        })
+            resolve(data);
+          },
+          err => {
+            this.lookupLocally("tcs_verbal_test_statistics")
+              .then(data => {
+                if (data && JSON.parse(data) && JSON.parse(data)[id]) {
+                  resolve(JSON.parse(JSON.parse(data)[id]));
+                } else {
+                  reject({ error: "Offline, could not connect to server!" })
+                }
+              })
+          })
+      }
+
     });
   }
   getLeaderBoard(id) {
+    let isOnline = this.util.isOnline;
     return new Promise((resolve, reject) => {
-      this.lookupLocally("tcs_verbal_leaderboard")
-        .then(data => {
-          if (data && JSON.parse(data) && JSON.parse(data)[id]) {
-            resolve(JSON.parse(JSON.parse(data)[id]));
-          } else {
-            this.http.get(this.baseUrl + '/leaderboard/' + id)
-              .map(data => data.json())
-              .subscribe(data => {
-                this.local.get("tcs_verbal_leaderboard")
-                  .then(stats => {
-                    let leaderboard
-                    if (stats && JSON.parse(stats)) {
-                      leaderboard = JSON.parse(stats);
-                    }
-                    leaderboard = leaderboard || {};
-                    leaderboard[id] = JSON.stringify(data);
-                    this.local.set("tcs_verbal_leaderboard", JSON.stringify(leaderboard));
-                  })
-                resolve(data);
-              },
-              err => {
-                reject({ error: "could not fetch data!" })
+      if (isOnline) {
+        let headers: Headers = new Headers();
+        headers.set("Content-Type", "application/json");
+        this.http.get(this.baseUrl + '/leaderboard/' + id, { headers })
+          .map(data => data.json())
+          .subscribe(data => {
+            this.local.get("tcs_verbal_leaderboard")
+              .then(stats => {
+                let leaderboard
+                if (stats && JSON.parse(stats)) {
+                  leaderboard = JSON.parse(stats);
+                }
+                leaderboard = leaderboard || {};
+                leaderboard[id] = JSON.stringify(data);
+                this.local.set("tcs_verbal_leaderboard", JSON.stringify(leaderboard));
               })
-          }
-        })
+            resolve(data);
+          },
+          err => {
+            this.lookupLocally("tcs_verbal_leaderboard")
+              .then(data => {
+                if (data && JSON.parse(data) && JSON.parse(data)[id]) {
+                  resolve(JSON.parse(JSON.parse(data)[id]));
+                } else {
+                  reject({ error: "Offline, could not connect to server!" })
+                }
+              })
+          })
+      }
+
     });
   }
   updateTest(id, testData) {
     return new Promise((resolve, reject) => {
-      this.http.put(this.baseUrl + '/' + id, JSON.stringify({ data: testData }))
+      let headers: Headers = new Headers();
+      headers.set("Content-Type", "application/json");
+      this.http.put(this.baseUrl + '/' + id, JSON.stringify(testData), { headers })
         .map(data => data.json())
         .subscribe(data => {
           resolve(data);
@@ -225,7 +257,9 @@ export class VerbalService {
   }
   patchTest(testId, _id, testData) {
     return new Promise((resolve, reject) => {
-      this.http.patch(this.baseUrl + '/' + testId + '/' + _id, JSON.stringify({ data: testData }))
+      let headers: Headers = new Headers();
+      headers.set("Content-Type", "application/json");
+      this.http.patch(this.baseUrl + '/' + testId + '/' + _id, JSON.stringify(testData), { headers })
         .map(data => data.json())
         .subscribe(data => {
           resolve(data);

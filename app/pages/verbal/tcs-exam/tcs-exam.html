@@ -7,17 +7,17 @@
 
 <ion-content class="tcs-verbal-exam">
 
-  <ion-item>
-    <p *ngIf="test && test.question" primary>
-      {{test.question}}
-    </p>
-  </ion-item>
-
   <ion-item-group>
+    <ion-item-divider primary-light>Question:</ion-item-divider>
+    <ion-item>
+      <p *ngIf="test && test.question" primary>
+        {{test.question}}
+      </p>
+    </ion-item>
     <ion-item-divider light>Outline:</ion-item-divider>
     <ion-item>
       <p *ngIf="test && test.outline" secondary>
-       <strong>{{test.outline}}</strong>
+        <strong>{{test.outline}}</strong>
       </p>
     </ion-item>
   </ion-item-group>

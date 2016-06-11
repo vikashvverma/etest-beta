@@ -6,14 +6,15 @@
 </ion-navbar>
 
 
-<ion-content padding class="tcs-verbal-exam-result">
-    <ion-item>
-        <p *ngIf="test && test.question" primary>
-            {{test.question}}
-        </p>
-    </ion-item>
+<ion-content class="tcs-verbal-exam-result">
 
     <ion-item-group>
+        <ion-item-divider primary-light>Question:</ion-item-divider>
+        <ion-item>
+            <p *ngIf="test && test.question" primary>
+                {{test.question}}
+            </p>
+        </ion-item>
         <ion-item-divider light>Outline:</ion-item-divider>
         <ion-item>
             <p *ngIf="test && test.outline" secondary>
@@ -31,6 +32,8 @@
         </ion-item>
     </ion-item-group>
 
+    <ion-item-divider primary-light>Personalized Remarks!</ion-item-divider>
+
     <ion-item *ngIf="result">
         <ion-icon name="arrow-round-forward" item-left></ion-icon>
         Score
@@ -46,9 +49,7 @@
     </ion-item>
 
     <ion-list>
-        <ion-list-header>
-            Mistakes
-        </ion-list-header>
+        <ion-item-divider danger>Mistakes!</ion-item-divider>
         <ion-item danger *ngFor="let mistake of result.mistakes">
             <ion-icon name="arrow-round-forward" item-left></ion-icon>
             <h2 [innerHTML]="mistake.title"></h2>
@@ -63,16 +64,15 @@
         <ion-icon name="send"></ion-icon>
       </button>
     </ion-item>
-    <ion-toolbar>
-        <p primary-light>Your Performance Statistics!</p>
-    </ion-toolbar>
+
+    <ion-item-divider primary-light>Your Performance Statistics!</ion-item-divider>
     <etest-chart *ngIf="resultData" [options]="resultData" style="width:100%"></etest-chart>
 
     <etest-chart *ngIf="seriesData" [options]="seriesData" style="width:100%"></etest-chart>
 
     <etest-chart *ngIf="rankData" [options]="rankData" style="width:100%"></etest-chart>
     <ion-item>
-        <p><img src="img/sun.png" style="vertical-align: middle;"/> displays your rank (pinch to zoom)</p>
+        <p><img src="img/sun.png" style="vertical-align: middle;" /> displays your rank (pinch to zoom)</p>
     </ion-item>
 
 </ion-content>
