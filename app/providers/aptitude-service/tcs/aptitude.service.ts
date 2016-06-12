@@ -32,13 +32,8 @@ export class AptitudeService {
   }
 
   load() {
-    if (this.data) {
-      // already loaded data
-      return Promise.resolve(this.data);
-    }
-
-    // don't have the data yet
-    return new Promise(resolve => {
+    // alwyas try to fetch data from remote server
+    return new Promise((resolve, reject) => {
       // We're using Angular Http provider to request the data,
       // then on the response it'll map the JSON data to a parsed JS object.
       // Next we process the data and resolve the promise with the new data.
@@ -50,6 +45,17 @@ export class AptitudeService {
           this.local.set('tcsaptitudes', JSON.stringify(data));
           this.data = this.transform(data)
           resolve(this.data);
+        },
+        // could not fetch data from remote server
+        err => {
+          // fallback to local storage
+          this.local.get('tcsaptitudes').then(tests => {
+            this.data = JSON.parse(tests);
+            this.data = this.data && this.transform(this.data);
+          }).catch(error => {
+            // data not found in local storage
+            reject({ error: "could not fetch data from server!" })
+          });
         });
     });
   }

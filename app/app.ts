@@ -17,6 +17,7 @@ import {Verbal} from './pages/verbal/verbal';
 import {Aptitude} from './pages/aptitude/aptitude';
 import {Profile} from './pages/profile/profile';
 import {About} from './pages/about/about';
+import {Contact} from './pages/contact/contact';
 
 @App({
   templateUrl: 'build/app.html',
@@ -47,7 +48,7 @@ class MyApp {
 
   rootPage: any = Home;
   pages: Array<{ title: string, component: any }>
-  links: Array<{title:string, icon:string,component:any}>
+  links: Array<{ title: string, icon: string, component: any }>
 
   constructor(
     private platform: Platform,
@@ -65,7 +66,8 @@ class MyApp {
     ];
 
     this.links = [
-      { title: "About", icon:"information-circle", component:About}
+      { title: "About", icon: "information-circle", component: About },
+      { title: "Contact", icon: "send", component: Contact }
     ]
 
   }

@@ -1,0 +1,51 @@
+<ion-toolbar primary>
+    <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+    <ion-title>Contact</ion-title>
+</ion-toolbar>
+
+<ion-content class="contact">
+    <ion-item style="padding:0;">
+        <img src="img/admin.jpg" class="admin-picture" />
+        <div class="name">Vikash Verma</div>
+    </ion-item>
+    <iont-item>
+        <button fab fab-left facebook (click)="open('facebook')">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </button>
+        <button fab fab-googleplus googleplus (click)="open('googleplus')">
+            <ion-icon name="logo-googleplus"></ion-icon>
+        </button>
+        <button fab fab-linkedin linkedin (click)="open('linkedin')">
+            <ion-icon name="logo-linkedin"></ion-icon>
+        </button>
+        <button fab fab-right twitter (click)="open('twitter')">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </button>
+    </iont-item>
+
+    <ion-item-divider primary-light style="margin-top:28px;">
+        Send your feedback!
+    </ion-item-divider>
+
+    <ion-list>
+        <ion-item>
+            <ion-label floating>Your Name</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Your Email ID</ion-label>
+            <ion-input type="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Your Message</ion-label>
+            <ion-textarea rows="5"></ion-textarea>
+        </ion-item>
+    </ion-list>
+    <button full calm>
+        Send
+        <ion-icon name="send"></ion-icon>
+     </button>
+</ion-content>

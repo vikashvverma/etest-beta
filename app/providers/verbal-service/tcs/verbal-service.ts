@@ -48,13 +48,8 @@ export class VerbalService {
     });
   }
   load() {
-    if (this.data) {
-      // already loaded data
-      return Promise.resolve(this.data);
-    }
-
-    // don't have the data yet
-    return new Promise(resolve => {
+    // always try to fetch latest data
+    return new Promise((resolve, reject) => {
       // We're using Angular Http provider to request the data,
       // then on the response it'll map the JSON data to a parsed JS object.
       // Next we process the data and resolve the promise with the new data.
@@ -68,6 +63,17 @@ export class VerbalService {
           this.local.set("tcsverbals", JSON.stringify(data));
           this.data = this.transform(data);
           resolve(this.data);
+        },
+        // could not fetch data from remote server
+        err => {
+          // fallback to local storage
+          this.local.get('tcsverbals').then(tests => {
+            this.data = JSON.parse(tests);
+            this.data = this.data && this.transform(this.data);
+            resolve(this.data)
+          }).catch(error => {
+            reject({ error: "could not fetch data from server!" })
+          });
         });
     });
   }
