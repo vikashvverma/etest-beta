@@ -8,7 +8,7 @@ exports.mail = function (request,response) {
             api_key: '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'
         }
     }
-    console.log(req.body);
+    console.log(request.body);
     if (!request.body || !request.body.name || !request.body.email || !request.body.subject || !request.body.message) {
         return response.status(400).json({success:false, error:true, message:"All fields are required!"});
     }
