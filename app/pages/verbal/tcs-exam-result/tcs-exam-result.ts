@@ -38,7 +38,7 @@ export class TCSVerbalResult {
     evaluate() {
         this.result = this.verbalService.evaluate(this.test);
         this.result.userId = this.auth.user.user_id
-        this.result.name = this.auth.user.name.indexOf('@') > 0 ? this.auth.user.nickname : this.auth.user.nam;
+        this.result.name = this.auth.user.name.indexOf('@') > 0 ? this.auth.user.nickname : this.auth.user.name;
         this.updateTest(this.test.id, this.result);
         if (this.util.isOnline()) {
             this.checkSpelling();

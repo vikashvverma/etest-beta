@@ -65,14 +65,14 @@
       </button>
     </ion-item>
 
-    <ion-item-divider primary-light>Your Performance Statistics!</ion-item-divider>
+    <ion-item-divider primary-light *ngIf="resultData">Your Performance Statistics!</ion-item-divider>
     <etest-chart *ngIf="resultData" [options]="resultData" style="width:100%"></etest-chart>
 
     <etest-chart *ngIf="seriesData" [options]="seriesData" style="width:100%"></etest-chart>
 
     <etest-chart *ngIf="rankData" [options]="rankData" style="width:100%"></etest-chart>
-    <ion-item>
-        <p><img src="img/sun.png" style="vertical-align: middle;" /> displays your rank (pinch to zoom)</p>
+    <ion-item *ngIf="rankData">
+        <p><img src="img/sun.png" style="vertical-align: middle;" /> displays your rank!</p>
     </ion-item>
 
 </ion-content>

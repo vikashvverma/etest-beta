@@ -286,8 +286,8 @@ export class VerbalService {
     return tests.map(test => {
       test.date = moment(test.date).format('ll');
       test.last_attempt_on = moment(test.last_attempt_on).format('ll');
-      test.last_attempt_by = test.last_attempt_by.split("@")[0];
-      test.highest_scorer = test.highest_scorer.split("@")[0];
+      test.last_attempt_by = test.last_attempt_by && test.last_attempt_by.split("@")[0];
+      test.highest_scorer = test.highest_scorer && test.highest_scorer.split("@")[0];
       return test;
     });
   }

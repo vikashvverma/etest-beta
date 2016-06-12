@@ -12,12 +12,11 @@ import {UserService} from './providers/user-service/user.service';
 import {Util} from './util/util'
 
 
-import {GettingStartedPage} from './pages/getting-started/getting-started';
 import {Home} from './pages/home/home.component';
-import {ListPage} from './pages/list/list';
 import {Verbal} from './pages/verbal/verbal';
 import {Aptitude} from './pages/aptitude/aptitude';
 import {Profile} from './pages/profile/profile';
+import {About} from './pages/about/about';
 
 @App({
   templateUrl: 'build/app.html',
@@ -48,6 +47,7 @@ class MyApp {
 
   rootPage: any = Home;
   pages: Array<{ title: string, component: any }>
+  links: Array<{title:string, icon:string,component:any}>
 
   constructor(
     private platform: Platform,
@@ -57,15 +57,16 @@ class MyApp {
     public aptitudeService: AptitudeService
   ) {
     this.initializeApp();
-    // auth.login();
-    // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Getting Started', component: GettingStartedPage },
+      { title: 'Home', component: Home },
       { title: 'Profile', component: Profile },
-      { title: 'List', component: ListPage },
       { title: 'Verbal', component: Verbal },
       { title: 'Aptitude', component: Aptitude }
     ];
+
+    this.links = [
+      { title: "About", icon:"information-circle", component:About}
+    ]
 
   }
 
