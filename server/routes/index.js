@@ -11,12 +11,13 @@ module.exports = function (app) {
     // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH");
+    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, PATCH, DELETE");
     next();
   });
   // Insert routes below
   app.use('/api/verbal/tcs', require('../api/verbal/tcs'));
   app.use('/api/aptitude/tcs', require('../api/aptitude/tcs'));
+  app.use('/api/mailer', require('../api/mailer'));
 
   // All undefined asset or api routes should return a 404
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')
