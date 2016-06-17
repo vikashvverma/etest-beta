@@ -84,7 +84,7 @@
         </md-subheader>
         <md-list>
           <md-list-item ng-repeat="user in vm.leaderboard" class="noright" ng-click="vm.viewProfile($event, user);" >
-            <img alt="{{ user.name }}" ng-src="{{ user.img }}" src="assets/images/avatar_2x.png" class="md-avatar"/>
+            <img alt="{{ user.name }}" ng-src="{{ user.picture }}" src="assets/images/avatar_2x.png" class="md-avatar"/>
             <p>{{ user.name.split('@')[0] }}</p>
             <p class="md-secondary" style="margin-right: 50px;">{{ user.score }}</p>
             <md-icon class="md-secondary" aria-label="Profile" md-font-set="fa fa-user fa-2x"></md-icon>

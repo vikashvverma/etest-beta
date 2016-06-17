@@ -88,6 +88,20 @@ angular.module('etestApp')
             console.log(err);
             $q.reject(err);
           });
+      },
+      userPicture: function (id) {
+        return $http.get('https://programminggeek.auth0.com/api/v2/users/' + id + '?fields=picture&include_fields=true', {
+            headers: {
+              'Authorization': 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJGRnlDajFpbHhyU0ROS2hJU1B0UDUxaU1XVDJ5REluNiIsInNjb3BlcyI6eyJ1c2VycyI6eyJhY3Rpb25zIjpbInJlYWQiXX19LCJpYXQiOjE0NjA4MjY1NTQsImp0aSI6ImVmZjYyZjExYjdlZjQ3YjYyMTk3ZWUyOTJiMzQyMDY0In0.ljmBWkOekRlYYFMhV4KPBR9zlOhcKmsNh7yulkmFApg'
+            }
+          })
+          .success(function (data) {
+            console.log(data);
+            $q.resolve(data);
+          }).error(function (err) {
+            console.log(err);
+            $q.reject(err);
+          });
       }
     };
   });

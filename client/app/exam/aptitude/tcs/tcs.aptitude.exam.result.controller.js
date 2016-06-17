@@ -78,6 +78,11 @@ angular.module('etestApp')
 
       TCSAptitudeService.getLeaderBoard(vm.id).success(function (data) {
         vm.leaderboard = data;
+        vm.leaderboard.map(function (user) {
+          Auth.userPicture(user.userId).success(function(data){
+            user.picture = data.picture;
+          });
+        });
       });
       for (var i = 0; i < vm.test.length; i++) {
         save(i);
