@@ -21,19 +21,19 @@ export class Contact {
   }
   send(name, email, subject, message) {
     if (!name) {
-      return this.util.presentToast(this.nav, "😟, Please enter your name!", 1000);
+      return this.util.presentToast(this.nav, "😟 Please enter your name!", 1000);
     }
 
     if (!this.validateEmail(email)) {
-      return this.util.presentToast(this.nav, "😛, Invalid email id!", 1000);
+      return this.util.presentToast(this.nav, "😛 Invalid email id!", 1000);
     }
 
     if (!subject) {
-      return this.util.presentToast(this.nav, "😧, Please enter subject!", 1000);
+      return this.util.presentToast(this.nav, "😧 Please enter subject!", 1000);
     }
 
     if (!message) {
-      return this.util.presentToast(this.nav, "Oho 😃, you forgot the message!", 1000);
+      return this.util.presentToast(this.nav, "Oho 😃 you forgot the message!", 1000);
     }
     let payload = {
       name,
