@@ -40,10 +40,12 @@ export class TCSVerbalResult {
         this.result.userId = this.auth.user.user_id
         this.result.name = this.auth.user.name.indexOf('@') > 0 ? this.auth.user.nickname : this.auth.user.name;
         this.updateTest(this.test.id, this.result);
-        if (this.util.isOnline()) {
-            this.checkSpelling();
-        } else {
-            this.util.presentToast(this.nav, "It seems you are not online, check your internet connection!", 1000);
+        if (this.result.score) {
+            if (this.util.isOnline()) {
+                this.checkSpelling();
+            } else {
+                this.util.presentToast(this.nav, "It seems you are not online, check your internet connection!", 1000);
+            }
         }
     }
     updateTest(id, result) {
