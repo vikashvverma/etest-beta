@@ -1,0 +1,32 @@
+.main {
+    ion-item.parent {
+        padding-left: 0 !important;
+        ion-item {
+            border:0;
+            color: #fff;
+            div {
+                border:0;
+            }
+            background-color: #387ef5;
+        }
+        background-color: #387ef5;
+    }
+    .head-title {
+        font-size: 30px;
+        color: #fff;
+        display: block;
+        text-align: center;
+        text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
+    }
+    .tag-line {
+        color: #fff;
+        display: block;
+        text-align: center;
+        text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2), 0px -5px 35px rgba(255, 255, 255, 0.3);
+    }
+    ion-list {
+        ion-list-header {
+            background-color: #03A9F4;
+        }
+    }
+}
