@@ -60,7 +60,7 @@ var app = angular.module('etestApp', [
     };
   })
 
-  .run(function ($rootScope, auth, store, jwtHelper, $location, $window) {
+  .run(function ($rootScope, auth, store, jwtHelper, $location, $window, UtilityService) {
     //Go back to the previous stage with this back() call
     var history = [];
     $rootScope.$on('$locationChangeSuccess', function () {
@@ -128,6 +128,10 @@ var app = angular.module('etestApp', [
     //});
     // This hooks al auth events to check everything as soon as the app starts
     auth.hookEvents();
+    UtilityService.notifications()
+      .success(function(data) {
+        UtilityService.notify(data);
+      })
   });
 
 app.directive('userAvatar', function () {
@@ -166,4 +170,10 @@ app.config(function ($mdThemingProvider) {
   $mdThemingProvider.theme('forest')
     .primaryPalette('brown')
     .accentPalette('green');
+});
+
+// request permission on page load
+document.addEventListener('DOMContentLoaded', function () {
+  if (Notification.permission !== "granted")
+    Notification.requestPermission();
 });
