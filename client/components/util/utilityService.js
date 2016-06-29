@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('etestApp')
-  .factory('UtilityService', function Auth($location, $rootScope, $http) {
+  .factory('UtilityService', function Auth($location, $rootScope, $http, store) {
     return {
       notifications: function () {
         return $http.get('/notifications.json');
@@ -14,14 +14,20 @@ angular.module('etestApp')
         if (Notification.permission !== "granted")
           Notification.requestPermission();
         else {
+          var done = store.get('notifications') || [];
           notifications.map(function (n) {
-            var notification = new Notification(n.title && 'Programming Geek', {
-              icon: 'http://etest.programminggeek.in/pg-logo.png',
-              body: n.body
-            });
-            notification.onclick = function () {
-              window.open(n.url);
-            };
+            if (done.indexOf(n.id) < 0) {
+              var notification = new Notification(n.title && 'Programming Geek', {
+                icon: 'http://etest.programminggeek.in/pg-logo.png',
+                body: n.body
+              });
+              notification.onclick = function () {
+                window.open(n.url);
+              };
+              done.push(n.id);
+              store.set('notifications', done);
+            }
+
           });
 
         }

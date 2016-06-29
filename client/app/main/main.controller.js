@@ -92,7 +92,7 @@ angular.module('etestApp')
         url: 'main.aptitude'
       },
       {
-        icon: "fa fa-lock fa-2x",
+        icon: "fa fa-unlock fa-2x",
         title: "Leaderboard",
         tooltip: "Leader Board",
         url: 'main.leaderboard'

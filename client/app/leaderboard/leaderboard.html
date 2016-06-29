@@ -1,0 +1,31 @@
+<md-content class="md-padding">
+  <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect md-dynamic-height md-border-bottom>
+    <md-tab ng-repeat="leaderboard in vm.leaderboards"
+            ng-disabled="leaderboard.disabled"
+            label="{{leaderboard.title}}">
+      <md-toolbar layout="row">
+        <div class="md-toolbar-tools">
+          <span>Leaderboard</span>
+        </div>
+        <md-select placeholder="Select Test" ng-model="test" md-on-open="leaderboard.load()" style="min-width: 200px;"
+                   ng-change="vm.change(leaderboard.type, test)">
+          <md-option ng-value="test.id" ng-repeat="test in leaderboard.tests" style="color:#03a9f4">{{test.name}}</md-option>
+        </md-select>
+      </md-toolbar>
+      <md-progress-circular md-mode="indeterminate" ng-if="!leaderboard.users"></md-progress-circular>
+      <md-content flex ng-if="leaderboard.users">
+        <md-subheader class="md-primary">
+          Your best score <span ng-if="leaderboard.isVerbal">(at least 50)</span> is considered for leaderboard!
+        </md-subheader>
+        <md-list>
+          <md-list-item ng-repeat="user in leaderboard.users" class="noright" ng-click="vm.viewProfile($event, user);">
+            <img alt="{{ user.name }}" ng-src="{{ user.picture }}" src="assets/images/avatar_2x.png" class="md-avatar"/>
+            <p>{{ user.name.split('@')[0] }}</p>
+            <p class="md-secondary" style="margin-right: 50px;">{{ user.score }}</p>
+            <md-icon class="md-secondary" aria-label="Profile" md-font-set="fa fa-user fa-2x"></md-icon>
+          </md-list-item>
+        </md-list>
+      </md-content>
+    </md-tab>
+  </md-tabs>
+</md-content>
