@@ -1,5 +1,11 @@
 'use strict';
-
+var keywords = ["TCS Verbal Test Simulator", "TCS Email Writing Simulator", "TCS Aptitude Test Online", "TCS Verbal Test Online", " TCS Verbal Ability Test", "TCS Analytical Test", "TCS Analytical Ability Test", "TCS Email Writing", "TCS Sample Email", "TCS Mock Test", "TCS Email Writing Test", "Tcs Email Writing PDF", "Tcs Email Writing Practice", "TCS Verbal Test Simulator", "TCS Email Writing Online Test", "TCS Analytical Ability Test", "TCS Online Analytical Test", "TCS Aptitude Test Papers", "TCS Aptitude Test 2016", "TCS Aptitude Test PDF", "TCS Placement Papers", "TCS Placement Papers With Solutions", "TCS Placement Procedure", "TCS Placement Process", "TCS Placement Papers PDF", "TCS Placement Aptitude Test"];
+var verbalKeywords = ["TCS Verbal Test Simulator", "TCS Email Writing Simulator", "TCS Verbal Test Online", "TCS Verbal Ability Test", "TCS Email Writing", "TCS Sample Email", "TCS Mock Test", "TCS Email Writing Test", "Tcs Email Writing PDF", "Tcs Email Writing Practice", "TCS Verbal Test Simulator", "TCS Email Writing Online Test", "TCS Online Analytical Test", "TCS Placement Papers", "TCS Placement Papers With Solutions", "TCS Placement Procedure", "TCS Placement Process"];
+var aptitudeKeywords = ["TCS Aptitude Test Online", "TCS Analytical Test", "TCS Analytical Ability Test", "TCS Placement Aptitude Test", "TCS Placement Papers PDF", "TCS Placement Process", "TCS Placement Procedure", "TCS Placement Papers With Solutions", "TCS Placement Papers", "TCS Aptitude Test PDF", "TCS Mock Test", "TCS Aptitude Test Papers", "TCS Aptitude Test 2016", "TCS Aptitude Test PDF"];
+var description = "Online TCS Verbal/Analytical Ability Test - Take online TCS Verbal and analytical ability test and improve your performance.";
+var url = "http://etest.programminggeek.in/";
+var title = "etest | Free Verbal and Aptitude Tests Online";
+var image = "http://etest.programminggeek.in/assets/images/favicon.png";
 var app = angular.module('etestApp', [
     'ngCookies',
     'ngResource',
@@ -101,6 +107,8 @@ var app = angular.module('etestApp', [
       } else {
         $rootScope.commentbox.show = true;
       }
+      // set default meta tags if no meta configured for the next state
+      UtilityService.generateMeta({});
     });
     $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams) {
       $rootScope.commentbox.url = $location.absUrl();
@@ -129,9 +137,16 @@ var app = angular.module('etestApp', [
     // This hooks al auth events to check everything as soon as the app starts
     auth.hookEvents();
     UtilityService.notifications()
-      .success(function(data) {
+      .success(function (data) {
         UtilityService.notify(data);
-      })
+      });
+    $rootScope.meta = {
+      description: description,
+      keywords: keywords,
+      url: $location.absUrl() || url,
+      image: image,
+      title: title
+    }
   });
 
 app.directive('userAvatar', function () {

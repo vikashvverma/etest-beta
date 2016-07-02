@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('etestApp')
-  .controller('ProfileController', ['$scope', '$stateParams', '$location', '$mdDialog', '$mdMedia', '$window', 'Auth', 'ngNotify', 'TCSAptitudeService', 'TCSVerbalService',
-    function ($scope, $stateParams, $location, $mdDialog, $mdMedia, $window, Auth, ngNotify, TCSAptitudeService, TCSVerbalService) {
+  .controller('ProfileController', ['$rootScope', '$scope', '$stateParams', '$location', '$mdDialog', '$mdMedia', '$window', 'Auth', 'ngNotify', 'TCSAptitudeService', 'TCSVerbalService', 'UtilityService',
+    function ($rootScope, $scope, $stateParams, $location, $mdDialog, $mdMedia, $window, Auth, ngNotify, TCSAptitudeService, TCSVerbalService, UtilityService) {
       var vm = this;
       vm.user_id = $stateParams.id;
       vm.user = {
@@ -11,6 +11,11 @@ angular.module('etestApp')
       if (vm.user_id) {
         Auth.getUser(vm.user_id)
           .success(function (data) {
+            UtilityService.generateMeta({
+              description: "etest: " + (data.name.split("@")[0] || data.nickname) + "'s profile on Programming Geek.",
+              title: "etest: " + (data.name.split("@")[0] || data.nickname) + "'s Profile",
+              image: data.picture,
+            });
             vm.user.profile = data;
             vm.loadStatistics();
           })

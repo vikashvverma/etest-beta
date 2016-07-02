@@ -31,6 +31,15 @@ angular.module('etestApp')
           });
 
         }
+      },
+      generateMeta: function (meta) {
+        $rootScope.meta = {
+          description: meta.description || description,
+          keywords: meta.keywords || keywords,
+          url: $location.absUrl() || url,
+          image: meta.image || image,
+          title: meta.title || title
+        }
       }
     };
 

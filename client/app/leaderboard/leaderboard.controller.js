@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('etestApp')
-  .controller('LeaderboardController', function ($rootScope, $scope, $location, $timeout, $mdDialog, TCSVerbalService, TCSAptitudeService, Auth) {
+  .controller('LeaderboardController', function ($rootScope, $scope, $location, $timeout, $mdDialog, TCSVerbalService, TCSAptitudeService, Auth, UtilityService) {
     var vm = this;
 
 
@@ -109,4 +109,9 @@ angular.module('etestApp')
 
     vm.verbalLeaderBoard();
     vm.aptitudeLeaderBoard();
+    UtilityService.generateMeta({
+      description: "etest: See Verbal and Aptitude Tests' LeaderBoard. " + keywords.join(", "),
+      title: "Leaderboard: Verbal and Aptitude Tests",
+      keywords: "Leaderboard, Verbal Leaderboard, Aptitude Leaderboard, TCS Verbal Ability Test Leaderboard, TCS Analytical Ability Test Leaderboard, TCS Email Writing LeaderBoard, TCS Aptitude test Leaderboard, " + keywords.join(", ")
+    });
   });
