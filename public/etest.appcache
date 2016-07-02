@@ -1,0 +1,121 @@
+CACHE MANIFEST
+# 2016-07-02 v0.0.1
+
+#root
+/index.html
+/favicon.ico
+/notifications.json
+/pg-logo.png
+
+#app
+/app/8f40cde6.app.css
+/app/491973bb.app.js
+/app/906710bc.vendor.css
+/app/cbee3827.vendor.js
+/app/csshttprequest.js
+/app/jquery.atd.js
+
+#CDN
+
+#assets
+/assets/images/100-0.jpeg
+/assets/images/100-1.jpeg
+/assets/images/100-2.jpeg
+/assets/images/115c1e62.tile-bg-8.jpg
+/assets/images/11acab0e.white_arrow_left.svg
+/assets/images/1209148f.100-2.jpeg
+/assets/images/14fc9477.mu-sigma.jpg
+/assets/images/26bea3e7.white_arrow_right.svg
+/assets/images/2751a712.grey_arrow_right.svg
+/assets/images/29cd6f84.tile-bg-2.jpg
+/assets/images/2a04ecee.tile-bg-1.jpg
+/assets/images/2a783a19.avatar.jpg
+/assets/images/2c0573cb.100-0.jpeg
+/assets/images/2c315a86.avatar_1x.png
+/assets/images/404.png
+/assets/images/4285c7a0.tile-bg-3.jpg
+/assets/images/56d48fbb.cover.jpg
+/assets/images/7845d879.default_bg.jpg
+/assets/images/827cde9a.tile-bg-6.jpg
+/assets/images/86a96295.landscape.jpg
+/assets/images/8af9f8e7.avatar_2x.png
+/assets/images/8d48a41a.grey_arrow_left.svg
+/assets/images/9b8d15da.100-1.jpeg
+/assets/images/TCS_logo.svg
+/assets/images/a5b6cdd2.TCS_logo.svg
+/assets/images/a8ad8645.tile-bg-4.jpg
+/assets/images/a950fe09.ibm_logo.png
+/assets/images/aecee892.404.png
+/assets/images/af0b011b.tile-bg-5.jpg
+/assets/images/avatar.jpg
+/assets/images/avatar_1x.png
+/assets/images/avatar_2x.png
+/assets/images/bacce557.tcs_logo.png
+/assets/images/c223f54e.tile-bg-7.jpg
+/assets/images/cover.jpg
+/assets/images/d391a590.favicon.png
+/assets/images/default_bg.jpg
+/assets/images/edc5e504.yeoman.png
+/assets/images/f86d07d1.tcs_logo_stacked.png
+/assets/images/favicon.png
+/assets/images/grey_arrow_left.svg
+/assets/images/grey_arrow_right.svg
+/assets/images/ibm_logo.png
+/assets/images/landscape.jpg
+/assets/images/mu-sigma.jpg
+/assets/images/tcs_logo.png
+/assets/images/tcs_logo_stacked.png
+/assets/images/tile-bg-1.jpg
+/assets/images/tile-bg-2.jpg
+/assets/images/tile-bg-3.jpg
+/assets/images/tile-bg-4.jpg
+/assets/images/tile-bg-5.jpg
+/assets/images/tile-bg-6.jpg
+/assets/images/tile-bg-7.jpg
+/assets/images/tile-bg-8.jpg
+/assets/images/white_arrow_left.svg
+/assets/images/white_arrow_right.svg
+
+/assets/lib/font-awesome.min.css
+/assets/lib/jquery.min.js
+/assets/lib/jquery.min.js
+/assets/lib/angular.min.js
+/assets/lib/angular-animate.min.js
+/assets/lib/angular-aria.min.js
+/assets/lib/angular-messages.min.js
+/assets/lib/angular-cookies.min.js
+/assets/lib/angular-resource.min.js
+/assets/lib/angular-sanitize.min.js
+/assets/lib/angular-ui-router.min.js
+/assets/lib/angular-material.min.js
+/assets/lib/lock-8.2.min.js
+/assets/lib/angular-storage.js
+/assets/lib/angular-jwt.js
+/assets/lib/auth0-angular-4.js
+/assets/lib/highcharts.js
+
+
+
+NETWORK:
+*
+
+FALLBACK:
+/html/ /index.html
+#https://ajax.googleapis.com/ajax/libs/angular_material/1.0.9/angular-material.min.css /assets/lib/angular-material.min.css
+#https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css /assets/lib/font-awesome.min.css
+#https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js /assets/lib/jquery.min.js
+#https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js /assets/lib/jquery.min.js
+#https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js /assets/lib/angular.min.js
+#https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js /assets/lib/angular-animate.min.js
+#https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js /assets/lib/angular-aria.min.js
+#https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js /assets/lib/angular-messages.min.js
+#https://code.angularjs.org/1.5.0/angular-cookies.min.js /assets/lib/angular-cookies.min.js
+#https://code.angularjs.org/1.5.0/angular-resource.min.js /assets/lib/angular-resource.min.js
+#https://code.angularjs.org/1.5.0/angular-sanitize.min.js /assets/lib/angular-sanitize.min.js
+#https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js /assets/lib/angular-ui-router.min.js
+#https://ajax.googleapis.com/ajax/libs/angular_material/1.0.9/angular-material.min.js /assets/lib/angular-material.min.js
+#https://cdn.auth0.com/js/lock-8.2.min.js /assets/lib/lock-8.2.min.js
+#https://cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js /assets/lib/angular-storage.js
+#https://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js /assets/lib/angular-jwt.js
+#https://cdn.auth0.com/w2/auth0-angular-4.js /assets/lib/auth0-angular-4.js
+#https://code.highcharts.com/highcharts.js /assets/lib/highcharts.js
