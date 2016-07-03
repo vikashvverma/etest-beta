@@ -1,2 +1,20 @@
 CACHE MANIFEST
-# 2016-07-02 v0.0.6
+# 2016-07-02 v0.0.7
+
+#root
+
+#app
+
+
+#CDN
+
+#assets
+
+
+
+
+NETWORK:
+*
+
+FALLBACK:
+
