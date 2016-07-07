@@ -23,6 +23,7 @@
     "nodemailer": "^2.4.2",
     "nodemailer-sendgrid-transport": "^0.2.0",
     "nodemon": "^1.9.1",
+    "prerender-node": "^2.3.0",
     "serve-favicon": "~2.3.0",
     "twitter": "^1.2.5"
   },

@@ -19,6 +19,7 @@ module.exports = function (app) {
     extended: false
   }));
   app.use(cookieParser());
+  app.use(require('prerender-node').set('prerenderToken', 'YFXtiVdxQjPEWHPtR7gN'));
 
   if ('production' === process.env.NODE_ENV) {
     app.use(favicon(path.join(path.normalize(__dirname + '/../../'), 'public', 'favicon.ico')));
