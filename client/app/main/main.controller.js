@@ -64,7 +64,7 @@ angular.module('etestApp')
         image: 'http://4.bp.blogspot.com/-ib-jTmEsx4E/Urk9CplFXrI/AAAAAAAAAhQ/aTVfjHAuQa8/s400/tcs1.jpg',
         title: 'TCS Verbal Test',
         content: 'Take online TCS verbal ability test and analyze your performance',
-        url: "http://etest.programminggeek.in/#!/Verbal",
+        url: "http://etest.programminggeek.in/exam/tcs/verbal",
         sref: 'main.tcsverbal',
         isOpen: false
       }, {
@@ -77,7 +77,7 @@ angular.module('etestApp')
         image: 'http://4.bp.blogspot.com/-ib-jTmEsx4E/Urk9CplFXrI/AAAAAAAAAhQ/aTVfjHAuQa8/s400/tcs1.jpg',
         title: 'TCS Analytical Ability Test',
         content: 'Take TCS Analytical Ability Test, analyze and improve your performance.',
-        url: "http://etest.programminggeek.in/#!/Aptitude",
+        url: "http://etest.programminggeek.in/exam/tcs/aptitude",
         isOpen: false
       }]
     }];
