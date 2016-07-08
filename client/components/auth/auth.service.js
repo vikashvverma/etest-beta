@@ -16,7 +16,7 @@ angular.module('etestApp')
        * @return {Promise}
        */
       login: function (user, callback) {
-        auth.signin({}, function (profile, token) {
+        auth.signin({icon: "http://etest.programminggeek.in/pg-logo.png"}, function (profile, token) {
           // Success callback
           currentUser = profile;
           store.set('profile', profile);
