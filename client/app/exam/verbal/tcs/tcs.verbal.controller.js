@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('etestApp')
-  .controller('TCSVerbalController', function ($scope, $location, $mdDialog, $mdMedia, $log, User, Auth, TCSVerbalService) {
+  .controller('TCSVerbalController', function ($scope, $location, $mdDialog, $mdMedia, $log, User, Auth, TCSVerbalService, UtilityService) {
     var vm = this;
     vm.sets = [];
 
@@ -58,4 +58,9 @@ angular.module('etestApp')
         }
       ];
     }];
+    UtilityService.generateMeta({
+      description: verbalKeywords.join(", "),
+      title: "etest | TCS Verbal Ability Test Online",
+      keywords: verbalKeywords.join(", "),
+    });
   });

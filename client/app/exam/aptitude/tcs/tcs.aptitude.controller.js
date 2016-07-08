@@ -5,7 +5,7 @@
 'use strict';
 
 angular.module('etestApp')
-  .controller('TCSAptitudeController', function ($scope, $location, $mdDialog, $mdMedia, $log, User, Auth, TCSAptitudeService) {
+  .controller('TCSAptitudeController', function ($scope, $location, $mdDialog, $mdMedia, $log, User, Auth, TCSAptitudeService, UtilityService) {
     var vm = this;
     vm.tests = [];
     (function () {
@@ -85,5 +85,9 @@ angular.module('etestApp')
       ];
     }];
     vm.colors = ['blue', 'purple', 'deepBlue', 'lightPurple', 'pink', 'green', 'deepBlue', 'red'];
-
+    UtilityService.generateMeta({
+      description: aptitudeKeywords.join(", "),
+      title: "etest | TCS Analytical Ability Test Online",
+      keywords: aptitudeKeywords.join(", "),
+    });
   });
