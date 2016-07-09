@@ -136,9 +136,9 @@
       </md-content>
     </md-whiteframe>
     <md-whiteframe class="md-whiteframe-z3 md-accent second" layout layout-padding layout-align="center center">
-      <md-content style="width:100%;background: inherit;" layout-sm="column" >
+      <md-content style="width:100%;background: inherit;" layout-sm="column">
 
-        <h1 class="head-title">etest FOR YOU</h1>
+        <h1 class="head-title">etest for you</h1>
         <h5 class=tag-line>A platform where you can practice, analyze and improve your skills!</h5>
 
         <div layout="row" layout-sm="column" layout-xs="column" layout-margin layout-fill layout-padding>
@@ -218,20 +218,17 @@
               </md-button>
             </md-fab-trigger>
             <md-fab-actions>
-              <md-button aria-label="facebook" class="md-fab md-raised md-mini  facebook">
-                <a href="#" ng-click="share('facebook',item)">
-                  <md-icon md-font-set="fa fa-facebook fa-2x  " class="facebook"></md-icon>
-                </a>
+              <md-button aria-label="facebook" class="md-fab md-raised md-mini  facebook"
+                         ng-click="vm.share('facebook',item)">
+                <md-icon md-font-set="fa fa-facebook fa-2x  " class="facebook"></md-icon>
               </md-button>
-              <md-button aria-label="Google+" class="md-fab md-raised md-mini google">
-                <a href="#" ng-click="share('google',item)">
-                  <md-icon md-font-set="fa fa-google-plus fa-2x " class="google"></md-icon>
-                </a>
+              <md-button aria-label="Google+" class="md-fab md-raised md-mini google"
+                         ng-click="vm.share('google',item)">
+                <md-icon md-font-set="fa fa-google-plus fa-2x " class="google"></md-icon>
               </md-button>
-              <md-button aria-label="twitter" class="md-fab md-raised md-mini twitter">
-                <a href="#" ng-click="share('twitter',item)">
-                  <md-icon md-font-set="fa fa-twitter fa-2x " class="twitter"></md-icon>
-                </a>
+              <md-button aria-label="twitter" class="md-fab md-raised md-mini twitter"
+                         ng-click="vm.share('twitter',item)">
+                <md-icon md-font-set="fa fa-twitter fa-2x " class="twitter"></md-icon>
               </md-button>
             </md-fab-actions>
           </md-fab-speed-dial>
@@ -293,14 +290,18 @@
         </div>
         <div flex>
           <h4 style="/*padding-left:16px;*/color:#fff;">FOLLOW US ON</h4>
-          <a href="https://www.facebook.com/thiswillgoaway" target="_blank"> <span class="fa-stack fa-lg">
-  <i class="fa fa-circle fa-stack-2x fa-inverse" style="color: #428bca !important;"></i>
-  <i class="fa fa-facebook fa-stack-1x  fa-inverse" style="padding-top: 2px;"></i>
-</span></a>
-          <a href="https://www.google.com/+ProgrammingGeekIndia" target="_blank">  <span class="fa-stack fa-lg">
-  <i class="fa fa-circle fa-stack-2x fa-inverse" style="    color: #C63D2D !important;"></i>
-  <i class="fa fa-google-plus fa-stack-1x fa-inverse " style="padding-top: 2px;"></i>
-</span></a>
+          <a href="https://www.facebook.com/thiswillgoaway" target="_blank">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x fa-inverse" style="color: #428bca !important;"></i>
+              <i class="fa fa-facebook fa-stack-1x  fa-inverse" style="padding-top: 2px;"></i>
+            </span>
+          </a>
+          <a href="https://www.google.com/+ProgrammingGeekIndia" target="_blank">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x fa-inverse" style="    color: #C63D2D !important;"></i>
+              <i class="fa fa-google-plus fa-stack-1x fa-inverse " style="padding-top: 2px;"></i>
+            </span>
+          </a>
           <!--<md-list class="head-list" style="    margin-top: -16px;">-->
           <!--<md-list-item ng-click="">-->
           <!--<md-icon md-font-set="fa fa-power-off  "></md-icon>-->
@@ -321,22 +322,6 @@
   </md-content>
   <comment-box></comment-box>
 
-  <!--<div id="commentbox" layout="column" layout-align="center center" ng-show="commentbox.show">-->
-
-  <!--<div class="fb-comments tcs-card" data-href="{{commentbox.url}}" data-num-posts="5" data-colorscheme="light"-->
-  <!--data-order-by="social" data-mobile="1" data-width="100%" data-version="v2.3" style="width:98%;"></div>-->
-  <!--<script src="https://apis.google.com/js/plusone.js">-->
-  <!--</script>-->
-  <!--<div class="g-comments"-->
-  <!--data-href="{{commentbox.url}}"-->
-  <!--data-width="{{commentbox.width}}"-->
-  <!--data-first_party_property="BLOGGER"-->
-  <!--data-height="400"-->
-  <!--data-view_type="FILTERED_POSTMOD" style="min-height: 300px;">-->
-  <!--</div>-->
-
-  <!--</div>-->
-
   <div style="bottom: 0;right:0;position: fixed;z-index: 1002;" ng-init="isOpen=false">
 
     <md-fab-speed-dial md-open="isOpen" md-direction="up" class="md-scale md-fab-bottom-right"
@@ -347,20 +332,17 @@
         </md-button>
       </md-fab-trigger>
       <md-fab-actions>
-        <md-button aria-label="facebook" class="md-fab md-raised md-mini  facebook">
-          <a href="https://www.facebook.com/vikashvverma" target="_blank">
-            <md-icon md-font-set="fa fa-facebook fa-2x  " class="facebook"></md-icon>
-          </a>
+        <md-button aria-label="facebook" class="md-fab md-raised md-mini  facebook"
+                   ng-href="https://www.facebook.com/vikashvverma" target="_blank">
+          <md-icon md-font-set="fa fa-facebook fa-2x  " class="facebook"></md-icon>
         </md-button>
-        <md-button aria-label="Google+" class="md-fab md-raised md-mini google">
-          <a href="https://www.google.com/+VikashVerma" target="_blank">
-            <md-icon md-font-set="fa fa-google-plus fa-2x " class="google"></md-icon>
-          </a>
+        <md-button aria-label="Google+" class="md-fab md-raised md-mini google"
+                   ng-href="https://www.google.com/+VikashVerma" target="_blank">
+          <md-icon md-font-set="fa fa-google-plus fa-2x " class="google"></md-icon>
         </md-button>
-        <md-button aria-label="GitHub" class="md-fab md-raised md-mini github">
-          <a href="https://www.github.com/vikashvverma" target="_blank">
-            <md-icon md-font-set="fa fa-github fa-2x " class="github"></md-icon>
-          </a>
+        <md-button aria-label="GitHub" class="md-fab md-raised md-mini github"
+                   ng-href="https://www.github.com/vikashvverma" target="_blank">
+          <md-icon md-font-set="fa fa-github fa-2x " class="github"></md-icon>
         </md-button>
       </md-fab-actions>
     </md-fab-speed-dial>

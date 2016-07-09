@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('etestApp')
-  .factory('UtilityService', function Auth($location, $rootScope, $http, store) {
+  .factory('UtilityService', function Auth($location, $rootScope, $http, $window, store) {
     return {
       notifications: function () {
         return $http.get('/notifications.json');
@@ -40,6 +40,20 @@ angular.module('etestApp')
           image: meta.image || image,
           title: meta.title || title
         }
+      },
+      share: function (site, post) {
+        var sharing = {
+          'facebook': function (post) {
+            $window.open('//www.facebook.com/share.php?m2w&s=100&p[url]=' + encodeURIComponent(post.url) + '&p[images][0]=' + encodeURIComponent(post.url) + '&p[title]=' + encodeURIComponent(post.name) + '&p[summary]=' + encodeURIComponent('Sharing via ProgrammingGeek... :)'), 'Facebook', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
+          },
+          'twitter': function (post) {
+            $window.open('https://twitter.com/intent/tweet?original_referer=' + encodeURIComponent(post.url) + '&text=' + encodeURIComponent('via ProgrammingGeek... :)') + '%20' + encodeURIComponent(post.url), 'Twitter', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
+          },
+          'google': function (post) {
+            $window.open('//plus.google.com/share?url=' + encodeURIComponent(post.url), 'GooglePlus', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
+          }
+        };
+        sharing[site](post);
       }
     };
 

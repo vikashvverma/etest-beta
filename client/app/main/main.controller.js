@@ -44,37 +44,24 @@ angular.module('etestApp')
     vm.toggleSidenav = function (menuId) {
       $mdSidenav(menuId).toggle();
     };
-    $rootScope.share = function (site, post) {
-      var sharing = {
-        'facebook': function (post) {
-          $window.open('//www.facebook.com/share.php?m2w&s=100&p[url]=' + encodeURIComponent(post.url) + '&p[images][0]=' + encodeURIComponent(post.url) + '&p[title]=' + encodeURIComponent(post.name) + '&p[summary]=' + encodeURIComponent('Sharing using ProgrammingGeek... :)'), 'Facebook', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
-        },
-        'twitter': function (post) {
-          $window.open('https://twitter.com/intent/tweet?original_referer=' + encodeURIComponent(post.url) + '&text=' + encodeURIComponent('via ProgrammingGeek... :)') + '%20' + encodeURIComponent(post.url), 'Twitter', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
-        },
-        'google': function (post) {
-          $window.open('//plus.google.com/share?url=' + encodeURIComponent(post.url), 'GooglePlus', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
-        }
-      };
-      sharing[site](post);
-    };
+    vm.share = UtilityService.share;
     vm.blogs = [{
       heading: 'Popular Tests',
       items: [{
-        image: 'http://4.bp.blogspot.com/-ib-jTmEsx4E/Urk9CplFXrI/AAAAAAAAAhQ/aTVfjHAuQa8/s400/tcs1.jpg',
+        image: 'assets/images/tcs_logo_stacked.png',
         title: 'TCS Verbal Test',
         content: 'Take online TCS verbal ability test and analyze your performance',
         url: "http://etest.programminggeek.in/exam/tcs/verbal",
         sref: 'main.tcsverbal',
         isOpen: false
       }, {
-        image: 'http://4.bp.blogspot.com/-ib-jTmEsx4E/Urk9CplFXrI/AAAAAAAAAhQ/aTVfjHAuQa8/s400/tcs1.jpg',
+        image: 'assets/images/tcs_logo_stacked.png',
         title: 'TCS Verbal Test Chrome App',
         content: 'Download our Chrome App from and take TCS Verbal ability test offline.',
         url: "https://chrome.google.com/webstore/detail/tcs-verbal-test-simulator/mldfkmkaobhdebanldjiiaancjmflpcc",
         isOpen: false
       }, {
-        image: 'http://4.bp.blogspot.com/-ib-jTmEsx4E/Urk9CplFXrI/AAAAAAAAAhQ/aTVfjHAuQa8/s400/tcs1.jpg',
+        image: 'assets/images/tcs_logo_stacked.png',
         title: 'TCS Analytical Ability Test',
         content: 'Take TCS Analytical Ability Test, analyze and improve your performance.',
         url: "http://etest.programminggeek.in/exam/tcs/aptitude",
@@ -105,7 +92,7 @@ angular.module('etestApp')
         url: 'main.leaderboard'
       },
       {
-        icon: "fa fa-lock fa-2x",
+        icon: "fa fa-unlock fa-2x",
         title: "Placement",
         tooltip: "Placement",
         url: 'main.placement'

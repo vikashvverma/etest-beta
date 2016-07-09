@@ -1,0 +1,16 @@
+.placement .md-title {
+  color: #03a9f4;
+}
+
+.placement .md-headline {
+  color: cornflowerblue;
+}
+
+.placement p {
+  background-color: white;
+  color: #444;
+  font-family: FreightTextProBook-Regular, 'Helvetica Neue', Georgia, Cambria, 'Times New Roman', Times, serif;
+  font-size: 18px;
+  letter-spacing: 0.1px;
+  line-height: 30px;
+}
