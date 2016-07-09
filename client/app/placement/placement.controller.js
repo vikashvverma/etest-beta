@@ -14,7 +14,7 @@ angular.module('etestApp')
           description: "TCS Verbal Ability Test is compulsory for all students appearing for TCS Campus recruitment. Students often take TCS Verbal Ability Test lightly and sometimes they end up with no offer.",
           url: "http://etest.programminggeek.in/placement/tcs/verbal",
           srefPrimary: "main.tcsverbal",
-          srefSecondary: "main.placement.tcs.verbal"
+          srefSecondary: "main.tcsverbalplacement"
         },
         {
           title: "TCS Analytical Ability Test",
@@ -25,7 +25,7 @@ angular.module('etestApp')
           description: "TCS Analytical Ability Test gives you comprehensive idea of the questions asked in TCS Selection Process. Analytical Ability Test is part of the any campus recruitment exam. Take TCS analytical ability test now and analyze your performance.",
           url: "http://etest.programminggeek.in/placement/tcs/verbal",
           srefPrimary: "main.tcsaptitude",
-          srefSecondary: "main.placement.tcs.verbal"
+          srefSecondary: "main.tcsaptitudeplacement"
         }
       ]
     ];

@@ -61,7 +61,7 @@
   content: '';
 }
 .atomLoader .contentAtoms:before {
-  content: 'Moving satelites into position...';
+  content: 'Moving electrons into position...';
   position: absolute;
   top: -30%;
   left: -130%;
