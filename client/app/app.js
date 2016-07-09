@@ -147,6 +147,7 @@ var app = angular.module('etestApp', [
       image: image,
       title: title
     }
+    $rootScope.hidePreLoader=true;
   });
 
 app.directive('userAvatar', function () {
