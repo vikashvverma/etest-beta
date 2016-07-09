@@ -1,0 +1,64 @@
+<md-content class="md-padding placement" layout-xs="column" layout="column" layout-margin layout-padding>
+  <div layout="row" layout-sm="column" layout-xs="column" layout-md="row" data-ng-repeat="set in vm.sets">
+    <md-card ng-repeat="item in set.tests" flex-xs="100" flex-gt-xs="100">
+      <md-card-header>
+        <md-card-avatar>
+          <img class="md-user-avatar" src="pg-logo.png"/>
+        </md-card-avatar>
+        <md-card-header-text>
+          <span class="md-title mf-primary" data-ng-bind="item.title"></span>
+          <span class="md-subhead md-accent">Asked in {{item.date | date:'yyyy'}}</span>
+        </md-card-header-text>
+      </md-card-header>
+      <img ng-src="assets/images/tcs_logo_stacked.png" class="md-card-image" alt="TCS Aptitude Ability Question">
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">TCS Aptitude Ability Test</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content>
+        <p data-ng-bind="item.question"></p>
+      </md-card-content>
+      <md-card-actions layout="row" layout-xs="column" layout-align="start center">
+        <md-card-icon-actions>
+          <md-button class="md-fab" aria-label="Love it!">
+            <md-icon md-font-set="fa fa-heart fa-2x " style="padding-right: 4px;"></md-icon>
+          </md-button>
+          <md-list style="padding: 8px 10px;">
+            <md-list-item>
+              <md-fab-speed-dial md-open="item.isOpen" md-direction="up"
+                                 class="md-scale share" style="margin-top: -128px;" ng-mouseenter="item.isOpen=true"
+                                 ng-mouseleave="item.isOpen=false">
+                <md-fab-trigger>
+                  <md-button aria-label="menu" class="md-fab md-primary sharer">
+                    <md-icon md-font-set="fa fa-share fa-2x "
+                             style="vertical-align: text-bottom;"></md-icon>
+                  </md-button>
+                </md-fab-trigger>
+                <md-fab-actions>
+                  <md-button aria-label="facebook" class="md-fab md-raised md-mini  facebook"
+                             ng-click="vm.share('facebook',item)">
+                    <md-icon md-font-set="fa fa-facebook fa-2x  " class="facebook"></md-icon>
+                  </md-button>
+                  <md-button aria-label="Google+" class="md-fab md-raised md-mini google"
+                             ng-click="vm.share('google',item)">
+                    <md-icon md-font-set="fa fa-google-plus fa-2x " class="google"></md-icon>
+                  </md-button>
+                  <md-button aria-label="twitter" class="md-fab md-raised md-mini twitter"
+                             ng-click="vm.share('twitter',item)">
+                    <md-icon md-font-set="fa fa-twitter fa-2x " class="twitter"></md-icon>
+                  </md-button>
+                </md-fab-actions>
+              </md-fab-speed-dial>
+            </md-list-item>
+          </md-list>
+        </md-card-icon-actions>
+        <md-button class="md-raised md-primary" ng-href="/placement/verbal/tcs/{{item.id}}">
+          Read Complete Question/Answer
+          <md-icon md-font-set="fa fa-send fa-2x "
+                   style="vertical-align: text-bottom;"></md-icon>
+        </md-button>
+      </md-card-actions>
+    </md-card>
+  </div>
+</md-content>
