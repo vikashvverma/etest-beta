@@ -18,6 +18,7 @@ require('./routes')(app);
 
 //Beware: may affect users' data
 //require('./api/verbal/tcs/insert')();
+//require('./api/verbal/tcs/update')();
 
 //Beware:
 //require('./api/aptitude/insert')();

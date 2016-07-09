@@ -16,7 +16,12 @@ angular.module('etestApp')
     (function () {
       TCSVerbalService.getTest(set)
         .success(function (data) {
-          vm.test = TCSVerbalService.get(data.id);
+          vm.test = data;
+          if (vm.test.answers && vm.test.answers.length) {
+            vm.test.answers = vm.test.answers.map(function (answer) {
+              return TCSVerbalService.highlightMatchedPhrases(vm.test.outline.split("-"), answer)
+            });
+          }
         })
         .error(function (err) {
 

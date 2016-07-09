@@ -11,7 +11,7 @@ angular.module('etestApp')
     (function () {
       TCSVerbalService.getTests()
         .success(function (data) {
-          vm.sets = data.reverse();
+          vm.sets = data;
         }).error(function (err) {
         $log.error(err);
       })

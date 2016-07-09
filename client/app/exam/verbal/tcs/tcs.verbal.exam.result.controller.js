@@ -9,12 +9,23 @@ angular.module('etestApp')
     } else {
       vm.test = TCSVerbalService.get(vm.id);
       vm.result = TCSVerbalService.getTestTResult(vm.id);
+
+      //Retain line breaks
+      vm.test.answer = vm.test.answer.replace(/[\n]/g, '<br/>');
+      //Highlight matched phrase in answer
+      vm.test.answer = TCSVerbalService.highlightMatchedPhrases(vm.test.outline.split("-"), vm.test.answer);
+
+      //Show recommended
+      if (vm.test.answers && vm.test.answers.length) {
+        vm.test.answers[0] = TCSVerbalService.highlightMatchedPhrases(vm.test.outline.split("-"), vm.test.answers[0]);
+      }
+
       vm.result.userId = Auth.getCurrentUser().user_id;
       vm.result.name = Auth.getCurrentUser().name ? Auth.getCurrentUser().name : Auth.getCurrentUser().first_name + " " + Auth.getCurrentUser().last_name;
       vm.seriesType = 'spline';
       vm.resultType = 'column';
       vm.rankType = 'spline';
-      vm._id = '';//test result id used to patch the test result aafiter spell check
+      vm._id = '';//test result id used to patch the test result after spell check
 
       vm.timeout = $timeout(function () {
         if (!vm.result.score) return;
@@ -68,7 +79,7 @@ angular.module('etestApp')
       TCSVerbalService.getLeaderBoard(vm.id).success(function (data) {
         vm.leaderboard = data;
         vm.leaderboard.map(function (user) {
-          Auth.userPicture(user.userId).success(function(data){
+          Auth.userPicture(user.userId).success(function (data) {
             user.picture = data.picture;
           });
         });

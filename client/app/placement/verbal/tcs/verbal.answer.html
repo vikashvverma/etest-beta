@@ -8,7 +8,7 @@
 <md-divider></md-divider>
 <md-whiteframe class="md-whiteframe-1dp" flex layout layout-margin layout-padding layout-align="center center">
   <md-content flex>
-    <p style="line-height: 1.5;margin-top: -10px;color:#03a9f4;" ng-if="vm.test.outline">
+    <p style="line-height: 1.5;margin-top: -10px;color:#03a9f4;" ng-if="vm.test.question">
       <strong>Question </strong>
       <i class="fa fa-hand-o-down" aria-hidden="true"></i>
     </p>
@@ -24,12 +24,12 @@
       <strong><i>{{vm.test.outline}}</i></strong>
     </p>
 
-    <p style="line-height: 1.5;margin-top: -10px;color: #03a9f4;" ng-if="vm.test.outline">
+    <p style="line-height: 1.5;margin-top: -10px;color: #03a9f4;">
       <strong>Answer </strong>
       <i class="fa fa-hand-o-down" aria-hidden="true"></i>
     </p>
-    <p style="line-height: 1.5;margin-top: -10px;color:#476380;" ng-if="vm.test.outline">
-      <strong><i>No answer yet!</i></strong>
+    <p style="line-height: 1.5;margin-top: -10px;color:#476380;" data-ng-repeat="answer in vm.test.answers">
+      <strong data-ng-bind-html="answer"></strong>
     </p>
 
     <p style="line-height: 2.5;font-size: 20px;margin-top: -10px;color: #03a9f4;" ng-if="vm.test.outline">

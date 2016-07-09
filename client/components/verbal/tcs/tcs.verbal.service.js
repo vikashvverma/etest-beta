@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('etestApp')
-  .factory('TCSVerbalService', function Auth($location, $rootScope, $http, User, $cookieStore, $q, $log,$sce, ngNotify) {
+  .factory('TCSVerbalService', function Auth($location, $rootScope, $http, User, $cookieStore, $q, $log, $sce, ngNotify) {
     var currentUser = {};
     var currentTest = {};
     var result = {};
@@ -26,7 +26,7 @@ angular.module('etestApp')
       content = content.toUpperCase();
       var unmatchedPhrases = [];
       for (var i = 0; i < phrases.length; i++) {
-        if (content.indexOf(phrases[i].trim()) < 0) {
+        if (content.indexOf(" " + phrases[i].trim() + " ") < 0 || content.indexOf(" " + phrases[i].trim() + ".")) {
           unmatchedPhrases.push(phrases[i].toLowerCase());
         }
       }
@@ -44,7 +44,7 @@ angular.module('etestApp')
     };
 
     var checkSpellingAndGrammar = function () {
-      var deferred=$q.defer();
+      var deferred = $q.defer();
       AtD.checkCrossAJAX('tcs-verbal-exam-answer',
         {
           success: function (errorCount) {
@@ -55,11 +55,11 @@ angular.module('etestApp')
 
           error: function (reason) {
             $log.error(reason);
-            deferred.reject({reason:reason});
+            deferred.reject({reason: reason});
           },
           ready: function (msg) {
             //$log.info(msg);
-            deferred.resolve({errorCount:msg})
+            deferred.resolve({errorCount: msg})
           }
         });
       return deferred.promise;
@@ -68,115 +68,115 @@ angular.module('etestApp')
       if (content)
         return 0;
       var count = 0;
-      count += (content.length - content.replace(' i ', '  ') .length);
+      count += (content.length - content.replace(' i ', '  ').length);
       content = content.replace('Mr.', '');
       content = content.replace('Ms.', '');
-      var sentences = content.trim() .split('.');
+      var sentences = content.trim().split('.');
       for (var i = 0; i < sentences.length; i++) {
         sentences[i] = sentences[i].trim();
-        if ((sentences[i].charAt(0) + '') == (sentences[i].charAt(0) + '') .toUpperCase())
+        if ((sentences[i].charAt(0) + '') == (sentences[i].charAt(0) + '').toUpperCase())
           continue;
         else
           count++;
       }
       return count;
     };
-    var evaluate=function(words,outline,content){
+    var evaluate = function (words, outline, content) {
       result = {};
-      result.count=words;
+      result.count = words;
       result.unmatchedPhrases = unmatchedPhrases(outline, content);
       result.salutationError = salutationError(content);
       result.leaveTakingError = leaveTakingError(content);
-      result.capError=capitalizationError(content);
-      result.spellcheck=checkSpellingAndGrammar;
-      var mistakes=[];
-      var score=50;
-      result.mistakes=mistakes;
+      result.capError = capitalizationError(content);
+      result.spellcheck = checkSpellingAndGrammar;
+      var mistakes = [];
+      var score = 50;
+      result.mistakes = mistakes;
 
-      if(words<50){
-        result.score=0;
+      if (words < 50) {
+        result.score = 0;
         mistakes.push(
           {
-            title:$sce.trustAsHtml("Too Short"),
-            subtitle:$sce.trustAsHtml("Minimum word required is 50."),
-            description:$sce.trustAsHtml("<strong style='font-size:20px;color:red;'>Your Email must contain at least 50 words</strong>. Your email would not be evaluated.")
+            title: $sce.trustAsHtml("Too Short"),
+            subtitle: $sce.trustAsHtml("Minimum word required is 50."),
+            description: $sce.trustAsHtml("<strong style='font-size:20px;color:red;'>Your Email must contain at least 50 words</strong>. Your email would not be evaluated.")
           });
         return result;
       }
 
-      if(result.salutationError){
-        score-=10;
+      if (result.salutationError) {
+        score -= 10;
         mistakes.push(
           {
-            title:$sce.trustAsHtml("Salutation Error"),
-            subtitle:$sce.trustAsHtml("You have not provided a proper salutation."),
-            description:$sce.trustAsHtml(" Include a proper salutation e.g. \'Dear\' ")
+            title: $sce.trustAsHtml("Salutation Error"),
+            subtitle: $sce.trustAsHtml("You have not provided a proper salutation."),
+            description: $sce.trustAsHtml(" Include a proper salutation e.g. \'Dear\' ")
           });
       }
       if (result.capError > 0) {
         score -= 10;
         mistakes.push({
-            title:$sce.trustAsHtml("Capitalization Error"),
-            subtitle:$sce.trustAsHtml("Capitalization of word required at the begining of a sentence."),
-            description:$sce.trustAsHtml("Number of capitalization errors : " + capError)
-          });
-      }
-      if(result.unmatchedPhrases.length){
-        score-=20;
-        mistakes.push({
-          title:$sce.trustAsHtml("Outline not matched"),
-          subtitle:$sce.trustAsHtml("All phrase given in the outline must match."),
-          description:$sce.trustAsHtml("Ensure all your phrases are matched. The following phrases did not match : <br>"+result.unmatchedPhrases.join("-"))
+          title: $sce.trustAsHtml("Capitalization Error"),
+          subtitle: $sce.trustAsHtml("Capitalization of word required at the begining of a sentence."),
+          description: $sce.trustAsHtml("Number of capitalization errors : " + capError)
         });
       }
-      if(result.leaveTakingError){
-        score-=10;
-        mistakes.push(          {
-            title:$sce.trustAsHtml("Leave-taking Error"),
-            subtitle:$sce.trustAsHtml("You have not used a correct form of leave taking."),
-            description:$sce.trustAsHtml("Recommended :<br/> " + [
+      if (result.unmatchedPhrases.length) {
+        score -= 20;
+        mistakes.push({
+          title: $sce.trustAsHtml("Outline not matched"),
+          subtitle: $sce.trustAsHtml("All phrase given in the outline must match."),
+          description: $sce.trustAsHtml("Ensure all your phrases are matched. The following phrases did not match : <br>" + result.unmatchedPhrases.join("-"))
+        });
+      }
+      if (result.leaveTakingError) {
+        score -= 10;
+        mistakes.push({
+            title: $sce.trustAsHtml("Leave-taking Error"),
+            subtitle: $sce.trustAsHtml("You have not used a correct form of leave taking."),
+            description: $sce.trustAsHtml("Recommended :<br/> " + [
                 '<ul>',
                 '<li>Regards</li>',
                 '<li>Thanks</li>',
                 '<li>Thanks and regards</li>'
               ].join(''))
           }
-          );
+        );
       }
-      if(words<70){
-        score+=30;
-      }else if(words<=90){
-        score+=40
-      }else {
-        score+=35;
+      if (words < 70) {
+        score += 30;
+      } else if (words <= 90) {
+        score += 40
+      } else {
+        score += 35;
       }
-      result.mistakes=mistakes;
-      result.countRemark=wordCountSuggestion(words);
-      result.score=score;
-      result.scoreRemark=scoreSuggestion(score);
+      result.mistakes = mistakes;
+      result.countRemark = wordCountSuggestion(words);
+      result.score = score;
+      result.scoreRemark = scoreSuggestion(score);
       return result;
     };
 
     return {
-      getRankStatistics:function(id,userId){
-        return $http.get('/api/verbal/tcs/stat/rank/'+id,{params:{userId:userId}}).success(function(data){
+      getRankStatistics: function (id, userId) {
+        return $http.get('/api/verbal/tcs/stat/rank/' + id, {params: {userId: userId}}).success(function (data) {
           $log.info(data);
-        }).error(function(err){
+        }).error(function (err) {
           //$log.error(err);
         });
       },
-      getAllStatistics:function(userId){
-        return $http.get('/api/verbal/tcs/stat/all',{params:{userId:userId}}).success(function(data){
+      getAllStatistics: function (userId) {
+        return $http.get('/api/verbal/tcs/stat/all', {params: {userId: userId}}).success(function (data) {
           //$log.info(data);
-        }).error(function(err){
+        }).error(function (err) {
           //$log.error(err);
         });
       },
-      getStatistics:function(id,userId){
-        return $http.get('/api/verbal/tcs/stat/'+id,{params:{userId:userId}}).success(function(data){
+      getStatistics: function (id, userId) {
+        return $http.get('/api/verbal/tcs/stat/' + id, {params: {userId: userId}}).success(function (data) {
           //$log.info(data);
           $q.resolve(data);
-        }).error(function(err){
+        }).error(function (err) {
           //console.error(err);
           $q.reject(err);
         });
@@ -208,28 +208,28 @@ angular.module('etestApp')
             $q.reject(err);
           });
       },
-      updateTest: function (id,testData) {
+      updateTest: function (id, testData) {
         return $http({
-          method:'PUT',
-          url:'/api/verbal/tcs/' + id,
-          data:testData
-        }).success(function(data){
+          method: 'PUT',
+          url: '/api/verbal/tcs/' + id,
+          data: testData
+        }).success(function (data) {
           //$log.info(data);
           $q.resolve(data);
-        }).error(function(err){
+        }).error(function (err) {
           //$log.error(err);
           $q.reject(err);
         });
       },
-      patchTest:function(testId,_id,testData){
+      patchTest: function (testId, _id, testData) {
         return $http({
-          method:'PATCH',
-          url:'/api/verbal/tcs/' + testId+'/'+_id,
-          data:testData
-        }).success(function(data){
+          method: 'PATCH',
+          url: '/api/verbal/tcs/' + testId + '/' + _id,
+          data: testData
+        }).success(function (data) {
           //$log.info(data);
           $q.resolve(data);
-        }).error(function(err){
+        }).error(function (err) {
           //$log.error(err);
           $q.reject(err);
         });
@@ -246,11 +246,24 @@ angular.module('etestApp')
       },
       getTestTResult: function (id) {
         if (currentTest.id != id)
-         return $location.path('/');
-        return evaluate(currentTest.word,currentTest.outline,currentTest.answer);
+          return $location.path('/');
+        return evaluate(currentTest.word, currentTest.outline, currentTest.answer);
       },
       notify: function (message, type) {
         ngNotify.set(message, type);
+      },
+      highlightMatchedPhrases: function (outline, answer) {
+        if (!answer || !answer.length) {
+          return "";
+        }
+
+        for (var i = outline.length - 1; i >= 0; i--) {
+          var matchedPhrase = answer.match(new RegExp(" " + outline[i].trim(), "gi"));
+          if (matchedPhrase && matchedPhrase.length) {
+            answer = answer.replace(new RegExp(matchedPhrase[0], "gi"), "<span class='phrase' style='color:#4caf50;'><strong>" + matchedPhrase[0] + "</strong></span>")
+          }
+        }
+        return answer
       }
     };
 

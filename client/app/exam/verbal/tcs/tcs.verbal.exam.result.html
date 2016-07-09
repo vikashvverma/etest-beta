@@ -19,14 +19,27 @@
 </md-whiteframe>
 <md-whiteframe class="md-whiteframe-z" layout layout-align="space-around center" layout-margin layout-sm="column"
                layout-md="column" layout-gt-md="row" style="overflow-y:hidden;">
-  <div class="tcs-card__subtitle"><b>Your Answer</b> : <span id="tcs-verbal-exam-answer"
-                                                             ng-bind="vm.test.answer"></span><span>{{}}</span>
+  <div class="tcs-card__subtitle" style="padding: 20px;">
+    <b>Your Answer <i class="fa fa-hand-o-down" aria-hidden="true"></i> </b> :
+    <br/> <br/>
+    <span id="tcs-verbal-exam-answer" ng-bind-html="vm.test.answer"></span><span></span>
 
     <span layout="row" layout-margin layout-padding layout-align="center center"><div
       style="width:50px;height:3px;background-color: red;margin-right: 30px;padding:0;"></div><div>Spelling Error</div><div
       style="width:50px;height:3px;background-color: green;margin-left:30px;margin-right: 30px;padding: 0;"></div><div>
       Grammatical Error
     </div></span>
+  </div>
+
+  <div class="tcs-card__subtitle" style="padding: 20px;margin-top: -20px;" ng-if="vm.test.answers.length">
+    <b>Recommended Answer <i class="fa fa-hand-o-down" aria-hidden="true"></i> </b> :
+    <br/> <br/>
+    <p id="recommended-answer" ng-bind-html="vm.test.answers[0]"></p>
+    <md-button class="md-raised md-primary" ng-href="/placement/verbal/tcs/{{vm.test.id}}">
+      Learn More
+      <md-icon md-font-set="fa fa-send fa-2x "
+               style="vertical-align: text-bottom;"></md-icon>
+    </md-button>
   </div>
 
 </md-whiteframe>
@@ -71,7 +84,7 @@
     </md-whiteframe>
   </div>
   <div flex="30" flex-xs="100">
-    <md-whiteframe class="md-whiteframe-1dp" flex layout="column" layout-margin layout-align="center center" >
+    <md-whiteframe class="md-whiteframe-1dp" flex layout="column" layout-margin layout-align="center center">
       <md-toolbar layout="row" class="md-hue-2">
         <div class="md-toolbar-tools">
           <span>Leaderboard</span>
@@ -83,7 +96,7 @@
           Your best score (at least 50) is considered for leaderboard!
         </md-subheader>
         <md-list>
-          <md-list-item ng-repeat="user in vm.leaderboard" class="noright" ng-click="vm.viewProfile($event, user);" >
+          <md-list-item ng-repeat="user in vm.leaderboard" class="noright" ng-click="vm.viewProfile($event, user);">
             <img alt="{{ user.name }}" ng-src="{{ user.picture }}" src="assets/images/avatar_2x.png" class="md-avatar"/>
             <p>{{ user.name.split('@')[0] }}</p>
             <p class="md-secondary" style="margin-right: 50px;">{{ user.score }}</p>
@@ -95,8 +108,6 @@
     </md-whiteframe>
   </div>
 </div>
-
-
 
 
 <md-whiteframe class="md-whiteframe-z verbal-graph" layout="column" layout-margin layout-sm="column"

@@ -18,7 +18,7 @@
   </span>
   <md-input-container class="md-block" flex >
     <label>Write your answer here...</label>
-    <textarea ng-model="vm.test.answer" ng-change="vm.setCount();" rows="5" class="answer-textarea" ng-disabled="!vm.test && !vm.test.question" spellcheck='false' ></textarea>
+    <textarea ng-model="vm.test.answer" ng-change="vm.setCount();" rows="5" class="answer-textarea" ng-disabled="!vm.test && !vm.test.question" spellcheck='false' style="height:300px;"></textarea>
   </md-input-container>
   <div class="md-actions" layout="row" layout-align="space-around end" ng-if="vm.test && vm.test.question">
     <md-list style="padding-top: 0px;padding-bottom: 0px;">
