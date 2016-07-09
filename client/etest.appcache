@@ -1,11 +1,6 @@
 CACHE MANIFEST
-# 2016-07-02 v0.0.1
+# 2016-07-02 v1.0
 
-#root
-/index.html
-/favicon.ico
-/notifications.json
-/pg-logo.png
 
 NETWORK:
 *
