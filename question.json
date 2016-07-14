@@ -169,7 +169,7 @@
     ],
     "title": "Email seeking permission",
     "question": "You are Anna, write a mail to Jack for seeking permission to bring the camera in company premise.",
-    "outline": "Bring - camera - high tea - celebrations - security personnel - ontime delivery - instruct - cafeteria - not working area",
+    "outline": "Bring - camera - high tea - celebrations - security personnel - on time delivery - instruct - cafeteria - not working area",
     "created_on": "09/14/2014",
     "asked": [
       2015,
@@ -362,6 +362,19 @@
     "question": "Write an email to a restaurant owner, complaining about the bad service you had at this restaurant. Sign the email as Rahul.",
     "outline": "visited - restaurant - weekend - friend from Bengaluru - reservation - wait - half an hour - bad service - waiters - rude - long time - food - arrive - cold - bill - late - surprised - act immediately - good reputation",
     "created_on": "07/02/2016",
+    "asked": [
+      2016
+    ]
+  },
+  {
+    "id": 24,
+    "names": [
+      "Pratik"
+    ],
+    "title": "Email to client",
+    "question": "Write an email to your client explaining that there will be a delay in your project. Sign the email as Pratik.",
+    "outline": "inform - project delivery - delayed - key team member - sick - food poisoning - last minute - unexpected - trying - substitute - required skill set - lost time - delay of one week - apologies",
+    "created_on": "07/13/2016",
     "asked": [
       2016
     ]

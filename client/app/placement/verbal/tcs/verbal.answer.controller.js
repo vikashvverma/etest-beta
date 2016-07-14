@@ -9,9 +9,9 @@ angular.module('etestApp')
     }
 
     UtilityService.generateMeta({
-      description: "TCS Verbal Question with answers, TCS Email questions and answers, TCS latest verbal question" + verbalKeywords.join(", "),
-      title: "etest | TCS Verbal Ability Test Latest Questions with Answers",
-      keywords: verbalKeywords.join(", "),
+      description: "TCS Email Writing Latest Questions with answer, TCS Email Writing, TCS Verbal Question with answers, TCS Email questions and answers, TCS latest verbal question" + verbalKeywords.join(", "),
+      title: "etest | TCS Email Writing Latest Questions with Answer",
+      keywords: "TCS Email Writing Latest Questions, TCS Email Writing, TCS Email Writing Sample Question," + verbalKeywords.join(", "),
     });
     (function () {
       TCSVerbalService.getTest(set)
