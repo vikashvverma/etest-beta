@@ -79,3 +79,6 @@ md-content.md-default-theme, md-content {
   color: #F50057 !important;
 }
 
+.meta-rating{
+  display:none;
+}

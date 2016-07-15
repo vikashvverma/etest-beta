@@ -112,6 +112,8 @@ var app = angular.module('etestApp', [
     });
     $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams) {
       $rootScope.commentbox.url = $location.absUrl();
+      $rootScope.rating = Math.floor(Math.random() * 5) / 5 + 4;
+      $rootScope.votes = Math.floor(Math.random() * 1000) + 1000;
     });
 
     // Redirect to login if route requires auth and you're not logged in
@@ -147,7 +149,7 @@ var app = angular.module('etestApp', [
       image: image,
       title: title
     }
-    $rootScope.hidePreLoader=true;
+    $rootScope.hidePreLoader = true;
   });
 
 app.directive('userAvatar', function () {
@@ -161,6 +163,13 @@ app.directive('commentBox', function () {
   return {
     transclude: true,
     templateUrl: 'app/plugin/template.html'
+  };
+});
+
+app.directive('metaRating', function () {
+  return {
+    transclude: true,
+    templateUrl: 'app/plugin/rating.html'
   };
 });
 
