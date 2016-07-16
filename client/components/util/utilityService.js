@@ -1,7 +1,22 @@
 'use strict';
 
 angular.module('etestApp')
-  .factory('UtilityService', function Auth($location, $rootScope, $http, $window, store) {
+  .factory('UtilityService', function Auth($location, $rootScope, $http, $window, $mdPanel, store) {
+    function PanelDialogCtrl(name, imageUrl) {
+      console.log(name, imageUrl);
+      return ['mdPanelRef', function (mdPanelRef) {
+        this._mdPanelRef = mdPanelRef;
+        var ctrl = this;
+        ctrl.name = name;
+        ctrl.imageUrl = imageUrl;
+        ctrl.closeDialog = function () {
+          this._mdPanelRef && this._mdPanelRef.close().then(function () {
+            console.log("Avatar Panel closed!")
+          });
+        }
+      }]
+    }
+
     return {
       notifications: function () {
         return $http.get('/notifications.json');
@@ -54,6 +69,27 @@ angular.module('etestApp')
           }
         };
         sharing[site](post);
+      },
+      showAvatar: function (name, imageUrl) {
+        var position = $mdPanel.newPanelPosition()
+          .absolute()
+          .center();
+        var config = {
+          attachTo: angular.element(document.body),
+          controller: PanelDialogCtrl(name, imageUrl),
+          controllerAs: 'ctrl',
+          disableParentScroll: true,
+          templateUrl: 'components/util/avatar.panel.html',
+          hasBackdrop: true,
+          panelClass: 'avatar-dialog',
+          position: position,
+          trapFocus: true,
+          zIndex: 150,
+          clickOutsideToClose: true,
+          escapeToClose: true,
+          focusOnOpen: true
+        };
+        $mdPanel.open(config);
       }
     };
 

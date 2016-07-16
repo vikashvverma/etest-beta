@@ -1,0 +1,18 @@
+<div role="dialog" aria-label="Profile Picture" layout="column" layout-align="center center">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>{{ctrl.name}}</h2>
+    </div>
+  </md-toolbar>
+  <div class="avatar-dialog-content">
+    <!--<p>{{ctrl.name}}</p>-->
+    <div layout="row" >
+      <img flex alt="{{ctrl.name}}" ng-src="{{ctrl.imageUrl}}">
+    </div>
+  </div>
+  <div layout="row" class="avatar-dialog-button">
+    <md-button md-autofocus flex class="md-primary" ng-click="ctrl.closeDialog()">
+      Close
+    </md-button>
+  </div>
+</div>

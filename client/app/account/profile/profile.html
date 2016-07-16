@@ -4,7 +4,7 @@
   <md-content class="user-profile" style="width:100%;background: inherit;" ng-if="vm.user.profile">
     <user-card name="vm.user.profile.name" picture="vm.user.profile.picture"
                nickname="vm.user.profile.nickname"
-               user-id="vm.user.user_id"></user-card>
+               user-id="vm.user.user_id" ng-click="vm.viewProfilePicture($event,vm.user);" theme="vm.theme"></user-card>
     <span layout="row" layout-xs="column" layout-align="space-between start">
             <span layout="column" layout-align="center center" ng-if="vm.user.aptitude">
               <span>Aptitude <md-icon md-font-set="fa fa-pencil"></md-icon></span>
@@ -33,16 +33,22 @@
                    </md-fab-trigger>
                    <md-fab-actions>
                      <md-button aria-label="Twitter" class="md-fab md-raised md-mini" ng-click="vm.visit('twitter');">
-                       <md-icon md-font-set="fa fa-twitter fa-2x " aria-label="Twitter" style="color:#55acee;"></md-icon>
+                       <md-icon md-font-set="fa fa-twitter fa-2x " aria-label="Twitter"
+                                style="color:#55acee;"></md-icon>
                      </md-button>
-                     <md-button aria-label="Facebook" class="md-fab md-raised md-mini" ng-click="vm.visit('facebook');" >
-                         <md-icon md-font-set="fa fa-facebook fa-2x " aria-label="Facebook" style="color:#3B5998;"></md-icon>
+                     <md-button aria-label="Facebook" class="md-fab md-raised md-mini" ng-click="vm.visit('facebook');">
+                       <md-icon md-font-set="fa fa-facebook fa-2x " aria-label="Facebook"
+                                style="color:#3B5998;"></md-icon>
                      </md-button>
-                     <md-button aria-label="Google Hangout" class="md-fab md-raised md-mini" ng-click="vm.visit('google');">
-                       <md-icon md-font-set="fa fa-google-plus fa-2x " aria-label="Google Hangout" style="color:#DC4A38;"></md-icon>
+                     <md-button aria-label="Google Hangout" class="md-fab md-raised md-mini"
+                                ng-click="vm.visit('google');">
+                       <md-icon md-font-set="fa fa-google-plus fa-2x " aria-label="Google Hangout"
+                                style="color:#DC4A38;"></md-icon>
                      </md-button>
-                     <md-button aria-label="Google Hangout" class="md-fab md-raised md-mini" ng-click="vm.sharer('share');">
-                       <md-icon md-font-set="fa fa-share-alt fa-3x " aria-label="Share Profile" style="color:#3B5998;"></md-icon>
+                     <md-button aria-label="Google Hangout" class="md-fab md-raised md-mini"
+                                ng-click="vm.sharer('share');">
+                       <md-icon md-font-set="fa fa-share-alt fa-3x " aria-label="Share Profile"
+                                style="color:#3B5998;"></md-icon>
                      </md-button>
                    </md-fab-actions>
                  </md-fab-speed-dial>

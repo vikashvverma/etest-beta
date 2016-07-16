@@ -90,7 +90,12 @@ angular.module('etestApp')
         });
       });
     };
+    vm.viewProfilePicture = function (ev, user) {
+      var name = (user.name.indexOf('@') > 0 ? user.name.split('@')[0] : user.name);
+      UtilityService.showAvatar(name, user.picture);
+    };
     vm.viewProfile = function (ev, user) {
+      ev.stopPropagation();
       var name = (user.name.indexOf('@') > 0 ? user.name.split('@')[0] : user.name);
       var id = user.userId;
       // Appending dialog to document.body to cover sidenav in docs app

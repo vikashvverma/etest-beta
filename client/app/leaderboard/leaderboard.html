@@ -18,11 +18,11 @@
           Your best score <span ng-if="leaderboard.isVerbal">(at least 50)</span> is considered for leaderboard!
         </md-subheader>
         <md-list>
-          <md-list-item ng-repeat="user in leaderboard.users" class="noright" ng-click="vm.viewProfile($event, user);">
+          <md-list-item ng-repeat="user in leaderboard.users" class="noright" ng-click="vm.viewProfilePicture($event, user);">
             <img alt="{{ user.name }}" ng-src="{{ user.picture }}" src="assets/images/avatar_2x.png" class="md-avatar"/>
             <p>{{ user.name.split('@')[0] }}</p>
             <p class="md-secondary" style="margin-right: 50px;">{{ user.score }}</p>
-            <md-icon class="md-secondary" aria-label="Profile" md-font-set="fa fa-user fa-2x"></md-icon>
+            <md-icon class="md-secondary" aria-label="Profile" ng-click="vm.viewProfile($event, user);" md-font-set="fa fa-send fa-2x" style="margin-top:-4px;"></md-icon>
           </md-list-item>
         </md-list>
       </md-content>

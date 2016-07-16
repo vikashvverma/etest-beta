@@ -5,6 +5,7 @@ angular.module('etestApp')
     function ($rootScope, $scope, $stateParams, $location, $mdDialog, $mdMedia, $window, Auth, ngNotify, TCSAptitudeService, TCSVerbalService, UtilityService) {
       var vm = this;
       vm.user_id = $stateParams.id;
+      vm.theme='default';
       vm.user = {
         user_id: vm.user_id
       };
@@ -24,6 +25,11 @@ angular.module('etestApp')
             //TODO: Show 404 page
             $location.path('/')
           });
+
+        vm.viewProfilePicture = function (ev, user) {
+          var name = (user.profile.name.indexOf('@') > 0 ? user.profile.name.split('@')[0] : user.profile.name);
+          UtilityService.showAvatar(name, user.profile.picture);
+        };
 
         vm.loadStatistics = function () {
           TCSAptitudeService.getAllStatistics(vm.user.profile.user_id)

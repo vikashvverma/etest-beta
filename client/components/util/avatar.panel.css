@@ -1,0 +1,47 @@
+.avatar-md-panel {
+  /*min-height: 300px;*/
+}
+
+.avatar-dialog {
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2),
+  0 13px 19px 2px rgba(0, 0, 0, 0.14),
+  0 5px 24px 4px rgba(0, 0, 0, 0.12);
+  /*width: 500px;*/
+}
+
+@media (max-width: 480px) and (min-width: 320px) {
+  .avatar-dialog {
+    width: 300px;
+  }
+}
+
+@media (max-width: 600px) and (min-width: 481px) {
+  .avatar-dialog {
+    width: 400px;
+  }
+}
+
+@media (min-width: 601px) {
+  .avatar-dialog {
+    width: 500px;
+  }
+}
+
+.avatar-dialog-content {
+  /*padding: 0 15px;*/
+  width: 100%;
+}
+
+.avatar-dialog-content img {
+  max-width: 100%;
+  min-width: 300px;
+  min-height: 300px;
+  /*margin: auto;*/
+  height: auto;
+}
+
+.avatar-dialog-button {
+  width: 100%;
+}
