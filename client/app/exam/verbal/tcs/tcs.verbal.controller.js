@@ -8,12 +8,15 @@ angular.module('etestApp')
     (function () {
       TCSVerbalService.getTests()
         .success(function (data) {
-          $log.info(data);
           vm.sets = data;
         }).error(function (err) {
         $log.error(err);
       })
     })();
+
+    vm.filterTests = function (filter) {
+      vm.sets = UtilityService.filterVerbalSets(vm.sets, filter);
+    };
 
     vm.start = function (ev, id) {
       //$location.path('/exam/tcs/verbal/1')

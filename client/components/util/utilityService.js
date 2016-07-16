@@ -2,6 +2,13 @@
 
 angular.module('etestApp')
   .factory('UtilityService', function Auth($location, $rootScope, $http, $window, $mdPanel, store) {
+    var filters = {
+      popularity: filterByPopularity,
+      lastAttempt: filterByLastAttempt,
+      latest: filterByDate,
+      mostRepeated: filterByMostRepeated,
+    };
+
     function PanelDialogCtrl(name, imageUrl) {
       console.log(name, imageUrl);
       return ['mdPanelRef', function (mdPanelRef) {
@@ -16,6 +23,32 @@ angular.module('etestApp')
         }
       }]
     }
+
+    function filterByPopularity(tests) {
+      return tests.sort(function (a, b) {
+        return b.count - a.count;
+      });
+    }
+
+    function filterByLastAttempt(tests) {
+      return tests.sort(function (a, b) {
+        return Date.parse(b.last_attempt_on) - Date.parse(a.last_attempt_on);
+      });
+    }
+
+    function filterByDate(tests) {
+      return tests.sort(function (a, b) {
+        return Date.parse(b.date) - Date.parse(a.date);
+      });
+    }
+
+    function filterByMostRepeated(tests) {
+      tests = filterByDate(tests);
+      return tests.sort(function (a, b) {
+        return b.asked.length - a.asked.length;
+      });
+    }
+
 
     return {
       notifications: function () {
@@ -90,6 +123,32 @@ angular.module('etestApp')
           focusOnOpen: true
         };
         $mdPanel.open(config);
+      },
+      filterVerbalSets: function (sets, filter) {
+        if (!filters[filter]) {
+          return sets;
+        }
+
+        var transformedTests = [];
+        sets.map(function (set) {
+          transformedTests = transformedTests.concat(set.tests);
+          return set;
+        });
+
+        var tests = transformedTests.sort(function (a, b) {
+          return a.id - b.id;
+        });
+        var data = [];
+        var set = {tests: []};
+        tests = filters[filter](transformedTests);
+        tests.map(function (test) {
+          set.tests.push(test);
+          if (set.tests.length === 3) {
+            data.push(set);
+            set = {tests: []};
+          }
+        });
+        return data;
       }
     };
 

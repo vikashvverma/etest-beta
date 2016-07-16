@@ -20,6 +20,7 @@ exports.index = function (req, res) {
       obj.title = tests[i].title;
       obj.question = tests[i].question;
       obj.count = tests[i].statistics.length;
+      obj.asked = tests[i].asked;
       if (tests[i].statistics.length) {
         var user = tests[i].statistics;
         var index= 0,score=user[0].score;
