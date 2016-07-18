@@ -1,12 +1,15 @@
-<md-toolbar md-scroll-shrink>
+<span ng-if="!vm.test" ng-include=" 'components/loader/loader.html' " class="center-loader" layout
+      layout-align="center center"></span>
+
+<md-toolbar md-scroll-shrink ng-if="vm.test">
   <div class="md-toolbar-tools">
     <h3>
       <span>TCS Verbal Ability Test: {{vm.test.title}}</span>
     </h3>
   </div>
 </md-toolbar>
-<md-divider></md-divider>
-<md-whiteframe class="md-whiteframe-1dp" flex layout layout-margin layout-padding layout-align="center center">
+<md-divider ng-if="vm.test"></md-divider>
+<md-whiteframe ng-if="vm.test" class="md-whiteframe-1dp" flex layout layout-margin layout-padding layout-align="center center">
   <md-content flex>
     <p style="line-height: 1.5;margin-top: -10px;color:#03a9f4;" ng-if="vm.test.question">
       <strong>Question </strong>

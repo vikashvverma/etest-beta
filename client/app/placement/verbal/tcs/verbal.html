@@ -1,4 +1,7 @@
-<md-content class="md-padding placement" layout-xs="column" layout="column" layout-margin layout-padding>
+<span ng-if="!vm.sets" ng-include=" 'components/loader/loader.html' " class="center-loader" layout
+      layout-align="center center"></span>
+
+<md-content ng-if="vm.sets" class="md-padding placement" layout-xs="column" layout="column" layout-margin layout-padding>
   <div layout="row" layout-sm="column" layout-xs="column" layout-md="row" data-ng-repeat="set in vm.sets">
     <md-card ng-repeat="item in set.tests" flex-xs="100" flex-gt-xs="100">
       <md-card-header>
