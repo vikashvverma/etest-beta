@@ -23,12 +23,15 @@ angular.module('etestApp')
     };
     var unmatchedPhrases = function (phrases, content) {
       phrases = phrases.trim().toUpperCase().split('-');
-      content = content.toUpperCase();
+      var answer = content.toUpperCase().replace(/[\n]/g, ' ').replace(/\s\s/g, ' ');
       var unmatchedPhrases = [];
       for (var i = 0; i < phrases.length; i++) {
-        if (content.indexOf(" " + phrases[i].trim() + " ") < 0 || content.indexOf(" " + phrases[i].trim() + ".")) {
-          unmatchedPhrases.push(phrases[i].toLowerCase());
+        var matchInMiddle = answer.match(new RegExp(" " + phrases[i].trim(), "gi"));
+        var matchAtEnd = answer.match(new RegExp(" " + phrases[i].trim()+".", "gi"));
+        if ( matchInMiddle || matchAtEnd){
+          continue;
         }
+          unmatchedPhrases.push(phrases[i].toLowerCase());
       }
       return unmatchedPhrases;
     };
