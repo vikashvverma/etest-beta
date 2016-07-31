@@ -154,7 +154,7 @@ exports.getRankStatistics = function (req, res) {
     }
 
     for (var key in temp) {
-      if (out[req.query.userId].avg == Number(key)) {
+      if (out[req.query.userId] && out[req.query.userId].avg == Number(key)) {
         stats.push({
           y: Number(key),
           marker: {
