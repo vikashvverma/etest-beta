@@ -124,6 +124,27 @@ angular.module('etestApp')
         };
         $mdPanel.open(config);
       },
+      showFacebookLikeBox: function () {
+        var position = $mdPanel.newPanelPosition()
+          .absolute()
+          .center();
+        var config = {
+          attachTo: angular.element(document.body),
+          controller: PanelDialogCtrl("", ""),
+          controllerAs: 'ctrl',
+          disableParentScroll: true,
+          templateUrl: 'components/util/fb.panel.html',
+          hasBackdrop: true,
+          panelClass: 'avatar-dialog',
+          position: position,
+          trapFocus: true,
+          zIndex: 150,
+          clickOutsideToClose: true,
+          escapeToClose: true,
+          focusOnOpen: true
+        };
+        $mdPanel.open(config);
+      },
       filterVerbalSets: function (sets, filter) {
         if (!filters[filter]) {
           return sets;

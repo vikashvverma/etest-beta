@@ -142,13 +142,14 @@ var app = angular.module('etestApp', [
       .success(function (data) {
         UtilityService.notify(data);
       });
+    UtilityService.showFacebookLikeBox();
     $rootScope.meta = {
       description: description,
       keywords: keywords,
       url: $location.absUrl() || url,
       image: image,
       title: title
-    }
+    };
     $rootScope.hidePreLoader = true;
   });
 
