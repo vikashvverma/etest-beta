@@ -351,7 +351,9 @@ exports.leaderBoard = function (req, res) {
 
     let result = [];
     for (const userId in scoreMap) {
-      result.push(scoreMap[userId]);
+      if (scoreMap[userId].score >= 10) {
+        result.push(scoreMap[userId]);
+      }
     }
     result = result.sort((prev, cur) => {
       return cur.score - prev.score;

@@ -31,11 +31,12 @@ angular.module('etestApp')
             {id: 20, name: 'Test 20'},
             {id: 21, name: 'Test 21'},
             {id: 22, name: 'Test 22'},
+            {id: 23, name: 'Test 23'},
+            {id: 24, name: 'Test 24'},
           ];
       }, 650);
     };
     var loadTCSAptitudes = function () {
-      console.log("Hey");
       // Use timeout to simulate a 650ms request.
       return $timeout(function () {
         vm.leaderboards[1].tests = vm.leaderboards[1].tests || [
@@ -56,13 +57,13 @@ angular.module('etestApp')
       {
         title: 'TCS Verbal Ability Test',
         isVerbal: true,
-        content: "Your best score (at least 50) is considered for leaderboard!",
+        content: "Your best score (at least 80/100) is considered for leaderboard!",
         load: loadTCSVerbals,
         type: 'verbal'
       },
       {
         title: 'TCS Analytical Ability Test',
-        content: "Your best score is considered for leaderboard!",
+        content: "Your best score (at least 10/32) is considered for leaderboard!",
         load: loadTCSAptitudes,
         type: 'aptitude'
       },

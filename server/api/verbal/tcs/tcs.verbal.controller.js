@@ -251,7 +251,7 @@ exports.leaderBoard = function (req, res) {
 
     let result = [];
     for (const userId in scoreMap) {
-      if (scoreMap[userId].score >= 50) {
+      if (scoreMap[userId].score >= 80) {
         result.push(scoreMap[userId]);
       }
     }
