@@ -1,5 +1,5 @@
 <md-content class="md-padding placement" layout-xs="column" layout="row">
-  <div flex-xs flex-gt-xs="50" layout="row" data-ng-repeat="set in vm.sets">
+  <div flex-xs flex-gt-xs="20" layout="row" data-ng-repeat="set in vm.sets">
     <md-card ng-repeat="item in set">
       <md-card-header>
         <md-card-avatar>
@@ -10,10 +10,10 @@
           <span class="md-subhead md-accent" data-ng-bind="item.subtitle"></span>
         </md-card-header-text>
       </md-card-header>
-      <img ng-src="{{item.image}}" class="md-card-image" alt="Placement Preparation">
+      <img ng-src="{{item.image}}" class="md-card-image" alt="Placement Preparation" style="height:200px;">
       <md-card-title>
         <md-card-title-text>
-          <span class="md-headline">TCS Verbal Ability Test</span>
+          <span class="md-headline">{{item.name}}</span>
         </md-card-title-text>
       </md-card-title>
       <md-card-content>
@@ -57,11 +57,11 @@
           </md-list>
         </md-card-icon-actions>
         <md-button class="md-raised md-primary" ui-sref="{{item.srefPrimary}}">
-          Take Test
+          {{item.primaryTitle}}
           <md-icon md-font-set="fa fa-send fa-2x "
                    style="vertical-align: text-bottom;"></md-icon>
         </md-button>
-        <md-button class="md-raised md-primary" ui-sref="{{item.srefSecondary}}">
+        <md-button ng-if="item.srefSecondary" class="md-raised md-primary" ui-sref="{{item.srefSecondary}}">
           Previous Years' Questions
           <md-icon md-font-set="fa fa-send fa-2x "
                    style="vertical-align: text-bottom;"></md-icon>

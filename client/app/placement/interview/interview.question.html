@@ -1,0 +1,93 @@
+<div class="interview-question-background-header" layout
+      layout-align="center center" style="max-width:100%;">
+  <img ng-src="{{vm.headerImageUrl}}"/>
+  <span style="position: absolute;width: 100%;height: 100%;background-color: rgba(18,131,196,.7);">
+
+  </span>
+  <span style="position: absolute;font-size: 40px;color:#fff;text-transform: uppercase;">
+    Top interview questions and how to answer!
+  </span>
+</div>
+<span ng-if="!vm.question" ng-include=" 'components/loader/loader.html' " class="center-loader" layout
+      layout-align="center center"></span>
+
+<md-toolbar md-scroll-shrink ng-if="vm.test">
+  <div class="md-toolbar-tools">
+    <h3>
+      <span>Interview Questions and How to Answer!</span>
+    </h3>
+  </div>
+</md-toolbar>
+<md-divider ng-if="vm.questions"></md-divider>
+<md-whiteframe ng-if="vm.questions" class="md-whiteframe-1dp" flex layout
+               layout-margin layout-padding layout-align="center center">
+  <md-content style="overflow: hidden;">
+    <p style="line-height: 1.5;color:#06498c;font-weight: 500;">I still remember the day I was appearing for my first interview. Nervous,sweating, a bit hurried to answer the
+      questions. Still remember the moment when I answered Lahore as Pakistan's capital.
+    </p>
+    <p style="line-height: 1.5;color:#06498c;font-weight: 500;">
+      I wish I had resources of interview questions and a guideline on how to answer those questions.
+      It could have helped me a lot.
+    </p>
+    <p style="line-height: 1.5;color:#06498c;font-weight: 500;">
+      Here I bring to you a list of interview question and questions that you can ask to your interviewer.
+      All questions might not be useful to you but there are questions that you should have prepare well.
+      This will help you excel in interview.
+    </p>
+    <md-list style="position: absolute;right: 0px;">
+      <md-list-item>
+        <md-fab-speed-dial md-open="item.isOpen" md-direction="left"
+                           class="md-scale share" style="margin-top: -128px;" ng-mouseenter="item.isOpen=true"
+                           ng-mouseleave="item.isOpen=false">
+          <md-fab-trigger>
+            <md-button aria-label="menu" class="md-fab md-primary sharer">
+              <md-icon md-font-set="fa fa-share fa-2x "
+                       style="vertical-align: text-bottom;"></md-icon>
+            </md-button>
+          </md-fab-trigger>
+          <md-fab-actions>
+            <md-button aria-label="facebook" class="md-fab md-raised md-mini  facebook"
+                       ng-click="vm.share('facebook',vm.post)">
+              <md-icon md-font-set="fa fa-facebook fa-2x  " class="facebook"></md-icon>
+            </md-button>
+            <md-button aria-label="Google+" class="md-fab md-raised md-mini google"
+                       ng-click="vm.share('google',vm.post)">
+              <md-icon md-font-set="fa fa-google-plus fa-2x " class="google"></md-icon>
+            </md-button>
+            <md-button aria-label="twitter" class="md-fab md-raised md-mini twitter"
+                       ng-click="vm.share('twitter',vm.post)">
+              <md-icon md-font-set="fa fa-twitter fa-2x " class="twitter"></md-icon>
+            </md-button>
+          </md-fab-actions>
+        </md-fab-speed-dial>
+      </md-list-item>
+    </md-list>
+  </md-content>
+</md-whiteframe>
+<md-whiteframe ng-if="vm.questions" class="md-whiteframe-1dp" flex layout
+               layout-margin layout-padding layout-align="center center">
+  <md-virtual-repeat-container id="vertical-container" style="width: 100%;height: 800px;padding: 20px;">
+    <md-content md-virtual-repeat="question in vm.questions" class="repeated-item" flex
+                style="min-height: 200px;width:100%; padding: 20px;">
+      <p style="line-height: 1.5;margin-top: -10px;color:#03a9f4;" ng-if="question">
+        <strong>Question </strong>
+        <i class="fa fa-hand-o-down" aria-hidden="true"></i>
+      </p>
+      <p style="line-height: 1.5;color:#06498c;" ng-if="question.question" data-ng-bind-html="question.question"></p>
+
+      <p style="line-height: 1.5;margin-top: -10px;color: #03a9f4;" ng-if="question.answer">
+        <strong>How to answer </strong>
+        <i class="fa fa-hand-o-down" aria-hidden="true"></i>
+      </p>
+      <p style="line-height: 1.5;margin-top: -10px;color:#476380;" ng-if="question.answer">
+        <strong><i>{{question.answer}}</i></strong>
+      </p>
+    </md-content>
+  </md-virtual-repeat-container>
+</md-whiteframe>
+<p style="line-height: 2.5;font-size: 20px;margin-top: -10px;color: #03a9f4;" ng-if="question">
+  <strong>Share your answer below
+    <i class="fa fa-hand-o-down" aria-hidden="true"></i> because
+    <i style="color:#06498c;">sharing is caring!</i>
+  </strong>
+</p>

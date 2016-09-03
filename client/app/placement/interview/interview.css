@@ -1,0 +1,13 @@
+.interview-question-background-header{
+  max-width: 100%;
+  height: 400px;
+  align-items: center;
+  overflow-y: hidden;
+  position:relative;
+  overflow:hidden;
+}
+.interview-question-background-header.half-header{
+  height: 100px;
+}
+
+

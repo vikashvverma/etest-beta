@@ -15,5 +15,9 @@ angular.module('etestApp')
       url: 'placement/verbal/tcs/:id',
       templateUrl: 'app/placement/verbal/tcs/verbal.answer.html',
       controller: 'TCSVerbalAnswerController as vm'
+    }).state('main.interviewquestions', {
+      url: 'placement/interview/question',
+      templateUrl: 'app/placement/interview/interview.question.html',
+      controller: 'InterviewQuestionAnswerController as vm'
     });
   });
