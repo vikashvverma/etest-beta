@@ -25,7 +25,6 @@ exports.scrape = function (req, res) {
 
 exports.fetchQuestions = function (req, res) {
   var requestUrl = formQuestionRequestUrl(req);
-  console.log(requestUrl);
   request(requestUrl, (error, response, html) => {
     if (!error) {
       const $ = cheerio.load(html);
@@ -51,8 +50,6 @@ exports.fetchQuestions = function (req, res) {
 exports.fetchSolution = function (req, res) {
   var comapny = req.query.company || 'tcs';
   var requestUrl = payload[comapny].answer.url;
-  console.log(requestUrl);
-  console.log(req.query.id);
   request.post(
     requestUrl, //URL to hit
     {
@@ -77,7 +74,6 @@ exports.fetchSolution = function (req, res) {
         var solution = [];
         for (var i = 0; i < solutions.length; i++) {
           if ($(solutions[i]).find('.icon-check')) {
-            console.log(solutions[i]);
             return res.send($(solutions[i]).find('.placement_text').html());
           }
           res.status(400).send({success: false, message: 'answer not found!'})
