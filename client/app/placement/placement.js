@@ -19,5 +19,13 @@ angular.module('etestApp')
       url: 'placement/interview/question',
       templateUrl: 'app/placement/interview/interview.question.html',
       controller: 'InterviewQuestionAnswerController as vm'
+    }).state('main.tcsaptitudequestions', {
+      url: 'placement/aptitude/tcs/questions',
+      templateUrl: 'app/placement/aptitude/tcs/question.html',
+      controller: 'TCSAptitudeQuestionController as vm'
+    }).state('main.tcsaptitudequestionanswer', {
+      url: 'placement/aptitude/tcs/question/:id',
+      templateUrl: 'app/placement/aptitude/tcs/question.answer.html',
+      controller: 'TCSAptitudeQuestionAnswerController as vm'
     });
   });

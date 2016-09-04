@@ -114,6 +114,7 @@ var app = angular.module('etestApp', [
       $rootScope.commentbox.url = $location.absUrl();
       $rootScope.rating = Math.floor(Math.random() * 5) / 5 + 4;
       $rootScope.votes = Math.floor(Math.random() * 1000) + 1000;
+      window.scrollTo(0,0);
     });
 
     // Redirect to login if route requires auth and you're not logged in

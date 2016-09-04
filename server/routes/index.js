@@ -18,6 +18,7 @@ module.exports = function (app) {
   app.use('/api/verbal/tcs', require('../api/verbal/tcs'));
   app.use('/api/aptitude/tcs', require('../api/aptitude/tcs'));
   app.use('/api/mailer', require('../api/mailer'));
+  app.use('/api/question', require('../api/scrapper'));
 
   // All undefined asset or api routes should return a 404
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')

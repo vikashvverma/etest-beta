@@ -1,0 +1,23 @@
+<span ng-if="!vm.question" ng-include=" 'components/loader/loader.html' " class="center-loader" layout
+      layout-align="center center" ng-if="vm.questions.length==0"></span>
+<md-whiteframe class="md-whiteframe-5dp" flex-sm flex-gt-sm flex-gt-md layout layout-padding
+               layout-margin layout-align="start start" ng-if="vm.questions.length">
+  <md-content>
+    <md-list ng-cloak>
+      <md-list-item data-ng-repeat="question in vm.questions track by $index" class="noright">
+        <img ng-src="{{vm.logo}}" class="md-avatar" alt="TCS Aptitude Question"/>
+        <div class="md-list-item-text" layout="column" style="line-height: 1.5;color:#06498c;font-weight: 500;">
+          <h4>Asked in TCS</h4>
+          <p ng-bind-html="question.question"></p>
+
+          <!--<md-icon class="md-secondary" ng-click="warn($event, vm.question.id)" aria-label="report"-->
+          <!--md-font-set="fa fa-warning fa-2x" style="margin-right:50px;"></md-icon>-->
+          <md-icon class="md-secondary" ng-click="vm.navigate($event, $index, vm.question.id)" aria-label="solution"
+                   md-font-set="fa fa-send fa-2x" style="margin-right:50px;"></md-icon>
+
+        </div>
+        <md-divider></md-divider>
+      </md-list-item>
+    </md-list>
+  </md-content>
+</md-whiteframe>

@@ -9,6 +9,7 @@ angular.module('etestApp')
     var result = {};
     var time = 0;
     var testId = -1;
+    var question = '';
 
     function evaluate() {
 
@@ -166,6 +167,28 @@ angular.module('etestApp')
       },
       getQuestions: function () {
         return questions;
+      },
+      setQuestion: function (q) {
+        question = q;//question for url /placement/aptitude/tcs/question/:id
+      },
+      getQuestion: function () {
+        return question;//question for url /placement/aptitude/tcs/question/:id
+      },
+      fetchQuestions: function (page, count) { // FOR scrapped questions
+        return $http.get('/api/question/fetchQuestions?page=' + page + '&LPP=' + count)
+          .success(function (data) {
+            $q.resolve(data);
+          }).error(function (err) {
+            $q.reject(err);
+          });
+      },
+      fetchSolution: function (id) { // FOR scrapped solutions
+        return $http.post('/api/question/fetchSolution?id=' + id)
+          .success(function (data) {
+            $q.resolve(data);
+          }).error(function (err) {
+            $q.reject(err);
+          });
       },
       get: function (id) {
         //TODO: Check login here

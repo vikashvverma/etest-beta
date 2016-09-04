@@ -1,0 +1,34 @@
+<span ng-if="!vm.question" ng-include=" 'components/loader/loader.html' " class="center-loader" layout
+      layout-align="center center" ng-if="!vm.answer || !vm.question"></span>
+<md-whiteframe class="md-whiteframe-5dp" flex-sm flex-gt-sm flex-gt-md layout layout-padding
+               layout-margin layout-align="start start" ng-if="vm.question || vm.answer">
+  <md-content>
+    <md-list ng-cloak>
+      <md-list-item class="noright">
+        <img ng-src="{{vm.logo}}" class="md-avatar" alt="TCS Aptitude Question"/>
+        <div class="md-list-item-text" layout="column"
+             style="width:80%;line-height: 1.5;color:#06498c;font-weight: 500;">
+          <h4 style="margin: 0;">Asked in TCS</h4>
+          <p style="line-height: 1.5;color:#03a9f4;" ng-if="vm.question">
+            <strong>Question </strong>
+            <i class="fa fa-hand-o-down" aria-hidden="true"></i>
+          </p>
+          <p ng-bind-html="vm.question" style="margin: 0;"></p>
+          <p style="line-height: 1.5;color:#03a9f4;" ng-if="vm.answer">
+            <strong>Solution </strong>
+            <i class="fa fa-hand-o-down" aria-hidden="true"></i>
+          </p>
+          <p ng-bind-html="vm.answer" style="margin: 0;"></p>
+
+        </div>
+        <md-divider></md-divider>
+      </md-list-item>
+    </md-list>
+    <p style="line-height: 2.5;font-size: 20px;margin-top: -10px;color: #03a9f4;" ng-if="vm.question">
+      <strong>Share your solution below
+        <i class="fa fa-hand-o-down" aria-hidden="true"></i> because
+        <i style="color:#06498c;">sharing is caring!</i>
+      </strong>
+    </p>
+  </md-content>
+</md-whiteframe>
