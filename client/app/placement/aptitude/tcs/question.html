@@ -1,8 +1,32 @@
-<span ng-if="!vm.question" ng-include=" 'components/loader/loader.html' " class="center-loader" layout
-      layout-align="center center" ng-if="vm.questions.length==0"></span>
+<span ng-include=" 'components/loader/loader.html' " class="center-loader" layout
+      layout-align="center center" ng-if="vm.loading==true"></span>
 <md-whiteframe class="md-whiteframe-5dp" flex-sm flex-gt-sm flex-gt-md layout layout-padding
                layout-margin layout-align="start start" ng-if="vm.questions.length">
   <md-content>
+    <div layout="row" layout-xs="column" layout-align="space-between center" style="font-size:22px;padding:10px;">
+      <div>
+        <md-button class="success" ng-if="vm.page!=1" ng-click="vm.get(vm.page-1);"
+                   style="cursor:pointer;">
+          <i class="fa fa-hand-o-left md-primary"></i>
+          Previous
+        </md-button>
+      </div>
+      <div>
+        <label class="md-warn success">
+          Showing Page <span class="text-primary" style="font-size:22px;"><strong>
+          {{vm.page}} </strong></span>
+          of 200
+        </label>
+        </label>
+      </div>
+      <div>
+        <md-button class="md-accent" ng-if="vm.page!=200" ng-click="vm.get(vm.page+1);"
+                   style="cursor:pointer;">
+          Next <i class="fa fa-hand-o-right"></i>
+        </md-button>
+      </div>
+    </div>
+    <md-divider></md-divider>
     <md-list ng-cloak>
       <md-list-item data-ng-repeat="question in vm.questions track by $index" class="noright">
         <img ng-src="{{vm.logo}}" class="md-avatar" alt="TCS Aptitude Question"/>

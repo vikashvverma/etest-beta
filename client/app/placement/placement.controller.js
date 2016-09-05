@@ -27,7 +27,7 @@ angular.module('etestApp')
           url: "http://etest.programminggeek.in/placement/tcs/verbal",
           primaryTitle: 'Take Test',
           srefPrimary: "main.tcsaptitude",
-          srefSecondary: "main.tcsaptitudeplacement"
+          srefSecondary: "main.tcsaptitudequestions" //should change later to include all aptitude related page
         },
         {
           title: "Top interview questions and how to answer",
