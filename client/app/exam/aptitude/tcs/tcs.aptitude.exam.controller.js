@@ -29,6 +29,10 @@ angular.module('etestApp')
     ];
     (function () {
       //TCSVerbalService.resetTest();
+      load();
+    })();
+
+    function load() {
       TCSAptitudeService.getTest(id)
         .success(function (data) {
           vm.questions = TCSAptitudeService.getQuestions();
@@ -46,11 +50,12 @@ angular.module('etestApp')
           vm.currentQuestion = TCSAptitudeService.get(1);
           vm.answer = 0;
         })
-        .error(function (err) {
-
+        .error(function (err, code) {
+          if(code>=500){
+            load();
+          }
         });
-    })();
-
+    }
     vm.log = function () {
     };
     vm.getQuestions = function () {

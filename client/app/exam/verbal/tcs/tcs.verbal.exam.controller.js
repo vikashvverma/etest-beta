@@ -25,16 +25,21 @@ angular.module('etestApp')
     //vm.test = {};
     (function () {
       //TCSVerbalService.resetTest();
-      TCSVerbalService.getTest(set)
-        .success(function (data) {
-          vm.test=TCSVerbalService.get(data.id);
-          vm.startTest();
-        })
-        .error(function (err) {
-
-        });
+      load();
     })();
 
+    function load() {
+      TCSVerbalService.getTest(set)
+        .success(function (data) {
+          vm.test = TCSVerbalService.get(data.id);
+          vm.startTest();
+        })
+        .error(function (err, code) {
+          if (code >= 500) {
+            load();
+          }
+        });
+    }
 
     //vm.test = {
     //  set: set,

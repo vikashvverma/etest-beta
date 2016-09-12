@@ -9,14 +9,21 @@ angular.module('etestApp')
     var vm = this;
     vm.tests = [];
     (function () {
+      load();
+    })();
+
+    function load() {
       TCSAptitudeService.getTests()
         .success(function (data) {
           $log.info(data);
           vm.tests = data;
-        }).error(function (err) {
+        }).error(function (err, code) {
         $log.error(err);
-      })
-    })();
+        if (code >= 500) {
+          load();
+        }
+      });
+    }
 
     vm.start = function (ev, id) {
       //$location.path('/exam/tcs/verbal/1')

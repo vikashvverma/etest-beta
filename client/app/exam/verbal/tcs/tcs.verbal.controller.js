@@ -6,13 +6,20 @@ angular.module('etestApp')
     vm.sets = [];
 
     (function () {
+      load()
+    })();
+
+    function load() {
       TCSVerbalService.getTests()
         .success(function (data) {
           vm.sets = data;
-        }).error(function (err) {
+        }).error(function (err, code) {
+        if (code >= 500) {
+          load();
+        }
         $log.error(err);
       })
-    })();
+    }
 
     vm.filterTests = function (filter) {
       vm.sets = UtilityService.filterVerbalSets(vm.sets, filter);
