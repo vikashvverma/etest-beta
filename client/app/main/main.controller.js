@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('etestApp')
-  .controller('MainCtrl', function ($rootScope, $scope, $location, $mdSidenav, $timeout, $window, $sce, Auth, UtilityService) {
+  .controller('MainCtrl', function ($rootScope, $scope, $location, $interval, $mdSidenav, $timeout, $window, $sce, Auth, UtilityService) {
     var vm = this;
 
     //$rootScope.commentbox={
@@ -17,6 +17,56 @@ angular.module('etestApp')
     //    $rootScope.commentbox.show=true;
     //  }
     //});
+    vm.features = [{
+      image: 'assets/images/etest-feature1.png',
+      class: 'md-primary',
+      title: 'Huge Collection of Exam Papers',
+      content: 'A collection of TCS Verbal Ability Test questions asked previously. Many of these questions have been repeated.'
+    }, {
+      image: 'assets/images/etest-feature2.png',
+      class: 'md-accent',
+      title: 'Exactly Similar Exam Environment',
+      content: 'Each test environment resembles to actual test environment. The mock test help you get prepared for actual examination with ease.'
+    }, {
+      image: 'assets/images/etest-feature3.png',
+      class: 'md-warn',
+      title: 'Performance Analysis & Personalized Report',
+      content: 'Each test has separate personalized report. It gives you personalized report and tips on how to improve. You can compare your performance in different tests as well as among students who has taken the test so far.'
+    }, {
+      image: 'assets/images/etest-feature4.png',
+      class: 'md-primary',
+      title: 'Performance Analysis & Personalized Report',
+      content: 'Each test has separate personalized report. It gives you personalized report and tips on how to improve. You can compare your performance in different tests as well as among students who has taken the test so far.'
+    }, {
+      image: 'assets/images/etest-feature5.png',
+      class: 'md-accent',
+      title: 'Public Leaderboard',
+      content: 'Check out public leaderboard and see who stands where. Try out navigate icon and see user\'s profile and test history.'
+    }, {
+      image: 'assets/images/etest-feature6.png',
+      class: 'md-warn',
+      title: 'Placement Assistant',
+      content: 'Placement assistant helps you to prepare for placement. It helps you prepare for Verbal, Analytical & Interview. Check out a huge collection of verbal/analytical/interview question/answer.'
+    }];
+    vm.current = 0;
+    $scope.$watch("vm.current", function (newValue, oldValue) {
+      console.log(oldValue, newValue);
+      vm.feature = vm.features[newValue];
+    });
+    $scope.$watch('vm.feature.image', function (newValue, oldValue) {
+      if (newValue === oldValue) return;
+      //$('img#etest-feature-image').animate({opacity:'0'});
+      //$('img#etest-feature-image').animate({opacity:'1'});
+      $('img#etest-feature-image').hide();
+      $('img#etest-feature-image').fadeIn("slow", function () {
+      });
+
+      //$('.etest-feature-content').animate({opacity:'0'});
+      //$('.etest-feature-content').animate({opacity:'1'});
+      $('.etest-feature-content').hide();
+      $('.etest-feature-content').fadeIn("slow", function () {
+      });
+    });
     try {
       $timeout(function () {
         FB.XFBML.parse($('#commentbox')[0]);
@@ -140,5 +190,18 @@ angular.module('etestApp')
       {name: 'Peter Carlsson', img: 'assets/images/100-2.jpeg', newMessage: false}
     ];
 
+    var stop;
+    vm.startFeatureSlide = function () {
+      stop = $interval(function () {
+        vm.current = (vm.current + 1) % vm.features.length;
+      }, 5000);
+    };
+    vm.stopFeatureSlide = function () {
+      $interval.cancel(stop);
+    };
+    $scope.$on('$destroy', function () {
+      vm.stopFeatureSlide();
+    });
+    vm.startFeatureSlide();
     UtilityService.generateMeta({});
   });

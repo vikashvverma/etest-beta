@@ -1,4 +1,6 @@
 <div layout="column" style="/*padding-bottom: 15px;*/" class="main">
+
+  <!--Left sidebar starts-->
   <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" style="z-index:1001;"
               ng-click="vm.toggleSidenav('left');">
     <md-toolbar class="md-tall ">
@@ -35,7 +37,9 @@
       </md-list-item>
     </md-list>
   </md-sidenav>
+  <!--Left sidebar ends-->
 
+  <!--Right sidebar starts-->
   <md-sidenav layout="column" class="md-sidenav-right md-whiteframe-z2" md-component-id="right" style="z-index:1001;"
               ng-click="vm.toggleSidenav('right');">
     <md-toolbar class="md-tall ">
@@ -82,7 +86,9 @@
       </md-item>
     </md-list>
   </md-sidenav>
+  <!--Right sidebar ends-->
 
+  <!--Header bar starts-->
   <md-toolbar etest-header style="position:fixed;z-index:1000;">
     <div class="md-toolbar-tools ">
       <md-button class="md-icon-button" aria-label="Settings" ng-click="vm.toggleSidenav('left')">
@@ -110,9 +116,10 @@
 
     </div>
   </md-toolbar>
+  <!--header bar ends-->
 
+  <!--Main content area starts-->
   <md-content etest-content style="margin-top:64px;min-height: calc(100vh - 128px)" ui-view>
-
 
     <md-whiteframe class="md-whiteframe-z1 hashtag" layout layout-align="center center">
       <md-content style="width:100%;background: inherit;">
@@ -135,6 +142,7 @@
         </md-list>
       </md-content>
     </md-whiteframe>
+
     <md-whiteframe class="md-whiteframe-z3 md-accent second" layout layout-padding layout-align="center center">
       <md-content style="width:100%;background: inherit;" layout-sm="column">
 
@@ -192,7 +200,44 @@
 
       </md-content>
     </md-whiteframe>
-<span ng-repeat="set in vm.blogs">
+
+    <md-whiteframe class="md-whiteframe-z3 md-accent etest-feature" layout layout-padding layout-fill
+                   layout-align="center center">
+      <md-content layout-xs="column" layout-gt-sm="row">
+        <div flex-gt-sm="60" flex>
+          <md-whiteframe class="md-whiteframe-24dp" flex layout layout-fill layout-align="center center">
+            <img id="etest-feature-image" style="margin: auto; max-width: 100%;" alt="etest feature"
+                 ng-src="{{vm.feature.image}}">
+          </md-whiteframe>
+        </div>
+        <div flex-gt-sm="4" flex layout-xs="row" layout-gt-sm="column" layout-align="center center">
+          <md-radio-group ng-model="vm.current" hide-xs hide-sm>
+            <md-radio-button value="{{$index}}" ng-class="feature.class"
+                             ng-repeat="feature in vm.features track by $index"></md-radio-button>
+          </md-radio-group>
+          <span hide-gt-sm>
+            <md-radio-group ng-model="vm.current" style="display: inline-flex;padding-top: 20px;">
+              <md-radio-button value="{{$index}}" ng-class="feature.class"
+                               ng-repeat="feature in vm.features track by $index"></md-radio-button>
+            </md-radio-group>
+          </span>
+        </div>
+        <div flex-gt-sm="35" flex class="etest-feature-content">
+
+
+          <md-toolbar ng-class="vm.feature.class">
+            <div class="md-toolbar-tools">
+              <h2 class="md-flex">{{vm.feature.title}}</h2>
+            </div>
+          </md-toolbar>
+          <md-subheader ng-class="vm.feature.class">
+            <p>{{vm.feature.content}}</p>
+          </md-subheader>
+        </div>
+      </md-content>
+    </md-whiteframe>
+
+    <span ng-repeat="set in vm.blogs">
     <md-divider></md-divider>
     <h2 style="text-align: center;" ng-bind="set.heading"></h2>
 <md-content layout-sm="column" layout-gt-md="row" layout-align="space-around center">
@@ -319,10 +364,19 @@
         </div>
       </md-content>
     </md-whiteframe>
-  </md-content>
-  <meta-rating></meta-rating>
-  <comment-box></comment-box>
 
+  </md-content>
+  <!--Main content area ends-->
+
+  <!--Meta rating tag starts-->
+  <meta-rating></meta-rating>
+  <!--Meta rating tag ends-->
+
+  <!--Comment area starts-->
+  <comment-box></comment-box>
+  <!--Comment area ends-->
+
+  <!--Profile links-->
   <div style="bottom: 0;right:0;position: fixed;z-index: 1002;" ng-init="isOpen=false">
 
     <md-fab-speed-dial md-open="isOpen" md-direction="up" class="md-scale md-fab-bottom-right"
@@ -348,6 +402,7 @@
       </md-fab-actions>
     </md-fab-speed-dial>
   </div>
+  <!--Footer-->
   <md-toolbar style="background-color: #202020;">
 
     <span style="text-align: center;font-size:14px;line-height: 64px;">&copy; <a href="http://www.programminggeek.in"
