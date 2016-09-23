@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('etestApp')
-  .controller('TCSAptitudeExamController', function ($scope, $stateParams, $location, $timeout, $interval, $sce, $mdDialog, $mdMedia, User, Auth, TCSAptitudeService) {
+  .controller('TCSAptitudeExamController', function ($scope, $stateParams, $location, $timeout, $interval, $sce, $mdDialog, $mdMedia, User, Auth, TCSAptitudeService, store) {
     var vm = this;
     var id = $stateParams.id;
     vm.id = id;
@@ -28,8 +28,29 @@ angular.module('etestApp')
       }
     ];
     (function () {
-      //TCSVerbalService.resetTest();
-      load();
+      if (store.get("tcsAptitudeTests") && store.get("tcsAptitudeTests")[id]) {
+        vm.questions = store.get("tcsAptitudeTests")[id];
+
+        TCSAptitudeService.resetTest(vm.questions);
+        TCSAptitudeService.setTime(4800);
+        vm.test.time = {
+          minute: 80,
+          second: 0,
+          seconds: 4800,
+          id: vm.id
+        };
+        if (!vm.questions.length) {
+          TCSAptitudeService.notify("Invalid Test ID!", "error");
+          return $location.path('exam/tcs/aptitude');
+        }
+        vm.currentQuestion = TCSAptitudeService.get(1);
+        vm.answer = 0;
+        setTimeout(function () {
+          vm.startTest();
+        }, 0)
+      } else {
+        load();
+      }
     })();
 
     function load() {
@@ -51,11 +72,12 @@ angular.module('etestApp')
           vm.answer = 0;
         })
         .error(function (err, code) {
-          if(code>=500){
+          if (code >= 500) {
             load();
           }
         });
     }
+
     vm.log = function () {
     };
     vm.getQuestions = function () {

@@ -57,29 +57,41 @@ angular.module('etestApp')
     return {
       getRankStatistics: function (id, userId) {
         return $http.get('/api/aptitude/tcs/stat/rank/' + id, {params: {userId: userId}}).success(function (data) {
-          $log.info(data);
+          var rankStatistics =store.get("aptitudeRankStatistics") || {};
+          rankStatistics[id] = data;
+          store.set("aptitudeRankStatistics", rankStatistics);
         }).error(function (err) {
-          //$log.error(err);
+          store.get("aptitudeRankStatistics") ? $q.resolve(store.get("aptitudeRankStatistics"))
+            : $q.reject(err);
         });
       },
       getAllStatistics: function (userId) {
         return $http.get('/api/aptitude/tcs/stat/all', {params: {userId: userId}}).success(function (data) {
-          //$log.info(data);
+          store.set("aptitudeAllStatistics", data);
         }).error(function (err) {
-          //$log.error(err);
+          store.get("aptitudeAllStatistics") ? $q.resolve(store.get("aptitudeAllStatistics"))
+            : $q.reject(err);
         });
       },
       getStatistics: function (id, userId) {
         return $http.get('/api/aptitude/tcs/stat/' + id, {params: {userId: userId}}).success(function (data) {
-          //$log.info(data);
           $q.resolve(data);
+          var allStatistics =store.get("aptitudeStatistics") || {};
+          allStatistics[id] = data;
+          store.set("aptitudeStatistics", allStatistics);
         }).error(function (err) {
           //console.error(err);
-          $q.reject(err);
+          store.get("aptitudeStatistics") ? $q.resolve(store.get("aptitudeStatistics"))
+            : $q.reject(err);
         });
       },
       getTests: function () {
-        return $http.get('/api/aptitude/tcs');
+        return $http.get('/api/aptitude/tcs').success(function(data){
+          store.set("tcsAptitudeAllTests", data);
+        }).error(function(err){
+          store.get("tcsAptitudeAllTests") ? $q.resolve(store.get("tcsAptitudeAllTests"))
+            : $q.reject(err);
+        });
       },
       getTest: function (id) {
         return $http.get('/api/aptitude/tcs/' + id)
@@ -88,16 +100,25 @@ angular.module('etestApp')
             test = {};
             time = 4800;
             $q.resolve(data);
+            var tests= store.get("tcsAptitudeTests") || {};
+            tests[id] = data;
+            store.set("tcsAptitudeTests", tests);
           }).error(function (err) {
-            $q.reject(err);
+            store.get("tcsAptitudeTests") ? $q.resolve(store.get("tcsAptitudeTests"))
+              : $q.reject(err);
           });
       },
       getLeaderBoard: function (id) {
         return $http.get('/api/aptitude/tcs/leaderboard/' + id)
           .success(function (data) {
             $q.resolve(data);
+            var leaderboard= store.get("tcsVerbalLeaderboard") || {};
+            leaderboard[id] = data;
+            store.set("tcsVerbalLeaderboard", leaderboard);
           }).error(function (err) {
             $q.reject(err);
+            store.get("tcsVerbalLeaderboard") ? $q.resolve(store.get("tcsVerbalLeaderboard"))
+              : $q.reject(err);
           });
       },
       updateTest: function (id) {

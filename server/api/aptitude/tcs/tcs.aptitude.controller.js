@@ -336,7 +336,6 @@ exports.leaderBoard = function (req, res) {
     if (err) {
       return handleError(res, err);
     }
-    console.log(data);
     if (!data) {
       return res.send(404);
     }

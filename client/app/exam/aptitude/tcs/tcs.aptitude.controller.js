@@ -5,11 +5,14 @@
 'use strict';
 
 angular.module('etestApp')
-  .controller('TCSAptitudeController', function ($scope, $location, $mdDialog, $mdMedia, $log, User, Auth, TCSAptitudeService, UtilityService) {
+  .controller('TCSAptitudeController', function ($scope, $location, $mdDialog, $mdMedia, $log, User, Auth, TCSAptitudeService, UtilityService, store) {
     var vm = this;
     vm.tests = [];
     (function () {
-      load();
+      if (store.get("tcsAptitudeAllTests") && store.get("tcsAptitudeAllTests").length) {
+        vm.sets = store.get("tcsAptitudeAllTests")
+      }
+      load()
     })();
 
     function load() {

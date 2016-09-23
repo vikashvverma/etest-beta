@@ -163,7 +163,6 @@ angular.module('etestApp')
     return {
       getRankStatistics: function (id, userId) {
         return $http.get('/api/verbal/tcs/stat/rank/' + id, {params: {userId: userId}}).success(function (data) {
-          $log.info(data);
           var rankStatistics =store.get("verbalRankStatistics") || {};
           rankStatistics[id] = data;
           store.set("verbalRankStatistics", rankStatistics);
@@ -202,7 +201,6 @@ angular.module('etestApp')
         }).error(function(err){
           store.get("tcsVerbalAllTests") ? $q.resolve(store.get("tcsVerbalAllTests"))
             : $q.reject(err);
-
         });
       },
       getTest: function (id) {
