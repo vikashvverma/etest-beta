@@ -57,7 +57,7 @@ angular.module('etestApp')
     return {
       getRankStatistics: function (id, userId) {
         return $http.get('/api/aptitude/tcs/stat/rank/' + id, {params: {userId: userId}}).success(function (data) {
-          var rankStatistics =store.get("aptitudeRankStatistics") || {};
+          var rankStatistics = store.get("aptitudeRankStatistics") || {};
           rankStatistics[id] = data;
           store.set("aptitudeRankStatistics", rankStatistics);
         }).error(function (err) {
@@ -76,7 +76,7 @@ angular.module('etestApp')
       getStatistics: function (id, userId) {
         return $http.get('/api/aptitude/tcs/stat/' + id, {params: {userId: userId}}).success(function (data) {
           $q.resolve(data);
-          var allStatistics =store.get("aptitudeStatistics") || {};
+          var allStatistics = store.get("aptitudeStatistics") || {};
           allStatistics[id] = data;
           store.set("aptitudeStatistics", allStatistics);
         }).error(function (err) {
@@ -86,9 +86,9 @@ angular.module('etestApp')
         });
       },
       getTests: function () {
-        return $http.get('/api/aptitude/tcs').success(function(data){
+        return $http.get('/api/aptitude/tcs').success(function (data) {
           store.set("tcsAptitudeAllTests", data);
-        }).error(function(err){
+        }).error(function (err) {
           store.get("tcsAptitudeAllTests") ? $q.resolve(store.get("tcsAptitudeAllTests"))
             : $q.reject(err);
         });
@@ -100,8 +100,8 @@ angular.module('etestApp')
             test = {};
             time = 4800;
             $q.resolve(data);
-            var tests= store.get("tcsAptitudeTests") || {};
-            tests[id] = data;
+            var tests = store.get("tcsAptitudeTests") || {};
+            tests[id] = $.extend(true, {}, data);
             store.set("tcsAptitudeTests", tests);
           }).error(function (err) {
             store.get("tcsAptitudeTests") ? $q.resolve(store.get("tcsAptitudeTests"))
@@ -112,7 +112,7 @@ angular.module('etestApp')
         return $http.get('/api/aptitude/tcs/leaderboard/' + id)
           .success(function (data) {
             $q.resolve(data);
-            var leaderboard= store.get("tcsVerbalLeaderboard") || {};
+            var leaderboard = store.get("tcsVerbalLeaderboard") || {};
             leaderboard[id] = data;
             store.set("tcsVerbalLeaderboard", leaderboard);
           }).error(function (err) {
