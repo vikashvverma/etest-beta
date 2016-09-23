@@ -10,7 +10,7 @@ angular.module('etestApp')
     vm.tests = [];
     (function () {
       if (store.get("tcsAptitudeAllTests") && store.get("tcsAptitudeAllTests").length) {
-        vm.sets = store.get("tcsAptitudeAllTests")
+        vm.tests = store.get("tcsAptitudeAllTests")
       }
       load()
     })();
