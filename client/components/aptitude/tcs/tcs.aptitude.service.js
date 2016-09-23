@@ -101,7 +101,7 @@ angular.module('etestApp')
             time = 4800;
             $q.resolve(data);
             var tests = store.get("tcsAptitudeTests") || {};
-            tests[id] = $.extend(true, {}, data);
+            tests[id] = $.extend(true, [], data);
             store.set("tcsAptitudeTests", tests);
           }).error(function (err) {
             store.get("tcsAptitudeTests") ? $q.resolve(store.get("tcsAptitudeTests"))
