@@ -40,14 +40,14 @@ angular.module('etestApp')
           id: vm.id
         };
         if (!vm.questions.length) {
-          TCSAptitudeService.notify("Invalid Test ID!", "error");
-          return $location.path('exam/tcs/aptitude');
+          load()
+        } else {
+          vm.currentQuestion = TCSAptitudeService.get(1);
+          vm.answer = 0;
+          setTimeout(function () {
+            vm.startTest();
+          }, 0)
         }
-        vm.currentQuestion = TCSAptitudeService.get(1);
-        vm.answer = 0;
-        setTimeout(function () {
-          vm.startTest();
-        }, 0)
       } else {
         load();
       }
