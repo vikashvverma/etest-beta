@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('etestApp')
-  .factory('TCSVerbalService', function Auth($location, $rootScope, $http, User, $cookieStore, $q, $log, $sce, ngNotify) {
+  .factory('TCSVerbalService', function Auth($location, $rootScope, $http, User, $cookieStore, $q, $log, $sce, ngNotify, store) {
     var currentUser = {};
     var currentTest = {};
     var result = {};
@@ -164,14 +164,22 @@ angular.module('etestApp')
       getRankStatistics: function (id, userId) {
         return $http.get('/api/verbal/tcs/stat/rank/' + id, {params: {userId: userId}}).success(function (data) {
           $log.info(data);
+          var rankStatistics =store.get("verbalRankStatistics") || {};
+          rankStatistics[id] = data;
+          store.set("verbalRankStatistics", rankStatistics);
         }).error(function (err) {
+          store.get("verbalRankStatistics") ? $q.resolve(store.get("verbalRankStatistics"))
+            : $q.reject(err);
           //$log.error(err);
         });
       },
       getAllStatistics: function (userId) {
         return $http.get('/api/verbal/tcs/stat/all', {params: {userId: userId}}).success(function (data) {
           //$log.info(data);
+          store.set("verbalAllStatistics", data);
         }).error(function (err) {
+          store.get("verbalAllStatistics") ? $q.resolve(store.get("verbalAllStatistics"))
+            : $q.reject(err);
           //$log.error(err);
         });
       },
@@ -179,13 +187,23 @@ angular.module('etestApp')
         return $http.get('/api/verbal/tcs/stat/' + id, {params: {userId: userId}}).success(function (data) {
           //$log.info(data);
           $q.resolve(data);
+          var allStatistics =store.get("verbalStatistics") || {};
+          allStatistics[id] = data;
+          store.set("verbalStatistics", allStatistics);
         }).error(function (err) {
           //console.error(err);
-          $q.reject(err);
+          store.get("verbalStatistics") ? $q.resolve(store.get("verbalStatistics"))
+            : $q.reject(err);
         });
       },
       getTests: function () {
-        return $http.get('/api/verbal/tcs');
+        return $http.get('/api/verbal/tcs').success(function(data){
+          store.set("tcsVerbalAllTests", data);
+        }).error(function(err){
+          store.get("tcsVerbalAllTests") ? $q.resolve(store.get("tcsVerbalAllTests"))
+            : $q.reject(err);
+
+        });
       },
       getTest: function (id) {
         return $http.get('/api/verbal/tcs/' + id)
@@ -199,16 +217,25 @@ angular.module('etestApp')
             currentTest.word = 0;
             currentTest.answer = '';
             $q.resolve(data);
+            var tests= store.get("tcsVerbalTests") || {};
+            tests[id] = data;
+            store.set("tcsVerbalTests", tests);
           }).error(function (err) {
-            $q.reject(err);
+            store.get("tcsVerbalTests") ? $q.resolve(store.get("tcsVerbalTests"))
+              : $q.reject(err);
           });
       },
       getLeaderBoard: function (id) {
         return $http.get('/api/verbal/tcs/leaderboard/' + id)
           .success(function (data) {
             $q.resolve(data);
+            var leaderboard= store.get("tcsVerbalLeaderboard") || {};
+            leaderboard[id] = data;
+            store.set("tcsVerbalLeaderboard", leaderboard);
           }).error(function (err) {
             $q.reject(err);
+            store.get("tcsVerbalLeaderboard") ? $q.resolve(store.get("tcsVerbalLeaderboard"))
+              : $q.reject(err);
           });
       },
       updateTest: function (id, testData) {

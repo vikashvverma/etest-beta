@@ -4,19 +4,6 @@ angular.module('etestApp')
   .controller('MainCtrl', function ($rootScope, $scope, $location, $interval, $mdSidenav, $timeout, $window, $sce, Auth, UtilityService) {
     var vm = this;
 
-    //$rootScope.commentbox={
-    //  url:$location.absUrl(),
-    //  width:$window.innerWidth-40,
-    //  height:300,
-    //  show:$location.path()=='/'?false:true
-    //};
-    //$rootScope.$on('$stateChangeStart', function (event, next) {
-    //  if(next.url=='/'){
-    //    $rootScope.commentbox.show=false;
-    //  }else{
-    //    $rootScope.commentbox.show=true;
-    //  }
-    //});
     vm.features = [{
       image: 'assets/images/etest-feature1.png',
       class: 'md-primary',
@@ -50,7 +37,6 @@ angular.module('etestApp')
     }];
     vm.current = 0;
     $scope.$watch("vm.current", function (newValue, oldValue) {
-      console.log(oldValue, newValue);
       vm.feature = vm.features[newValue];
     });
     $scope.$watch('vm.feature.image', function (newValue, oldValue) {

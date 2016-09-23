@@ -215,6 +215,7 @@
     "outline": "poor quality - less service centers in city - frequent maintenance - high cost - time taking - complains - pending problems - increase number of service center - customer satisfaction",
     "created_on": "10/21/2014",
     "asked": [
+      2016,
       2015,
       2014
     ]
@@ -378,5 +379,96 @@
     "asked": [
       2016
     ]
+  },
+  {
+    "id": 25,
+    "names": [
+      "John",
+      "Michael",
+      "CRM"
+    ],
+    "title": "Email to team",
+    "question": "You are the project manager. Using the following phrases write an email to the team appreciating the work of Michael(team member) for his key role in successful completion of the project. Sign the email as John",
+    "outline": "CRM project - this week delivery - unexpected server crash - late for delivery - emergency - mode action plan executed - leadership - team hard work - delivered service - on time - clients pleased - quality",
+    "created_on": "09/17/2016",
+    "asked": [
+      2016
+    ],
+    "by": "Poornima B S"
+  },
+  {
+    "id": 26,
+    "names": [
+      "Nitish",
+      "Billy"
+    ],
+    "title": "Email to thank",
+    "question": "You are the project manager and you took Billy to your project for delivering a service. Using the following phrases write an email thanking Billy for completing your project work.",
+    "outline": "Accepting to join - project month's time - location constraints - flexibility - hard work - technical expertise invaluable - high complexity task - co-operating - deliver service - critical moment - deadlines - saviour - look forward to working with you - All the best",
+    "created_on": "09/17/2016",
+    "asked": [
+      2016
+    ],
+    "by": "Poornima B S"
+  },
+  {
+    "id": 27,
+    "names": [
+      "Akhil",
+      "Sheela",
+      "AEGON"
+    ],
+    "title": "Email to customer",
+    "question": "Using the following phrases write an email to Ms. Sheela asking her to pay for the invoices before the due date. Sign the email as Akhil.",
+    "outline": "her company - AEGON - late in paying invoices - for last 3 months - new discount model - 2% discount on invoice - when paid 10 days within receipt of invoice - one of biggest customers - appreciate your business - questions - contact me",
+    "created_on": "09/17/2016",
+    "asked": [
+      2016
+    ],
+    "by": "Poornima B S"
+  },
+  {
+    "id": 28,
+    "names": [
+      "Nishant",
+      "Krishna"
+    ],
+    "title": "Apology Email",
+    "question": "Using the following phrases write an email apologising to Mr. Krishna for over shipped merchandise. Sign the email as Nishant.",
+    "outline": "Ordered 3 boxes -  21 September - 6 boxes delivered - 30 September - apologise - 2 options - 3 boxes billed in a month - arrange to pick up extra 3 boxes - in week - decide - let us know",
+    "created_on": "09/17/2016",
+    "asked": [
+      2016
+    ],
+    "by": "Poornima B S"
+  },
+  {
+    "id": 29,
+    "names": [
+      "Vikram"
+    ],
+    "title": "Email to students",
+    "question": "As a student coordinator write an email to students about party to the head of department on his retirement. Sign the email as Vikram.",
+    "outline": "Inform - retire - plan - host - family - surprise - exceptional - teacher - guide - mentor - groom - students - helpful - memorable",
+    "created_on": "09/17/2016",
+    "asked": [
+      2016
+    ],
+    "by": "Poornima B S"
+  },
+  {
+    "id": 30,
+    "names": [
+      "Swati",
+      "Suman"
+    ],
+    "title": "Email to hospital management",
+    "question": "Your friend was hospitalized recently. He recovered quickly from a life threatening disease. Write an email to the management of the hospital appreciating the infrastructure of the hospital.",
+    "outline": "friend - Suman - hospitalized - few days back - recovered - quickly - life threatening disease - thanks - world class infrastructure - helpful - painless treatment - alert - responded quickly - refer - friends",
+    "created_on": "09/17/2016",
+    "asked": [
+      2016
+    ],
+    "by": "Sravani Bandaru"
   }
 ]

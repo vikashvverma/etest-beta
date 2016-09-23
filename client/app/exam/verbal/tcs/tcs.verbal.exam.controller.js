@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('etestApp')
-  .controller('TCSVerbalExamController', function ($scope, $stateParams, $location, $timeout, $interval, $sce, $mdDialog, User, Auth, TCSVerbalService) {
+  .controller('TCSVerbalExamController', function ($scope, $stateParams, $location, $timeout, $interval, $sce, $mdDialog, User, Auth, TCSVerbalService, store) {
     var vm = this;
     var set = $stateParams.id;
     if (!set) {
@@ -24,8 +24,20 @@ angular.module('etestApp')
     ];
     //vm.test = {};
     (function () {
-      //TCSVerbalService.resetTest();
-      load();
+      if (store.get("tcsVerbalTests") && store.get("tcsVerbalTests")[set]) {
+        var currentTest = store.get("tcsVerbalTests")[set];
+        currentTest.time = {
+          minute: 10,
+          second: 0,
+          seconds: 600
+        };
+        currentTest.word = 0;
+        currentTest.answer = '';
+        TCSVerbalService.resetTest(currentTest);
+        vm.test = TCSVerbalService.get(set);
+      } else {
+        load();
+      }
     })();
 
     function load() {

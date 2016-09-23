@@ -1,11 +1,14 @@
 'use strict';
 
 angular.module('etestApp')
-  .controller('TCSVerbalController', function ($scope, $location, $mdDialog, $mdMedia, $log, User, Auth, TCSVerbalService, UtilityService) {
+  .controller('TCSVerbalController', function ($scope, $location, $mdDialog, $mdMedia, $log, User, Auth, TCSVerbalService, UtilityService, store) {
     var vm = this;
     vm.sets = [];
 
     (function () {
+      if (store.get("tcsVerbalAllTests") && store.get("tcsVerbalAllTests").length) {
+        vm.sets = store.get("tcsVerbalAllTests")
+      }
       load()
     })();
 
