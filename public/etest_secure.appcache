@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 2016-07-02 v0.0.47
+# 2016-07-02 v0.0.48
 
 #root
 /index.html
@@ -75,6 +75,12 @@ CACHE MANIFEST
 /assets/images/tile-bg-8.jpg
 /assets/images/white_arrow_left.svg
 /assets/images/white_arrow_right.svg
+/assets/images/etest-feature1.png
+/assets/images/etest-feature2.png
+/assets/images/etest-feature3.png
+/assets/images/etest-feature4.png
+/assets/images/etest-feature5.png
+/assets/images/etest-feature6.png
 
 /assets/lib/font-awesome.min.css
 /assets/lib/jquery.min.js
