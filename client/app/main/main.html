@@ -237,6 +237,35 @@
       </md-content>
     </md-whiteframe>
 
+    <md-whiteframe class="md-whiteframe-24dp md-accent testimonial" layout="column" layout-align="center center" layout-fill>
+      <div flex>
+        <h1 class="testimonial-title">Students love etest!</h1>
+      </div>
+      <md-content layout="row" layout-margin layout-padding layout-align="space-between center" layout-fill>
+        <div hide-xs flex="20" layout="row" layout-margin layout-padding layout-align="space-around center">
+          <md-button class="md-fab" aria-label="Previous" ng-click="vm.previousTestimonial(vm.currentTestimonial - 1);">
+            <md-icon md-font-set="fa fa-chevron-left fa-2x" ></md-icon>
+          </md-button>
+        </div>
+        <div flex-xs="100" flex-gt-xs="60">
+
+          <md-content class="testimonial-container" layout="column" layout-align="space-around center" layout-fill>
+            <div flex>
+              <p ng-bind-html="vm.testimonial.says" class="testimonial-says"></p>
+            </div>
+            <div flex layout="column" layout-align="space-around center">
+              <img alt="{{ vm.testimonial.user }}" ng-src="{{ vm.testimonial.picture }}" class="testimonial-user-avatar" />
+              <p data-ng-bind="vm.testimonial.user"></p>
+            </div>
+          </md-content>
+        </div>
+        <div hide-xs flex="20" layout="column" layout-margin layout-padding layout-align="space-around center">
+          <md-button class="md-fab" aria-label="Next" ng-click="vm.nextTestimonial(vm.currentTestimonial + 1);">
+            <md-icon md-font-set="fa fa-chevron-right fa-2x" ></md-icon>
+          </md-button>
+        </div>
+      </md-content>
+    </md-whiteframe>
     <span ng-repeat="set in vm.blogs">
     <md-divider></md-divider>
     <h2 style="text-align: center;" ng-bind="set.heading"></h2>

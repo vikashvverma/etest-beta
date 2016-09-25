@@ -35,10 +35,49 @@ angular.module('etestApp')
       title: 'Placement Assistant',
       content: 'Placement assistant helps you to prepare for placement. It helps you prepare for Verbal, Analytical & Interview. Check out a huge collection of verbal/analytical/interview question/answer.'
     }];
+    vm.testimonials =[
+      {
+        says: "Sir I have practiced your email writing. It's very helpful to me. Thanks for providing us with such practice sessions.",
+        user: "Iman Kalyan Mandal",
+        picture: "https://lh5.googleusercontent.com/-m2H3D_7C1MU/AAAAAAAAAAI/AAAAAAAAABQ/uV_JVFrddZ0/photo.jpg",
+      },{
+        says: "This website helped me  last year when I was preparing for my placements. So, I thought to pass it on to my juniors so that they would be benefited. Anyways Thanks for such a good website.",
+        user: "Irfan Sha",
+        picture: "https://lh3.googleusercontent.com/-VQJklWJ7bAg/AAAAAAAAAAI/AAAAAAAAAAA/APaXHhT_RZVAtxwmL_BrIfC0LJSyht7ixg/s120-p-rw-no-mo/photo.jpg",
+      },{
+        says: "Dear sir,<br/>I would like to tell you that your website Programming geek and your TCS Verbal Test simulator are very useful tool for the person preparing for the interview of the TCS.<br/>I have practiced various sets of both analytical and verbal test.It was so helpful and finaly I got placed in TCS.<br/>Greetings to you!!!!",
+        user: "Aman Yadav",
+        picture: "https://lh3.googleusercontent.com/-6AuYoP-Mcjg/AAAAAAAAAAI/AAAAAAAAAKw/Z5t1LhLUg24/photo.jpg",
+      }
+    ];
+    vm.testimonial= vm.testimonials[0];
+
+    vm.currentTestimonial=0;
+    $scope.$watch("vm.currentTestimonial", function (newValue, oldValue) {
+      vm.testimonial = vm.testimonials[newValue];
+    });
+
+    vm.nextTestimonial=function(next) {
+      vm.currentTestimonial = next % vm.testimonials.length;
+    };
+    vm.previousTestimonial=function(previous) {
+      vm.currentTestimonial = previous < 0 ? vm.testimonials.length - 1 : previous;
+    };
     vm.current = 0;
     $scope.$watch("vm.current", function (newValue, oldValue) {
       vm.feature = vm.features[newValue];
     });
+    $scope.$watch('vm.testimonial', function (newValue, oldValue) {
+      if (newValue === oldValue) return;
+      // TODO: Show swipe animation
+      //$('.testimonial .testimonial-container').hide();
+      //$('.testimonial .testimonial-container').fadeIn("slow", function () {
+      //});
+      //$('.testimonial .testimonial-container').hide();
+      //$('.testimonial .testimonial-container').fadeIn("slow", function () {
+      //});
+    });
+
     $scope.$watch('vm.feature.image', function (newValue, oldValue) {
       if (newValue === oldValue) return;
       //$('img#etest-feature-image').animate({opacity:'0'});
@@ -53,6 +92,7 @@ angular.module('etestApp')
       $('.etest-feature-content').fadeIn("slow", function () {
       });
     });
+
     try {
       $timeout(function () {
         FB.XFBML.parse($('#commentbox')[0]);
@@ -180,6 +220,7 @@ angular.module('etestApp')
     vm.startFeatureSlide = function () {
       stop = $interval(function () {
         vm.current = (vm.current + 1) % vm.features.length;
+        vm.currentTestimonial = (vm.currentTestimonial+1)  % vm.testimonials.length;
       }, 5000);
     };
     vm.stopFeatureSlide = function () {

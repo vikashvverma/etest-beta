@@ -180,3 +180,21 @@ md-sidenav ng-md-icon {
 .etest-feature-content .md-subheader{
   background: inherit;
 }
+
+.testimonial-title{
+  font-size: 40px;
+  color: #03a9f4;
+  display: block;
+  text-align: center;
+  text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-user-avatar{
+  height: 100px;
+  border-radius: 50%;
+}
+.testimonial-says{
+  color: #8e9aa9;
+  line-height: 1.9;
+  font-weight: 500;
+}
