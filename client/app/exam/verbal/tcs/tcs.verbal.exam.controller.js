@@ -35,6 +35,7 @@ angular.module('etestApp')
         currentTest.answer = '';
         TCSVerbalService.resetTest(currentTest);
         vm.test = TCSVerbalService.get(set);
+        vm.startTest();
       } else {
         load();
       }
