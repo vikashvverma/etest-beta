@@ -29,7 +29,10 @@ angular.module('etestApp')
     ];
     (function () {
       if (store.get("tcsAptitudeTests") && store.get("tcsAptitudeTests")[id]) {
-        vm.questions = store.get("tcsAptitudeTests")[id];
+        vm.questions = store.get("tcsAptitudeTests")[id].map(function(q){
+          q.ans=0;
+          return q;
+        });
 
         TCSAptitudeService.resetTest(vm.questions);
         TCSAptitudeService.setTime(4800);
