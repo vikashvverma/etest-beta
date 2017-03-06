@@ -5,7 +5,7 @@ exports.mail = function (request,response) {
     // api key https://sendgrid.com/docs/Classroom/Send/api_keys.html
     var options = {
         auth: {
-            api_key: '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'
+            api_key: '<API_KEY>'
         }
     }
     console.log(request.body);
