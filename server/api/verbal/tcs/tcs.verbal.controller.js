@@ -46,7 +46,7 @@ exports.index = function (req, res) {
         set = {tests: []};
       }
     }
-    return res.json(200, data);
+    return res.status(200).json(data);
   });
 };
 
@@ -58,7 +58,7 @@ exports.fetch = function (req, res) {
     if (!data) {
       return res.send(404);
     }
-    return res.json(data);
+    return res.status(200).json(data);
   });
 };
 
@@ -75,7 +75,7 @@ exports.update = function (req, res) {
       if (err) {
         return handleError(res, err);
       }
-      return res.json(200, data.statistics.pop());
+      return res.status(200).json(data.statistics.pop());
     });
   });
 };
@@ -103,7 +103,7 @@ exports.patch = function (req, res) {
       if (err) {
         return handleError(res, err);
       }
-      return res.json(200, data.statistics[data.statistics.length - 1]);
+      return res.status(200).json(data.statistics[data.statistics.length - 1]);
     });
   });
 };
@@ -176,7 +176,7 @@ exports.getRankStatistics = function (req, res) {
     });
     if (stats.length && stats[stats.length - 1])
       stats.unshift(undefined);
-    return res.json([{name: 'Rank', data: stats}]);
+    return res.status(200).json([{name: 'Rank', data: stats}]);
   });
 };
 
@@ -205,7 +205,7 @@ exports.getAllStatistics = function (req, res) {
       temp.unshift(undefined);
       out.push({id: data[i].id, name: 'Set ' + data[i].id, data: temp});
     }
-    return res.json(out);
+    return res.status(200).json(out);
   });
 };
 
@@ -228,7 +228,7 @@ exports.getStatistics = function (req, res) {
     });
     //if not used then first element will be hidden
     result.unshift(undefined);
-    return res.json([{name: 'Set ' + req.params.id, data: result}]);
+    return res.status(200).json([{name: 'Set ' + req.params.id, data: result}]);
   });
 };
 

@@ -119,7 +119,7 @@ exports.create = function (req, res) {
     if (err) {
       return res.send(500);
     }
-    res.json(200, data);
+    res.status(200).json(data);
   });
 };
 
@@ -270,7 +270,7 @@ exports.getRankStatistics = function (req, res) {
     });
     if (stats.length && stats[stats.length - 1])
       stats.unshift(undefined);
-    return res.json([{name: 'Rank', data: stats}]);
+    return res.status(200).json([{name: 'Rank', data: stats}]);
   });
 };
 
@@ -303,7 +303,7 @@ exports.getAllStatistics = function (req, res) {
       temp.unshift(undefined);
       out.push({id: data[i].id, name: 'Set ' + data[i].id, data: temp});
     }
-    return res.json(out);
+    return res.status(200).json(out);
   });
 };
 
@@ -327,7 +327,7 @@ exports.getStatistics = function (req, res) {
     });
     //if not used then first element will be hidden
     result.unshift(undefined);
-    return res.json([{name: 'Set ' + req.params.id, data: result}]);
+    return res.status(200).json([{name: 'Set ' + req.params.id, data: result}]);
   });
 };
 
