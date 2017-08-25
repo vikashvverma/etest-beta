@@ -19,6 +19,7 @@
     "express": "^5.0.0-alpha.2",
     "express-jwt": "3.3.0",
     "jade": "~1.11.0",
+    "kerberos": "~0.0",
     "mongoose": "4.4.1",
     "morgan": "^1.6.1",
     "nodemailer": "^2.4.2",
